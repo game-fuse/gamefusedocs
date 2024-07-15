@@ -1,0 +1,78 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+  
+  
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  /* .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; /* adjust as needed */
+  
+  .row-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  
+  .main-container {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 5px; /* adjust as needed */
+  }
+  
+  .card-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(230px, 1fr)); /* Adjust the minimum width (200px) as needed */
+    gap: 5px; /* adjust as needed */
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0;
+    min-width: 230px; /* Adjust the minimum width as needed */
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+  
+  .container hr {
+    margin: 10px 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+
+
+img[src*="#shadow"] {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} 
