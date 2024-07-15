@@ -3,7 +3,7 @@ site_url:
 
 nav:
   - Home: 
-      # - index.md
+      - index.md
       - C# Unity 3D:
         - C# Unity 3D/getting started.md
         - Game Connection and Variables: C# Unity 3D/game connection and variables.md
