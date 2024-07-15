@@ -39,7 +39,7 @@
   
   .card-row {
     display: grid;
-    grid-template-columns: repeat(3, minmax(230px, 1fr)); /* Adjust the minimum width (200px) as needed */
+    grid-template-columns: repeat(2, minmax(330px, 1fr)); /* Adjust the minimum width (200px) as needed */
     gap: 5px; /* adjust as needed */
   }
   
@@ -51,7 +51,7 @@
     border: 1px solid #ccc;
     padding: 5px;
     margin: 0;
-    min-width: 230px; /* Adjust the minimum width as needed */
+    min-width: 330px; /* Adjust the minimum width as needed */
   }
   
   .container {
