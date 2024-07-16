@@ -73,6 +73,10 @@
     color: white;
   }
   
+  .md-typeset a {
+      color:white !important;
+  }
+  
   
   .card-container {
     display: flex;
