@@ -53,6 +53,16 @@
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.home-header > h1{
+  margin-bottom: 0px !important;
+}
+.home-header > p{
+  margin-top: 5px;
+  margin-bottom: 40px;
 }
 
 .card {
