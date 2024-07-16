@@ -71,7 +71,12 @@ theme:
     - navigation.tabs
     - navigation.footer
   font:
-    text: Roboto 300
+    text: Chakra Petch 300
+  palette:
+    scheme: slate
+    primary: deep orange
+    accent: deep orange
+    
 
 
 markdown_extensions:
