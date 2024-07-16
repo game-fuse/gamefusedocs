@@ -2,11 +2,12 @@
 *{
     font-family: "Chakra Petch", sans-serif;
 }
-.md-header, .md-tabs{
+.md-header, .md-tabs, .md-main, .md-nav__link{
   background: #111410;
+  box-shadow: none;
 }
 
-.md-ellipsis{
+.md-header__topic{
   font-weight: 700;
   text-transform: uppercase;
 }
