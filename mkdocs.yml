@@ -2,7 +2,7 @@ site_name: GameFuse Docs
 site_url:
 
 nav:
-  - Home: 
+  - Plugin: 
       - index.md
       - C# Unity 3D:
         - C# Unity 3D/getting started.md
