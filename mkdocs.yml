@@ -1,8 +1,8 @@
-site_name: GameFuse Docs
+site_name: GAMEFUSE
 site_url:
 
 nav:
-  - Plugin: 
+  - Game Engine Libraries: 
       - index.md
       - C# Unity 3D:
         - C# Unity 3D/getting started.md

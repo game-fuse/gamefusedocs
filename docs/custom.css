@@ -32,8 +32,8 @@
 .md-header__button{
   margin: 0 !important;
   padding: 0!important;
-  widows: 0!important;
-  display: none;
+  width: 0!important;
+  display: none !important;
 }
 .md-header__title{
   margin-left: 0;
