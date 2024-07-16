@@ -44,6 +44,17 @@
   margin-left: 0;
 }
 
+.md-tabs{
+  display: none !important;
+}
+
+.home-header{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
 .card {
     display: flex;
     flex-direction: column;
