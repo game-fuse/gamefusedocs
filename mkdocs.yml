@@ -51,18 +51,18 @@ nav:
         - In game leaderboard: JS Playcanvas, PixiJS, BabylonJS/in game leaderboard.md
         - Forgot Password: JS Playcanvas, PixiJS, BabylonJS/forgot password.md
         - Class Methods: JS Playcanvas, PixiJS, BabylonJS/class methods.md
-  - API Full REST API:
-      - API Full REST API/getting started.md
-      - Game Connection and Variables: API Full REST API/game connection and variables.md
-      - Signing game users up: API Full REST API/signing game users up.md
-      - Signing game users in: API Full REST API/signing game users in.md
-      - Creating store items on the web: API Full REST API/creating store items on the web.md
-      - Using the store in your game: API Full REST API/using the store in your game.md
-      - Using Credits: API Full REST API/using credits.md
-      - Custom user data: API Full REST API/custom user data.md
-      - In game leaderboard: API Full REST API/in game leaderboard.md
-      - Forgot Password: API Full REST API/forgot password.md
-      - Class Methods: API Full REST API/class methods.md
+      - API Full REST API:
+          - API Full REST API/getting started.md
+          - Game Connection and Variables: API Full REST API/game connection and variables.md
+          - Signing game users up: API Full REST API/signing game users up.md
+          - Signing game users in: API Full REST API/signing game users in.md
+          - Creating store items on the web: API Full REST API/creating store items on the web.md
+          - Using the store in your game: API Full REST API/using the store in your game.md
+          - Using Credits: API Full REST API/using credits.md
+          - Custom user data: API Full REST API/custom user data.md
+          - In game leaderboard: API Full REST API/in game leaderboard.md
+          - Forgot Password: API Full REST API/forgot password.md
+          - Class Methods: API Full REST API/class methods.md
 
 theme:
   name: material
