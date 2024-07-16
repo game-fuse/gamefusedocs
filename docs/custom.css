@@ -7,14 +7,33 @@
   box-shadow: none;
 }
 
+.md-typeset h1 {
+    color: white !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    margin-bottom: 20px !important;
+    font-size: 40px !important;
+}
+
+.md-typeset h1, .md-typeset h2 {
+    color: white !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 20px !important;
+}
+
+
+
 .md-header__topic{
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .md-header__button{
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0!important;
+  widows: 0!important;
+  display: none;
 }
 .md-header__title{
   margin-left: 0;
