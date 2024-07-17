@@ -115,19 +115,35 @@
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    margin: 0;
-    min-width: 330px;
-    background: linear-gradient(180deg, #FF7D34, #DF570A);
-    border: none;
-    border-radius: 6px;
-    height: 150px;
-    width: 100px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 0;
+  min-width: 330px;
+  background: linear-gradient(180deg, #FF7D34, #DF570A);
+  border: none;
+  border-radius: 6px;
+  height: 150px;
+  width: 100px;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card > h1 {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.card > img {
+  height: 100px;
+}
   
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

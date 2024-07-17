@@ -21,11 +21,15 @@
         <!-- Second row with 2 cards -->
         <div class="card-row">
             <a href="/C%2B%2B%20Unreal%20Engine/getting%20started/" class="card">
-                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
+                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unity-logo.png" alt="Unreal Logo" />
                 <h4><b>GameFuse C++</b></h4>
             </a>
             <a href="/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/getting%20started/" class="card">
-                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
+                <div class="flex-row"
+                    <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/pixi-logo.png" alt="Pixi Logo" />
+                    <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/babylon-logo.png" alt="Babylon Logo" />
+                    <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/playcanvas-logo.png" alt="Playcanvas Logo" />
+                </div>
                 <h4><b>GameFuse Javascript</b></h4>
             </a>
         </div>
