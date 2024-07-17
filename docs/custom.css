@@ -8,7 +8,7 @@
   /* background: url(https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165998/gamefuse-assets/gamefuse-background.jpg) !important;
   height: 200px !important; */
 } 
-.md-header, .md-tabs, .md-main, .md-nav__link{
+.md-header, .md-tabs, .md-main, .md-nav__link, .md-footer__inner{
   background: url(https://res.cloudinary.com/dgwqhqk47/image/upload/v1721222721/gamefuse-assets/background-texture.gif);
   box-shadow: none;
 }
@@ -20,8 +20,8 @@
 }
 
 .md-nav__title{
-  background: none;
-  box-shadow: none;
+  background: none !important;
+  box-shadow: none !important;
 }
 .md-header {
   display: flex;
