@@ -9,7 +9,7 @@
   height: 200px !important; */
 } 
 .md-header, .md-tabs, .md-main, .md-nav__link{
-  background: #111410;
+  background: url(https://res.cloudinary.com/dgwqhqk47/image/upload/v1721222721/gamefuse-assets/background-texture.gif);
   box-shadow: none;
 }
 
@@ -345,4 +345,11 @@ body:after {
   body:after {
     right: 20px;
   }
+}
+
+
+code {
+  background: #0F110E;
+  border-radius: 5;
+  border: solid 1px #3B3D3A;
 }
