@@ -241,8 +241,9 @@ img[src*="#shadow"] {
   padding-inline: 90px;
   padding-block: 16px;
   background: url('https://i.ibb.co/QP3gWj9/body.png');
-  padding-top: 39px;
-  padding-bottom: 39px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #3B3D3A;
 }
 
 @media (max-width: 1200px) {
@@ -322,16 +323,16 @@ body:after {
 
 
 body:before {
-  left: 90px;
+  left: 80px;
 }
 
 
 body:after {
-  right: 90px;
+  right: 80px;
 }
 
 
-@media (max-width: 1500px) {
+@media (max-width: 900px) {
   body:before {
     left: 20px;
   }
