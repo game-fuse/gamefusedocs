@@ -201,3 +201,55 @@ img[src*="#shadow"] {
   display: flex;
   align-items: center;
 }
+
+.panel{
+  padding-inline: 32px;
+  color: white;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  align-items:center;
+  text-align: center;
+  position:relative;
+  border-radius: 0;
+}
+
+@media (max-width: 1200px) {
+  .panel {
+    padding-inline: 10px;
+    font-size: 12px !important;
+  }
+}
+
+.nav-links .panel {
+  border-right: 1px solid #FFFFFF5E;
+}
+
+.nav-links .panel:last-child {
+  border-right: none;
+}
+
+.panel.active{
+  color: #DF570A;
+}
+
+.subtext{
+  color: #BABABA;
+  font-family: 'Sora' sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display:inline;
+}
+
+.subtext > a{
+  color: #BABABA;
+  font-family: 'Sora' sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display:inline;
+  margin-left:30px
+}
