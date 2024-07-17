@@ -148,6 +148,7 @@
 }
 
 .flex-row > img {
+  margin: 5px;
   height: 100%;
 }
   
