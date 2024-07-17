@@ -309,8 +309,8 @@ img[src*="#shadow"] {
   margin-left:30px
 }
 
-body.desktop:before,
-body.desktop:after {
+body:before,
+body:after {
   content: "";
   height: 100vh;
   position: fixed;
@@ -321,23 +321,23 @@ body.desktop:after {
 }
 
 
-body.desktop:before {
+body:before {
   left: 90px;
 }
 
 
-body.desktop:after {
+body:after {
   right: 90px;
 }
 
 
 @media (max-width: 1500px) {
-  body.desktop:before {
+  body:before {
     left: 20px;
   }
 
 
-  body.desktop:after {
+  body:after {
     right: 20px;
   }
 }
