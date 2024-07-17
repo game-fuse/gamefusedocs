@@ -30,7 +30,7 @@
             <h4><b>GameFuse Javascript</b></h4>
         </a>
         <a href="/API%20Full%20REST%20API/getting%20started/" class="card">
-            <img style="transform: scale(1.3);" src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721225879/gamefuse-assets/api-white.png" alt="Api Logo" />
+            <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721225317/gamefuse-assets/api-logo.png" alt="Api Logo" />
             <h4><b>GameFuse API</b></h4>
         </a>
     </div>

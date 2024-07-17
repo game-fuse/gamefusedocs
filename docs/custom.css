@@ -196,9 +196,9 @@
   
   
   .main-container {
-    display: grid;
-    grid-template-rows: auto;
-    gap: 5px; /* adjust as needed */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
   }
   
   .card-row {
