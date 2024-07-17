@@ -134,6 +134,10 @@
       font-weight: 500;
   }
   
+  .md-source__repository, .md-source__icon{
+    height: 0;
+    display: none;
+  }
   
   .card-container {
     display: flex;
@@ -219,7 +223,7 @@ img[src*="#shadow"] {
 }
 
 #navSplash > img {
-  width: 30%;
+  width: 500px;
 }
 #navSplash > h1{
   text-transform: uppercase;
