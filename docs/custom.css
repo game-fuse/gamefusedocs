@@ -60,7 +60,7 @@
   align-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  text-align: center;
+  text-align: left;
 }
 
 .home-header > img{
