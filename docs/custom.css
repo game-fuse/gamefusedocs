@@ -58,7 +58,8 @@
 }
 .md-search__inner{
   position: absolute;
-  right: 10px;
+  top: -4px;
+  right: -70px;
   
 }
 
