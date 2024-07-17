@@ -258,6 +258,8 @@ img[src*="#shadow"] {
   padding-right: 20%;
   text-align: center;
   margin-top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #navSplash > img {
