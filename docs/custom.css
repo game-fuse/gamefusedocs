@@ -8,7 +8,7 @@
   /* background: url(https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165998/gamefuse-assets/gamefuse-background.jpg) !important;
   height: 200px !important; */
 } 
-.md-header, .md-tabs, .md-main, .md-nav__link, .md-footer__inner{
+.md-header, .md-tabs, .md-main, .md-nav__link, .md-footer__inner, .md-footer{
   background: url(https://res.cloudinary.com/dgwqhqk47/image/upload/v1721222721/gamefuse-assets/background-texture.gif);
   box-shadow: none;
 }
@@ -18,7 +18,9 @@
   min-height: 500px !important;
 
 }
-
+.md-content{
+  min-height: 700px;
+}
 .md-nav__title{
   background: none !important;
   box-shadow: none !important;
@@ -196,9 +198,9 @@
   
   
   .main-container {
-    display: grid;
-    grid-template-rows: auto;
-    gap: 5px; /* adjust as needed */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
   }
   
   .card-row {
@@ -258,6 +260,8 @@ img[src*="#shadow"] {
   padding-right: 20%;
   text-align: center;
   margin-top: 0;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
 #navSplash > img {
