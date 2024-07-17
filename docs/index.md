@@ -1,3 +1,4 @@
+#GAMEFUSE DOCUMENTATION
 <div class="home-container">
     <div class="home-header">
         <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165348/gamefuse-assets/explore-bar.png" />
