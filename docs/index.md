@@ -10,31 +10,23 @@
         <!-- First row with 2 cards -->
         <div class="card-row">
             <a href="/C%23_Unity_3D/getting%20started/" class="card">
-                <div class="container" style="padding: 2px 10px;">
-                    <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
-                    <h4><b>GameFuse C#</b></h4>
-                </div>
+                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
+                <h4><b>GameFuse C#</b></h4>
             </a>
             <a href="/Blueprints%20Unreal/getting%20started/" class="card">
-                <div class="container" style="padding: 2px 10px;">
-                    <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
-                    <h4><b>GameFuse Blueprints</b></h4>
-                </div>
+                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
+                <h4><b>GameFuse Blueprints</b></h4>
             </a>
         </div>
         <!-- Second row with 2 cards -->
         <div class="card-row">
             <a href="/C%2B%2B%20Unreal%20Engine/getting%20started/" class="card">
-                <div class="container" style="padding: 2px 10px;">
-                    <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
-                    <h4><b>GameFuse C++</b></h4>
-                </div>
+                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
+                <h4><b>GameFuse C++</b></h4>
             </a>
             <a href="/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/getting%20started/" class="card">
-                <div class="container" style="padding: 2px 10px;">
-                    <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
-                    <h4><b>GameFuse Javascript</b></h4>
-                </div>
+                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
+                <h4><b>GameFuse Javascript</b></h4>
             </a>
         </div>
     </div>
