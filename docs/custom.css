@@ -134,6 +134,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 50px;
+  margin-top: 5px;
 }
 
 .card > h1 {
@@ -142,7 +144,11 @@
 }
 
 .card > img {
-  height: 100px;
+  height: 80px;
+}
+
+.flex-row > img {
+  height: 100%;
 }
   
   .card:hover {
