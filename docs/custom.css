@@ -56,6 +56,9 @@
 .md-search__input{
   z-index: 103;
 }
+.md-search__inner{
+  margin-right: -80px;
+}
 
 #__nav_1_label{
   display: none;
@@ -194,6 +197,8 @@ img[src*="#shadow"] {
   padding-inline: 90px;
   padding-block: 16px;
   background: url('https://i.ibb.co/QP3gWj9/body.png');
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 @media (max-width: 1200px) {
