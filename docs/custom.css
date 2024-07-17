@@ -53,6 +53,9 @@
 .md-tabs{
   display: none !important;
 }
+.md-search__input{
+  z-index: 103;
+}
 
 #__nav_1_label{
   display: none;
