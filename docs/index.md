@@ -1,9 +1,10 @@
 #GAMEFUSE DOCUMENTATION
 <div class="home-container">
     <div class="home-header">
-        <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165348/gamefuse-assets/explore-bar.png" />
+        <!-- <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165348/gamefuse-assets/explore-bar.png" />
         <h1> GAMEFUSE DOCUMENTATION </h1>
-        <p> Get login in your game in 5 minutes. Select your language below.</p>
+        <p> Get login in your game in 5 minutes. Select your language below.</p> -->
+        <p> Use GameFuse C# in your Unity project to easily add authentication, user data, leaderboards, in game stores and more all without writing and hosting any servers, or writing any API code. Its never been easier to store your data online! GameFuse is always free for hobby and small indie projects. With larger usage there are metered usage fees. </p>
     </div>
     <div class="main-container">
         <!-- First row with 2 cards -->
