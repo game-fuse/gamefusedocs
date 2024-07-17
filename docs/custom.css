@@ -13,6 +13,16 @@
   box-shadow: none;
 }
 
+.md-sidebar__scrollwrap{
+  height: 500px !important;
+  min-height: 500px !important;
+
+}
+
+.md-nav__title{
+  background: none;
+  box-shadow: none;
+}
 .md-header {
   display: flex;
   position: relative;
