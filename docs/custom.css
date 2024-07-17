@@ -308,3 +308,36 @@ img[src*="#shadow"] {
   display:inline;
   margin-left:30px
 }
+
+body.desktop:before,
+body.desktop:after {
+  content: "";
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: #3B3D3A;
+  z-index: 999;
+  width: 1px;
+}
+
+
+body.desktop:before {
+  left: 90px;
+}
+
+
+body.desktop:after {
+  right: 90px;
+}
+
+
+@media (max-width: 1500px) {
+  body.desktop:before {
+    left: 20px;
+  }
+
+
+  body.desktop:after {
+    right: 20px;
+  }
+}
