@@ -1,37 +1,37 @@
-# Welcome to GameFuse
-
-This documentation is your go-to resource for a smooth onboarding experience. 
-
-<div class="main-container">
-    <!-- First row with 2 cards -->
-    <div class="card-row">
-        <div class="card">
-            <div class="container" style="padding: 2px 10px;">
-                <h4><b><a href=/C%23_Unity_3D/getting started/>GameFuse C#</a></b></h4>
-                <p>Use GameFuse C# in your Unity project to easily add authenticaion, user data, leaderboards, in game stores and more all without writing and hosting any servers, or writing any API code. Its never been easier to store your data online! GameFuse is always free for hobby and small indie projects. With larger usage there are metered usage fees.</p>
-            </div>
-        </div>
-            <div class="card">
-            <div class="container" style="padding: 2px 10px;">
-                <h4><b><a href=/Blueprints%20Unreal/getting%20started/>GameFuse Blueprints</a></b></h4>
-                <p>Use GameFuse in your UnrealEngine project to easily add authenticaion, user data, leaderboards, in game stores and more all without writing and hosting any servers, or writing any API code. Its never been easier to store your data online! GameFuse is always free for hobby and small indie projects. With larger usage there are metered usage fees.</p>
-            </div>
-        </div>
+#GAMEFUSE DOCUMENTATION
+<div class="home-container">
+    <div class="home-header">
+        <!-- <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165348/gamefuse-assets/explore-bar.png" />
+        <h1> GAMEFUSE DOCUMENTATION </h1>
+        <p> Get login in your game in 5 minutes. Select your language below.</p> -->
+        <p> Use the GameFuse Client Library in your game engine of choice to easily add authentication, user data, leaderboards, in game stores and more, all without writing and hosting any servers, or writing any API code. Its never been easier to sync your user data online. GameFuse is always free for hobby and small indie projects. </p>
     </div>
-    <!-- Second row with 2 cards -->
-    <div class="card-row">
-            <div class="card">
-            <div class="container" style="padding: 2px 10px;">
-                <h4><b><a href=/C%2B%2B%20Unreal%20Engine/getting%20started/>GameFuse C++</a></b></h4>
-                <p>Use GameFuse in your UnrealEngine project to easily add authenticaion, user data, leaderboards, in game stores and more all without writing and hosting any servers, or writing any API code. Its never been easier to store your data online! GameFuse is always free for hobby and small indie projects. With larger usage there are metered usage fees.</p>
-            </div>
+    <div class="main-container">
+        <!-- First row with 2 cards -->
+        <div class="card-row">
+            <a href="/C%23_Unity_3D/getting%20started/" class="card">
+                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
+                <h4><b>GameFuse C#</b></h4>
+            </a>
+            <a href="/Blueprints%20Unreal/getting%20started/" class="card">
+                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
+                <h4><b>GameFuse Blueprints</b></h4>
+            </a>
         </div>
-        <div class="card">
-            <div class="container" style="padding: 2px 10px;">
-                <h4><b><a href=JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/getting%20started/>GameFuse Javascript</a></b></h4>
-                <p>Use GameFuse Javascript in your JS Game project to easily add authenticaion, user data, leaderboards, in game stores and more all without writing and hosting any servers, or writing any API code. Its never been easier to store your data online! GameFuse is always free for hobby and small indie projects. With larger usage there are metered usage fees.</p>
-            </div>
-        </div>
+        <!-- Second row with 2 cards -->
+        <div class="card-row">
+            <a href="/C%2B%2B%20Unreal%20Engine/getting%20started/" class="card">
+                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unity-logo.png" alt="Unreal Logo" />
+                <h4><b>GameFuse C++</b></h4>
+            </a>
+            <a href="/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/getting%20started/" class="card">
+                <div class="flex-row">
+                    <img style="transform: scale(1.3);" src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721225879/gamefuse-assets/babylon-logo-white.png" alt="Babylon Logo" />
+                    <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/pixi-logo.png" alt="Pixi Logo" />
+                    <img style="transform: scale(0.85);" src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721225879/gamefuse-assets/playcanvas-logo-white.png" alt="Playcanvas Logo" />
+                </div>
+                <h4><b>GameFuse Javascript</b></h4>
+            </a>
         </div>
     </div>
 </div>
