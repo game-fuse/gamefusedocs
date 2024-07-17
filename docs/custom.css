@@ -18,7 +18,9 @@
   min-height: 500px !important;
 
 }
-
+.md-content{
+  min-height: 700px;
+}
 .md-nav__title{
   background: none !important;
   box-shadow: none !important;
