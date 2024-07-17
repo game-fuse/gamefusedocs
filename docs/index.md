@@ -25,7 +25,7 @@
                 <h4><b>GameFuse C++</b></h4>
             </a>
             <a href="/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/getting%20started/" class="card">
-                <div class="flex-row"
+                <div class="flex-row">
                     <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/pixi-logo.png" alt="Pixi Logo" />
                     <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/babylon-logo.png" alt="Babylon Logo" />
                     <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/playcanvas-logo.png" alt="Playcanvas Logo" />
