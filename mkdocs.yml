@@ -99,6 +99,8 @@ markdown_extensions:
     - pymdownx.keys
     - pymdownx.mark
     - pymdownx.tilde
+    - admonition
+    - pymdownx.details
 
 plugins:
   - search
