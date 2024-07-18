@@ -1,52 +1,85 @@
-User data can be set in a number of ways. Score can be set with a specific API call to set or relativly add to score. You can also set custom user data where you can assign any key to any value. Whether you use it for a players "current_level", "color", "XP" or anything else you can think of, it can be done with the custom data.
+User data can be set in a number of ways.
+
+Score can be set with a specific API call to set or relatively add to score.
+You can also set custom user data where you can assign any key to any value.
+Whether you use it for a players `current_level`, `color`, `XP` or anything
+else you can think of, it can be done with the custom data.
 
 ## Adding scores
 
-To alter the amount of scores a users has relativly, use:
+### Scope
 
-```
-https://gamefuse.co/api/v2/users/{signed in user id}/add_scores?&scores={scores to add}
+Alters the amount of scores a users has relatively
 
-```
+### Method
 
-It will have the following Headers:
-
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
-
+```plaintext
+GET /api/v2/users/{signedInUserId}/add_scores?&scores={scores}
 ```
 
-It will have the following URL parameters:
+### Attributes
 
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `scores`         | integer       | Yes      | The amount of scores positive or negative you want to alter the users current scores by |
+| `signedInUserId` | integer       | Yes      | The user id |
+
+### Headers
+
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This toekn is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| 200              | application/json         | Object containing users' remaining scores and a list of all their purchased store items |
+| 400              | text/plain | `scores` attribute missing |
+| 500              | text/plain | Unknown server error |
+
+### Response object
+
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `authentication_token`            | string | Token that must be saved and added as a parameter to all authenticated requests |
+| `credits`                         | integer | Number of credits the user has, these can be used in your in game store |
+| `display_email`                   | string  | User's actual email used for notifications and login |
+| `email`                           | string  | System email: a combination of `id` and `email` |
+| `events_total`                    | integer | Running API hits for this user |
+| `events_current_month`            | integer | Running API hits for this user for the current month |
+| `game_sessions_current_month`     | integer | unique game session for this user during the current month |
+| `game_sessions_total`             | integer | Unique game session for this user |
+| `id`                              | integer | User's id   |
+| `last_login`                      | string | Timestamp of last login |
+| `number_of_logins`                | integer | Total logins |
+| `score`                           | integer | A generic score metric |
+| `username`                        | string  | User's display username |
+
+### Example cURL
+
+```shell
+curl --request GET --header "Authentication-Token: abc123" "https://gamefuse.co/api/v2/users/1/add_scores?&scores=4"
 ```
-scores: {the amount of scores positive or negative you want to alter the users current scores by}
 
-```
+### Example response
 
-This will return a response with the following json. It has users remaining scores, and a list of all their purchased store items
-
-```
+```json
 {
-  "id": {users id},
-  "username": {users display username},
-  "email": {system email - a combination of game id and email},
-  "display_email": {users actual email, used for notifications and login}
-  "credits": {number of credits user has, these can be used in your in game store},
-  "score": {a generic score metric that you can use},
-  "last_login": {timestamp of last login},
-  "number_of_logins": {total logins},
-  "authentication_token": {authentication token, this must be saved and added as a parameter to all authenticated requests},
-  "events_total": {running api hits for this user},
-  "events_current_month": {running api hits for this user for this month},
-  "game_sessions_total": {unique game session for this user},
-  "game_sessions_current_month": {unique game session for this user for this month}
+    "id": 1,
+    "username": "some_username",
+    "email": "john.doe-1@example.com",
+    "display_email": "john.doe@example.com",
+    "credits": 125,
+    "score": 10134,
+    "last_login": "2022-01-15T10:30:00Z",
+    "number_of_logins": 34,
+    "authentication_token": "abc123",
+    "events_total": 15,
+    "events_current_month": 7,
+    "game_sessions_total": 51,
+    "game_sessions_current_month": 9
 }
-
-```
-
-```
-* 400 - Please include a score param
-* 500 - unknown server error
 
 ```
 
