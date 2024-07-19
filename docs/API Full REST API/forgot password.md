@@ -31,7 +31,9 @@ GET /api/v1/games/{gameId}/forget_password?email={email}&game_id={gameId}&game_t
 
 ### Headers
 
-None
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -53,6 +55,7 @@ None
 
 ```shell
 curl --request GET \
+    --header "Authentication-Token: abc123" \
     "https://gamefuse.co/api/v1/games/1/forget_password?email=john.doe@example.com&game_id=1&game_token=abc123"
 ```
 
