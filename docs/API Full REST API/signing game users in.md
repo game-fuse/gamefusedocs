@@ -33,7 +33,7 @@ GET /api/v2/sessions?email={email}&password={password}&game_id={gameId}&game_tok
 | HTTP status code | content-type | Description |
 |------------------|--------------|-------------|
 | `200`              | application/json         | Object containing the user's remaining scores and a list of all their purchased store items |
-| `402`              | Game is disabled. Check the GameFuse dashboard |
+| `402`              | text/plain | Game is disabled. Check the GameFuse dashboard |
 | `404`              | text/plain | User not found or incorrect password |
 | `500`              | text/plain | Unknown server error |
 
