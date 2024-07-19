@@ -67,7 +67,6 @@ curl --request GET \
 
 ```json
 {
-    "authentication_token"
     "id": 1,
     "username": "some_username",
     "email": "john.doe-1@example.com",
