@@ -15,7 +15,7 @@ Alters the amount of scores a users has relatively
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_scores?&scores={scores}
+    /api/v2/users/{signedInUserId}/add_scores?scores={scores}
     ```
 
 ### Attributes
@@ -23,7 +23,7 @@ Alters the amount of scores a users has relatively
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `scores`         | integer       | Yes      | The amount of scores positive or negative you want to alter the users current scores by |
-| `signedInUserId` | integer       | Yes      | The user id |
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Headers
 
@@ -104,7 +104,7 @@ Set the absolute amount of scores a user has. The scores param will be the user'
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `scores`         | integer       | Yes      | The amount of scores the user will now have |
-| `signedInUserId` | integer       | Yes      | The user id |
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Headers
 
@@ -178,7 +178,7 @@ format but can be converted into any type by the programming language in use.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_game_user_attribute?&key={key}&value={value}&attributes={attributes}
+    /api/v2/users/{signedInUserId}/add_game_user_attribute?key={key}&value={value}&attributes={attributes}
     ```
 
 ### Attributes
@@ -187,7 +187,7 @@ format but can be converted into any type by the programming language in use.
 |------------------|---------------|----------|-------------|
 | `attributes`     | JSON string   | Yes      | a JSON object useful for batch updating     |
 | `key`            | string        | Yes      | The key of the data to save                 |
-| `signedInUserId` | integer       | Yes      | The user id                                 |
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 | `value`          | string        | Yes      | The value of the data to save               |
 
 ### Headers
@@ -218,7 +218,7 @@ format but can be converted into any type by the programming language in use.
     ```shell
     curl --request POST \
         --header "Authentication-Token: abc123" \
-        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?&key=some_key&value=my_value&attributes="[{"key": "k0", "value": "v0"}, {"key": "k1", "value": "v1"}]"'
+        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?key=some_key&value=my_value&attributes="[{"key": "k0", "value": "v0"}, {"key": "k1", "value": "v1"}]"'
     ```
 
     #### Response
@@ -251,7 +251,7 @@ Remove an arbitrary custom attribute.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/users/{signedInUserId}/remove_game_user_attribute?&key={key}
+    /api/v2/users/{signedInUserId}/remove_game_user_attribute?key={key}
     ```
 
 ### Attributes
@@ -259,7 +259,7 @@ Remove an arbitrary custom attribute.
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `key`            | string        | Yes      | The key of the data to remove |
-| `signedInUserId` | integer       | Yes      | The user id                   |
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Headers
 
@@ -289,7 +289,7 @@ Remove an arbitrary custom attribute.
     ```shell
     curl --request GET \
         --header "Authentication-Token: abc123" \
-        'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?&key="key_12"'
+        'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?key="key_12"'
     ```
 
     #### Example response
@@ -329,7 +329,7 @@ Get all custom attributes of a user.
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `signedInUserId` | integer       | Yes      | The user id |
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Headers
 
