@@ -5,13 +5,18 @@ You will need them on each subsequent request.
 
 ### Scope
 
-Sign up a new user in your game
+Sign up a new user in your game.
+
+!!! important
+    This step returns the `Authentication-Token` HTTP header which is to be
+    used for most API requests.
 
 ### Method
 
-```plaintext
-GET /api/v2/users?email={email}&password={password}&password_confirmation={passwordConfirmation}&username={username}&game_id={gameId}&game_token={apiToken}
-```
+!!! info annotate "POST"
+    ```plaintext
+    /api/v2/users?email={email}&password={password}&password_confirmation={passwordConfirmation}&username={username}&game_id={gameId}&game_token={apiToken}
+    ```
 
 ### Attributes
 
@@ -26,9 +31,7 @@ GET /api/v2/users?email={email}&password={password}&password_confirmation={passw
 
 ### Headers
 
-| Name | Type | Description |
-|----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+None
 
 ### Responses
 
@@ -56,30 +59,32 @@ GET /api/v2/users?email={email}&password={password}&password_confirmation={passw
 | `score`                           | integer | A generic score metric |
 | `username`                        | string  | User's display username |
 
-### Example cURL
+### Example
 
-```shell
-curl --request GET \
-    --header "Authentication-Token: abc123" \
-    "https://gamefuse.co/api/v2/users?email=john.doe@example.com&password=1234abcd&password_confirmation=1234abcd&username=johndoe&game_id=1&game_token=abc123"
-```
+!!! example
+    #### cURL
 
-### Example response
+    ```shell
+    curl --request POST \
+        "https://gamefuse.co/api/v2/users?email=john.doe@example.com&password=1234abcd&password_confirmation=1234abcd&username=johndoe&game_id=1&game_token=abc123"
+    ```
 
-```json
-{
-    "id": 1,
-    "username": "some_username",
-    "email": "john.doe-1@example.com",
-    "display_email": "john.doe@example.com",
-    "credits": 125,
-    "score": 10134,
-    "last_login": "2022-01-15T10:30:00Z",
-    "number_of_logins": 34,
-    "authentication_token": "abc123",
-    "events_total": 15,
-    "events_current_month": 7,
-    "game_sessions_total": 51,
-    "game_sessions_current_month": 9
-}
-```
+    #### Response
+
+    ```json
+    {
+        "id": 1,
+        "username": "some_username",
+        "email": "_appid_1_john.doe-1@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 0,
+        "score": 0,
+        "last_login": "2024-07-21T14:23:37.457-04:00",
+        "number_of_logins": 0,
+        "authentication_token": "abc123",
+        "events_total": 0,
+        "events_current_month": 0,
+        "game_sessions_total": 0,
+        "game_sessions_current_month": 0
+    }
+    ```

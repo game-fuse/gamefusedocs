@@ -9,9 +9,10 @@ Make users log-in.
 
 ### Method
 
-```plaintext
-GET /api/v2/sessions?email={email}&password={password}&game_id={gameId}&game_token={gameToken}
-```
+!!! info annotate "POST"
+    ```plaintext
+    GET /api/v2/sessions?email={email}&password={password}&game_id={gameId}&game_token={gameToken}
+    ```
 
 ### Attributes
 
@@ -24,9 +25,7 @@ GET /api/v2/sessions?email={email}&password={password}&game_id={gameId}&game_tok
 
 ### Headers
 
-| Name | Type | Description |
-|----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+None
 
 ### Responses
 
@@ -55,30 +54,32 @@ GET /api/v2/sessions?email={email}&password={password}&game_id={gameId}&game_tok
 | `score`                           | integer | A generic score metric |
 | `username`                        | string  | User's display username |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET \
-    --header "Authentication-Token: abc123" \
-    "https://gamefuse.co/api/v2/sessions?email=john.doe@example.com&password=1234abcd&game_id=1&game_token=abc123
-```
+!!! example
+    ### cURL
 
-### Example response
+    ```shell
+    curl --request POST \
+        "https://gamefuse.co/api/v2/sessions?email=john.doe@example.com&password=1234abcd&game_id=1&game_token=abc123
+    ```
 
-```json
-{
-    "id": 1,
-    "username": "some_username",
-    "email": "john.doe-1@example.com",
-    "display_email": "john.doe@example.com",
-    "credits": 125,
-    "score": 10134,
-    "last_login": "2022-01-15T10:30:00Z",
-    "number_of_logins": 34,
-    "authentication_token": "abc123",
-    "events_total": 15,
-    "events_current_month": 7,
-    "game_sessions_total": 51,
-    "game_sessions_current_month": 9
-}
-```
+    ### Response
+
+    ```json
+    {
+        "id": 1,
+        "username": "john.doe",
+        "email": "_appid_1_john.doe@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 0,
+        "score": 0,
+        "last_login": "2024-07-21",
+        "number_of_logins": 1,
+        "authentication_token": "abc123",
+        "events_total": 1,
+        "events_current_month": 1,
+        "game_sessions_total": 1,
+        "game_sessions_current_month": 1
+    }
+    ```
