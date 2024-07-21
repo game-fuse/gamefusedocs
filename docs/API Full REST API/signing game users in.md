@@ -11,7 +11,7 @@ Make users log-in.
 
 !!! info annotate "POST"
     ```plaintext
-    GET /api/v2/sessions?email={email}&password={password}&game_id={gameId}&game_token={gameToken}
+    /api/v2/sessions?email={email}&password={password}&game_id={gameId}&game_token={gameToken}
     ```
 
 ### Attributes
