@@ -61,7 +61,6 @@ GET /api/v2/users?email={email}&password={password}&password_confirmation={passw
 ```shell
 curl --request GET \
     --header "Authentication-Token: abc123" \
-    "https://gamefuse.co/api/v2/sessions?email=john.doe@example.com&password=1234abcd&game_id=1&game_token=abc123
     "https://gamefuse.co/api/v2/users?email=john.doe@example.com&password=1234abcd&password_confirmation=1234abcd&username=johndoe&game_id=1&game_token=abc123"
 ```
 

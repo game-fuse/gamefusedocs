@@ -1,94 +1,160 @@
-## Connecting To GameFuse
+Once an account is created, you can verify your game before using other GameFuse
+enpoints.
 
-Once an account is created, you can verify your game and hit the connect endpoint to verfiy your game before using GameFuse enpoints with specific users:
+## GameFuse verification
 
+### Scope
+
+Verify your game at GameFuse.
+
+!!! note
+    This is not a required step but it can be useful to verify a connection
+    before logging in specific users.
+
+### Method
+
+```plaintext
+GET /api/v2/games/verify?game_id={gameId}&game_token={gameToken}
 ```
-https://gamefuse.co/api/v2/games/verify.json?game_id={game id}&game_token={api token}
 
+### Attributes
+
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `gameId`         | integer       | Yes      | Value found on your GameFuse.co dashboard |
+| `gameToken`      | string        | Yes      | API token found on your GameFuse.co dashboard |
+
+### Headers
+
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the user's game information |
+| `401`              | text/plain | Failed to verify game |
+| `500`              | text/plain | Unknown server error |
+
+### Response object
+
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `description`               | string  | Game description |
+| `game_variables`            | list    | All the games' attributes |
+| `id`                        | integer | Unique database ID of the game |
+| `name`                      | string  | Name of the game |
+| `token`                     | string  | API token of the game |
+
+### Example cURL
+
+```shell
+curl --request GET \
+    --header "Authentication-Token: abc123" \
+    'https://gamefuse.co/api/v2/games/verify?game_id=1&game_token=cde456'
 ```
 
-It will have the following URL parameters:
+### Example response
 
-```
-game_id: {found on your GameFuse.co dashboard}
-game_token: {API token found on your GameFuse.co dashboard}
-
-```
-
-This will return a response with the following json:
-
-```
+```json
 {
-    "id": {DB unique id of the game},
-    "name": {name of the game},
-    "token": {api token of the game},
-    "description": {game description},
+    "id": 1,
+    "name": "my game",
+    "token": "abc123",
+    "description": "This is a new game",
     "game_variables": [
     {
-        "id": {game_variable id 1},
-        "key": {game_variable key 1},
-        "value": {game_variable id 1}
+        "id": 0,
+        "key": "this_key",
+        "value": "this_value"
     },
     {
-        "id": {game_variable id 2},
-        "key": {game_variable key 2},
-        "value": {game_variable id 2}
-    }...
+        "id": 1,
+        "key": "other_key",
+        "value": "other_value"
+    },
+    ...
     ]
 }
-
 ```
-
-```
-* 401 - failed to verify game
-* 500 - unknown server error
-
-```
-
-This is not a required step, but can be useful to verify a connection before logging in specific users
 
 ## Game Variables
 
-Your Game Variables will be downloaded when you verify and connect with your game, but you can also re-fetch them whwnever you like.
+### Scope
 
-```
-https://gamefuse.co/api/v2/games/fetch_game_variables.json?game_id={game id}&game_token={api token}
+Retrieve game data.
 
-```
+!!! important
+    The returned data is the same as the one in the verification endpoint.
 
-It will have the following URL parameters:
+### Method
 
-```
-game_id: {found on your GameFuse.co dashboard}
-game_token: {API token found on your GameFuse.co dashboard}
-
+```plaintext
+GET /api/v2/games/fetch_game_variables?game_id={gameId}&game_token={gameToken}
 ```
 
-This will return a response with the following json:
+### Attributes
 
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `gameId`         | integer       | Yes      | Value found on your GameFuse.co dashboard |
+| `gameToken`      | string        | Yes      | API token found on your GameFuse.co dashboard |
+
+### Headers
+
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the user's game information |
+| `401`              | text/plain | Failed to  fetch game variables. Check your `gameToken` and `gameId` |
+| `500`              | text/plain | Unknown server error |
+
+### Response object
+
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `description`               | string  | Game description |
+| `game_variables`            | list    | All the games' attributes |
+| `id`                        | integer | Unique database ID of the game |
+| `name`                      | string  | Name of the game |
+| `token`                     | string  | API token of the game |
+
+### Example cURL
+
+```shell
+curl --request GET \
+    --header "Authentication-Token: abc123" \
+    'https://gamefuse.co/api/v2/games/fetch_game_variables?game_id=1&game_token=cde456'
 ```
+
+### Example response
+
+```json
 {
-    "id": {DB unique id of the game},
-    "name": {name of the game},
-    "token": {api token of the game},
-    "description": {game description},
+    "id": 1,
+    "name": "my game",
+    "token": "abc123",
+    "description": "This is a new game",
     "game_variables": [
     {
-        "id": {game_variable id 1},
-        "key": {game_variable key 1},
-        "value": {game_variable id 1}
+        "id": 0,
+        "key": "this_key",
+        "value": "this_value"
     },
     {
-        "id": {game_variable id 2},
-        "key": {game_variable key 2},
-        "value": {game_variable id 2}
-    }...
+        "id": 1,
+        "key": "other_key",
+        "value": "other_value"
+    },
+    ...
     ]
 }
-
 ```
 
-```
-* 404 - Failed to fetch game variables, check your token and id
-* 500 - unknown server error
-```

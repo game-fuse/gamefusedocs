@@ -199,7 +199,7 @@ GET /api/v2/users/{signedInUserId}/add_game_user_attribute?&key={key}&value={val
 
 | Attribute name                    | Type | Description |
 |-----------------------------------|------|-------------|
-| `game_user_attributes`            | list | All the users attributes, i.e.: custom data |
+| `game_user_attributes`            | list | All the users' attributes, i.e.: custom data |
 
 ### Example cURL
 
@@ -266,7 +266,7 @@ GET /api/v2/users/{signedInUserId}/remove_game_user_attribute?&key={key}
 
 | Attribute name                    | Type | Description |
 |-----------------------------------|------|-------------|
-| `game_user_attributes`            | list | All the users attributes, i.e.: custom data |
+| `game_user_attributes`            | list | All the users' attributes, i.e.: custom data |
 
 ### Example cURL
 
@@ -331,7 +331,7 @@ GET /api/v2/users/{signedInUserId}/game_user_attributes
 
 | Attribute name                    | Type | Description |
 |-----------------------------------|------|-------------|
-| `game_user_attributes`            | list | All the users attributes, i.e.: custom data |
+| `game_user_attributes`            | list | All the users' attributes, i.e.: custom data |
 
 ### Example cURL
 
