@@ -13,9 +13,10 @@ Alters the amount of scores a users has relatively
 
 ### Method
 
-```plaintext
-GET /api/v2/users/{signedInUserId}/add_scores?&scores={scores}
-```
+!!! info annotate "POST"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/add_scores?&scores={scores}
+    ```
 
 ### Attributes
 
@@ -56,31 +57,34 @@ GET /api/v2/users/{signedInUserId}/add_scores?&scores={scores}
 | `score`                           | integer | A generic score metric |
 | `username`                        | string  | User's display username |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET --header "Authentication-Token: abc123" "https://gamefuse.co/api/v2/users/1/add_scores?&scores=4"
-```
+!!! example
+    #### cURL
 
-### Example response
+    ```shell
+    curl --request POST --header "Authentication-Token: abc123" "https://gamefuse.co/api/v2/users/1/add_scores?&scores=4"
+    ```
 
-```json
-{
-    "id": 1,
-    "username": "some_username",
-    "email": "john.doe-1@example.com",
-    "display_email": "john.doe@example.com",
-    "credits": 125,
-    "score": 10134,
-    "last_login": "2022-01-15T10:30:00Z",
-    "number_of_logins": 34,
-    "authentication_token": "abc123",
-    "events_total": 15,
-    "events_current_month": 7,
-    "game_sessions_total": 51,
-    "game_sessions_current_month": 9
-}
-```
+    #### Response
+
+    ```json
+    {
+        "id": 1,
+        "username": "some_username",
+        "email": "john.doe-1@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 125,
+        "score": 10134,
+        "last_login": "2022-01-15T10:30:00Z",
+        "number_of_logins": 34,
+        "authentication_token": "abc123",
+        "events_total": 15,
+        "events_current_month": 7,
+        "game_sessions_total": 51,
+        "game_sessions_current_month": 9
+    }
+    ```
 
 ## Setting scores
 
@@ -90,9 +94,10 @@ Set the absolute amount of scores a user has. The scores param will be the user'
 
 ### Method
 
-```plaintext
-GET /api/v2/users/{signedInUserId}/set_scores?&scores={scores}
-```
+!!! info annotate "POST"                                                        
+    ```plaintext
+    /api/v2/users/{signedInUserId}/set_scores?&scores={scores}
+    ```
 
 ### Attributes
 
@@ -133,31 +138,34 @@ GET /api/v2/users/{signedInUserId}/set_scores?&scores={scores}
 | `score`                           | integer | A generic score metric |
 | `username`                        | string  | User's display username |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET --header "Authentication-Token: abc123" "https://gamefuse.co/api/v2/users/1/set_scores?&scores=4"
-```
+#### cURL
 
-### Example response
+!!! example
+    ```shell
+    curl --request POST --header "Authentication-Token: abc123" "https://gamefuse.co/api/v2/users/1/set_scores?&scores=4"
+    ```
 
-```json
-{
-    "id": 1,
-    "username": "some_username",
-    "email": "john.doe-1@example.com",
-    "display_email": "john.doe@example.com",
-    "credits": 125,
-    "score": 10134,
-    "last_login": "2022-01-15T10:30:00Z",
-    "number_of_logins": 34,
-    "authentication_token": "abc123",
-    "events_total": 15,
-    "events_current_month": 7,
-    "game_sessions_total": 51,
-    "game_sessions_current_month": 9
-}
-```
+    #### Response
+
+    ```json
+    {
+        "id": 1,
+        "username": "some_username",
+        "email": "john.doe-1@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 125,
+        "score": 10134,
+        "last_login": "2022-01-15T10:30:00Z",
+        "number_of_logins": 34,
+        "authentication_token": "abc123",
+        "events_total": 15,
+        "events_current_month": 7,
+        "game_sessions_total": 51,
+        "game_sessions_current_month": 9
+    }
+    ```
 
 ## Adding a custom attribute (custom data)
 
@@ -168,9 +176,10 @@ format but can be converted into any type by the programming language in use.
 
 ### Method
 
-```plaintext
-GET /api/v2/users/{signedInUserId}/add_game_user_attribute?&key={key}&value={value}&attributes={attributes}
-```
+!!! info annotate "POST"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/add_game_user_attribute?&key={key}&value={value}&attributes={attributes}
+    ```
 
 ### Attributes
 
@@ -201,33 +210,36 @@ GET /api/v2/users/{signedInUserId}/add_game_user_attribute?&key={key}&value={val
 |-----------------------------------|------|-------------|
 | `game_user_attributes`            | list | All the users' attributes, i.e.: custom data |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET \
-    --header "Authentication-Token: abc123" \
-    'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?&key=some_key&value=my_value&attributes="[{"key": "k0", "value": "v0"}, {"key": "k1", "value": "v1"}]"'
-```
+!!! example
+    #### cURL
 
-### Example response
+    ```shell
+    curl --request POST \
+        --header "Authentication-Token: abc123" \
+        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?&key=some_key&value=my_value&attributes="[{"key": "k0", "value": "v0"}, {"key": "k1", "value": "v1"}]"'
+    ```
 
-```json
-{
-  "game_user_attributes": [
-      {
-          "id": 0,
-          "key": "this_key",
-          "value": "this_value"
-      },
-      {
-          "id": 1,
-          "key": "other_key",
-          "value": "other_value"
-      },
-      ...
-  ]
-}
-```
+    #### Response
+
+    ```json
+    {
+      "game_user_attributes": [
+          {
+              "id": 0,
+              "key": "this_key",
+              "value": "this_value"
+          },
+          {
+              "id": 1,
+              "key": "other_key",
+              "value": "other_value"
+          },
+          ...
+      ]
+    }
+    ```
 
 ## Removing a custom attribute (custom data)
 
@@ -237,9 +249,10 @@ Remove an arbitrary custom attribute.
 
 ### Method
 
-```plaintext
-GET /api/v2/users/{signedInUserId}/remove_game_user_attribute?&key={key}
-```
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/remove_game_user_attribute?&key={key}
+    ```
 
 ### Attributes
 
@@ -268,33 +281,36 @@ GET /api/v2/users/{signedInUserId}/remove_game_user_attribute?&key={key}
 |-----------------------------------|------|-------------|
 | `game_user_attributes`            | list | All the users' attributes, i.e.: custom data |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET \
-    --header "Authentication-Token: abc123" \
-    'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?&key="key_12"'
-```
+!!! example
+    #### cURL
 
-### Example response
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?&key="key_12"'
+    ```
 
-```json
-{
-  "game_user_attributes": [
-      {
-          "id": 0,
-          "key": "this_key",
-          "value": "this_value"
-      },
-      {
-          "id": 1,
-          "key": "other_key",
-          "value": "other_value"
-      },
-      ...
-  ]
-}
-```
+    #### Example response
+
+    ```json
+    {
+      "game_user_attributes": [
+          {
+              "id": 0,
+              "key": "this_key",
+              "value": "this_value"
+          },
+          {
+              "id": 1,
+              "key": "other_key",
+              "value": "other_value"
+          },
+          ...
+      ]
+    }
+    ```
 
 ## Get all custom attributes (custom data)
 
@@ -304,9 +320,10 @@ Get all custom attributes of a user.
 
 ### Method
 
-```plaintext
-GET /api/v2/users/{signedInUserId}/game_user_attributes
-```
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/game_user_attributes
+    ```
 
 ### Attributes
 
@@ -333,30 +350,33 @@ GET /api/v2/users/{signedInUserId}/game_user_attributes
 |-----------------------------------|------|-------------|
 | `game_user_attributes`            | list | All the users' attributes, i.e.: custom data |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET \
-    --header "Authentication-Token: abc123" \
-    'https://gamefuse.co/api/v2/users/1/game_user_attributes'
-```
+!!! example
+    #### cURL
 
-### Example response
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        'https://gamefuse.co/api/v2/users/1/game_user_attributes'
+    ```
 
-```json
-{
-  "game_user_attributes": [
-      {
-          "id": 0,
-          "key": "this_key",
-          "value": "this_value"
-      },
-      {
-          "id": 1,
-          "key": "other_key",
-          "value": "other_value"
-      },
-      ...
-  ]
-}
-```
+    #### Example response
+
+    ```json
+    {
+      "game_user_attributes": [
+          {
+              "id": 0,
+              "key": "this_key",
+              "value": "this_value"
+          },
+          {
+              "id": 1,
+              "key": "other_key",
+              "value": "other_value"
+          },
+          ...
+      ]
+    }
+    ```
