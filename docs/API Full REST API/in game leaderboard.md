@@ -1,190 +1,321 @@
-TLeaderboards can be easily created within GameFuse From your JS game client, a Leaderboard Entry can be added with a leaderboard_name, score, and extra_attributes (metadata) for the current signed in user Leaderboards can be downloaded for a specific leaderboard_name, which would gather all the high scores in order for all users in the game or Leaderboards can be downloaded for a specific user, so that you can download the current users leaderboard data for all leaderboard_names
+## Submit New Leaderboard Entry
 
-### Submit New Leaderboard Entry
+### Scope
 
-Add a leaderboard entry to a specific leaderboard within your game designated by 'leaderboard_name', these can be pulled later and compared to other users.
+Add a leaderboard entry to a specific leaderboard within your game.
+designated by `leaderboard_name`, these can be pulled later and compared to other users.
 
-```
-https://gamefuse.co/api/v2/users/{user id}/add_leaderboard_entry?score={score for the leaderboard}&leaderboard_name={leaderboard name}&extra_attributes={hash of extra data to save to the leaderboard entry}
+!!! note
+    Leaderboards can be easily created within GameFuse From your JS game client.
 
-```
+### Method
 
-It will have the following URL parameters:
+!!! info annotate "POST"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/add_leaderboard_entry?score={score}&leaderboard_name={leaderboardName}&extra_attributes={checksum}
+    ```
 
-```
-score: {score for the leaderboard}
-leaderboard_name: {leaderboard name within game}
-extra_attributes: {hash of custom data}
+### Attributes
 
-```
+| Name                     | Type          | Required | Description |
+|--------------------------|---------------|----------|-------------|
+| `checksum`               | string        | Yes      | Checksum of custom data (extra data) to save to the leaderboard entry |
+| `leaderboardName`        | string       | Yes      | Leaderboard name within the game |
+| `score`                  | integer      | Yes      | Score for the leaderboard |
+| `signedInUserId`         | integer       | Yes      | The user id |
 
-This will return a response containing all the users attributes (custom data) with the following json:
+### Headers
 
-```
-{
-  "id": {users id},
-  "username": {users display username},
-  "email": {system email - a combination of game id and email},
-  "display_email": {users actual email, used for notifications and login}
-  "credits": {number of credits user has, these can be used in your in game store},
-  "score": {a generic score metric that you can use},
-  "last_login": {timestamp of last login},
-  "number_of_logins": {total logins},
-  "authentication_token": {authentication token, this must be saved and added as a parameter to all authenticated requests},
-  "events_total": {running api hits for this user},
-  "events_current_month": {running api hits for this user for this month},
-  "game_sessions_total": {unique game session for this user},
-  "game_sessions_current_month": {unique game session for this user for this month}
-}
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
-```
+### Responses
 
-```
-* 401 - "can only add entries for current user"
-* 400 - "invalid extra attributes"
-* 500 - unknown server error
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing all the user's attributes |
+| `400`              | text/plain | Invalid extra attributes |
+| `401`              | text/plain | Can only add entries for the current user |
+| `500`              | text/plain | Unknown server error |
 
-```
+### Response object
 
-### Clear Leaderboard Entries
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `authentication_token`            | string | Token that must be saved and added as a parameter to all authenticated requests |
+| `credits`                         | integer | Number of credits the user has. These can be used in your in game store |
+| `display_email`                   | string  | User's actual email used for notifications and login |
+| `email`                           | string  | System email: a combination of `id` and `email` |
+| `events_total`                    | integer | Running API hits for this user |
+| `events_current_month`            | integer | Running API hits for this user for the current month |
+| `game_sessions_current_month`     | integer | unique game session for this user during the current month |
+| `game_sessions_total`             | integer | Unique game session for this user |
+| `id`                              | integer | User's id |
+| `last_login`                      | string | Timestamp of last login |
+| `number_of_logins`                | integer | Total logins |
+| `score`                           | integer | A generic score metric |
+| `username`                        | string  | User's display username |
+
+### Examples
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request POST \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry?score=21&leaderboard_name=leaderboard&extra_attributes=bc125ad76"
+    ```
+
+    #### Response
+
+    ```json
+    {
+        "id": 1,
+        "username": "some_username",
+        "email": "john.doe-1@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 125,
+        "score": 10134,
+        "last_login": "2022-01-15T10:30:00Z",
+        "number_of_logins": 34,
+        "authentication_token": "abc123",
+        "events_total": 15,
+        "events_current_month": 7,
+        "game_sessions_total": 51,
+        "game_sessions_current_month": 9
+    }
+    ```
+
+## Clear Leaderboard Entries
+
+### Scope
 
 Clear all leaderboard entries for a specific user.
 
-```
-https://gamefuse.co/api/v2/users/{user id}/clear_my_leaderboard_entries?
+### Method
 
-```
+!!! info annotate "POST"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/clear_my_leaderboard_entries
+    ```
 
-It will have the following Headers:
+### Attributes
 
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `signedInUserId` | integer       | Yes      | The user id |
 
-```
+### Headers
 
-This will return a response containing all the users attributes (custom data) with the following json:
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
-```
-{
-  "id": {users id},
-  "username": {users display username},
-  "email": {system email - a combination of game id and email},
-  "display_email": {users actual email, used for notifications and login}
-  "credits": {number of credits user has, these can be used in your in game store},
-  "score": {a generic score metric that you can use},
-  "last_login": {timestamp of last login},
-  "number_of_logins": {total logins},
-  "authentication_token": {authentication token, this must be saved and added as a parameter to all authenticated requests},
-  "events_total": {running api hits for this user},
-  "events_current_month": {running api hits for this user for this month},
-  "game_sessions_total": {unique game session for this user},
-  "game_sessions_current_month": {unique game session for this user for this month}
-}
+### Responses
 
-```
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing all the user's attributes |
+| `401`              | text/plain | Can only clear entries for current user |
+| `500`              | text/plain | Unknown server error |
 
-```
-* 401 - "can only clear entries for current user"
-* 500 - unknown server error
+### Response object
 
-```
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `authentication_token`            | string | Token that must be saved and added as a parameter to all authenticated requests |
+| `credits`                         | integer | Number of credits the user has. These can be used in your in game store |
+| `display_email`                   | string  | User's actual email used for notifications and login |
+| `email`                           | string  | System email: a combination of `id` and `email` |
+| `events_total`                    | integer | Running API hits for this user |
+| `events_current_month`            | integer | Running API hits for this user for the current month |
+| `game_sessions_current_month`     | integer | unique game session for this user during the current month |
+| `game_sessions_total`             | integer | Unique game session for this user |
+| `id`                              | integer | User's id |
+| `last_login`                      | string | Timestamp of last login |
+| `number_of_logins`                | integer | Total logins |
+| `score`                           | integer | A generic score metric |
+| `username`                        | string  | User's display username |
 
-## Get All Leaderboard Entries
+### Examples
 
-Get all leaderboard entries for a specific leaderboard name. You may have multiple leaderboards in your game, indicated by "leaderboard name"
+!!! example
+    #### cURL
 
-```
-https://gamefuse.co/api/v2/games/1/leaderboard_entries?leaderboard_name={leaderboard name}
+    ```shell
+    curl --request POST \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/clear_my_leaderboard_entries"
+    ```
 
-```
+    #### Response
 
-It will have the following Headers:
+    ```json
+    {
+        "id": 1,
+        "username": "some_username",
+        "email": "john.doe-1@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 125,
+        "score": 10134,
+        "last_login": "2022-01-15T10:30:00Z",
+        "number_of_logins": 34,
+        "authentication_token": "abc123",
+        "events_total": 15,
+        "events_current_month": 7,
+        "game_sessions_total": 51,
+        "game_sessions_current_month": 9
+    }
+    ```
 
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
+## Leaderboard Entries
 
-```
+### Scope
 
-It will have the following URL parameters:
+Get leaderboard entries for a specific leaderboard name.
 
-```
-leaderboard_name: {name of the leaderboard within the game}
+### Method
 
-```
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/games/{gameId}/leaderboard_entries?leaderboard_name={leaderboardName}
+    ```
 
-This will return a response containing all the users attributes (custom data) with the following json:
+!!! important
+    You may have multiple leaderboards in your game indicated by `leaderboardName`.
 
-```
-{
-  "leaderboard_entries": [
-      {
-          "username": value,
-          "score": value,
-          "leaderboard_name": value,
-          "game_user_id": value,
-          "extra_attributes": value,
-      },
-      {
-          "username": value,
-          "score": value,
-          "leaderboard_name": value,
-          "game_user_id": value,
-          "extra_attributes": value
-      },
-      ...
-  ]
-}
+!!! note
+    Leaderboards can be downloaded for a specific `leaderboardName`, which
+    would gather all the high scores for all users in the game.
 
-```
+### Attributes
 
-```
-* 404 - No entries for this leaderboard name ___
-* 500 - unknown server error
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `gameId`         | integer       | Yes      | Found on your GameFuse.co dashboard |
+| `leaderboardName` | string       | Yes     | Name of the leaderboard within the game |
 
-```
+### Headers
 
-## Get My Leaderboard Entries
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing leaderboard entries |
+| `400`              | text/plain | No entries for this leaderboard name |
+| `500`              | text/plain | Unknown server error |
+
+### Response object
+
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `leaderboard_entries`             | list | Contains leaderboard values and extra attributes |
+
+### Examples
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/games/1/leaderboard_entries?leaderboard_name=some_leaderboard_name"
+    ```
+
+    #### Response
+
+    ```json
+    {
+      "leaderboard_entries": [
+          {
+              "username": "john.doe",
+              "score": 1453,
+              "leaderboard_name": "leaderboard_for_game_1",
+              "game_user_id": 1,
+              "extra_attributes": "bc125ad76"
+          },
+          {
+              "username": "jane.doe",
+              "score": 1234,
+              "leaderboard_name": "leaderboard_for_game_1",
+              "game_user_id": 1,
+              "extra_attributes": "de689fa29"
+          },
+          ...
+      ]
+    }
+    ```
+
+## User-specific leaderboard entries
+
+### Scope
 
 Get all leaderboard entries for a specific user.
 
-```
-https://gamefuse.co/api/v2/users/{user id}/leaderboard_entries?
+### Method
 
-```
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/leaderboard_entries
+    ```
 
-It will have the following Headers:
+### Attributes
 
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `signedInUserId` | integer       | Yes      | The user id |
 
-```
+### Headers
 
-This will return a response containing all the users attributes (custom data) with the following json:
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
-```
-{
-  "leaderboard_entries": [
-      {
-          "username": value,
-          "score": value,
-          "leaderboard_name": value,
-          "game_user_id": value,
-          "extra_attributes": value
-      },
-      {
-          "username": value,
-          "score": value,
-          "leaderboard_name": value,
-          "game_user_id": value,
-          "extra_attributes": value
-      },
-      ...
-  ]
-}
+### Responses
 
-```
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the user's remaining scores and a list of all their purchased store items |
+| `401`              | text/plain | Can only get entries for the current user |
+| `500`              | text/plain | Unknown server error |
 
-```
-* 401 - "can only get entries for current user"
-* 500 - unknown server hasError
-```
+### Examples
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/leaderboard_entries"
+    ```
+
+    #### Response
+
+    ```json
+    {
+      "leaderboard_entries": [
+          {
+              "username": "john.doe",
+              "score": 1453,
+              "leaderboard_name": "leaderboard_for_game_1",
+              "game_user_id": 1,
+              "extra_attributes": "bc125ad76"
+          },
+          {
+              "username": "john.doe",
+              "score": 1234,
+              "leaderboard_name": "leaderboard_for_game_2",
+              "game_user_id": 2,
+              "extra_attributes": "0f987aa05"
+          },
+          ...
+      ]
+    }
+    ```
