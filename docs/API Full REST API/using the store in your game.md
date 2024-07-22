@@ -1,215 +1,314 @@
 ## Getting Available Store Items
 
-To grab all your store items available on your store you can call:
+### Scope
 
-```
-https://gamefuse.co/api/v2/games/store_items?game_id={game id}&game_token={api token}
+Get all the store items from a specific game.
 
-```
+### Method
 
-It will have the following URL parameters:
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/games/store_items?game_id={gameId}&game_token={gameToken}
+    ```
 
-```
-game_id: {found on your GameFuse.co dashboard}
-game_token: {API token found on your GameFuse.co dashboard}
+### Attributes
 
-```
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `gameId` | Value found on your GameFuse.co dashboard |
+| `gameToken`      | string        | Yes      | API token found on your GameFuse.co dashboard |
 
-This will return a response with the following json:
+### Headers
 
-```
-{
-  "store_items": [
-      {
-          "id": {first item id},
-          "name": {first item name},
-          "cost": {first item cost},
-          "description": {first item description},
-          "category": {first item category},
-          "icon_url": {linked image url for this store item}
-      },
-      {
-          "id": {second item id},
-          "name": {second item name},
-          "cost": {second item cost},
-          "description": {second item description},
-          "category": {second item category},
-          "icon_url": {linked image url for this store item}
-      },
-      ...
-  ]
-}
+None
 
-```
+### Responses
 
-This is a non-authenticated request, a user doesnt need to be signed in since there is no user specific data
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the game store items |
+| `404`              | text/plain | Failed to fetch game variables. `gameId` or `gameToken` might be wrong |
+| `500`              | text/plain | Unknown server error |
 
-```
-* 404 - Failed to verify game
-* 500 - unknown server error
+### Response object
 
-```
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `store_items`            | list | A list of objects where each one represents the fields of a store item |
+
+### Example
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        "https://gamefuse.co/api/v2/games/store_items?game_id=1&game_token=abc123"
+    ```
+
+    #### Response
+
+    ```json
+    {
+      "store_items": [
+        {
+          "id": 337,
+          "name": "test",
+          "cost": 123,
+          "description": "a test item",
+          "category": "generic",
+          "icon_url": null
+        },
+        {
+          "id": 338,
+          "name": "test 2",
+          "cost": 321,
+          "description": "another test item",
+          "category": "main",
+          "icon_url": null
+        }
+      ]
+    }
+    ```
 
 ## Purchasing a Store Item
 
-To purchase a store item, a user must be signed in and have enough credits. This is our first authenticated request and must have an 'access_token' parameter recieved from a sign_in or sign_up response.
+### Scope
 
-```
-https://gamefuse.co/api/v2/users/{signed in user id}/purchase_game_user_store_item?store_item_id={id of store item}
+Purchase a store item.
 
-```
+!!! important
+    A user must be signed in and have enough credits to call this endpoint! 
 
-It will have the following Headers:
+### Method
 
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/purchase_game_user_store_item?store_item_id={storeItemId}
+    ```
 
-```
+### Attributes
 
-It will have the following URL parameters:
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+| `storeItemId` | integer       | Yes      | Id of the store item |
 
-```
-store_item_id: {item id of store item}
+### Headers
 
-```
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
-This will return a response with the following json. It has users remaining credits, and a list of all their purchased store items
+### Responses
 
-```
-{
-  "credits": {users remaining credits},
-  "game_user_store_items": [
-      {
-          "id": {purchased item 1 id},
-          "name": {purchased item 1 name},
-          "cost": {purchased item 1 cost},
-          "description": "{purchased item 1 description},
-          "category": {purchased item 1 category},
-          "icon_url": {linked image url for purchased item 1}
-      },
-      {
-          "id": {purchased item 2 id},
-          "name": {purchased item 2 name},
-          "cost": {purchased item 2 cost},
-          "description": "{purchased item 2 description},
-          "category": {purchased item 2 category},
-          "icon_url": {linked image url for purchased item 2}
-      },
-      ...
-  ]
-}
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the game store items belonging to the user and the credits |
+| `403`              | text/plain | Not enough credits or item already purchased |
+| `404`              | text/plain | Item not found |
+| `500`              | text/plain | Unknown server error |
 
-```
+### Response object
 
-```
-* 403 - Already Purchased
-* 403 - Not Enough Credits
-* 404 - Item not found
-* 500 - unknown server error
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `credits`                | integer | The user's remaining credits |
+| `store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
 
-```
+### Example
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/purchase_game_user_store_item?store_item_id=337"
+    ```
+
+    #### Response
+
+    ```json
+    {
+      "credits": 135,
+      "store_items": [
+        {
+          "id": 337,
+          "name": "test",
+          "cost": 123,
+          "description": "a test item",
+          "category": "generic",
+          "icon_url": null
+        },
+        {
+          "id": 338,
+          "name": "test 2",
+          "cost": 321,
+          "description": "another test item",
+          "category": "main",
+          "icon_url": null
+        }
+      ]
+    }
+    ```
 
 ## Removing a Store Item
 
-To revoke a store item purchase, a user must be signed in.
+### Scope
 
-```
-https://gamefuse.co/api/v2/users/{signed in user id}/remove_game_user_store_item?store_item_id={id of store item to delete}
+Revoke a store item purchase.
 
-```
+!!! important
+    A user must be signed in and have enough credits to call this endpoint! 
 
-It will have the following Headers:
+### Method
 
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/remove_game_user_store_item?store_item_id={storeItemId}
+    ```
 
-```
+### Attributes
 
-It will have the following URL parameters:
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+| `storeItemId` | integer       | Yes      | Id of the store item to remove |
 
-```
-store_item_id: {item id of store item to delete}
+### Headers
 
-```
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
-This will return a response with the following json. It has users remaining credits, and a list of all their purchased store items
+### Responses
 
-```
-{
-  "credits": {users remaining credits},
-  "game_user_store_items": [
-      {
-          "id": {purchased item 1 id},
-          "name": {purchased item 1 name},
-          "cost": {purchased item 1 cost},
-          "description": "{purchased item 1 description},
-          "category": {purchased item 1 category},
-          "icon_url": {linked image url for purchased item 1}
-      },
-      {
-          "id": {purchased item 2 id},
-          "name": {purchased item 2 name},
-          "cost": {purchased item 2 cost},
-          "description": "{purchased item 2 description},
-          "category": {purchased item 2 category},
-          "icon_url": {linked image url for purchased item 2}
-      },
-      ...
-  ]
-}
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the game store items belonging to the user and the credits |
+| `404`              | text/plain | Item not found or not previously purchased |
+| `500`              | text/plain | Unknown server error |
 
-```
+### Response object
 
-```
-* 404 - Store item does not exist, or was not purchase
-* 500 - unknown server error
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `credits`                | integer | The user's remaining credits |
+| `store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
 
-```
+### Example
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/purchase_game_user_store_item?store_item_id=337"
+    ```
+
+    #### Response
+
+    ```json
+    {
+      "credits": 135,
+      "store_items": [
+        {
+          "id": 337,
+          "name": "test",
+          "cost": 123,
+          "description": "a test item",
+          "category": "generic",
+          "icon_url": null
+        },
+        {
+          "id": 338,
+          "name": "test 2",
+          "cost": 321,
+          "description": "another test item",
+          "category": "main",
+          "icon_url": null
+        }
+      ]
+    }
+    ```
 
 ## Getting Purchased Store Items
 
-To check out all of the users purchased store items
+### Scope
 
-```
-https://gamefuse.co/api/v2/users/{signed in user id}/game_user_store_items
+Get all of the user's purchased store items.
 
-```
+!!! important
+    A user must be signed in and have enough credits to call this endpoint! 
 
-It will have the following Headers:
+### Method
 
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/game_user_store_items
+    ```
 
-```
+### Attributes
 
-This will return a response with the following json. It has users remaining credits, and a list of all their purchased store items
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
-```
-{
-  "credits": {users remaining credits},
-  "game_user_store_items": [
-      {
-          "id": {purchased item 1 id},
-          "name": {purchased item 1 name},
-          "cost": {purchased item 1 cost},
-          "description": "{purchased item 1 description},
-          "category": {purchased item 1 category},
-          "icon_url": {linked image url for purchased item 1}
-      },
-      {
-          "id": {purchased item 2 id},
-          "name": {purchased item 2 name},
-          "cost": {purchased item 2 cost},
-          "description": "{purchased item 2 description},
-          "category": {purchased item 2 category},
-          "icon_url": {linked image url for purchased item 2}
-      },
-      ...
-  ]
-}
+### Headers
 
-```
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
-```
-* 500 - unknown server error
-```
+### Responses
+
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the game store items belonging to the user and the credits |
+| `500`              | text/plain | Unknown server error |
+
+### Response object
+
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `credits`                | integer | The user's remaining credits |
+| `store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
+
+### Example
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/game_user_store_items"
+    ```
+
+    #### Response
+
+    ```json
+    {
+      "credits": 135,
+      "store_items": [
+        {
+          "id": 337,
+          "name": "test",
+          "cost": 123,
+          "description": "a test item",
+          "category": "generic",
+          "icon_url": null
+        },
+        {
+          "id": 338,
+          "name": "test 2",
+          "cost": 321,
+          "description": "another test item",
+          "category": "main",
+          "icon_url": null
+        }
+      ]
+    }
+    ```

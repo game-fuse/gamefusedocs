@@ -22,7 +22,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
 | `checksum`               | string        | Yes      | Checksum of custom data (extra data) to save to the leaderboard entry |
 | `leaderboardName`        | string       | Yes      | Leaderboard name within the game |
 | `score`                  | integer      | Yes      | Score for the leaderboard |
-| `signedInUserId`         | integer       | Yes      | The user id |
+| `signedInUserId`         | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Headers
 
@@ -105,7 +105,7 @@ Clear all leaderboard entries for a specific user.
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `signedInUserId` | integer       | Yes      | The user id |
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Headers
 
@@ -269,7 +269,7 @@ Get all leaderboard entries for a specific user.
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `signedInUserId` | integer       | Yes      | The user id |
+| `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Headers
 
