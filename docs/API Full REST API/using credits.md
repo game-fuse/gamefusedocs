@@ -151,7 +151,7 @@ Set the absolute amount of credits a users has.
     ```shell
     curl --request POST \
         --header "Authentication-Token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/add_credits?credits=10"
+        "https://gamefuse.co/api/v2/users/1/set_credits?credits=10"
     ```
 
     #### Response
