@@ -1,100 +1,175 @@
-Credits are a numeric attribute of each game user. It is a simple integer value. You can add them manually and they are detracted automatically upon store item purchases. You can manually add and remove them via an API call, in addition to purchasing store items with them.
+Credits are a numeric attribute of each game user. It is a simple integer value
+that you can add manually.
+
+Credits are automatically detracted upon store item purchases. You can manually
+add and remove them via an API call.
 
 ## Adding Credits
 
-To alter the amount of credits a users has relativly, use:
+### Scope
 
-```
-https://gamefuse.co/api/v2/users/{signed in user id}/add_credits?credits={credits to add}
+Alter the relative amount of credits a users has.
 
-```
+### Method
 
-It will have the following Headers:
+!!! info annotate "POST"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/add_credits?credits={credits}
+    ```
 
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
+### Attributes
 
-```
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `credits`        | integer       | Yes      | The amount of credits (positive or negative) you want to alter the user's current credits by |
+| `signedInUserId` | integer       | Yes      | The user id |
 
-It will have the following URL parameters:
+### Headers
 
-```
-credits: {the amount of credits positive or negative you want to alter the users current credits by}
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
-```
+### Responses
 
-This will return a response with the following json. It has users remaining credits, and a list of all their purchased store items
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the user's remaining credits and a list of all their purchased store items |
+| `400`              | text/plain | `credits` attribute missing |
+| `500`              | text/plain | Unknown server error |
 
-```
-{
-  "id": {users id},
-  "username": {users display username},
-  "email": {system email - a combination of game id and email},
-  "display_email": {users actual email, used for notifications and login}
-  "credits": {number of credits user has, these can be used in your in game store},
-  "score": {a generic score metric that you can use},
-  "last_login": {timestamp of last login},
-  "number_of_logins": {total logins},
-  "authentication_token": {authentication token, this must be saved and added as a parameter to all authenticated requests},
-  "events_total": {running api hits for this user},
-  "events_current_month": {running api hits for this user for this month},
-  "game_sessions_total": {unique game session for this user},
-  "game_sessions_current_month": {unique game session for this user for this month}
-}
+### Response object
 
-```
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `authentication_token`            | string | Token that must be saved and added as a parameter to all authenticated requests |
+| `credits`                         | integer | Number of credits the user has. These can be used in your in game store |
+| `display_email`                   | string  | User's actual email used for notifications and login |
+| `email`                           | string  | System email: a combination of `id` and `email` |
+| `events_total`                    | integer | Running API hits for this user |
+| `events_current_month`            | integer | Running API hits for this user for the current month |
+| `game_sessions_current_month`     | integer | unique game session for this user during the current month |
+| `game_sessions_total`             | integer | Unique game session for this user |
+| `id`                              | integer | User's id |
+| `last_login`                      | string | Timestamp of last login |
+| `number_of_logins`                | integer | Total logins |
+| `score`                           | integer | A generic score metric |
+| `username`                        | string  | User's display username |
 
-```
-* 400 - Please include a credits param
-* 500 - unknown server error
+### Examples
 
-```
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request POST \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/add_credits?credits=10"
+    ```
+
+    #### Response
+
+    ```json
+    {
+        "id": 1,
+        "username": "some_username",
+        "email": "_appid_1_john.doe@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 10,
+        "score": 0,
+        "last_login": "2024-07-21T14:23:37.457-04:00",
+        "number_of_logins": 0,
+        "authentication_token": "abc123",
+        "events_total": 0,
+        "events_current_month": 0,
+        "game_sessions_total": 0,
+        "game_sessions_current_month": 0
+    }
+    ```
 
 ## Setting Credits
 
-To set the amount of credits a users has absolutly, meaning the credits param will be the users new credits total, use:
+### Scope
 
-```
-https://gamefuse.co/api/v2/users/{signed in user id}/set_credits?credits={credits to add}
+Set the absolute amount of credits a users has.
 
-```
+!!! note
+    The `credits` parameter you set here will be new total credit amount
+    of the user.
 
-It will have the following Headers:
+### Method
 
-```
-authentication_token: {found in sign_in or sign_up response, authentication token for user session}
+!!! info annotate "POST"
+    ```plaintext
+    /api/v2/users/{signedInUserId}/set_credits?credits={credits}
+    ```
 
-```
+### Attributes
 
-It will have the following URL parameters:
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `credits`        | integer       | Yes      | The amount of credits a user will have |
+| `signedInUserId` | integer       | Yes      | The user id |
 
-```
-credits: {the amount of credits a user will now have}
+### Headers
 
-```
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
-This will return a response with the following json:
+### Responses
 
-```
-{
-  "id": {users id},
-  "username": {users display username},
-  "email": {system email - a combination of game id and email},
-  "display_email": {users actual email, used for notifications and login}
-  "credits": {number of credits user has, these can be used in your in game store},
-  "score": {a generic score metric that you can use},
-  "last_login": {timestamp of last login},
-  "number_of_logins": {total logins},
-  "authentication_token": {authentication token, this must be saved and added as a parameter to all authenticated requests},
-  "events_total": {running api hits for this user},
-  "events_current_month": {running api hits for this user for this month},
-  "game_sessions_total": {unique game session for this user},
-  "game_sessions_current_month": {unique game session for this user for this month}
-}
+| HTTP status code | content-type | Description |
+|------------------|--------------|-------------|
+| `200`              | application/json         | Object containing the user's remaining credits and a list of all their purchased store items |
+| `400`              | text/plain | `credits` attribute missing |
+| `500`              | text/plain | Unknown server error |
 
-```
+### Response object
 
-```
-* 400 - Please include a credits param
-* 500 - unknown server error
-```
+| Attribute name                    | Type | Description |
+|-----------------------------------|------|-------------|
+| `authentication_token`            | string | Token that must be saved and added as a parameter to all authenticated requests |
+| `credits`                         | integer | Number of credits the user has. These can be used in your in game store |
+| `display_email`                   | string  | User's actual email used for notifications and login |
+| `email`                           | string  | System email: a combination of `id` and `email` |
+| `events_total`                    | integer | Running API hits for this user |
+| `events_current_month`            | integer | Running API hits for this user for the current month |
+| `game_sessions_current_month`     | integer | unique game session for this user during the current month |
+| `game_sessions_total`             | integer | Unique game session for this user |
+| `id`                              | integer | User's id |
+| `last_login`                      | string | Timestamp of last login |
+| `number_of_logins`                | integer | Total logins |
+| `score`                           | integer | A generic score metric |
+| `username`                        | string  | User's display username |
+
+### Examples
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request POST \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/add_credits?credits=10"
+    ```
+
+    #### Response
+
+    ```json
+    {
+        "id": 1,
+        "username": "some_username",
+        "email": "_appid_1_john.doe@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 10,
+        "score": 0,
+        "last_login": "2024-07-21T14:23:37.457-04:00",
+        "number_of_logins": 0,
+        "authentication_token": "abc123",
+        "events_total": 0,
+        "events_current_month": 0,
+        "game_sessions_total": 0,
+        "game_sessions_current_month": 0
+    }
+    ```

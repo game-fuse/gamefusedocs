@@ -75,7 +75,7 @@ None
     {
         "id": 1,
         "username": "some_username",
-        "email": "_appid_1_john.doe-1@example.com",
+        "email": "_appid_1_john.doe@example.com",
         "display_email": "john.doe@example.com",
         "credits": 0,
         "score": 0,

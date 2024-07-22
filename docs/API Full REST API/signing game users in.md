@@ -7,6 +7,10 @@ a later time.
 
 Make users log-in.
 
+!!! important
+    This step returns the `Authentication-Token` HTTP header which is to be
+    used for most API requests.
+
 ### Method
 
 !!! info annotate "POST"
