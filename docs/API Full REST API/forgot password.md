@@ -17,9 +17,10 @@ Resets a user's password.
 
 ### Method
 
-```plaintext
-GET /api/v1/games/{gameId}/forget_password?email={email}&game_id={gameId}&game_token={gameToken}
-```
+!!! info annotate "GET"
+    ```plaintext
+    /api/v1/games/{gameId}/forget_password?email={email}&game_id={gameId}&game_token={gameToken}
+    ```
 
 ### Attributes
 
@@ -51,22 +52,25 @@ GET /api/v1/games/{gameId}/forget_password?email={email}&game_id={gameId}&game_t
 | `mailer_response`                 | string | Details of the emailer |
 | `message`                         | string | Message confirming email was sent or with information that the user does not exists |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET \
-    --header "Authentication-Token: abc123" \
-    "https://gamefuse.co/api/v1/games/1/forget_password?email=john.doe@example.com&game_id=1&game_token=abc123"
-```
+!!! example
+    ### cURL
 
-### Example response
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        "https://gamefuse.co/api/v1/games/1/forget_password?email=john.doe@example.com&game_id=1&game_token=abc123"
+    ```
 
-```json
-{
-    "mailer_response": "Some Sender",
-    "message": "password reset email sent"
-}
-```
+    ### Response
+
+    ```json
+    {
+        "mailer_response": "Some Sender",
+        "message": "password reset email sent"
+    }
+    ```
 
 ### User Experience
 

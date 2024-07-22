@@ -13,9 +13,10 @@ Verify your game at GameFuse.
 
 ### Method
 
-```plaintext
-GET /api/v2/games/verify?game_id={gameId}&game_token={gameToken}
-```
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/games/verify?game_id={gameId}&game_token={gameToken}
+    ```
 
 ### Attributes
 
@@ -48,37 +49,40 @@ GET /api/v2/games/verify?game_id={gameId}&game_token={gameToken}
 | `name`                      | string  | Name of the game |
 | `token`                     | string  | API token of the game |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET \
-    --header "Authentication-Token: abc123" \
-    'https://gamefuse.co/api/v2/games/verify?game_id=1&game_token=cde456'
-```
+!!! example
+    #### cURL
 
-### Example response
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        'https://gamefuse.co/api/v2/games/verify?game_id=1&game_token=cde456'
+    ```
 
-```json
-{
-    "id": 1,
-    "name": "my game",
-    "token": "abc123",
-    "description": "This is a new game",
-    "game_variables": [
-    {
-        "id": 0,
-        "key": "this_key",
-        "value": "this_value"
-    },
+    #### Response
+
+    ```json
     {
         "id": 1,
-        "key": "other_key",
-        "value": "other_value"
-    },
-    ...
-    ]
-}
-```
+        "name": "my game",
+        "token": "abc123",
+        "description": "This is a new game",
+        "game_variables": [
+        {
+            "id": 0,
+            "key": "this_key",
+            "value": "this_value"
+        },
+        {
+            "id": 1,
+            "key": "other_key",
+            "value": "other_value"
+        },
+        ...
+        ]
+    }
+    ```
 
 ## Game Variables
 
@@ -91,9 +95,10 @@ Retrieve game data.
 
 ### Method
 
-```plaintext
-GET /api/v2/games/fetch_game_variables?game_id={gameId}&game_token={gameToken}
-```
+!!! info annotate "GET"
+    ```plaintext
+    /api/v2/games/fetch_game_variables?game_id={gameId}&game_token={gameToken}
+    ```
 
 ### Attributes
 
@@ -126,35 +131,37 @@ GET /api/v2/games/fetch_game_variables?game_id={gameId}&game_token={gameToken}
 | `name`                      | string  | Name of the game |
 | `token`                     | string  | API token of the game |
 
-### Example cURL
+### Examples
 
-```shell
-curl --request GET \
-    --header "Authentication-Token: abc123" \
-    'https://gamefuse.co/api/v2/games/fetch_game_variables?game_id=1&game_token=cde456'
-```
+!!! example
+    #### cURL
 
-### Example response
+    ```shell
+    curl --request GET \
+        --header "Authentication-Token: abc123" \
+        'https://gamefuse.co/api/v2/games/fetch_game_variables?game_id=1&game_token=cde456'
+    ```
 
-```json
-{
-    "id": 1,
-    "name": "my game",
-    "token": "abc123",
-    "description": "This is a new game",
-    "game_variables": [
-    {
-        "id": 0,
-        "key": "this_key",
-        "value": "this_value"
-    },
+    #### Response
+
+    ```json
     {
         "id": 1,
-        "key": "other_key",
-        "value": "other_value"
-    },
-    ...
-    ]
-}
-```
-
+        "name": "my game",
+        "token": "abc123",
+        "description": "This is a new game",
+        "game_variables": [
+        {
+            "id": 0,
+            "key": "this_key",
+            "value": "this_value"
+        },
+        {
+            "id": 1,
+            "key": "other_key",
+            "value": "other_value"
+        },
+        ...
+        ]
+    }
+    ```
