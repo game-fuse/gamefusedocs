@@ -106,7 +106,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -131,7 +131,7 @@ None
 
     ```shell
     curl --request GET \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         "https://gamefuse.co/api/v2/users/1/purchase_game_user_store_item?store_item_id=337"
     ```
 
@@ -192,7 +192,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -216,7 +216,7 @@ None
 
     ```shell
     curl --request GET \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         "https://gamefuse.co/api/v2/users/1/purchase_game_user_store_item?store_item_id=337"
     ```
 
@@ -276,7 +276,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -299,7 +299,7 @@ None
 
     ```shell
     curl --request GET \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         "https://gamefuse.co/api/v2/users/1/game_user_store_items"
     ```
 

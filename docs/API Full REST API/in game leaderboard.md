@@ -35,7 +35,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -71,7 +71,7 @@ None
 
     ```shell
     curl --request POST \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry?score=21&leaderboard_name=leaderboard%20test"
     ```
 
@@ -122,7 +122,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -157,7 +157,7 @@ None
 
     ```shell
     curl --request POST \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         "https://gamefuse.co/api/v2/users/1/clear_my_leaderboard_entries"
     ```
 
@@ -216,7 +216,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -239,7 +239,7 @@ None
 
     ```shell
     curl --request GET \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         "https://gamefuse.co/api/v2/games/1/leaderboard_entries?leaderboard_name=some_leaderboard_name"
     ```
 
@@ -294,7 +294,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -311,7 +311,7 @@ None
 
     ```shell
     curl --request GET \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         "https://gamefuse.co/api/v2/users/1/leaderboard_entries"
     ```
 

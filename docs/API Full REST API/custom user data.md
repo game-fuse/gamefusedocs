@@ -34,7 +34,7 @@ Alters the amount of scores a users has relatively
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 | `Content-Type`         | string | Set it to `application/json` |
 
 ### Responses
@@ -70,7 +70,7 @@ Alters the amount of scores a users has relatively
 
     ```shell
     curl --request POST \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
         --data '{"score": 10}' \
         "https://gamefuse.co/api/v2/users/1/add_score"
@@ -125,7 +125,7 @@ Set the absolute amount of scores a user has. The scores param will be the user'
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -160,7 +160,7 @@ Set the absolute amount of scores a user has. The scores param will be the user'
 !!! example
     ```shell
     curl --request POST \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
         --data '{"score": 10}' \
         "https://gamefuse.co/api/v2/users/1/set_score"
@@ -217,7 +217,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -240,7 +240,7 @@ None
 
     ```shell
     curl --request POST \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?key=some%20key&value=my%20value'
     ```
 
@@ -296,7 +296,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -319,7 +319,7 @@ None
 
     ```shell
     curl --request GET \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?key=some%20key'
     ```
 
@@ -369,7 +369,7 @@ None
 
 | Name | Type | Description |
 |----------|---------|--------------|
-| `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
@@ -391,7 +391,7 @@ None
 
     ```shell
     curl --request GET \
-        --header "Authentication-Token: abc123" \
+        --header "authentication-token: abc123" \
         'https://gamefuse.co/api/v2/users/1/game_user_attributes'
     ```
 

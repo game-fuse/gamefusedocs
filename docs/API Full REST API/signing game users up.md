@@ -8,7 +8,7 @@ You will need them on each subsequent request.
 Sign up a new user in your game.
 
 !!! important
-    This step returns the `Authentication-Token` HTTP header which is to be
+    This step returns the `authentication-token` HTTP header which is to be
     used for most API requests.
 
 ### Method
