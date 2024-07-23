@@ -15,21 +15,27 @@ Alters the amount of scores a users has relatively
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_scores?scores={scores}
+    /api/v2/users/{signedInUserId}/add_score
     ```
 
 ### Attributes
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `scores`         | integer       | Yes      | The amount of scores positive or negative you want to alter the users current scores by |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+
+### Data (payload)
+
+| Name | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `score`         | integer       | Yes      | The amount of scores positive or negative you want to alter the users current scores by |
 
 ### Headers
 
 | Name | Type | Description |
 |----------|---------|--------------|
 | `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `Content-Type`         | string | Set it to `application/json` |
 
 ### Responses
 
@@ -63,7 +69,11 @@ Alters the amount of scores a users has relatively
     #### cURL
 
     ```shell
-    curl --request POST --header "Authentication-Token: abc123" "https://gamefuse.co/api/v2/users/1/add_scores?&scores=4"
+    curl --request POST \
+        --header "Authentication-Token: abc123" \
+        --header "Content-Type: application/json" \
+        --data '{"score": 10}' \
+        "https://gamefuse.co/api/v2/users/1/add_score"
     ```
 
     #### Response
@@ -72,7 +82,7 @@ Alters the amount of scores a users has relatively
     {
         "id": 1,
         "username": "some_username",
-        "email": "john.doe-1@example.com",
+        "email": "_appid_1_john.doe@example.com",
         "display_email": "john.doe@example.com",
         "credits": 125,
         "score": 10134,
@@ -96,15 +106,20 @@ Set the absolute amount of scores a user has. The scores param will be the user'
 
 !!! info annotate "POST"                                                        
     ```plaintext
-    /api/v2/users/{signedInUserId}/set_scores?&scores={scores}
+    /api/v2/users/{signedInUserId}/set_score
     ```
 
 ### Attributes
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `scores`         | integer       | Yes      | The amount of scores the user will now have |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+
+### Data (payload)
+
+| Name | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `score`         | integer       | Yes      | The amount of scores the user will now have |
 
 ### Headers
 
@@ -144,7 +159,11 @@ Set the absolute amount of scores a user has. The scores param will be the user'
 
 !!! example
     ```shell
-    curl --request POST --header "Authentication-Token: abc123" "https://gamefuse.co/api/v2/users/1/set_scores?&scores=4"
+    curl --request POST \
+        --header "Authentication-Token: abc123" \
+        --header "Content-Type: application/json" \
+        --data '{"score": 10}' \
+        "https://gamefuse.co/api/v2/users/1/set_score"
     ```
 
     #### Response
@@ -153,10 +172,10 @@ Set the absolute amount of scores a user has. The scores param will be the user'
     {
         "id": 1,
         "username": "some_username",
-        "email": "john.doe-1@example.com",
+        "email": "_appid_1_john.doe@example.com",
         "display_email": "john.doe@example.com",
         "credits": 125,
-        "score": 10134,
+        "score": 10,
         "last_login": "2022-01-15T10:30:00Z",
         "number_of_logins": 34,
         "authentication_token": "abc123",
@@ -185,10 +204,10 @@ format but can be converted into any type by the programming language in use.
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `attributes`     | JSON string   | Yes      | a JSON object useful for batch updating     |
 | `key`            | string        | Yes      | The key of the data to save                 |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 | `value`          | string        | Yes      | The value of the data to save               |
+| `attributes`     | JSON string   | No      | a JSON object useful for batch updating     |
 
 ### Headers
 
@@ -218,7 +237,7 @@ format but can be converted into any type by the programming language in use.
     ```shell
     curl --request POST \
         --header "Authentication-Token: abc123" \
-        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?key=some_key&value=my_value&attributes="[{"key": "k0", "value": "v0"}, {"key": "k1", "value": "v1"}]"'
+        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?key=some%20key&value=my%20value'
     ```
 
     #### Response
@@ -236,7 +255,11 @@ format but can be converted into any type by the programming language in use.
               "key": "other_key",
               "value": "other_value"
           },
-          ...
+          {
+              "id": 2,
+              "key": "some key",
+              "value": "some value"
+          }
       ]
     }
     ```
@@ -289,7 +312,7 @@ Remove an arbitrary custom attribute.
     ```shell
     curl --request GET \
         --header "Authentication-Token: abc123" \
-        'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?key="key_12"'
+        'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?key=some%20key'
     ```
 
     #### Example response
@@ -306,8 +329,7 @@ Remove an arbitrary custom attribute.
               "id": 1,
               "key": "other_key",
               "value": "other_value"
-          },
-          ...
+          }
       ]
     }
     ```
@@ -376,7 +398,11 @@ Get all custom attributes of a user.
               "key": "other_key",
               "value": "other_value"
           },
-          ...
+          {
+              "id": 2,
+              "key": "some key",
+              "value": "some value"
+          }
       ]
     }
-    ```
+   ```

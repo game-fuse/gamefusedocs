@@ -11,6 +11,12 @@ Make users log-in.
     This step returns the `Authentication-Token` HTTP header which is to be
     used for most API requests.
 
+!!! tip
+    If you get a message like `Request missing user authentication token`
+    from other API endpoints that require the `Authentication-Token` header,
+    try connecting to this endpoint again and use the newly generated 
+    `authentication_token` string.
+
 ### Method
 
 !!! info annotate "POST"

@@ -67,8 +67,8 @@ Resets a user's password.
 
     ```json
     {
-        "mailer_response": "Some Sender",
-        "message": "password reset email sent"
+        "mailer_response": null,
+        "message": "Email sent to john.doe@example.com"
     }
     ```
 
