@@ -31,6 +31,10 @@ Verify your game at GameFuse.
 |----------|---------|--------------|
 | `Authentication-Token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
+### Data (payload)
+
+None
+
 ### Responses
 
 | HTTP status code | content-type | Description |
@@ -106,6 +110,10 @@ Retrieve game data.
 |------------------|---------------|----------|-------------|
 | `gameId`         | integer       | Yes      | Value found on your GameFuse.co dashboard |
 | `gameToken`      | string        | Yes      | API token found on your GameFuse.co dashboard |
+
+### Data (payload)
+
+None
 
 ### Headers
 

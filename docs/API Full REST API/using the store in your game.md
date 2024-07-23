@@ -18,6 +18,10 @@ Get all the store items from a specific game.
 | `gameId` | Value found on your GameFuse.co dashboard |
 | `gameToken`      | string        | Yes      | API token found on your GameFuse.co dashboard |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 None
@@ -93,6 +97,10 @@ Purchase a store item.
 |------------------|---------------|----------|-------------|
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 | `storeItemId` | integer       | Yes      | Id of the store item |
+
+### Data (payload)
+
+None
 
 ### Headers
 
@@ -176,6 +184,10 @@ Revoke a store item purchase.
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 | `storeItemId` | integer       | Yes      | Id of the store item to remove |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 | Name | Type | Description |
@@ -255,6 +267,10 @@ Get all of the user's purchased store items.
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+
+### Data (payload)
+
+None
 
 ### Headers
 

@@ -33,6 +33,10 @@ Make users log-in.
 | `gameToken`      | string        | Yes      | API token found on your GameFuse.co dashboard |
 | `password`       | string        | Yes      | User's password |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 None

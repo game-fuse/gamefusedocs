@@ -15,14 +15,21 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
     /api/v2/users/{signedInUserId}/add_leaderboard_entry?score={score}&leaderboard_name={leaderboardName}&extra_attributes={checksum}
     ```
 
+!!! important
+    The `extra_attributes` parameters is not required
+
 ### Attributes
 
 | Name                     | Type          | Required | Description |
 |--------------------------|---------------|----------|-------------|
-| `checksum`               | string        | Yes      | Checksum of custom data (extra data) to save to the leaderboard entry |
 | `leaderboardName`        | string       | Yes      | Leaderboard name within the game |
 | `score`                  | integer      | Yes      | Score for the leaderboard |
 | `signedInUserId`         | integer       | Yes      | The user id value from the GameFuse game dashboard |
+| `checksum`               | string        | No      | Checksum of custom data (extra data) to save to the leaderboard entry |
+
+### Data (payload)
+
+None
 
 ### Headers
 
@@ -65,7 +72,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
     ```shell
     curl --request POST \
         --header "Authentication-Token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry?score=21&leaderboard_name=leaderboard&extra_attributes=bc125ad76"
+        "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry?score=21&leaderboard_name=leaderboard%20test"
     ```
 
     #### Response
@@ -106,6 +113,10 @@ Clear all leaderboard entries for a specific user.
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+
+### Data (payload)
+
+None
 
 ### Headers
 
@@ -197,6 +208,10 @@ Get leaderboard entries for a specific leaderboard name.
 | `gameId`         | integer       | Yes      | Found on your GameFuse.co dashboard |
 | `leaderboardName` | string       | Yes     | Name of the leaderboard within the game |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 | Name | Type | Description |
@@ -270,6 +285,10 @@ Get all leaderboard entries for a specific user.
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+
+### Data (payload)
+
+None
 
 ### Headers
 

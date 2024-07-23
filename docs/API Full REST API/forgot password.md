@@ -30,6 +30,10 @@ Resets a user's password.
 | `gameToken`      | string        | Yes      | API token found on your GameFuse.co dashboard | 
 | `email`          | string        | Yes      | Email address of user to send the forgot password form to |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 | Name | Type | Description |

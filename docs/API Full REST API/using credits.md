@@ -24,6 +24,10 @@ Alter the relative amount of credits a users has.
 | `credits`        | integer       | Yes      | The amount of credits (positive or negative) you want to alter the user's current credits by |
 | `signedInUserId` | integer       | Yes      |  The user id value from the GameFuse game dashboard |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 | Name | Type | Description |
@@ -110,6 +114,10 @@ Set the absolute amount of credits a users has.
 |------------------|---------------|----------|-------------|
 | `credits`        | integer       | Yes      | The amount of credits a user will have |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+
+### Data (payload)
+
+None
 
 ### Headers
 

@@ -29,6 +29,10 @@ Sign up a new user in your game.
 | `passwordConfirmation`   | string        | Yes      | Same as `password` |
 | `username` | string | Yes | User's display name used on leaderboards. It must be unique for your game |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 None

@@ -209,6 +209,10 @@ format but can be converted into any type by the programming language in use.
 | `value`          | string        | Yes      | The value of the data to save               |
 | `attributes`     | JSON string   | No      | a JSON object useful for batch updating     |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 | Name | Type | Description |
@@ -284,6 +288,10 @@ Remove an arbitrary custom attribute.
 | `key`            | string        | Yes      | The key of the data to remove |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
+### Data (payload)
+
+None
+
 ### Headers
 
 | Name | Type | Description |
@@ -352,6 +360,10 @@ Get all custom attributes of a user.
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+
+### Data (payload)
+
+None
 
 ### Headers
 
