@@ -320,7 +320,7 @@ Get all leaderboard entries for a specific user.
 | `leaderboardName` | string       | Yes     | Name of the leaderboard within the game |
 | `limit`          | integer       | Yes      | Limit the number of results. Set this value >= 1 |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
-| `onePerUser`     | boolean       | No       | |
+| `onePerUser`     | boolean       | No       | If set to `true` get only one result per player on the leaderboard |
 
 ### Data (payload)
 
