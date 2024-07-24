@@ -324,14 +324,14 @@ Remove an arbitrary custom attribute.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/users/{signedInUserId}/remove_game_user_attribute?key={key}
+    /api/v2/users/{signedInUserId}/remove_game_user_attribute?game_user_attribute_key={gameUserAttributeKey}
     ```
 
 ### Attributes
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `key`            | string        | Yes      | The key of the data to remove |
+| `gameUserAttributeKey`           | string        | Yes      | The key of the data to remove |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Data (payload)
@@ -366,7 +366,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?key=some%20key'
+        'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?game_user_attribute_key=some%20key'
     ```
 
     #### Example response
