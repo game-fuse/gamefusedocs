@@ -12,7 +12,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_leaderboard_entry?score={score}&leaderboard_name={leaderboardName}&extra_attributes={checksum}
+    /api/v2/users/{signedInUserId}/add_leaderboard_entry
     ```
 
 !!! important
@@ -22,14 +22,15 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
 
 | Name                     | Type          | Required | Description |
 |--------------------------|---------------|----------|-------------|
-| `leaderboardName`        | string       | Yes      | Leaderboard name within the game |
-| `score`                  | integer      | Yes      | Score for the leaderboard |
 | `signedInUserId`         | integer       | Yes      | The user id value from the GameFuse game dashboard |
-| `checksum`               | string        | No      | Checksum of custom data (extra data) to save to the leaderboard entry |
 
 ### Data (payload)
 
-None
+| Name                     | Type          | Required | Description |
+|--------------------------|---------------|----------|-------------|
+| `leaderboardName`        | string       | Yes      | Leaderboard name within the game |
+| `score`                  | integer      | Yes      | Score for the leaderboard |
+| `extra_attributes`       | object       | No       | An object containing arbitrary attributes |
 
 ### Headers
 
@@ -72,7 +73,8 @@ None
     ```shell
     curl --request POST \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry?score=21&leaderboard_name=leaderboard%20test"
+        --data '{"score": 21, "leaderboard_name": "leaderboard test", "extra_attributes": "{\"level\": \"l0\", \"color\": \"blue\"}"}' \
+        "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry"
     ```
 
     #### Response
@@ -80,8 +82,38 @@ None
     ```json
     {
         "id": 1,
-        "username": "some_username",
-        "email": "john.doe-1@example.com",
+        "username": "john.doe",
+        "email": "_appid_1_john.doe@example.com",
+        "display_email": "john.doe@example.com",
+        "credits": 125,
+        "score": 10134,
+        "last_login": "2022-01-15T10:30:00Z",
+        "number_of_logins": 34,
+        "authentication_token": "abc123",
+        "events_total": 15,
+        "events_current_month": 7,
+        "game_sessions_total": 51,
+        "game_sessions_current_month": 9
+    }
+    ```
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request POST \
+        --header "authentication-token: abc123" \
+        --data '{"score": 21, "leaderboard_name": "leaderboard test"}' \
+        "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry"
+    ```
+
+    #### Response
+
+    ```json
+    {
+        "id": 1,
+        "username": "john.doe",
+        "email": "_appid_1_john.doe@example.com",
         "display_email": "john.doe@example.com",
         "credits": 125,
         "score": 10134,
@@ -166,8 +198,8 @@ None
     ```json
     {
         "id": 1,
-        "username": "some_username",
-        "email": "john.doe-1@example.com",
+        "username": "john.doe",
+        "email": "_appid_1_john.doe@example.com",
         "display_email": "john.doe@example.com",
         "credits": 125,
         "score": 10134,

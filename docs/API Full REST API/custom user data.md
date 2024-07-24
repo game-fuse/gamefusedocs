@@ -197,7 +197,7 @@ format but can be converted into any type by the programming language in use.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_game_user_attribute?key={key}&value={value}&attributes={attributes}
+    /api/v2/users/{signedInUserId}/add_game_user_attribute?key={key}&value={value}
     ```
 
 ### Attributes
@@ -207,11 +207,12 @@ format but can be converted into any type by the programming language in use.
 | `key`            | string        | Yes      | The key of the data to save                 |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 | `value`          | string        | Yes      | The value of the data to save               |
-| `attributes`     | JSON string   | No      | a JSON object useful for batch updating     |
 
 ### Data (payload)
 
-None
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `attributes`     | list          | No       | A list of `key`-`value` attributes useful for batch updating |
 
 ### Headers
 
@@ -263,6 +264,50 @@ None
               "id": 2,
               "key": "some key",
               "value": "some value"
+          }
+      ]
+    }
+    ```
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request POST \
+        --header "authentication-token: abc123" \
+        --data '{"attributes": [{"key":"k0","value":"v0"},{"key":"k1","value":"v1"}]}' \
+        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?key=some%20key&value=my%20value'
+    ```
+
+    #### Response
+
+    ```json
+    {
+      "game_user_attributes": [
+          {
+              "id": 0,
+              "key": "this_key",
+              "value": "this_value"
+          },
+          {
+              "id": 1,
+              "key": "other_key",
+              "value": "other_value"
+          },
+          {
+              "id": 2,
+              "key": "some key",
+              "value": "some value"
+          },
+          {
+              "id": 3,
+              "key": "k0",
+              "value": "v0"
+          },
+          {
+              "id": 4,
+              "key": "k1",
+              "value": "v1"
           }
       ]
     }
