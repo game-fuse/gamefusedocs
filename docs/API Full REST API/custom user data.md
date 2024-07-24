@@ -275,6 +275,7 @@ format but can be converted into any type by the programming language in use.
     ```shell
     curl --request POST \
         --header "authentication-token: abc123" \
+        --header "Content-Type: application/json" \
         --data '{"attributes": [{"key":"k0","value":"v0"},{"key":"k1","value":"v1"}]}' \
         'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?key=some%20key&value=my%20value'
     ```

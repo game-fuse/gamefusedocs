@@ -86,9 +86,9 @@ Purchase a store item.
 
 ### Method
 
-!!! info annotate "GET"
+!!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/purchase_game_user_store_item?store_item_id={storeItemId}
+    /api/v2/users/{signedInUserId}/purchase_game_user_store_item
     ```
 
 ### Attributes
@@ -96,11 +96,12 @@ Purchase a store item.
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
-| `storeItemId` | integer       | Yes      | Id of the store item |
 
 ### Data (payload)
 
-None
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `store_item_id` | integer       | Yes      | Id of the store item |
 
 ### Headers
 
@@ -131,8 +132,10 @@ None
 
     ```shell
     curl --request GET \
+        --header "Content-Type: application/json" \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/purchase_game_user_store_item?store_item_id=337"
+        --data '{"store_item_id": 337}' \
+        'https://gamefuse.co/api/v2/users/1/purchase_game_user_store_item'
     ```
 
     #### Response

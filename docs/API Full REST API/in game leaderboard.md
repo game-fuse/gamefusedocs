@@ -15,9 +15,6 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
     /api/v2/users/{signedInUserId}/add_leaderboard_entry
     ```
 
-!!! important
-    The `extra_attributes` parameters is not required
-
 ### Attributes
 
 | Name                     | Type          | Required | Description |
@@ -73,6 +70,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
     ```shell
     curl --request POST \
         --header "authentication-token: abc123" \
+        --header "Content-Type: application/json" \
         --data '{"score": 21, "leaderboard_name": "leaderboard test", "extra_attributes": "{\"level\": \"l0\", \"color\": \"blue\"}"}' \
         "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry"
     ```
@@ -103,6 +101,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
     ```shell
     curl --request POST \
         --header "authentication-token: abc123" \
+        --header "Content-Type: application/json" \
         --data '{"score": 21, "leaderboard_name": "leaderboard test"}' \
         "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry"
     ```
@@ -223,7 +222,7 @@ Get leaderboard entries for a specific leaderboard name.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/games/{gameId}/leaderboard_entries?leaderboard_name={leaderboardName}
+    /api/v2/games/{gameId}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}
     ```
 
 !!! important
@@ -239,6 +238,7 @@ Get leaderboard entries for a specific leaderboard name.
 |------------------|---------------|----------|-------------|
 | `gameId`         | integer       | Yes      | Found on your GameFuse.co dashboard |
 | `leaderboardName` | string       | Yes     | Name of the leaderboard within the game |
+| `limit`          | integer       | Yes      | Limit the number of results. Set this value >= 1 |
 
 ### Data (payload)
 
@@ -272,7 +272,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/games/1/leaderboard_entries?leaderboard_name=some_leaderboard_name"
+        "https://gamefuse.co/api/v2/games/1/leaderboard_entries?leaderboard_name=leaderboard_for_game_1&limit=10"
     ```
 
     #### Response
@@ -285,16 +285,17 @@ None
               "score": 1453,
               "leaderboard_name": "leaderboard_for_game_1",
               "game_user_id": 1,
-              "extra_attributes": "bc125ad76"
+              "extra_attributes": "{}",
+              "created_at": "2024-07-23T15:20:09.424Z"
           },
           {
               "username": "jane.doe",
               "score": 1234,
               "leaderboard_name": "leaderboard_for_game_1",
               "game_user_id": 1,
-              "extra_attributes": "de689fa29"
-          },
-          ...
+              "extra_attributes": "{\"level\": \"l0\", \"color\": \"blue\"}",
+              "created_at": "2024-07-23T15:20:09.424Z"
+          }
       ]
     }
     ```
@@ -309,14 +310,17 @@ Get all leaderboard entries for a specific user.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/users/{signedInUserId}/leaderboard_entries
+    /api/v2/users/{signedInUserId}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}&one_per_user={onePerUser}
     ```
 
 ### Attributes
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
+| `leaderboardName` | string       | Yes     | Name of the leaderboard within the game |
+| `limit`          | integer       | Yes      | Limit the number of results. Set this value >= 1 |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
+| `onePerUser`     | boolean       | No       | |
 
 ### Data (payload)
 
@@ -344,7 +348,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/leaderboard_entries"
+        "https://gamefuse.co/api/v2/users/1/leaderboard_entries?leaderboard_name=leaderboard_for_game_1&limit=10""
     ```
 
     #### Response
@@ -357,16 +361,17 @@ None
               "score": 1453,
               "leaderboard_name": "leaderboard_for_game_1",
               "game_user_id": 1,
-              "extra_attributes": "bc125ad76"
+              "extra_attributes": "{}",
+              "created_at": "2024-07-23T15:20:09.424Z"
           },
           {
-              "username": "john.doe",
+              "username": "jane.doe",
               "score": 1234,
-              "leaderboard_name": "leaderboard_for_game_2",
-              "game_user_id": 2,
-              "extra_attributes": "0f987aa05"
-          },
-          ...
+              "leaderboard_name": "leaderboard_for_game_1",
+              "game_user_id": 1,
+              "extra_attributes": "{\"level\": \"l0\", \"color\": \"blue\"}",
+              "created_at": "2024-07-23T15:20:09.424Z"
+          }
       ]
     }
     ```

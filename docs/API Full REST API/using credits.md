@@ -14,19 +14,20 @@ Alter the relative amount of credits a users has.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_credits?credits={credits}
+    /api/v2/users/{signedInUserId}/add_credits
     ```
 
 ### Attributes
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `credits`        | integer       | Yes      | The amount of credits (positive or negative) you want to alter the user's current credits by |
 | `signedInUserId` | integer       | Yes      |  The user id value from the GameFuse game dashboard |
 
 ### Data (payload)
 
-None
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `credits`        | integer       | Yes      | The amount of credits (positive or negative) you want to alter the user's current credits by |
 
 ### Headers
 
@@ -68,7 +69,9 @@ None
     ```shell
     curl --request POST \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/add_credits?credits=10"
+        --header "Content-Type: application/json" \
+        --data '{"credits": 10}' \
+        "https://gamefuse.co/api/v2/users/1/add_credits"
     ```
 
     #### Response
@@ -105,19 +108,20 @@ Set the absolute amount of credits a users has.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/set_credits?credits={credits}
+    /api/v2/users/{signedInUserId}/set_credits
     ```
 
 ### Attributes
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `credits`        | integer       | Yes      | The amount of credits a user will have |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Data (payload)
 
-None
+| Name             | Type          | Required | Description |
+|------------------|---------------|----------|-------------|
+| `credits`        | integer       | Yes      | The amount of credits (positive or negative) you want to alter the user's current credits by |
 
 ### Headers
 
@@ -159,7 +163,9 @@ None
     ```shell
     curl --request POST \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/set_credits?credits=10"
+        --header "Content-Type: application/json \
+        --data '{"credits": 10}' \
+        "https://gamefuse.co/api/v2/users/1/set_credits"
     ```
 
     #### Response
