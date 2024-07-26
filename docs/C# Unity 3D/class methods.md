@@ -2,9 +2,8 @@
 
 Check each model below for a list of methods and attributes.
 
-```csharp
-###GameFuse.cs
-your current signed in user can be retrieved with:
+```csharp title="GameFuse.cs"
+// Your current signed in user can be retrieved with:
 GameFuseUser user = GameFuse.CurrentUser;
 
 public bool IsSignedIn();
@@ -34,30 +33,34 @@ public void RemoveStoreItem(int storeItemID, bool reimburseUser, Action < string
 public void RemoveStoreItem(GameFuseStoreItem storeItem, bool reimburseUser, Action < string, bool > callback = null);
 public void AddLeaderboardEntry(string leaderboardName, int score, Dictionary extraAttributes = null, Action < string, bool > callback = null);
 public void AddLeaderboardEntry(string leaderboardName, int score, Action < string, bool > callback = null);
-public void GetLeaderboard(int limit, bool onePerUser, Action < string, bool > callback = null); //Get all leaderboard entries for current signed in user
 
-###GameFuse.cs
+//Get all leaderboard entries for current signed in user.
+public void GetLeaderboard(int limit, bool onePerUser, Action < string, bool > callback = null);
 public static void SetUpGame(string gameId, string token, Action < string, bool > callback = null);
 public static string GetGameId();
 public static string GetGameName();
 public static string GetGameDescription();
-public static List < GameFuseStoreItem > GetStoreItems() //Gets all store items (your library)
+
+// Gets all store items (your library).
+public static List < GameFuseStoreItem > GetStoreItems()
 public static void SignIn(string email, string password, Action < string, bool > callback = null);
 public static void SignUp(string email, string password, string password_confirmation, string username, Action < string, bool > callback = null);
 public void GetLeaderboard(int limit, bool onePerUser, string LeaderboardName, Action < string, bool > callback = null); //Retrieves leaderboard for one specific Leaderboard Name
 public static void SendPasswordResetEmail(string email, Action < string, bool > callback = null);
 public static void FetchGameVariables(string gameId, string token, Action < string, bool > callback = null)
 public static string GetGameVariable(string key)
+```
 
-###GameFuseStoreItem.cs
+```csharp title="GameFuseStoreItem.cs"
 public string GetName();
 public string GetCategory();
 public string GetDescription();
 public int GetCost();
 public int GetId();
 public string GetIconUrl();
+```
 
-###GameFuseLeaderboardEntry.cs
+```csharp title="GameFuseLeaderboardEntry.cs"
 public string GetUsername();
 public int GetScore();
 public string GetLeaderboardName();

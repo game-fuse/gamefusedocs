@@ -70,7 +70,7 @@ None
     {
         "id": 1,
         "name": "my game",
-        "token": "abc123",
+        "token": "cde456",
         "description": "This is a new game",
         "game_variables": [
         {
@@ -126,7 +126,7 @@ None
 | HTTP status code | content-type | Description |
 |------------------|--------------|-------------|
 | `200`              | application/json         | Object containing the user's game information |
-| `401`              | text/plain | Failed to  fetch game variables. Check your `gameToken` and `gameId` |
+| `401`              | text/plain | Failed to fetch game variables. Check your `gameToken` and `gameId` |
 | `500`              | text/plain | Unknown server error |
 
 ### Response object
