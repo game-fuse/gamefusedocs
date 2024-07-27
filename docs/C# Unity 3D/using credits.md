@@ -1,46 +1,67 @@
 # Using Credits
 
-Credits are a numeric attribute of each game user. It is a simple integer value. You can add them manually and they are detracted automatically upon store item purchases Below is a script to demonstrate the full lifecycle of credits on a signed in user. First it prints the credits your signed in user has, then prints the cost of the first store item, then it adds credits to your user. Because this syncs with the server, it requires a callback. Upon success, you will see the user now has more credits when logged. At this point in time you can then run the purchase store item function successfully.
+Credits are a numeric attribute of each game user. It is a simple integer value
+that you can add manually.
 
-```csharp
-void Start(){
-    Debug.Log(GameFuseUser.CurrentUser.credits;  // Prints 0
-    Debug.Log(GameFuse.GetStoreItems().First.cost) // Prints 25 (or whatever you set your first item to on the web dashboard)
-    GameFuseUser.CurrentUser.AddCredits(50, AddCreditsCallback);
-}
+Credits are automatically detracted upon store item purchases.
 
-void AddCreditsCallback(string message, bool hasError)
-{
-    if (hasError)
+What you find in the example below is a script that demonstrates the full
+lifecycle of credits of a signed-in user.  the `Start` function executes
+these operations in order:
+
+1. prints the credits your signed in user has
+2. prints the cost of the first store item
+3. adds credits to your user
+
+Because the third operation syncs with the server it requires a callback.
+
+Upon success you will see that the user now has more credits when logged. 
+
+Finally you can run the *purchase store item* function successfully.
+
+!!! example
+    ```csharp
+    void Start()
     {
-        Debug.Log("Error adding credits: " + message);
+        Debug.Log(GameFuseUser.CurrentUser.credits);  // Prints 0
+        Debug.Log(GameFuse.GetStoreItems().First.cost) // Prints 25 (or whatever you set your first item to on the web dashboard)
+        GameFuseUser.CurrentUser.AddCredits(50, AddCreditsCallback);
     }
-    else
+
+    void AddCreditsCallback(string message, bool hasError)
     {
-      Debug.Log(GameFuseUser.CurrentUser.credits;  // Prints 50
-      GameFuseUser.PurchaseStoreItem(GameFuse.GetStoreItems().First, PurchasedItemCallback)
+        if (hasError)
+        {
+            Debug.Log("Error adding credits: " + message);
+        }
+        else
+        {
+            Debug.Log(GameFuseUser.CurrentUser.credits;  // Prints 50
+            GameFuseUser.PurchaseStoreItem(GameFuse.GetStoreItems().First, PurchasedItemCallback)
+        }
 
     }
 
-}
+    void PurchasedItemCallback(string message, bool hasError)
+    {
+        if (hasError)
+        {
+            Debug.Log("Error purchasing item: "+message);
+        }
+        else
+        {
+            Debug.Log("Purchased Item");
+            Debug.Log("Current Credits: " + GameFuseUser.CurrentUser.GetCredits());
+        }
+    }
+    ```
 
-void PurchasedItemCallback(string message, bool hasError) {
-  if (hasError)
-  {
-      Debug.Log("Error purchasing item: "+message);
-  }
-  else
-  {
-      Debug.Log("Purchased Item");
-      Debug.Log("Current Credits: " + GameFuseUser.CurrentUser.GetCredits());
-  }
-}
+## Function return values
 
-```
+### `GameFuseUser.CurrentUser.AddCredits`
 
-```
-* 400 - Please include a credits param
-* 500 - unknown server error
-```
-
-
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `400`            | Credits parameter missing |
+| `500`            | Unknown server error |

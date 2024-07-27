@@ -1,28 +1,44 @@
 # Signing game users up
 
-Enable users to sign up in your Unity game with the following code. They will be saved on your GameFuse Game and can then login from other devices since the data is saved online. Add a method on a MonoBehavior on your sign up scene after you have collected your inputted username and password. Maybe this is on a a button function for a 'submit' or 'register' button. Username is mandatory but it is just for display. Later sign in attempts will use email not username
+Using the following code users will be able to sign up in your Unity game.
+These users will be saved on your GameFuse Game and can login from other
+devices because the data is saved online.
 
-```csharp
-#Feed in your users email, username and password here
-void SignUp (email, password, password_confirmation, username) {
-    #5th parameter is the callback when execution is complete
-    GameFuse.SignUp(userEmail, "password", "password", username, SignedUp);
-}
+Add a method on a `MonoBehavior` in your sign-up scene after you have collected
+the inputted `username` and `password`. You can create a function connected
+to buttons for submit and register operations.
 
-void SignedUp(string message, bool hasError) {
-    if (hasError)
+The `username` parameter is mandatory but it is just for display. Later sign-in
+attempts will use the `email`, not the `username`.
+
+!!! example
+    ```csharp
+    // Feed in your users email, username and password here.
+    void SignUp (email, password, password_confirmation, username)
     {
-        Debug.Log("Error signign up: "+message);
+        // The fith parameter is the callback when execution is complete.
+        GameFuse.SignUp(userEmail, password, password_confirmation, username, SignedUp);
     }
-    else
+
+    void SignedUp(string message, bool hasError)
     {
-        Debug.Log("Signed Up: " + GameFuseUser.CurrentUser.GetUsername());
+        if (hasError)
+        {
+            Debug.Log("Error signign up: "+message);
+        }
+        else
+        {
+            Debug.Log("Signed Up: " + GameFuseUser.CurrentUser.GetUsername());
+        }
     }
-}
+    ```
 
-```
+## Function return values
 
-```
-* 404 - Failed to fetch game variables, check your token and id
-* 500 - unknown server error
-```
+### `GameFuse.SignUp`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `404`            | Failed to fetch game variables. Check your token and Game ID |
+| `500`            | Unknown server error |

@@ -84,7 +84,9 @@ be checked at any time to see which keys are not synced with the database.
     }
     ```
 
-## Responses
+## Function return values
+
+### `GameFuseUser.CurrentUser.SetAttributes`
 
 | HTTP status code | Description |
 |------------------|-------------|

@@ -40,7 +40,9 @@ Inside any script, on your first scene, you can run:
     }
     ```
 
-### Responses
+### Function return values
+
+#### `GameFuse.SetUpGame`
 
 | HTTP status code | Description |
 |------------------|-------------|
@@ -77,7 +79,9 @@ Inside any script use these functions:
     }
     ```
 
-### Responses
+### Function return values
+
+#### `GameFuse.FetchGameVariables`
 
 | HTTP status code | Description |
 |------------------|-------------|

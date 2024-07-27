@@ -29,7 +29,9 @@ they can login into your app.
     }
     ```
 
-## Responses
+## Function return values
+
+### `GameFuseUser.Instance.SendPasswordResetEmail`
 
 | HTTP status code | Description |
 |------------------|-------------|

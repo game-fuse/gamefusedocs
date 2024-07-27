@@ -1,81 +1,180 @@
-# In game leaderboard
+Leaderboards can be easily created within GameFuse from the Unity game client.
+A leaderboard entry can be added with:
 
-Custom user data or Key Value pairs are a simple way to save any kind of data for a particular user. Some examples might be {"world_2_unlocked":"true"}, {"player_color","red"}, {"favorite_food","Onion"} These are downloaded to your system upon login, and synced when one is updated. You can access with GameFuseUser.CurrentUser.attributes
+- `leaderboard_name`
+- `score`
+- `extra_attributes` (metadata)
 
-All values and keys must be strings. If you want to use other data structures like arrays, you could stringify the array on save, and convert the saved string to an array on load:
+for the current signed in user.
 
-```csharp
-void Start(){
-    Debug.Log(GameFuseUser.CurrentUser.attributes.Count);  // Prints 0
-    Debug.Log(GameFuseUser.CurrentUser.GetAttributeValue("CURRENT_LEVEL") == null); // Prints true
-    GameFuseUser.CurrentUser.SetAttribute("CURRENT_LEVEL", "5", SetAttributeCallback);
-}
+Leaderboards can be downloaded for a specific `leaderboard_name`, which would
+gather and sort the high scores for all users in the game. Leaderboards can
+also be downloaded for a specific user.
 
-void SetAttributeCallback(string message, bool hasError) {
-  if (hasError)
-  {
-      Debug.Log("Error setting attribute: "+message);
-  }
-  else
-  {
-      Debug.Log(GameFuseUser.CurrentUser.GetAttributeValue("CURRENT_LEVEL")); // Prints "5"
-  }
-}
+The example below shows submitting 2 leaderboard entries, then retrieving them
+for the game, and for the current user.
 
-```
+!!! example
+    ```csharp
+    void Start()
+    {
+        var extraAttributes = new Dictionary < string, string > ();
+        extraAttributes.Add("deaths", "15");
+        extraAttributes.Add("Jewels", "12");
+        GameFuseUser.CurrentUser.AddLeaderboardEntry("Game1Leaderboard", 10, extraAttributes, LeaderboardEntryAdded);
+    }
 
-You can also batch update a custom dictionary of key value pairs like this, or set local attributes then sync them all at once later. Dirty Attributes can be checked at any time to see which keys are not synced with the database.
+    void LeaderboardEntryAdded(string message, bool hasError)
+    {
+        if (hasError)
+        {
+            print("Error adding leaderboard entry: " + message);
+        }
+        else
+        {
 
-```csharp
-void Start(){
-    Debug.Log(GameFuseUser.CurrentUser.attributes.Count);  // Prints 0
-    Dictionary < string, string > attributesToUpdate = new Dictionary < string, string >{
-        { "POINTS", "1000" },
-        { "LEVEL", "5" },
-        { "CHARACTER", "Ninja" }
-    };
-    GameFuseUser.CurrentUser.SetAttributes(attributesToUpdate, SetAttributesCallback);
-}
+            print("Set Leaderboard Entry 2");
+            var extraAttributes = new Dictionary < string, string > ();
+            extraAttributes.Add("deaths", "25");
+            extraAttributes.Add("Jewels", "15");
 
-void SetAttributesCallback(string message, bool hasError) {
-  if (hasError)
-  {
-      Debug.Log("Error setting attribute: "+message);
-  }
-  else
-  {
-      Debug.Log("Batch update complete");
-      Debug.Log(GameFuseUser.CurrentUser.GetAttributeValue("POINTS")); // Prints "1000"
-      Debug.Log(GameFuseUser.CurrentUser.GetAttributeValue("LEVEL")); // Prints "5"
-      GameFuseUser.CurrentUser.SetAttributeLocal("POINTS", "2000"); //will set locally but not sync with db
-      GameFuseUser.CurrentUser.SetAttributeLocal("LEVEL", "6"); //will set locally but not sync with db
-      Debug.Log("Dirty Vars");  //will print variables changed locally
-      foreach (var attribute in GameFuseUser.CurrentUser.GetDirtyAttributes()){
-        Debug.Log(attribute.Key+": "+attribute.Value);
-      }
+            GameFuseUser.CurrentUser.AddLeaderboardEntry("Game1Leaderboard", 7, extraAttributes, LeaderboardEntryAdded2);
 
-      GameFuseUser.CurrentUser.SyncLocalAttributes(AttributesSynced); //will update "SCORE" + "LEVEL"
-  }
-}
-void AttributesSynced(string message, bool hasError){
-  if (hasError)
-  {
-      Debug.Log("Error syncing attributes: "+message);
-  }
-  else
-  {
-      Debug.Log("Sync Success");
-      Debug.Log("Dirty Vars"); //will be empty now that sync is done
-      foreach (var attribute in GameFuseUser.CurrentUser.GetDirtyAttributes()){
-        Debug.Log(attribute.Key+": "+attribute.Value);
-      }
-  }
-}
+        }
+    }
 
-```
+    void LeaderboardEntryAdded2(string message, bool hasError)
+    {
+        if (hasError)
+        {
+            print("Error adding leaderboard entry 2: " + message);
+        }
+        else
+        {
+            print("Set Leaderboard Entry 2");
+            GameFuseUser.CurrentUser.GetLeaderboard(5, true, LeaderboardEntriesRetrieved);
+        }
+    }
 
-```
-* 400 - each attribute a 'key' and 'value' parameter
-* 400 - missing or invalid parameters
-* 500 - unknown server error
-```
+    void LeaderboardEntriesRetrieved(string message, bool hasError)
+    {
+        if (hasError)
+        {
+            print("Error loading leaderboard entries: " + message);
+        }
+        else
+        {
+
+            print("Got leaderboard entries for specific user!");
+            foreach( GameFuseLeaderboardEntry entry in GameFuse.Instance.leaderboardEntries)
+            {
+                print(entry.GetUsername() + ": " + entry.GetScore().ToString() + ": " + entry.GetLeaderboardName() );
+                foreach (KeyValuePair < string,string > kvPair in entry.GetExtraAttributes())
+                {
+                    print(kvPair.Key + ": " + kvPair.Value);
+                }
+
+            }
+            GameFuse.Instance.GetLeaderboard(5, true, "Game1Leaderboard", LeaderboardEntriesRetrievedAll);
+
+        }
+    }
+
+    void LeaderboardEntriesRetrievedAll(string message, bool hasError)
+    {
+        if (hasError)
+        {
+            print("Error loading leaderboard entries: " + message);
+        }
+        else
+        {
+            print("Got leaderboard entries for whole game!");
+            foreach (GameFuseLeaderboardEntry entry in GameFuse.Instance.leaderboardEntries)
+            {
+                print(entry.GetUsername() + ": " + entry.GetScore().ToString() + ": " + entry.GetLeaderboardName());
+                foreach (KeyValuePair < string, string > kvPair in entry.GetExtraAttributes())
+                {
+                    print(kvPair.Key + ": " + kvPair.Value);
+                }
+
+            }
+
+        }
+    }
+    ```
+
+You can also clear all leaderboard entries in a specific leaderboard for the
+current user like this:
+
+!!! example
+    ```csharp
+    void Start(){
+      var extraAttributes = new Dictionary < string, string > ();
+      extraAttributes.Add("deaths", "15");
+      extraAttributes.Add("Jewels", "12");
+      GameFuseUser.CurrentUser.AddLeaderboardEntry("Game2Leaderboard",10, extraAttributes, LeaderboardEntryAdded);
+    }
+
+    void LeaderboardEntryAdded(string message, bool hasError)
+    {
+        if (hasError)
+        {
+            print("Error adding leaderboard entry: " + message);
+        }
+        else
+        {
+
+            print("Clear Leaderboard Entry 2");
+            GameFuseUser.CurrentUser.ClearLeaderboardEntries("Game2Leaderboard", LeaderboardEntryCleared);
+
+        }
+    }
+
+    void LeaderboardEntryCleared(string message, bool hasError)
+    {
+        if (hasError)
+        {
+            print("Error adding leaderboard entry: " + message);
+        }
+        else
+        {
+            print("User will no longer have leaderboard entries for 'Game2Leaderboard'");
+
+        }
+    }
+    ```
+
+## Function return values
+
+### `GameFuseUser.CurrentUser.AddLeaderboardEntry`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `400`            | Invalid extra attributes |
+| `401`            | Can only add entries for current user |
+| `500`            | Unknown server error |
+
+### `GameFuseUser.CurrentUser.GetLeaderboard`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `401`            | Can only get entries for the current user |
+| `500`            | Unknown server error |
+
+### `GameFuseUser.CurrentUser.ClearLeaderboardEntries`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `401`            | Can only clear entries for the current user |
+| `500`            | Unknown server error |
+
+### `GameFuse.Instance.GetLeaderboard`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `404`            | No entries for this leaderboard name |
+| `500`            | Unknown server error |
