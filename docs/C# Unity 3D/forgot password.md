@@ -35,7 +35,7 @@ they can login into your app.
 
 | HTTP status code | Description |
 |------------------|-------------|
-| `200`            | Object containing the response and a message |
+| `200`            | OK |
 | `403`            | Invalid email address |
 | `404`            | No user found with the specified email, or GameID or Token incorrect |
 | `500`            | Unknown server error |

@@ -15,4 +15,4 @@ they can login into your app.
 
 ## User Experience
 
-See [this section in the REST API docs](/API%20Full%20REST%20API/forgot%20password/#user-experience)
+See [Generic: Forgot password - User experience](../generic/forgot_password.md/#user-experience).
