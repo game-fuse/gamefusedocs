@@ -1,3 +1,1 @@
-# Creating store items on the web
-
-To create store items on the web, navigate to your GameFuse.co home page, and sign in if you are not already You can click on your Game on the homepage you want to add items for. On this page if you scroll down to the Store Items section, you will see + STORE ITEM button, here you can add in Name, Cost, Description, and Category. All are mandatory but do not need to used in your game. The store feature does not integrate real payment systems, this is for items you want your users to be able to "unlock" with in-game-currency or with achievements in the game. How you configure that is up to you.
+See [Generic: Creating store items on the web](../generic/creating_store_items_on_the_web.md).

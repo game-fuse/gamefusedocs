@@ -131,7 +131,7 @@ Purchase a store item.
     #### cURL
 
     ```shell
-    curl --request GET \
+    curl --request POST \
         --header "Content-Type: application/json" \
         --header "authentication-token: abc123" \
         --data '{"store_item_id": 337}' \

@@ -2,9 +2,9 @@
 
 Check each model below for a list of methods and attributes.
 
-```cpp
-// GameFuse Static Functions
+## GameFuse static functions
 
+```cpp
 UGameFuseManager::SetUpGame(const FString& InGameId, const FString& InToken, bool bSeedStore, FManagerCallback CompletionCallback);
 UGameFuseManager::GetGameId();
 UGameFuseManager::GetGameName();
@@ -18,9 +18,11 @@ UGameFuseManager::(const FString& Email, FManagerCallback CompletionCallback);
 UGameFuseManager::FetchGameVariables(FManagerCallback CompletionCallback);
 UGameFuseManager::FetchLeaderboardEntries(UGameFuseUser* GameFuseUser, const int Limit, bool bOnePerUser, const FString& LeaderboardName, FManagerCallback CompletionCallback);
 UGameFuseManager::FetchStoreItems(FManagerCallback CompletionCallback);
+```
 
-// User Functions
+## User functions
 
+```cpp
 UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
 
 GameFuseUser->GetNumberOfLogins();
@@ -53,9 +55,11 @@ GameFuseUser->ClearLeaderboardEntry(const FString& LeaderboardName, FUserCallbac
 GameFuseUser->FetchMyLeaderboardEntries(const int Limit, bool bOnePerUser, FUserCallback CompletionCallback);
 GameFuseUser->FetchAttributes(bool bChainedFromLogin, FUserCallback CompletionCallback);
 GameFuseUser->FetchPurchaseStoreItems(bool bChainedFromLogin, FUserCallback CompletionCallback);
+```
 
-// GameFuseStoreItem.h
+## Store
 
+```cpp title="GameFuseStoreItem.h"
 TArray < UGameFuseStoreItem* > StoreItems = GameFuseUser->GetPurchasedStoreItems();
 
 StoreItems->GetName();
@@ -64,9 +68,11 @@ StoreItems->GetDescription();
 StoreItems->GetCost();
 StoreItems->GetId();
 StoreItems->GetIconUrl();
+```
 
-// GameFuseLeaderboardEntry.h
+## Leaderboard
 
+```cpp title="GameFuseLeaderboardEntry.h"
 TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseManager::GetLeaderboard();
 
 Leaderboards->GetUsername();

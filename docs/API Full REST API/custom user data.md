@@ -197,21 +197,21 @@ format but can be converted into any type by the programming language in use.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_game_user_attribute?key={key}&value={value}
+    /api/v2/users/{signedInUserId}/add_game_user_attribute
     ```
 
 ### Attributes
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `key`            | string        | Yes      | The key of the data to save                 |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
-| `value`          | string        | Yes      | The value of the data to save               |
 
 ### Data (payload)
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
+| `key`            | string        | Yes      | The key of the data to save                 |
+| `value`          | string        | Yes      | The value of the data to save               |
 | `attributes`     | list          | No       | A list of `key`-`value` attributes useful for batch updating |
 
 ### Headers
@@ -219,6 +219,7 @@ format but can be converted into any type by the programming language in use.
 | Name | Type | Description |
 |----------|---------|--------------|
 | `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `Content-Type`         | string | Set it to `application/json` |
 
 ### Responses
 
@@ -242,7 +243,9 @@ format but can be converted into any type by the programming language in use.
     ```shell
     curl --request POST \
         --header "authentication-token: abc123" \
-        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?key=some%20key&value=my%20value'
+        --header 'Content-Type: application/json' \
+        --data '{"key": "some key","value": "some value"}'
+        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute'
     ```
 
     #### Response
@@ -276,8 +279,8 @@ format but can be converted into any type by the programming language in use.
     curl --request POST \
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
-        --data '{"attributes": [{"key":"k0","value":"v0"},{"key":"k1","value":"v1"}]}' \
-        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute?key=some%20key&value=my%20value'
+        --data '{"key": "some key","value": "some value", "attributes": [{"key":"k0","value":"v0"},{"key":"k1","value":"v1"}]}' \
+        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute'
     ```
 
     #### Response

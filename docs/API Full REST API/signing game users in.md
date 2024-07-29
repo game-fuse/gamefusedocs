@@ -21,10 +21,14 @@ Make users log-in.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/sessions?email={email}&password={password}&game_id={gameId}&game_token={gameToken}
+    /api/v2/sessions
     ```
 
 ### Attributes
+
+None
+
+### Data (payload)
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
@@ -33,13 +37,11 @@ Make users log-in.
 | `gameToken`      | string        | Yes      | API token found on your GameFuse.co dashboard |
 | `password`       | string        | Yes      | User's password |
 
-### Data (payload)
-
-None
-
 ### Headers
 
-None
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Content-Type`         | string | Set it to `application/json` |
 
 ### Responses
 
@@ -75,7 +77,9 @@ None
 
     ```shell
     curl --request POST \
-        "https://gamefuse.co/api/v2/sessions?email=john.doe@example.com&password=1234abcd&game_id=1&game_token=abc123
+        --header 'Content-Type: application/json' \
+        --data '{"email: "john.doe@example.com", "password": 1234", "password_confirmation": "1234", "username": "jdoe", "game_id": 1, "game_token": "abc123"}' \
+        https://gamefuse.co/api/v2/sessions
     ```
 
     ### Response

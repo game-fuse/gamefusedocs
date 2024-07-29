@@ -15,10 +15,14 @@ Sign up a new user in your game.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users?email={email}&password={password}&password_confirmation={passwordConfirmation}&username={username}&game_id={gameId}&game_token={apiToken}
+    /api/v2/users
     ```
 
 ### Attributes
+
+None
+
+### Data (payload)
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
@@ -29,13 +33,11 @@ Sign up a new user in your game.
 | `passwordConfirmation`   | string        | Yes      | Same as `password` |
 | `username` | string | Yes | User's display name used on leaderboards. It must be unique for your game |
 
-### Data (payload)
-
-None
-
 ### Headers
 
-None
+| Name | Type | Description |
+|----------|---------|--------------|
+| `Content-Type`         | string | Set it to `application/json` |
 
 ### Responses
 
@@ -70,7 +72,9 @@ None
 
     ```shell
     curl --request POST \
-        "https://gamefuse.co/api/v2/users?email=john.doe@example.com&password=1234abcd&password_confirmation=1234abcd&username=johndoe&game_id=1&game_token=abc123"
+        --header 'Content-Type: application/json' \
+        --data '{"email: "john.doe@example.com", "password": 1234", "password_confirmation": "1234", "username": "jdoe", "game_id": 1, "game_token": "abc123"}' \
+        https://gamefuse.co/api/v2/users
     ```
 
     #### Response
