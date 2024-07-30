@@ -4,8 +4,7 @@ The first step in using GameFuse after it is installed, and your account is
 registered, is to run the `SetUpGame` function. After this you can run other
 functions to register and sign-in other users, and read and write game data.
 
-If you want import the GameFuse library, add this at the beginning of
-any script:
+To import the GameFuse library, add this at the beginning of any script:
 
 ```csharp
 using GameFuseCSharp;
@@ -48,12 +47,12 @@ Inside any script, on your first scene, you can run:
 |------------------|-------------|
 | `200`            | OK |
 | `401`            | Failed to verify game |
-| `500`            ! Unknown server error |
+| `500`            | Unknown server error |
 
 ## Game Variables
 
 Your game variables will be downloaded when you verify and connect with you
-game, but you can also re-fetch them whewnever you like.
+game, but you can also re-fetch them whenever you like.
 
 Inside any script use these functions:
 

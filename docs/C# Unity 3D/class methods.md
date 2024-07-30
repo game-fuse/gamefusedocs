@@ -51,6 +51,8 @@ public static void FetchGameVariables(string gameId, string token, Action < stri
 public static string GetGameVariable(string key)
 ```
 
+## Store items
+
 ```csharp title="GameFuseStoreItem.cs"
 public string GetName();
 public string GetCategory();
@@ -59,6 +61,8 @@ public int GetCost();
 public int GetId();
 public string GetIconUrl();
 ```
+
+## Leaderboard
 
 ```csharp title="GameFuseLeaderboardEntry.cs"
 public string GetUsername();

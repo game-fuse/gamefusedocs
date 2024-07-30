@@ -1,132 +1,167 @@
-# In game leaderboard
+Leaderboards can be easily created within GameFuse from the  Unreal Engine game
+client. A leaderboard entry can be added with:
 
-Leaderboards can be easily created within GameFuse From the Unreal Engine game client, a Leaderboard Entry can be added with a leaderboard_name, score, and extra_attributes (metadata) for the current signed in user Leaderboards can be downloaded for a specific leaderboard_name, which would gather all the high scores in order for all users in the game or Leaderboards can be downloaded for a specific user, so that you can download the current users leaderboard data for all leaderboard_names. The below example shows submitting 2 leaderboard entries, then retrieving them for the game, and for the current user
+- `leaderboard_name`
+- `score`
+- `extra_attributes` (metadata)
 
-```cpp
-void UMyObject::AddLeaderboard()
-{
-  FUserCallback CompletionCallback;
-  CompletionCallback.BindDynamic(this, &UMyObject::OnAttributesFetchedCallback);
+for the current signed in user.
 
-  UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+Leaderboards can be downloaded for a specific `leaderboard_name`, which would
+gather and sort the high scores for all users in the game. Leaderboards can
+also be downloaded for a specific user.
 
-  TMap < FString, FString > ExtraAttributes;
-  ExtraAttributes.Add("deaths","15");
-  ExtraAttributes.Add("Jewels","12");
+The example below shows submitting 2 leaderboard entries, then retrieving them
+for the game, and for the current user.
 
-  GameFuseUser->AddLeaderboardEntryWithAttributes("leaderboard_name", GameFuseUser->GetScore(), ExtraAttributes, CompletionCallback);
+!!! example
+    ```cpp
+    void UMyObject::AddLeaderboard()
+    {
+        FUserCallback CompletionCallback;
+        CompletionCallback.BindDynamic(this, &UMyObject::OnAttributesFetchedCallback);
 
-	// Adding Leaderboard without extra attributes
-	//GameFuseUser->AddLeaderboardEntry("leaderboard_name", GameFuseUser->GetScore(), CompletionCallback);
-}
+        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
 
-void UMyObject::OnLeaderboardAddedCallback(bool bSuccess, const FString& Response)
-{
-  if(bSuccess)
-  {
-    UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
-    UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
+        TMap < FString, FString > ExtraAttributes;
+        ExtraAttributes.Add("deaths","15");
+        ExtraAttributes.Add("Jewels","12");
 
-  }else
-  {
-    UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
-    UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-  }
-}
+        GameFuseUser->AddLeaderboardEntryWithAttributes("leaderboard_name", GameFuseUser->GetScore(), ExtraAttributes, CompletionCallback);
 
-void UMyObject::GetMyLeaderboards()
-{
-  FUserCallback CompletionCallback;
-  CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsFetchedCallback);
+        // Adding Leaderboard without extra attributes.
+        //GameFuseUser->AddLeaderboardEntry("leaderboard_name", GameFuseUser->GetScore(), CompletionCallback);
+    }
 
-  UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
-  GameFuseUser->FetchMyLeaderboardEntries(12, false, CompletionCallback);
-}
+    void UMyObject::OnLeaderboardAddedCallback(bool bSuccess, const FString& Response)
+    {
+        if(bSuccess)
+        {
+            UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
+            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-void UMyObject::OnMyLeaderboardsFetchedCallback(bool bSuccess, const FString& Response)
-{
-  if(bSuccess)
-  {
-    UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
-    UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
+        }
+        else
+        {
+            UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
+            UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
+        }
+    }
 
-    UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
-    TArray < UGameFuseLeaderboardEntry* > MyLeaderboards = GameFuseUser->GetLeaderboards();
+    void UMyObject::GetMyLeaderboards()
+    {
+        FUserCallback CompletionCallback;
+        CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsFetchedCallback);
 
-  }else
-  {
-    UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
-    UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-  }
-}
+        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        GameFuseUser->FetchMyLeaderboardEntries(12, false, CompletionCallback);
+    }
 
-void UMyObject::GetLeaderboards()
-{
-  FManagerCallback CompletionCallback;
-  CompletionCallback.BindDynamic(this, &UMyObject::OnLeaderboardsFetchedCallback);
+    void UMyObject::OnMyLeaderboardsFetchedCallback(bool bSuccess, const FString& Response)
+    {
+        if(bSuccess)
+        {
+            UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
+            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-  UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+            UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+            TArray < UGameFuseLeaderboardEntry* > MyLeaderboards = GameFuseUser->GetLeaderboards();
 
-  UGameFuseManager::FetchLeaderboardEntries(GameFuseUser, 15, false, "leaderboard_name", CompletionCallback);
-}
+        }
+        else
+        {
+            UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
+            UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
+        }
+    }
 
-void UMyObject::OnLeaderboardsFetchedCallback(bool bSuccess, const FString& Response)
-{
-  if(bSuccess)
-  {
-    UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
-    UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
+    void UMyObject::GetLeaderboards()
+    {
+        FManagerCallback CompletionCallback;
+        CompletionCallback.BindDynamic(this, &UMyObject::OnLeaderboardsFetchedCallback);
 
-    TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseManager::GetLeaderboard();
+        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
 
-  }else
-  {
-    UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
-    UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-  }
-}
+        UGameFuseManager::FetchLeaderboardEntries(GameFuseUser, 15, false, "leaderboard_name", CompletionCallback);
+    }
 
-```
+    void UMyObject::OnLeaderboardsFetchedCallback(bool bSuccess, const FString& Response)
+    {
+        if(bSuccess)
+        {
+            UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
+            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-You can also clear all leaderboard entries for a particular leaderboard_name for the current user like this:
+            TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseManager::GetLeaderboard();
+        }
+        else
+        {
+            UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
+            UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
+        }
+    }
+    ```
 
-```cpp
-void UMyObject::ClearMyLeaderboards()
-{
-  FUserCallback CompletionCallback;
-  CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsClearedCallback);
+You can also clear all leaderboard entries in a specific leaderboard for the
+current user like this:
 
-  UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
-  GameFuseUser->ClearLeaderboardEntry("leaderboard_name", CompletionCallback);
-}
+!!! example
+    ```cpp
+    void UMyObject::ClearMyLeaderboards()
+    {
+        FUserCallback CompletionCallback;
+        CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsClearedCallback);
 
-void UMyObject::OnMyLeaderboardsClearedCallback(bool bSuccess, const FString& Response)
-{
-  if(bSuccess)
-  {
-    UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
-    UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
-  }else
-  {
-    UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
-    UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-  }
-}
+        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        GameFuseUser->ClearLeaderboardEntry("leaderboard_name", CompletionCallback);
+    }
 
-```
+    void UMyObject::OnMyLeaderboardsClearedCallback(bool bSuccess, const FString& Response)
+    {
+        if(bSuccess)
+        {
+            UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
+            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
+        }
+        else
+        {
+            UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
+            UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
+        }
+    }
+    ```
 
-```
-# GameFuseUser->AddLeaderboardEntryWithAttributes
-* 401 - "can only add entries for current user"
-* 400 - "invalid extra attributes"
-* 500 - unknown server error
-# GameFuseUser->GetLeaderboards
-* 401 - "can only get entries for current user"
-* 500 - unknown server error
-# UGameFuseManager::GetLeaderboard
-* 404 - No entries for this leaderboard name ___
-* 500 - unknown server error
-# GameFuseUser->ClearLeaderboardEntry
-* 401 - "can only clear entries for current user"
-* 500 - unknown server error
-```
+## Function return values
+
+### `GameFuseUser->AddLeaderboardEntryWithAttributes`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `400`            | Invalid extra attributes |
+| `401`            | Can only add entries for current user |
+| `500`            | Unknown server error |
+
+### `UGameFuseManager::GetLeaderboard`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `401`            | Can only get entries for the current user |
+| `500`            | Unknown server error |
+
+### `GameFuseUser->ClearLeaderboardEntry`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `401`            | Can only clear entries for the current user |
+| `500`            | Unknown server error |
+
+### `UGameFuseManager::GetLeaderboard`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `404`            | No entries for this leaderboard name |
+| `500`            | Unknown server error |
