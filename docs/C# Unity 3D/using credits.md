@@ -6,7 +6,7 @@ that you can add manually.
 Credits are automatically detracted upon store item purchases.
 
 What you find in the example below is a script that demonstrates the full
-lifecycle of credits of a signed-in user.  the `Start` function executes
+lifecycle of credits of a signed-in user. The `Start` function executes
 these operations in order:
 
 1. prints the credits your signed in user has

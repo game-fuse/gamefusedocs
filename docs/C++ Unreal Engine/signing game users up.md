@@ -1,4 +1,4 @@
-# Signing game users up
+# Sign game users up
 
 Enable users to sign up in your UnrealEngine game with the following code.
 These users will be saved in your GameFuse game and can then login from other

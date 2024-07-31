@@ -1,4 +1,4 @@
-# Sign-in game users in
+# Sign-in game users
 
 The sign-in process follows the same rules as signing up, just with different
 parameters. There is a callback custom event to let you know your sign-in has

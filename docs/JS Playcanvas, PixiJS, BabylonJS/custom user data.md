@@ -1,29 +1,40 @@
 # Custom user data
 
-Custom user data or Key Value pairs are a simple way to save any kind of data for a particular user. Some examples might be {"world_2_unlocked":"true"}, {"player_color","red"}, {"favorite_food","Onion"} These are downloaded to your system upon login, and synced when one is updated. You can access with GameFuseUser.CurrentUser.attributes
+Custom user data or key-value pairs are a simple way to save any kind of data
+for a specific user. An example might be:
 
-All values and keys must be strings. If you want to use other data structures like arrays, you could stringify the array on save, and convert the saved string to an array on load.
-
-```jsx
-Start(){
-    let self = this;
-    console.log(GameFuseUser.CurrentUser.attributes.length);  // Prints 0
-    console.log(GameFuseUser.CurrentUser.GetAttributeValue("CURRENT_LEVEL") == null); // Prints true
-    GameFuseUser.CurrentUser.SetAttribute("CURRENT_LEVEL", "5", function(message,hasError){self.SetAttributeCallback(message,hasError)});
-}
-
-SetAttributeCallback(message, hasError) {
-  if (hasError)
-  {
-      console.log("Error setting attribute: "+message);
-  }
-  else
-  {
-      console.log(GameFuseUser.CurrentUser.GetAttributeValue("CURRENT_LEVEL")); // Prints "5"
-  }
-}
-
+```plaintext
+{"world_2_unlocked":"true"} {"player_color","red"}, {"favorite_food","Onion"}
 ```
+
+These are downloaded to your system upon login and synced when one is updated.
+You can access this data with `GameFuseUser.CurrentUser.attributes`
+
+All values and keys must be strings. If you want to use other data structures
+like arrays, you could stringify the array while saving. When loading the data
+you must then convert the saved string into an array.
+
+!!! example
+    ```jsx
+    Start()
+    {
+        let self = this;
+        console.log(GameFuseUser.CurrentUser.attributes.length);  // Prints 0
+        console.log(GameFuseUser.CurrentUser.GetAttributeValue("CURRENT_LEVEL") == null); // Prints true
+        GameFuseUser.CurrentUser.SetAttribute("CURRENT_LEVEL", "5", function(message,hasError){self.SetAttributeCallback(message,hasError)});
+    }
+
+    SetAttributeCallback(message, hasError) {
+      if (hasError)
+      {
+          console.log("Error setting attribute: "+message);
+      }
+      else
+      {
+          console.log(GameFuseUser.CurrentUser.GetAttributeValue("CURRENT_LEVEL")); // Prints "5"
+      }
+    }
+    ```
 
 ou can also batch update a custom dictionary of key value pairs like this, or set local attributes then sync them all at once later. Dirty Attributes can be checked at any time to see which keys are not synced with the database.
 
