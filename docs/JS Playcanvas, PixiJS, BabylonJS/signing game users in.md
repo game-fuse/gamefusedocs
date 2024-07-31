@@ -1,32 +1,42 @@
-# Signing game users in
+# Sign-in game users
 
-Signing In Follows the same protocal as signing up, just with different parateters. As always, there is a callback function to let you know your sign in has been successful or not. Email and password (not username), will be used to sign in
+The sign-in process follows the same rules as signing up, just with different
+parameters. There is a callback function  to let you know your sign-in has
+been successful or not.
 
-```jsx
-#Feed in your users email and password here
-signIn (email, password, SignedIn) {
-    #3rd parameter is the callback when execution is complete
-    let self = this;
-    GameFuse.signIn(this.userEmail, "password", function(message,hasError){self.signedIn(message,hasError)});
-}
+Email and password, not the username, will be used to sign-in.
 
-signedIn(message, hasError) {
-    if (hasError)
+!!! example
+    ```jsx
+    // Feed in your users email and password here
+    signIn (email, password, SignedIn)
     {
-        console.log("Error signign in: "+message);
+        // The third parameter is the callback when execution is complete.
+        let self = this;
+        GameFuse.signIn(this.userEmail, "password", function(message,hasError){self.signedIn(message,hasError)});
     }
-    else
+
+    signedIn(message, hasError)
     {
-        console.log("Logged In: " + GameFuseUser.CurrentUser.getUsername());
-        console.log("Current Credits: " + GameFuseUser.CurrentUser.getCredits());
+        if (hasError)
+        {
+            console.log("Error signign in: "+message);
+        }
+        else
+        {
+            console.log("Logged In: " + GameFuseUser.CurrentUser.getUsername());
+            console.log("Current Credits: " + GameFuseUser.CurrentUser.getCredits());
+        }
     }
-}
+    ```
 
-```
+## Function return values
 
-```
-# 404 - Incorrect Password
-# 404 - User Not Found!
-# 402 - Game is disabled - developer check GameFuse dashboard
-* 500 - unknown server error
-```
+### `GameFuse.signIn`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK |
+| `402`            | Game is disabled (check the GameFuse dashboard) |
+| `404`            | Incorrect password or user not found |
+| `500`            | Unknown server error |

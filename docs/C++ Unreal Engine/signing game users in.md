@@ -33,18 +33,11 @@ sign in.
 
 ## Function return values
 
-### `GameFuse.SignUp`
+### `UGameFuseUser.SignIn`
 
 | HTTP status code | Description |
 |------------------|-------------|
 | `200`            | OK |
-| `404`            | Failed to fetch game variables. Check your token and Game ID |
+| `402`            | Game is disabled (check the GameFuse dashboard) |
+| `404`            | Incorrect password or user not found |
 | `500`            | Unknown server error |
-
-
-```
-# 404 - Incorrect Password
-# 404 - User Not Found!
-# 402 - Game is disabled - developer check GameFuse dashboard
-* 500 - unknown server error
-```

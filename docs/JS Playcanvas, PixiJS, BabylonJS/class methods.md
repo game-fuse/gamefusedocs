@@ -2,9 +2,8 @@
 
 Check each model below for a list of methods and attributes.
 
-```jsx
-###GameFuseUser.js
-your current signed in user can be retrieved with:
+```jsx title="GameFuseUser.js"
+// Your current signed in user can be retrieved with:
 gameFuseUser user = GameFuse.CurrentUser;
 
 isSignedIn();
@@ -36,8 +35,9 @@ removeStoreItem(GameFuseStoreItem storeItem, bool reimburseUser, Action < string
 addLeaderboardEntry(string leaderboardName, int score, Dictionary extraAttributes = null, Action < string, bool > callback = null);
 addLeaderboardEntry(string leaderboardName, int score, Action < string, bool > callback = null);
 getLeaderboard(int limit, bool onePerUser, Action < string, bool > callback = null); //Get all leaderboard entries for current signed in user
+```
 
-###GameFuse.js
+```jsx title="GameFuse.js"
 setUpGame(string gameId, string token, function(string, bool) callback = null);
 getGameId();
 getGameName();
@@ -49,16 +49,22 @@ getLeaderboard(int limit, bool onePerUser, string LeaderboardName, function(stri
 sendPasswordResetEmail(string email, function(string, bool) callback = null)
 fetchGameVariables(gameId, token, callback = undefined, extraData={})
 getGameVariables()
+```
 
-###GameFuseStoreItem.js
+## Store items
+
+```jsx title="GameFuseStoreItem.js"
 getName();
 getCategory();
 getDescription();
 getCost();
 getId();
 getIconUrl();
+```
 
-###GameFuseLeaderboardEntry.js
+## Leaderboard
+
+```jsx title="GameFuseLeaderboardEntry.js"
 getUsername();
 getScore();
 getLeaderboardName();
