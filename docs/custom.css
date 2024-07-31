@@ -137,8 +137,9 @@
   background: linear-gradient(180deg, #FF7D34, #DF570A);
   border: none;
   border-radius: 6px;
-  height: 150px;
-  width: 100px;
+  max-width: 200px !important;
+  min-width: 200px;
+  height: 200px;
   padding-top: 23px;
 }
 
@@ -184,6 +185,13 @@
       font-weight: 500;
   }
   
+  .md-typeset h4 {
+    font-weight: 700;
+    letter-spacing: -.01em;
+    margin: 1em 0;
+    text-align: center;
+    line-height: 17px;
+  }
   .md-source__repository, .md-source__icon{
     height: 0;
     display: none;
