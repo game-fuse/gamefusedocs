@@ -143,6 +143,14 @@
   padding-top: 23px;
 }
 
+.card > p {
+  margin: 0;
+  font-size: 11px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .flex-row{
   display: flex;
   flex-direction: row;

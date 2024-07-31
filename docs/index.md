@@ -23,9 +23,7 @@
         </a>
         <a href="/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/getting%20started/" class="card">
             <div class="flex-row">
-                <img style="transform: scale(1.3);" src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721225879/gamefuse-assets/babylon-logo-white.png" alt="Babylon Logo" />
-                <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/pixi-logo.png" alt="Pixi Logo" />
-                <img style="transform: scale(0.85);" src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721225879/gamefuse-assets/playcanvas-logo-white.png" alt="Playcanvas Logo" />
+                <img style="transform: scale(0.9);" src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/pixi-logo.png" alt="Pixi Logo" />
             </div>
             <h4><b>GameFuse Javascript</b></h4>
             <p> Add GameFuse to your Playcanvas, Phaser, PixiJs, ImpactJS, Babylon.js or other js frameworks. </p>
