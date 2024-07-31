@@ -62,7 +62,8 @@ Inside any script use these functions:
         var gameID = '1';
         var gameToken 'cde456';
 
-        # 3rd param is the function below, GameFuse will call this function when it is done connecting your game
+        // The third parameter is the callback function below.
+        // GameFuse calls this function when it completes setting up your game.
         GameFuse.FetchGameVariables(gameID, gameToken, VariablesFetched);
     }
 
