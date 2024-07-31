@@ -137,10 +137,15 @@
   background: linear-gradient(180deg, #FF7D34, #DF570A);
   border: none;
   border-radius: 6px;
-  max-width: 200px !important;
-  min-width: 200px;
-  height: 200px;
+  max-width: 206px !important;
+  min-width: 206px;
+  height: 206px;
   padding-top: 23px;
+  margin: 10px;
+}
+
+.card:hover{
+  transform: scale(1.1)
 }
 
 .card > p {
@@ -149,6 +154,11 @@
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
+  line-height: 13px;
+}
+
+.card > h4 {
+  margin: 5px;
 }
 
 .flex-row{
