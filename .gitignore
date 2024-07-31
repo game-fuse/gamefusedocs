@@ -1,6 +1,9 @@
 # atheris crash logs
 crash-*
 
+
+myenv/
+
 *.md
 *.MD
 !README.md
