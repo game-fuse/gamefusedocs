@@ -37,6 +37,13 @@
     margin-left: 0 !important;
 }
 
+.md-button {
+  background: linear-gradient(180deg, #FF7D34, #DF570A);
+  border: none !important;
+}
+.md-button:hover {
+  transform: scale(1.1)
+}
 
 .md-typeset h1 {
     color: white !important;
