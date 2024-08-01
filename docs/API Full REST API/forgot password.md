@@ -78,4 +78,4 @@ None
 
 ### User Experience
 
-See [Generic: Forgot password - User experience](../generic/forgot_password.md/#user-experience).
+See <a href="/generic/forgot_password/#user-experience">Generic: Forgot password - User experience</a>.
