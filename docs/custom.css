@@ -48,6 +48,7 @@
 .md-button {
   background: linear-gradient(180deg, #FF7D34, #DF570A);
   border: none !important;
+  transition: transform linear 200ms;
 }
 .md-button:hover {
   transform: scale(1.1)
