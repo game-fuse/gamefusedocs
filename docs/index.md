@@ -34,15 +34,13 @@
         </a>
     </div>
     <div class="home-header">
+        <br>
         <h1> NEW FEATURES </h1>
         <p> Make calls to GameFuse from 3rd party services using GameFuse Server Keys. Authenticate servers and services rather than signed in users.</p>
-        <div class="flex-row-wrap" markdown>
-            [Server Keys](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20up/){ .md-button }
-        </div> 
+        <a class="md-button" href="/generic/server_key_access/">Server Keys</a>
         <p> Automate data events using GameFuse Cloud Code. Add event triggers, queries and actions to control and modify your data.</p>
-        <div class="flex-row-wrap" markdown>
-            [Cloud Code](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20up/){ .md-button }
-        </div> 
+        <a class="md-button" href="/generic/cloud_code/">Cloud Code</a>
+
     </div>
     <div cl
 </div>
