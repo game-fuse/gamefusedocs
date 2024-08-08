@@ -7,6 +7,8 @@ nav:
       - Generic:
         - Forgot Password: generic/forgot_password.md
         - Creating store items on the web: generic/creating_store_items_on_the_web.md
+        - Server Key Access: generic/server_key_access.md
+        - Cloud Code: generic/server_key_access.md
       - C# Unity 3D:
         - C# Unity 3D/getting started.md
         - Game Connection and Variables: C# Unity 3D/game connection and variables.md

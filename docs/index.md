@@ -15,7 +15,6 @@
             <h4><b>GameFuse Blueprints</b></h4>
             <p> Add GameFuse to your Unreal BluePrints Project. </p>
         </a>
-    <!-- Second row with 2 cards -->
         <a href="/C%2B%2B%20Unreal%20Engine/getting%20started/" class="card">
             <img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165349/gamefuse-assets/unreal-logo.png" alt="Unreal Logo" />
             <h4><b>GameFuse C++</b></h4>
@@ -34,4 +33,16 @@
             <p> Build your own client library and directly access the GameFuse API </p>
         </a>
     </div>
+    <div class="home-header">
+        <h1> NEW FEATURES </h1>
+        <p> Make calls to GameFuse from 3rd party services using GameFuse Server Keys. Authenticate servers and services rather than signed in users.</p>
+        <div class="flex-row-wrap" markdown>
+            [Server Keys](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20up/){ .md-button }
+        </div> 
+        <p> Automate data events using GameFuse Cloud Code. Add event triggers, queries and actions to control and modify your data.</p>
+        <div class="flex-row-wrap" markdown>
+            [Cloud Code](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20up/){ .md-button }
+        </div> 
+    </div>
+    <div cl
 </div>
