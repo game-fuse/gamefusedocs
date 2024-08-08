@@ -41,6 +41,10 @@
     margin-left: 0 !important;
 }
 
+.md-typeset .md-button {
+  margin: 8px; 
+}
+
 .md-button {
   background: linear-gradient(180deg, #FF7D34, #DF570A);
   border: none !important;

@@ -1,6 +1,6 @@
 Use GameFuse C# in your Unity project to easily add:
 <div class="flex-row-wrap" markdown>
-[Authentication](https://github.com/game-fuse/game-fuse-phaser-example){ .md-button }
+[Authentication](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20up/){ .md-button }
 [User Data](https://github.com/game-fuse/game-fuse-pixijs-example){ .md-button }
 [Leaderboards](https://github.com/game-fuse/game-fuse-babylonjs-example){ .md-button }
 [In Game Store](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
