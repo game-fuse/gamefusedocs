@@ -48,14 +48,14 @@
 .md-button {
   background: linear-gradient(180deg, #FF7D34, #DF570A);
   border: none !important;
-  transition: all linear 100ms;
+  transition: all linear 100ms !important;
 }
 .md-button:hover {
   transform: scale(1.1)
 }
 
 .md-typeset {
-  transition: all linear 100ms;
+  transition: all linear 100ms !important;
 }
 
 .md-typeset h1 {
@@ -162,7 +162,7 @@
   height: 206px;
   padding-top: 23px;
   margin: 10px;
-  transition: all linear 100ms;
+  transition: all linear 100ms !important;
 }
 
 .card:hover{
