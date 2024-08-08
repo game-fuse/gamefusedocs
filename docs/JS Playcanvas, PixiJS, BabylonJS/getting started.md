@@ -7,6 +7,8 @@ Use GameFuse C# in your Unity project to easily add:
 [Friends](https://google.com){ .md-button }
 [Groups](https://google.com){ .md-button }
 [Messages](https://google.com){ .md-button }
+[Server Keys](/generic/server_key_access/){ .md-button }
+[Cloud Code](/generic/cloud_code/){ .md-button }
 
 </div>
 
