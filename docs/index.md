@@ -35,12 +35,10 @@
     </div>
     <div class="home-header">
         <br>
-        <h1> NEW FEATURES </h1>
+        <h1> SERVER ACCESS & CLOUD CODE </h1>
         <p style="margin-bottom: 5px; margin-top: 10px;"> Make calls to GameFuse from 3rd party services using GameFuse Server Keys. Authenticate servers and services rather than signed in users.</p>
         <a style="width: fit-content;" class="md-button" href="/generic/server_key_access/">Server Keys</a>
         <p style="margin-bottom: 5px; margin-top: 10px;"> Automate data events using GameFuse Cloud Code. Add event triggers, queries and actions to control and modify your data.</p>
         <a style="width: fit-content;" class="md-button" href="/generic/cloud_code/">Cloud Code</a>
-
     </div>
-    <div cl
 </div>
