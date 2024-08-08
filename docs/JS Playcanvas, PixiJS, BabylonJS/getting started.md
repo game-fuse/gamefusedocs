@@ -1,12 +1,12 @@
 Use GameFuse C# in your Unity project to easily add:
 <div class="flex-row-wrap" markdown>
 [Authentication](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20up/){ .md-button }
-[User Data](https://github.com/game-fuse/game-fuse-pixijs-example){ .md-button }
-[Leaderboards](https://github.com/game-fuse/game-fuse-babylonjs-example){ .md-button }
-[In Game Store](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
-[Friends](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
-[Messages](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
-[Groups](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+[User Data](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/custom%20user%20data/){ .md-button }
+[Leaderboards](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/in%20game%20leaderboard/){ .md-button }
+[In Game Store](/JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/creating%20store%20items%20on%20the%20web/){ .md-button }
+[Friends](https://google.com){ .md-button }
+[Groups](https://google.com){ .md-button }
+[Messages](https://google.com){ .md-button }
 
 </div>
 
@@ -45,8 +45,8 @@ This does the same thing as the previous method on build.
 If you would like to see examples in action, check them out here:
 
 <div class="flex-row-wrap" markdown>
-- [Phaser.io Flappy Bird Example](https://github.com/game-fuse/game-fuse-phaser-example){ .md-button }
-- [PixiJS Flappy Bird Example](https://github.com/game-fuse/game-fuse-pixijs-example){ .md-button }
-- [Babylon JS Example](https://github.com/game-fuse/game-fuse-babylonjs-example){ .md-button }
-- [Playcanvas Example](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+[Phaser.io Flappy Bird Example](https://github.com/game-fuse/game-fuse-phaser-example){ .md-button }
+[PixiJS Flappy Bird Example](https://github.com/game-fuse/game-fuse-pixijs-example){ .md-button }
+[Babylon JS Example](https://github.com/game-fuse/game-fuse-babylonjs-example){ .md-button }
+[Playcanvas Example](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
 </div>
