@@ -37,9 +37,9 @@
         <br>
         <h1> NEW FEATURES </h1>
         <p> Make calls to GameFuse from 3rd party services using GameFuse Server Keys. Authenticate servers and services rather than signed in users.</p>
-        <a class="md-button" href="/generic/server_key_access/">Server Keys</a>
+        <a style="width: fit-content;" class="md-button" href="/generic/server_key_access/">Server Keys</a>
         <p> Automate data events using GameFuse Cloud Code. Add event triggers, queries and actions to control and modify your data.</p>
-        <a class="md-button" href="/generic/cloud_code/">Cloud Code</a>
+        <a style="width: fit-content;" class="md-button" href="/generic/cloud_code/">Cloud Code</a>
 
     </div>
     <div cl
