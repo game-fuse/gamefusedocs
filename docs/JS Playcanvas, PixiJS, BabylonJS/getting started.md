@@ -1,3 +1,16 @@
+Use GameFuse C# in your Unity project to easily add:
+<div class="flex-row-wrap" markdown>
+- [Authentication](https://github.com/game-fuse/game-fuse-phaser-example){ .md-button }
+- [User Data](https://github.com/game-fuse/game-fuse-pixijs-example){ .md-button }
+- [Leaderboards](https://github.com/game-fuse/game-fuse-babylonjs-example){ .md-button }
+- [In Game Store](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+- [Friends](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+- [Messages](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+- [Groups](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+
+</div>
+
+
 The first step of integrating GameFuse with your project, is to make an account
 
 [Sign Up](https://gamefuse.co/users/sign_up){ .md-button }
@@ -31,7 +44,7 @@ This does the same thing as the previous method on build.
 
 If you would like to see examples in action, check them out here:
 
-<div class="grid cards" markdown>
+<div class="flex-row-wrap" markdown>
 - [Phaser.io Flappy Bird Example](https://github.com/game-fuse/game-fuse-phaser-example){ .md-button }
 - [PixiJS Flappy Bird Example](https://github.com/game-fuse/game-fuse-pixijs-example){ .md-button }
 - [Babylon JS Example](https://github.com/game-fuse/game-fuse-babylonjs-example){ .md-button }

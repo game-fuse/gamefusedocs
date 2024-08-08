@@ -3,6 +3,10 @@
     font-family: "Chakra Petch", sans-serif;
 }
 
+.md-typeset .grid.cards>ol>li, .md-typeset .grid.cards>ul>li, .md-typeset .grid>.card {
+  border:none; 
+}
+
 .md-header__topic{
   display: none;
   /* background: url(https://res.cloudinary.com/dgwqhqk47/image/upload/v1721165998/gamefuse-assets/gamefuse-background.jpg) !important;
@@ -175,6 +179,14 @@
   align-items: center;
   height: 80px;
   margin-top: 5px;
+}
+
+.flex-row-wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .card > h1 {
