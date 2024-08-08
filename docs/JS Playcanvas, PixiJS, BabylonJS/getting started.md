@@ -1,12 +1,12 @@
 Use GameFuse C# in your Unity project to easily add:
 <div class="flex-row-wrap" markdown>
-- [Authentication](https://github.com/game-fuse/game-fuse-phaser-example){ .md-button }
-- [User Data](https://github.com/game-fuse/game-fuse-pixijs-example){ .md-button }
-- [Leaderboards](https://github.com/game-fuse/game-fuse-babylonjs-example){ .md-button }
-- [In Game Store](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
-- [Friends](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
-- [Messages](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
-- [Groups](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+[Authentication](https://github.com/game-fuse/game-fuse-phaser-example){ .md-button }
+[User Data](https://github.com/game-fuse/game-fuse-pixijs-example){ .md-button }
+[Leaderboards](https://github.com/game-fuse/game-fuse-babylonjs-example){ .md-button }
+[In Game Store](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+[Friends](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+[Messages](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
+[Groups](https://playcanvas.com/project/1143168/overview/gamefuseplaycanvasexample){ .md-button }
 
 </div>
 
