@@ -61,6 +61,9 @@ nav:
           - Using the store in your game: API Full REST API/using the store in your game.md
           - Using Credits: API Full REST API/using credits.md
           - Custom user data: API Full REST API/custom user data.md
+          - Friends: API Full REST API/friends.md
+          - Groups: API Full REST API/groups.md
+          - Messaging: API Full REST API/messaging.md
           - In game leaderboard: API Full REST API/in game leaderboard.md
           - Forgot Password: API Full REST API/forgot password.md
           - Class Methods: API Full REST API/class methods.md
