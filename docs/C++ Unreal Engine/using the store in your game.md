@@ -55,7 +55,7 @@ you are not signed in already.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnFetchUserPurchasedStoreItemsCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->FetchPurchaseStoreItems(false, CompletionCallback);
     }
 
@@ -66,7 +66,7 @@ you are not signed in already.
             UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
             UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-            UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+            UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
             TArray < UGameFuseStoreItem* > StoreItems = GameFuseUser->GetPurchasedStoreItems();
         }
         else
@@ -90,7 +90,7 @@ with the new item.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnFetchUserPurchasedStoreItemsCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
 
         GameFuseUser->PurchaseStoreItem(StoreItem, CompletionCallback);
 

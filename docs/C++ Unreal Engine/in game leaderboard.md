@@ -21,7 +21,7 @@ for the game, and for the current user.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnAttributesFetchedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
 
         TMap < FString, FString > ExtraAttributes;
         ExtraAttributes.Add("deaths","15");
@@ -53,7 +53,7 @@ for the game, and for the current user.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsFetchedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->FetchMyLeaderboardEntries(12, false, CompletionCallback);
     }
 
@@ -64,7 +64,7 @@ for the game, and for the current user.
             UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
             UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-            UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+            UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
             TArray < UGameFuseLeaderboardEntry* > MyLeaderboards = GameFuseUser->GetLeaderboards();
 
         }
@@ -80,7 +80,7 @@ for the game, and for the current user.
         FManagerCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnLeaderboardsFetchedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
 
         UGameFuseManager::FetchLeaderboardEntries(GameFuseUser, 15, false, "leaderboard_name", CompletionCallback);
     }
@@ -112,7 +112,7 @@ current user like this:
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsClearedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->ClearLeaderboardEntry("leaderboard_name", CompletionCallback);
     }
 

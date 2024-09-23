@@ -23,7 +23,7 @@ UGameFuseManager::FetchStoreItems(FManagerCallback CompletionCallback);
 ## User functions
 
 ```cpp
-UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
 
 GameFuseUser->GetNumberOfLogins();
 GameFuseUser->GetLastLogin();

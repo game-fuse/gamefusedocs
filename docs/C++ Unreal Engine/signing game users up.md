@@ -11,7 +11,7 @@ devices, since the data is saved online.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::SignedUpCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->SignUp(Email, Password, PasswordConfirmation, Username, CompletionCallback);
     }
 
@@ -34,7 +34,7 @@ To access the game user object form anywhere in the code, you can use the
 subsystem:
 
 ```cpp
-UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem < UGameFuseUser > ();
+UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
 ```
 
 ## Function return values
