@@ -20,7 +20,7 @@ you must then convert the saved string into an array.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnAttributesFetchedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->FetchAttributes(false, CompletionCallback);
     }
 
@@ -31,7 +31,7 @@ you must then convert the saved string into an array.
             UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
             UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-            UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+            UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
             TMap Attributes = GameFuseUser->GetAttributes();
 
         }
@@ -47,7 +47,7 @@ you must then convert the saved string into an array.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnAttributesFetchedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->SetAttribute("CURRENT_LEVEL", "5", CompletionCallback);
     }
 

@@ -26,11 +26,11 @@ Finally you can run the *purchase store item* function successfully.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnCreditAddedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
-        TArray < UGameFuseStoreItem* > StoreItems = UGameFuseManager::GetGameStoreItems();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
+        TArray <UGameFuseStoreItem*> StoreItems = UGameFuseCore::GetGameStoreItems();
 
         UE_LOG(LogTemp, Error, TEXT("current credits : %d"), GameFuseUser->GetCredits());
-        UE_LOG(LogTemp, Error, TEXT("first store item price : %d"), (UGameFuseManager::GetGameStoreItems().Top()->GetCost()));
+        UE_LOG(LogTemp, Error, TEXT("first store item price : %d"), (UGameFuseCore::GetGameStoreItems().Top()->GetCost()));
 
         GameFuseUser->AddCredits(50, CompletionCallback);
     }
@@ -45,8 +45,8 @@ Finally you can run the *purchase store item* function successfully.
             FUserCallback CompletionCallback;
             CompletionCallback.BindDynamic(this, &UMyObject::OnPurchaseStoreItemCallback);
 
-            UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
-            GameFuseUser->PurchaseStoreItem(UGameFuseManager::GetGameStoreItems().Top(), CompletionCallback);
+            UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
+            GameFuseUser->PurchaseStoreItem(UGameFuseCore::GetGameStoreItems().Top(), CompletionCallback);
         }
         else
         {

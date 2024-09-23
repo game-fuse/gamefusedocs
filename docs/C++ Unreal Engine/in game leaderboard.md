@@ -21,7 +21,7 @@ for the game, and for the current user.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnAttributesFetchedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
 
         TMap < FString, FString > ExtraAttributes;
         ExtraAttributes.Add("deaths","15");
@@ -53,7 +53,7 @@ for the game, and for the current user.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsFetchedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->FetchMyLeaderboardEntries(12, false, CompletionCallback);
     }
 
@@ -64,7 +64,7 @@ for the game, and for the current user.
             UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
             UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-            UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+            UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
             TArray < UGameFuseLeaderboardEntry* > MyLeaderboards = GameFuseUser->GetLeaderboards();
 
         }
@@ -80,9 +80,9 @@ for the game, and for the current user.
         FManagerCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnLeaderboardsFetchedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
 
-        UGameFuseManager::FetchLeaderboardEntries(GameFuseUser, 15, false, "leaderboard_name", CompletionCallback);
+        UGameFuseCore::FetchLeaderboardEntries(GameFuseUser, 15, false, "leaderboard_name", CompletionCallback);
     }
 
     void UMyObject::OnLeaderboardsFetchedCallback(bool bSuccess, const FString& Response)
@@ -92,7 +92,7 @@ for the game, and for the current user.
             UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
             UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-            TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseManager::GetLeaderboard();
+            TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseCore::GetLeaderboard();
         }
         else
         {
@@ -112,7 +112,7 @@ current user like this:
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsClearedCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->ClearLeaderboardEntry("leaderboard_name", CompletionCallback);
     }
 
@@ -142,7 +142,7 @@ current user like this:
 | `401`            | Can only add entries for current user |
 | `500`            | Unknown server error |
 
-### `UGameFuseManager::GetLeaderboard`
+### `UGameFuseCore::GetLeaderboard`
 
 | HTTP status code | Description |
 |------------------|-------------|
@@ -158,7 +158,7 @@ current user like this:
 | `401`            | Can only clear entries for the current user |
 | `500`            | Unknown server error |
 
-### `UGameFuseManager::GetLeaderboard`
+### `UGameFuseCore::GetLeaderboard`
 
 | HTTP status code | Description |
 |------------------|-------------|

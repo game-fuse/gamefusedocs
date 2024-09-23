@@ -12,7 +12,7 @@ sign in.
         FUserCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::SignedInCallback);
 
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
         GameFuseUser->SignIn(Email, Password, CompletionCallback);
     }
 
