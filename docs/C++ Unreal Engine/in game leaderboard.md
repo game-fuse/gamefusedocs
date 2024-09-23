@@ -82,7 +82,7 @@ for the game, and for the current user.
 
         UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser> ();
 
-        UGameFuseManager::FetchLeaderboardEntries(GameFuseUser, 15, false, "leaderboard_name", CompletionCallback);
+        UGameFuseCore::FetchLeaderboardEntries(GameFuseUser, 15, false, "leaderboard_name", CompletionCallback);
     }
 
     void UMyObject::OnLeaderboardsFetchedCallback(bool bSuccess, const FString& Response)
@@ -92,7 +92,7 @@ for the game, and for the current user.
             UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
             UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-            TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseManager::GetLeaderboard();
+            TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseCore::GetLeaderboard();
         }
         else
         {
@@ -142,7 +142,7 @@ current user like this:
 | `401`            | Can only add entries for current user |
 | `500`            | Unknown server error |
 
-### `UGameFuseManager::GetLeaderboard`
+### `UGameFuseCore::GetLeaderboard`
 
 | HTTP status code | Description |
 |------------------|-------------|
@@ -158,7 +158,7 @@ current user like this:
 | `401`            | Can only clear entries for the current user |
 | `500`            | Unknown server error |
 
-### `UGameFuseManager::GetLeaderboard`
+### `UGameFuseCore::GetLeaderboard`
 
 | HTTP status code | Description |
 |------------------|-------------|

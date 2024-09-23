@@ -10,7 +10,7 @@ it is invoked when your game begins.
 To import the GameFuse library, add this at the beginning of any script:
 
 ```cpp
-#include "GameFuseManager.h"
+#include "GameFuseCore.h"
 ```
 
 Inside any script, on your first scene, you can run:
@@ -26,7 +26,7 @@ Inside any script, on your first scene, you can run:
         FManagerCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &AMyGameModeBase::GameSetUpCallback);
 
-        UGameFuseManager::SetUpGame(GameId, Token, bSeedStore, CompletionCallback);
+        UGameFuseCore::SetUpGame(GameId, Token, bSeedStore, CompletionCallback);
     }
 
     void AMyGameModeBase::GameSetUpCallback(bool bSuccess, const FString& Response)
@@ -46,7 +46,7 @@ Inside any script, on your first scene, you can run:
 
 ### Function return values
 
-#### `UGameFuseManager::SetUpGame`
+#### `UGameFuseCore::SetUpGame`
 
 | HTTP status code | Description |
 |------------------|-------------|
@@ -66,7 +66,7 @@ game, but you can also re-fetch them whenever you like.
         FManagerCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::VariablesFetchedCallback);
 
-        UGameFuseManager::FetchGameVariables(CompletionCallback);
+        UGameFuseCore::FetchGameVariables(CompletionCallback);
     }
 
     void UMyObject::VariablesFetchedCallback(bool bSuccess, const FString& Response)
@@ -76,7 +76,7 @@ game, but you can also re-fetch them whenever you like.
             UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
             UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-            TMap < FString, FString > OurVariables = UGameFuseManager::GetGameVariables();
+            TMap < FString, FString > OurVariables = UGameFuseCore::GetGameVariables();
         }
         else
         {
@@ -88,7 +88,7 @@ game, but you can also re-fetch them whenever you like.
 
 ### Function return values
 
-#### `UGameFuseManager::FetchGameVariables`
+#### `UGameFuseCore::FetchGameVariables`
 
 | HTTP status code | Description |
 |------------------|-------------|

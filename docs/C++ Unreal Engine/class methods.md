@@ -5,19 +5,19 @@ Check each model below for a list of methods and attributes.
 ## GameFuse static functions
 
 ```cpp
-UGameFuseManager::SetUpGame(const FString& InGameId, const FString& InToken, bool bSeedStore, FManagerCallback CompletionCallback);
-UGameFuseManager::GetGameId();
-UGameFuseManager::GetGameName();
-UGameFuseManager::GetGameDescription();
-UGameFuseManager::GetGameToken();
-UGameFuseManager::GetBaseURL();
-UGameFuseManager::GetGameVariables();
-UGameFuseManager::GetGameStoreItems();
-UGameFuseManager::GetLeaderboard();
-UGameFuseManager::(const FString& Email, FManagerCallback CompletionCallback);
-UGameFuseManager::FetchGameVariables(FManagerCallback CompletionCallback);
-UGameFuseManager::FetchLeaderboardEntries(UGameFuseUser* GameFuseUser, const int Limit, bool bOnePerUser, const FString& LeaderboardName, FManagerCallback CompletionCallback);
-UGameFuseManager::FetchStoreItems(FManagerCallback CompletionCallback);
+UGameFuseCore::SetUpGame(const FString& InGameId, const FString& InToken, bool bSeedStore, FManagerCallback CompletionCallback);
+UGameFuseCore::GetGameId();
+UGameFuseCore::GetGameName();
+UGameFuseCore::GetGameDescription();
+UGameFuseCore::GetGameToken();
+UGameFuseCore::GetBaseURL();
+UGameFuseCore::GetGameVariables();
+UGameFuseCore::GetGameStoreItems();
+UGameFuseCore::GetLeaderboard();
+UGameFuseCore::(const FString& Email, FManagerCallback CompletionCallback);
+UGameFuseCore::FetchGameVariables(FManagerCallback CompletionCallback);
+UGameFuseCore::FetchLeaderboardEntries(UGameFuseUser* GameFuseUser, const int Limit, bool bOnePerUser, const FString& LeaderboardName, FManagerCallback CompletionCallback);
+UGameFuseCore::FetchStoreItems(FManagerCallback CompletionCallback);
 ```
 
 ## User functions
@@ -73,7 +73,7 @@ StoreItems->GetIconUrl();
 ## Leaderboard
 
 ```cpp title="GameFuseLeaderboardEntry.h"
-TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseManager::GetLeaderboard();
+TArray < UGameFuseLeaderboardEntry* > Leaderboards = UGameFuseCore::GetLeaderboard();
 
 Leaderboards->GetUsername();
 Leaderboards->GetScore();

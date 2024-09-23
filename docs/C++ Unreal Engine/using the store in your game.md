@@ -10,7 +10,7 @@ be refreshed every time you call 'FetchGameVariables()' again. To access store i
         FManagerCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::SignedInCallback);
 
-        UGameFuseManager::FetchGameVariables(CompletionCallback);
+        UGameFuseCore::FetchGameVariables(CompletionCallback);
     }
 
     void UMyObject::OnStoreItemsFetchedCallback(bool bSuccess, const FString& Response)
@@ -20,7 +20,7 @@ be refreshed every time you call 'FetchGameVariables()' again. To access store i
             UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
             UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
 
-            TArray< UGameFuseStoreItem* > StoreItems = UGameFuseManager::GetGameStoreItems();
+            TArray< UGameFuseStoreItem* > StoreItems = UGameFuseCore::GetGameStoreItems();
 
             for (UGameFuseStoreItem* StoreItem : StoreItems)
             {

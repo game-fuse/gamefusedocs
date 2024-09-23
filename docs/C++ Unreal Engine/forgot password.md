@@ -18,7 +18,7 @@ they can login into your app.
         FManagerCallback CompletionCallback;
         CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsClearedCallback);
 
-        UGameFuseManager::SendPasswordResetEmail("example@gmail.com", CompletionCallback);
+        UGameFuseCore::SendPasswordResetEmail("example@gmail.com", CompletionCallback);
     }
 
     void UMyObject::OnResetUserPasswordCallback(bool bSuccess, const FString& Response)
