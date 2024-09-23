@@ -52,6 +52,7 @@ nav:
         - In game leaderboard: JS Playcanvas, PixiJS, BabylonJS/in game leaderboard.md
         - Forgot Password: JS Playcanvas, PixiJS, BabylonJS/forgot password.md
         - Class Methods: JS Playcanvas, PixiJS, BabylonJS/class methods.md
+        - Friends: 'JS Playcanvas, PixiJS, BabylonJS/friends.md'
       - API Full REST API:
           - API Full REST API/getting started.md
           - Game Connection and Variables: API Full REST API/game connection and variables.md

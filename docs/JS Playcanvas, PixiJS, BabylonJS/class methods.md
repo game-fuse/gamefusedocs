@@ -35,6 +35,10 @@ removeStoreItem(GameFuseStoreItem storeItem, bool reimburseUser, Action < string
 addLeaderboardEntry(string leaderboardName, int score, Dictionary extraAttributes = null, Action < string, bool > callback = null);
 addLeaderboardEntry(string leaderboardName, int score, Action < string, bool > callback = null);
 getLeaderboard(int limit, bool onePerUser, Action < string, bool > callback = null); //Get all leaderboard entries for current signed in user
+
+getFriends();
+getIncomingFriendRequests();
+getOutgoingFriendRequests();
 ```
 
 ```jsx title="GameFuse.js"
