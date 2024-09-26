@@ -1,0 +1,322 @@
+# Game Round API
+
+The Game Round API allows users to manage game rounds in the GameFuse platform. This includes creating game rounds, updating them, viewing a user's game rounds, and deleting game rounds. Game rounds can also be part of multiplayer rounds.
+
+---
+
+## Create a Game Round
+
+### Scope
+
+Create a new game round for a user. Game rounds can either be individual or part of a multiplayer round.
+
+### Method
+
+!!! info annotate "POST"
+	```plaintext
+	/api/v3/game_rounds
+	```
+
+### Attributes
+
+| Name                       | Type    | Required | Description                                                                       |
+|----------------------------|---------|----------|-----------------------------------------------------------------------------------|
+| `game_user_id`              | integer | Yes      | ID of the user to whom the game round belongs.                                    |
+| `start_time`                | string  | No       | Start time of the game round.                                                     |
+| `end_time`                  | string  | No       | End time of the game round.                                                       |
+| `score`                     | integer | No       | The score achieved in the game round.                                             |
+| `place`                     | integer | No       | The place the user finished in during the game round (1st, 2nd, etc.).            |
+| `game_type`                 | string  | No       | Type of game being played.                                                        |
+| `multiplayer_game_round_id` | integer | No       | ID of the associated multiplayer game round if applicable.                        |
+| `metadata`                  | object  | No       | Additional metadata related to the game round.                                    |
+| `multiplayer`               | boolean | No       | If `true`, create or join a multiplayer round.                                    |
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `Content-Type`         | string | Set it to `application/json` |
+
+### Responses
+
+| HTTP status code | content-type    | Description                                 |
+|------------------|-----------------|---------------------------------------------|
+| `201`            | application/json| Game round created successfully.            |
+| `422`            | text/plain      | Validation errors or missing parameters.    |
+| `500`            | text/plain      | Unknown server error.                       |
+
+### Response object
+
+| Attribute name | Type    | Description                               |
+|----------------|---------|-------------------------------------------|
+| `id`           | integer | The ID of the created game round.         |
+| `game_user_id` | integer | The ID of the user to whom the game round belongs. |
+| `start_time`   | string  | The start time of the game round.         |
+| `end_time`     | string  | The end time of the game round.           |
+| `score`        | integer | The score achieved in the game round.     |
+| `place`        | integer | The place finished in the game round.     |
+| `game_type`    | string  | The type of game played.                  |
+| `metadata`     | object  | Additional metadata related to the game round. |
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request POST \
+		--header "authentication-token: abc123" \
+		--header "Content-Type: application/json" \
+		--data '{"game_user_id": 1, "start_time": "2024-09-20T10:00:00Z", "end_time": "2024-09-20T11:00:00Z", "score": 1500, "place": 1, "game_type": "battle", "metadata": {"level": "Hard"}, "multiplayer": true}' \
+		"https://gamefuse.co/api/v3/game_rounds"
+	```
+
+	#### Response
+
+	```json
+	{
+	  "id": 101,
+	  "game_user_id": 1,
+	  "start_time": "2024-09-20T10:00:00Z",
+	  "end_time": "2024-09-20T11:00:00Z",
+	  "score": 1500,
+	  "place": 1,
+	  "game_type": "battle",
+	  "metadata": {
+		"level": "Hard"
+	  }
+	}
+	```
+
+---
+
+## Update a Game Round
+
+### Scope
+
+Update an existing game round for the current user.
+
+### Method
+
+!!! info annotate "PUT"
+	```plaintext
+	/api/v3/game_rounds/{id}
+	```
+
+### Attributes
+
+| Name                       | Type    | Required | Description                                                                       |
+|----------------------------|---------|----------|-----------------------------------------------------------------------------------|
+| `id`                        | integer | Yes      | ID of the game round to update.                                                   |
+| `start_time`                | string  | No       | Start time of the game round.                                                     |
+| `end_time`                  | string  | No       | End time of the game round.                                                       |
+| `score`                     | integer | No       | The score achieved in the game round.                                             |
+| `place`                     | integer | No       | The place the user finished in during the game round.                             |
+| `game_type`                 | string  | No       | Type of game being played.                                                        |
+| `metadata`                  | object  | No       | Additional metadata related to the game round.                                    |
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `Content-Type`         | string | Set it to `application/json` |
+
+### Responses
+
+| HTTP status code | content-type    | Description                              |
+|------------------|-----------------|------------------------------------------|
+| `200`            | application/json| Game round updated successfully.         |
+| `401`            | text/plain      | Unauthorized: Only the owner can update the game round. |
+| `422`            | text/plain      | Validation errors or missing parameters. |
+| `500`            | text/plain      | Unknown server error.                    |
+
+### Response object
+
+The response will return the updated game round data, similar to the create response.
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request PUT \
+		--header "authentication-token: abc123" \
+		--header "Content-Type: application/json" \
+		--data '{"score": 1600, "place": 2}' \
+		"https://gamefuse.co/api/v3/game_rounds/101"
+	```
+
+	#### Response
+
+	```json
+	{
+	  "id": 101,
+	  "game_user_id": 1,
+	  "start_time": "2024-09-20T10:00:00Z",
+	  "end_time": "2024-09-20T11:00:00Z",
+	  "score": 1600,
+	  "place": 2,
+	  "game_type": "battle",
+	  "metadata": {
+		"level": "Hard"
+	  }
+	}
+	```
+
+---
+
+## View a User's Game Rounds
+
+### Scope
+
+Retrieve a list of game rounds for a specific user.
+
+### Method
+
+!!! info annotate "GET"
+	```plaintext
+	/api/v3/game_rounds?user_id={user_id}
+	```
+
+### Attributes
+
+| Name     | Type    | Required | Description                         |
+|----------|---------|----------|-------------------------------------|
+| `user_id`| integer | Yes      | ID of the user whose game rounds to retrieve. |
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type    | Description                              |
+|------------------|-----------------|------------------------------------------|
+| `200`            | application/json| List of game rounds for the user.        |
+| `401`            | text/plain      | Unauthorized: You cannot view another game's data. |
+| `422`            | text/plain      | Missing user ID parameter.               |
+| `500`            | text/plain      | Unknown server error.                    |
+
+### Response object
+
+| Attribute name | Type    | Description                        |
+|----------------|---------|------------------------------------|
+| `id`           | integer | The ID of the game round.          |
+| `game_user_id` | integer | The ID of the user to whom the game round belongs. |
+| `start_time`   | string  | The start time of the game round.  |
+| `end_time`     | string  | The end time of the game round.    |
+| `score`        | integer | The score achieved in the game round. |
+| `place`        | integer | The place finished in the game round. |
+| `game_type`    | string  | The type of game played.           |
+| `metadata`     | object  | Additional metadata related to the game round. |
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request GET \
+		--header "authentication-token: abc123" \
+		"https://gamefuse.co/api/v3/game_rounds?user_id=1"
+	```
+
+	#### Response
+
+	```json
+	[
+	  {
+		"id": 101,
+		"game_user_id": 1,
+		"start_time": "2024-09-20T10:00:00Z",
+		"end_time": "2024-09-20T11:00:00Z",
+		"score": 1500,
+		"place": 1,
+		"game_type": "battle",
+		"metadata": {
+		  "level": "Hard"
+		}
+	  },
+	  {
+		"id": 102,
+		"game_user_id": 1,
+		"start_time": "2024-09-21T10:00:00Z",
+		"end_time": "2024-09-21T11:00:00Z",
+		"score": 1700,
+		"place": 1,
+		"game_type": "adventure",
+		"metadata": {
+		  "level": "Medium"
+		}
+	  }
+	]
+	```
+
+---
+
+## Delete a Game Round
+
+### Scope
+
+Delete an existing game round for the current user.
+
+### Method
+
+!!! info annotate "DELETE"
+	```plaintext
+	/api/v3/game_rounds/{id}
+	```
+
+### Attributes
+
+| Name | Type    | Required | Description                  |
+|------|---------|----------|------------------------------|
+| `id` | integer | Yes      | The ID of the game round to delete. |
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type    | Description                                      |
+|------------------|-----------------|--------------------------------------------------|
+| `200`            | application/json| Game round deleted successfully.                 |
+| `401`            | text/plain      | Unauthorized: Only the owner can delete the game round. |
+| `500`            | text/plain      | Unknown server error.                            |
+
+### Response object
+
+| Attribute name | Type   | Description                    |
+|----------------|--------|--------------------------------|
+| `message`      | string | Success message confirming the game round was deleted. |
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request DELETE \
+		--header "authentication-token: abc123" \
+		"https://gamefuse.co/api/v3/game_rounds/101"
+	```
+
+	#### Response
+
+	```json
+	{
+	  "message": "Game Round destroyed successfully!"
+	}
+	```
+
+---
+
+This MkDocs page now outlines the key operations for managing **Game Rounds**, including creating, updating, viewing, and deleting game rounds, along with multiplayer handling where relevant.

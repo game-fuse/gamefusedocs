@@ -65,6 +65,7 @@ nav:
           - Friends: API Full REST API/friends.md
           - Groups: API Full REST API/groups.md
           - Messaging: API Full REST API/messaging.md
+          - Game Rounds: API Full REST API/game rounds.md
           - In game leaderboard: API Full REST API/in game leaderboard.md
           - Forgot Password: API Full REST API/forgot password.md
           - Class Methods: API Full REST API/class methods.md
