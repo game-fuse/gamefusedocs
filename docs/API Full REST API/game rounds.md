@@ -2,8 +2,6 @@
 
 The Game Round API allows users to manage game rounds in the GameFuse platform. This includes creating game rounds, updating them, viewing a user's game rounds, and deleting game rounds. Game rounds can also be part of multiplayer rounds.
 
----
-
 ## Create a Game Round
 
 ### Scope
@@ -13,9 +11,7 @@ Create a new game round for a user. Game rounds can either be individual or part
 ### Method
 
 !!! info annotate "POST"
-	```plaintext
-	/api/v3/game_rounds
-	```
+/api/v3/game_rounds
 
 ### Attributes
 
@@ -61,35 +57,153 @@ Create a new game round for a user. Game rounds can either be individual or part
 
 ### Examples
 
-!!! example
-	#### cURL
+### Example 1: Creating a Non-Multiplayer Game
 
-	```shell
-	curl --request POST \
-		--header "authentication-token: abc123" \
-		--header "Content-Type: application/json" \
-		--data '{"game_user_id": 1, "start_time": "2024-09-20T10:00:00Z", "end_time": "2024-09-20T11:00:00Z", "score": 1500, "place": 1, "game_type": "battle", "metadata": {"level": "Hard"}, "multiplayer": true}' \
-		"https://gamefuse.co/api/v3/game_rounds"
-	```
+#### Request
 
-	#### Response
+curl --request POST \
+	--header "authentication-token: abc123" \
+	--header "Content-Type: application/json" \
+	--data '{"game_user_id": 1, "start_time": "2024-09-20T10:00:00Z", "end_time": "2024-09-20T10:30:00Z", "score": 1000, "place": 1, "game_type": "solo_adventure", "metadata": {"difficulty": "Medium"}}' \
+	"https://gamefuse.co/api/v3/game_rounds"
 
-	```json
+#### Response
+
+{
+  "id": 101,
+  "game_user_id": 1,
+  "start_time": "2024-09-20T10:00:00Z",
+  "end_time": "2024-09-20T10:30:00Z",
+  "score": 1000,
+  "place": 1,
+  "game_type": "solo_adventure",
+  "metadata": {
+	"difficulty": "Medium"
+  }
+}
+
+### Example 2: Creating a Multiplayer Game, then Adding More Game Rounds
+
+#### Step 1: Create the First Multiplayer Game Round
+
+This creates a multiplayer game round if one does not already exist.
+
+#### Request
+
+curl --request POST \
+	--header "authentication-token: abc123" \
+	--header "Content-Type: application/json" \
+	--data '{"game_user_id": 1, "start_time": "2024-09-20T10:00:00Z", "end_time": "2024-09-20T10:30:00Z", "score": 1200, "place": 1, "game_type": "multiplayer_battle", "metadata": {"difficulty": "Hard"}, "multiplayer": true}' \
+	"https://gamefuse.co/api/v3/game_rounds"
+
+#### Response
+
+{
+  "id": 102,
+  "game_user_id": 1,
+  "start_time": "2024-09-20T10:00:00Z",
+  "end_time": "2024-09-20T10:30:00Z",
+  "score": 1200,
+  "place": 1,
+  "game_type": "multiplayer_battle",
+  "multiplayer_game_round_id": 201,
+  "metadata": {
+	"difficulty": "Hard"
+  }
+}
+
+#### Step 2: Add Additional Game Rounds to the Multiplayer Game
+
+Now that the multiplayer game round has been created (ID: 201), additional rounds can be added by referencing the `multiplayer_game_round_id`.
+
+#### Request
+
+curl --request POST \
+	--header "authentication-token: abc123" \
+	--header "Content-Type: application/json" \
+	--data '{"game_user_id": 2, "start_time": "2024-09-20T10:30:00Z", "end_time": "2024-09-20T11:00:00Z", "score": 1100, "place": 2, "game_type": "multiplayer_battle", "metadata": {"difficulty": "Hard"}, "multiplayer_game_round_id": 201}' \
+	"https://gamefuse.co/api/v3/game_rounds"
+
+#### Response
+
+{
+  "id": 103,
+  "game_user_id": 2,
+  "start_time": "2024-09-20T10:30:00Z",
+  "end_time": "2024-09-20T11:00:00Z",
+  "score": 1100,
+  "place": 2,
+  "game_type": "multiplayer_battle",
+  "multiplayer_game_round_id": 201,
+  "metadata": {
+	"difficulty": "Hard"
+  }
+}
+
+## Multiplayer Game Round Response Example
+
+When querying a multiplayer game round, the response includes the rankings of all participants.
+
+### Scope
+
+Retrieve details about a multiplayer game round, including rankings.
+
+### Method
+
+!!! info annotate "GET"
+/api/v3/game_rounds/{id}
+
+#### Example Request
+
+curl --request GET \
+	--header "authentication-token: abc123" \
+	"https://gamefuse.co/api/v3/game_rounds/102"
+
+#### Example Response
+
+{
+  "id": 102,
+  "game_user_id": 1,
+  "start_time": "2024-09-20T10:00:00Z",
+  "end_time": "2024-09-20T10:30:00Z",
+  "score": 1200,
+  "place": 1,
+  "game_type": "multiplayer_battle",
+  "multiplayer_game_round_id": 201,
+  "metadata": {
+	"difficulty": "Hard"
+  },
+  "rankings": [
 	{
-	  "id": 101,
-	  "game_user_id": 1,
-	  "start_time": "2024-09-20T10:00:00Z",
-	  "end_time": "2024-09-20T11:00:00Z",
-	  "score": 1500,
 	  "place": 1,
-	  "game_type": "battle",
-	  "metadata": {
-		"level": "Hard"
+	  "score": 1200,
+	  "start_time": "2024-09-20T10:00:00Z",
+	  "end_time": "2024-09-20T10:30:00Z",
+	  "user": {
+		"id": 1,
+		"username": "player_one",
+		"email": "player_one@example.com",
+		"display_email": "player_one@example.com",
+		"credits": 100,
+		"score": 1500
+	  }
+	},
+	{
+	  "place": 2,
+	  "score": 1100,
+	  "start_time": "2024-09-20T10:30:00Z",
+	  "end_time": "2024-09-20T11:00:00Z",
+	  "user": {
+		"id": 2,
+		"username": "player_two",
+		"email": "player_two@example.com",
+		"display_email": "player_two@example.com",
+		"credits": 120,
+		"score": 1400
 	  }
 	}
-	```
-
----
+  ]
+}
 
 ## Update a Game Round
 
@@ -100,9 +214,7 @@ Update an existing game round for the current user.
 ### Method
 
 !!! info annotate "PUT"
-	```plaintext
-	/api/v3/game_rounds/{id}
-	```
+/api/v3/game_rounds/{id}
 
 ### Attributes
 
@@ -139,34 +251,28 @@ The response will return the updated game round data, similar to the create resp
 ### Examples
 
 !!! example
-	#### cURL
+#### cURL
 
-	```shell
-	curl --request PUT \
-		--header "authentication-token: abc123" \
-		--header "Content-Type: application/json" \
-		--data '{"score": 1600, "place": 2}' \
-		"https://gamefuse.co/api/v3/game_rounds/101"
-	```
+curl --request PUT \
+	--header "authentication-token: abc123" \
+	--header "Content-Type: application/json" \
+	--data '{"score": 1600, "place": 2}' \
+	"https://gamefuse.co/api/v3/game_rounds/101"
 
-	#### Response
+#### Response
 
-	```json
-	{
-	  "id": 101,
-	  "game_user_id": 1,
-	  "start_time": "2024-09-20T10:00:00Z",
-	  "end_time": "2024-09-20T11:00:00Z",
-	  "score": 1600,
-	  "place": 2,
-	  "game_type": "battle",
-	  "metadata": {
-		"level": "Hard"
-	  }
-	}
-	```
-
----
+{
+  "id": 101,
+  "game_user_id": 1,
+  "start_time": "2024-09-20T10:00:00Z",
+  "end_time": "2024-09-20T11:00:00Z",
+  "score": 1600,
+  "place": 2,
+  "game_type": "battle",
+  "metadata": {
+	"level": "Hard"
+  }
+}
 
 ## View a User's Game Rounds
 
@@ -177,9 +283,7 @@ Retrieve a list of game rounds for a specific user.
 ### Method
 
 !!! info annotate "GET"
-	```plaintext
-	/api/v3/game_rounds?user_id={user_id}
-	```
+/api/v3/game_rounds?user_id={user_id}
 
 ### Attributes
 
@@ -218,46 +322,40 @@ Retrieve a list of game rounds for a specific user.
 ### Examples
 
 !!! example
-	#### cURL
+#### cURL
 
-	```shell
-	curl --request GET \
-		--header "authentication-token: abc123" \
-		"https://gamefuse.co/api/v3/game_rounds?user_id=1"
-	```
+curl --request GET \
+	--header "authentication-token: abc123" \
+	"https://gamefuse.co/api/v3/game_rounds?user_id=1"
 
-	#### Response
+#### Response
 
-	```json
-	[
-	  {
-		"id": 101,
-		"game_user_id": 1,
-		"start_time": "2024-09-20T10:00:00Z",
-		"end_time": "2024-09-20T11:00:00Z",
-		"score": 1500,
-		"place": 1,
-		"game_type": "battle",
-		"metadata": {
-		  "level": "Hard"
-		}
-	  },
-	  {
-		"id": 102,
-		"game_user_id": 1,
-		"start_time": "2024-09-21T10:00:00Z",
-		"end_time": "2024-09-21T11:00:00Z",
-		"score": 1700,
-		"place": 1,
-		"game_type": "adventure",
-		"metadata": {
-		  "level": "Medium"
-		}
-	  }
-	]
-	```
-
----
+[
+  {
+	"id": 101,
+	"game_user_id": 1,
+	"start_time": "2024-09-20T10:00:00Z",
+	"end_time": "2024-09-20T11:00:00Z",
+	"score": 1500,
+	"place": 1,
+	"game_type": "battle",
+	"metadata": {
+	  "level": "Hard"
+	}
+  },
+  {
+	"id": 102,
+	"game_user_id": 1,
+	"start_time": "2024-09-21T10:00:00Z",
+	"end_time": "2024-09-21T11:00:00Z",
+	"score": 1700,
+	"place": 1,
+	"game_type": "adventure",
+	"metadata": {
+	  "level": "Medium"
+	}
+  }
+]
 
 ## Delete a Game Round
 
@@ -268,9 +366,7 @@ Delete an existing game round for the current user.
 ### Method
 
 !!! info annotate "DELETE"
-	```plaintext
-	/api/v3/game_rounds/{id}
-	```
+/api/v3/game_rounds/{id}
 
 ### Attributes
 
@@ -301,21 +397,17 @@ Delete an existing game round for the current user.
 ### Examples
 
 !!! example
-	#### cURL
+#### cURL
 
-	```shell
-	curl --request DELETE \
-		--header "authentication-token: abc123" \
-		"https://gamefuse.co/api/v3/game_rounds/101"
-	```
+curl --request DELETE \
+	--header "authentication-token: abc123" \
+	"https://gamefuse.co/api/v3/game_rounds/101"
 
-	#### Response
+#### Response
 
-	```json
-	{
-	  "message": "Game Round destroyed successfully!"
-	}
-	```
+{
+  "message": "Game Round destroyed successfully!"
+}
 
 ---
 
