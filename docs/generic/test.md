@@ -4,6 +4,24 @@ The Test Suite API allows system admins to perform testing actions such as creat
 
 ---
 
+## Authentication
+
+To authenticate, include the following headers in your request:
+
+| Header Name          | Type   | Description                                                                                       |
+|----------------------|--------|---------------------------------------------------------------------------------------------------|
+| `service-key-token`   | string | The token of the service key to authenticate with.                                                 |
+| `service-key-name`    | string | The name of the service key. This ensures that the correct service key is used for authentication. |
+
+System service keys can be generated in rails console with the following command
+!!! Example
+	```rails
+		token = SecureRandom.uuid
+		name = "token_name"
+		ServiceKey.create(for_system_admin:true, name:name, 
+		token: token)
+		puts "Your service-key-token is '#{token}' and your service-key-name is '#{name}'"
+	```
 ## Create a Game
 
 ### Scope
@@ -19,10 +37,11 @@ Create a new game in the system. This will also create an associated account hol
 
 ### Headers
 
-| Name                  | Type   | Description |
-|-----------------------|--------|-------------|
-| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for system admin sessions |
-| `Content-Type`         | string | Set it to `application/json` |
+| Header Name          | Type   | Description                                                                                       |
+|----------------------|--------|---------------------------------------------------------------------------------------------------|
+| `service-key-token`   | string | The token of the service key to authenticate with.                                                 |
+| `service-key-name`    | string | The name of the service key. This ensures that the correct service key is used for authentication. |
+
 
 ### Responses
 
@@ -86,10 +105,11 @@ Create a new user for a specific game. This is used for testing purposes to quic
 
 ### Headers
 
-| Name                  | Type   | Description |
-|-----------------------|--------|-------------|
-| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for system admin sessions |
-| `Content-Type`         | string | Set it to `application/json` |
+| Header Name          | Type   | Description                                                                                       |
+|----------------------|--------|---------------------------------------------------------------------------------------------------|
+| `service-key-token`   | string | The token of the service key to authenticate with.                                                 |
+| `service-key-name`    | string | The name of the service key. This ensures that the correct service key is used for authentication. |
+
 
 ### Responses
 
@@ -152,10 +172,11 @@ Delete a game and all associated data (users, game rounds, etc.). This is a test
 
 ### Headers
 
-| Name                  | Type   | Description |
-|-----------------------|--------|-------------|
-| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for system admin sessions |
-| `Content-Type`         | string | Set it to `application/json` |
+| Header Name          | Type   | Description                                                                                       |
+|----------------------|--------|---------------------------------------------------------------------------------------------------|
+| `service-key-token`   | string | The token of the service key to authenticate with.                                                 |
+| `service-key-name`    | string | The name of the service key. This ensures that the correct service key is used for authentication. |
+
 
 ### Responses
 
