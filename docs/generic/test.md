@@ -151,6 +151,83 @@ Create a new user for a specific game. This is used for testing purposes to quic
 
 ---
 
+## Create a Store Item
+
+### Scope
+
+Create a new store item for a specific game. Store items cannot be created by game user clients, so you can populate a game for testing with this.
+
+### Method
+
+!!! info annotate "POST"
+	```plaintext
+	/api/v3/test_suite/create_store_item
+	```
+
+### Attributes
+
+| Name      | Type    | Required | Description                  |
+|-----------|---------|----------|------------------------------|
+| `game_id`       | integer | Yes      | ID of the game to associate the store item with. |
+| `name`          | string  | Yes      | Name of the new store item.                      |
+| `description`   | string  | Yes      | Readable description.                            |
+| `category`      | string  | Yes      | Category of item.                                |
+| `cost`          | integer | Yes      | Cost (in user credits) of item.                  |
+
+### Headers
+
+| Header Name          | Type   | Description                                                                                       |
+|----------------------|--------|---------------------------------------------------------------------------------------------------|
+| `service-key-token`   | string | The token of the service key to authenticate with.                                                 |
+| `service-key-name`    | string | The name of the service key. This ensures that the correct service key is used for authentication. |
+
+
+### Responses
+
+| HTTP status code | content-type    | Description                      |
+|------------------|-----------------|----------------------------------|
+| `201`            | application/json| Category created successfully.   |
+| `401`            | text/plain      | Unauthorized access.             |
+
+### Response object
+
+| Attribute name | Type    | Description                       |
+|----------------|---------|-----------------------------------|
+| `game_id`       | integer | Yes      | ID of the game to associate the store item with. |
+| `name`          | string  | Yes      | Name of the created store item.                  |
+| `description`   | string  | Yes      | Readable description.                            |
+| `category`      | string  | Yes      | Category of item.                                |
+| `cost`          | integer | Yes      | Cost (in user credits) of item.                  |
+
+### Examples
+
+!!! example
+	#### cURL
+	
+	```shell
+	curl --request POST \
+		--header "service-key-token: abc123" \
+		--header "service-key-name: test-key" \
+		--header "Content-Type: application/json" \
+		--data '{"game_id": 1, "name": "Power Sword", "description": "A sword with special abilities.", "category": "Weapons", "cost": 500}' \
+		"https://gamefuse.co/api/v3/test_suite/create_store_item"
+	```
+	
+	#### Response
+	
+	```json
+	{
+  	"id": 100,
+  	"game_id": 1,
+  	"name": "Power Sword",
+  	"description": "A sword with special abilities.",
+  	"category": "Weapons",
+  	"cost": 500
+	}
+	```
+
+---
+
 ## Clean Up Test Data
 
 ### Scope
