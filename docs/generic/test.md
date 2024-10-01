@@ -291,4 +291,5 @@ Delete a game and all associated data (users, game rounds, etc.). This is a test
 
 ---
 
-This Test Suite API document outlines the key administrative operations for creating games and users, and for cleaning up test data. These operations are restricted to system admins.
+
+
