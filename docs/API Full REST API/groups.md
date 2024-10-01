@@ -4,9 +4,133 @@ The Group and Group Connection API allows users to manage groups, join or leave 
 
 ---
 
-## Groups
+## Create Group
 
-### Fetch All Groups
+### Scope
+
+Allows a user to create a new group. Upon successful creation, the user will be made the group admin automatically.
+
+### Method
+
+!!! info annotate "POST"
+	```plaintext
+	/api/v3/groups
+	```
+
+### Attributes
+
+| Name             				     | Type    | Required | Description                                       		 		      |
+|------------------------------------|---------|----------|-----------------------------------------------------------------------|
+| `name`                             | string  | Yes      | The name of the group                                  				  |
+| `group_type`    		 		     | string  | No       | The type of the group (e.g., `Public`, `Private`, etc.) 			  |
+| `max_group_size` 		 		     | integer | No       | The maximum number of members allowed in the group    				  |
+| `can_auto_join`  		 		     | boolean | No       | Whether users can join the group automatically        				  |
+| `is_invite_only` 		 		     | boolean | No       | Whether the group requires an invite to join          				  |
+| `searchable`     		 		     | boolean | No       | Whether the group is searchable by other users     					  |
+| `admins_only_can_create_attributes`| boolean | No       | Whether the admins are the only ones who can create attributes        |
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `Content-Type`         | string | Set it to `application/json` |
+
+### Responses
+
+| HTTP status code | content-type    | Description                                      |
+|------------------|-----------------|--------------------------------------------------|
+| `201`            | application/json| Group created successfully.                      |
+| `422`            | text/plain      | Could not create the group due to invalid data.  |
+| `500`            | text/plain      | Unknown server error.                            |
+
+### Response object
+
+| Attribute name     | Type    | Description                                     |
+|--------------------|---------|-------------------------------------------------|
+| `id`               | integer | The ID of the created group                     |
+| `name`             | string  | The name of the group                           |
+| `group_type`       | string  | The type of the group (e.g., `Public`, `Private`)|
+| `can_auto_join`    | boolean | Whether users can join the group automatically  |
+| `is_invite_only`   | boolean | Whether the group requires an invite to join    |
+| `max_group_size`   | integer | The maximum number of members allowed in the group |
+| `searchable`       | boolean | Whether the group is searchable by other users  |
+| `member_count`     | integer | The current number of members in the group      |
+| `members`          | array   | List of members in the group (if `with_full_data` is true) |
+| `admins`           | array   | List of admins in the group (if `with_full_data` is true) |
+| `join_requests`    | array   | List of join requests (if available)            |
+| `invites`          | array   | List of invites (if available)                  |
+
+#### Member and Admin Object Structure
+
+Each `member` and `admin` contains:
+
+| Attribute name | Type    | Description                                     |
+|----------------|---------|-------------------------------------------------|
+| `id`           | integer | User ID                                         |
+| `username`     | string  | Username of the user                            |
+| `email`        | string  | Email of the user                               |
+| `credits`      | integer | User credits                                    |
+| `score`        | integer | User score                                      |
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request POST \
+		--header "authentication-token: abc123" \
+		--header "Content-Type: application/json" \
+		--data '{
+			"name": "Awesome Gamers",
+			"group_type": "Public",
+			"max_group_size": 50,
+			"can_auto_join": true,
+			"is_invite_only": false
+		}' \
+		"https://gamefuse.co/api/v3/groups"
+	```
+
+	#### Response
+
+	```json
+	{
+	  "id": 1,
+	  "name": "Awesome Gamers",
+	  "group_type": "Public",
+	  "can_auto_join": true,
+	  "is_invite_only": false,
+	  "max_group_size": 50,
+	  "searchable": true,
+	  "member_count": 1,
+	  "members": [
+		{
+		  "id": 10,
+		  "username": "john_doe",
+		  "email": "john.doe@example.com",
+		  "credits": 150,
+		  "score": 1200
+		}
+	  ],
+	  "admins": [
+		{
+		  "id": 10,
+		  "username": "john_doe",
+		  "email": "john.doe@example.com",
+		  "credits": 150,
+		  "score": 1200
+		}
+	  ],
+	  "join_requests": [],
+	  "invites": []
+	}
+	```
+
+---
+
+
+## Fetch All Groups
 
 ### Scope
 
@@ -99,7 +223,7 @@ Each group contains:
 
 ---
 
-### Fetch Group Details
+## Fetch Group Details
 
 ### Scope
 
@@ -198,9 +322,8 @@ Retrieve the full details of a specific group, including its members, admins, jo
 
 ---
 
-## Group Connections
 
-### Send Group Connection Request
+## Send Group Connection Request
 
 ### Scope
 
@@ -277,7 +400,7 @@ Create a new group connection, which may involve sending an invite or processing
 
 ---
 
-### Manage Group Membership Requests
+## Manage Group Membership Requests
 
 ### Scope
 
@@ -340,9 +463,9 @@ Handle join requests and invites for a group by accepting or rejecting them.
 	  "status": "accepted"
 	}
 	```
-## Group Attributes
+# Group Attributes
 	
-### Fetch Group Attributes
+## Fetch Group Attributes
 
 ### Scope
 
@@ -421,11 +544,13 @@ Retrieve all attributes for a specific group.
 	
 	---
 	
-### Add Group Attributes
+## Add Group Attributes
 
 ### Scope
 
 Add or update attributes for a specific group. Only group admins or the attribute creator can update attributes, depending on group settings. All group members can read these settings.
+If group.admins_only_can_create_attributes = true, non-admins in the group will NOT be able to create group attributes.
+Attributes can be protected by the creator by passing in only_can_edit_by_creator = true, which will prevent others from modifying this attribute.
 
 ### Method
 

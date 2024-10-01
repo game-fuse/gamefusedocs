@@ -101,6 +101,7 @@ markdown_extensions:
     - pymdownx.superfences
     - toc:
         permalink: true
+        toc_depth: 2
     - tables
     - attr_list
     - pymdownx.emoji
