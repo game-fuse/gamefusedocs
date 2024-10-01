@@ -186,7 +186,7 @@ Set the absolute amount of scores a user has. The scores param will be the user'
     }
     ```
 
-## Adding a custom attribute (custom data)
+## Adding a custom attribute 
 
 ### Scope
 
@@ -225,7 +225,7 @@ format but can be converted into any type by the programming language in use.
 
 | HTTP status code | content-type | Description |
 |------------------|--------------|-------------|
-| `200`              | application/json         | Object containing the user's attributes (custom data) |
+| `200`              | application/json         | Object containing the user's attributes  |
 | `400`              | text/plain | Missing or invalid parameters. Each `attribute` needs a `key` and `value' parameter |
 | `500`              | text/plain | Unknown server error |
 
@@ -317,7 +317,7 @@ format but can be converted into any type by the programming language in use.
     }
     ```
 
-## Removing a custom attribute (custom data)
+## Removing a custom attribute 
 
 ### Scope
 
@@ -351,7 +351,7 @@ None
 
 | HTTP status code | content-type | Description |
 |------------------|--------------|-------------|
-| `200`              | application/json         | Object containing the user's attributes (custom data) |
+| `200`              | application/json         | Object containing the user's attributes  |
 | `400`              | text/plain | User does not have an item with the specified `key` |
 | `500`              | text/plain | Unknown server error |
 
@@ -391,7 +391,7 @@ None
     }
     ```
 
-## Get all custom attributes (custom data)
+## Get all custom attributes 
 
 ### Scope
 
@@ -424,7 +424,7 @@ None
 
 | HTTP status code | content-type | Description |
 |------------------|--------------|-------------|
-| `200             | application/json         | Object containing the user's attributes (custom data) |
+| `200             | application/json         | Object containing the user's attributes  |
 | `500             | text/plain               | Unknown server error |
 
 ### Response object

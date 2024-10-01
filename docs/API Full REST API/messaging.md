@@ -126,7 +126,7 @@ Each message contains:
 
 ---
 
-### Create a Chat
+## Create a Chat
 
 ### Scope
 
@@ -210,7 +210,7 @@ Create a new chat, either a direct chat or a group chat, and send the first mess
 
 ## Messages
 
-### Fetch Paginated Messages
+## Fetch Paginated Messages
 
 ### Scope
 
@@ -300,7 +300,7 @@ Each message contains:
 
 ---
 
-### Send a Message
+## Send a Message
 
 ### Scope
 
@@ -371,7 +371,7 @@ Send a new message to an existing chat.
 
 ---
 
-### Mark a Message as Read
+## Mark a Message as Read
 
 ### Scope
 
