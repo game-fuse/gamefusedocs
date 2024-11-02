@@ -21,7 +21,7 @@ Make users log-in.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/sessions
+    /api/v3/sessions
     ```
 
 ### Attributes
@@ -79,7 +79,7 @@ None
     curl --request POST \
         --header 'Content-Type: application/json' \
         --data '{"email: "john.doe@example.com", "password": 1234", "password_confirmation": "1234", "username": "jdoe", "game_id": 1, "game_token": "abc123"}' \
-        https://gamefuse.co/api/v2/sessions
+        https://gamefuse.co/api/v3/sessions
     ```
 
     ### Response

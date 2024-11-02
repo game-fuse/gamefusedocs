@@ -2,6 +2,9 @@
 
 The Chat and Message API allows users to manage chats and send messages between players in the GameFuse platform. This includes creating chats, sending messages, paginating through chats and messages, and marking messages as read.
 
+!!! note
+    This feature is not supported in the client libraries yet.  It is in beta and may be subject to change. This message will be removed when the feature is completed
+	
 ---
 
 ## Chats

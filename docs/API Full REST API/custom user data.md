@@ -15,7 +15,7 @@ Alters the amount of scores a users has relatively
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_score
+    /api/v3/users/{signedInUserId}/add_score
     ```
 
 ### Attributes
@@ -73,7 +73,7 @@ Alters the amount of scores a users has relatively
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
         --data '{"score": 10}' \
-        "https://gamefuse.co/api/v2/users/1/add_score"
+        "https://gamefuse.co/api/v3/users/1/add_score"
     ```
 
     #### Response
@@ -106,7 +106,7 @@ Set the absolute amount of scores a user has. The scores param will be the user'
 
 !!! info annotate "POST"                                                        
     ```plaintext
-    /api/v2/users/{signedInUserId}/set_score
+    /api/v3/users/{signedInUserId}/set_score
     ```
 
 ### Attributes
@@ -163,7 +163,7 @@ Set the absolute amount of scores a user has. The scores param will be the user'
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
         --data '{"score": 10}' \
-        "https://gamefuse.co/api/v2/users/1/set_score"
+        "https://gamefuse.co/api/v3/users/1/set_score"
     ```
 
     #### Response
@@ -197,7 +197,7 @@ format but can be converted into any type by the programming language in use.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_game_user_attribute
+    /api/v3/users/{signedInUserId}/add_game_user_attribute
     ```
 
 ### Attributes
@@ -245,7 +245,7 @@ format but can be converted into any type by the programming language in use.
         --header "authentication-token: abc123" \
         --header 'Content-Type: application/json' \
         --data '{"key": "some key","value": "some value"}'
-        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute'
+        'https://gamefuse.co/api/v3/users/1/add_game_user_attribute'
     ```
 
     #### Response
@@ -280,7 +280,7 @@ format but can be converted into any type by the programming language in use.
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
         --data '{"key": "some key","value": "some value", "attributes": [{"key":"k0","value":"v0"},{"key":"k1","value":"v1"}]}' \
-        'https://gamefuse.co/api/v2/users/1/add_game_user_attribute'
+        'https://gamefuse.co/api/v3/users/1/add_game_user_attribute'
     ```
 
     #### Response
@@ -327,7 +327,7 @@ Remove an arbitrary custom attribute.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/users/{signedInUserId}/remove_game_user_attribute?game_user_attribute_key={gameUserAttributeKey}
+    /api/v3/users/{signedInUserId}/remove_game_user_attribute?game_user_attribute_key={gameUserAttributeKey}
     ```
 
 ### Attributes
@@ -369,7 +369,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        'https://gamefuse.co/api/v2/users/1/remove_game_user_attribute?game_user_attribute_key=some%20key'
+        'https://gamefuse.co/api/v3/users/1/remove_game_user_attribute?game_user_attribute_key=some%20key'
     ```
 
     #### Example response
@@ -401,7 +401,7 @@ Get all custom attributes of a user.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/users/{signedInUserId}/game_user_attributes
+    /api/v3/users/{signedInUserId}/game_user_attributes
     ```
 
 ### Attributes
@@ -441,7 +441,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        'https://gamefuse.co/api/v2/users/1/game_user_attributes'
+        'https://gamefuse.co/api/v3/users/1/game_user_attributes'
     ```
 
     #### Example response

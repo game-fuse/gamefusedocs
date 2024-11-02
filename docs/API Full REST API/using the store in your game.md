@@ -8,7 +8,7 @@ Get all the store items from a specific game.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/games/store_items?game_id={gameId}&game_token={gameToken}
+    /api/v3/games/store_items?game_id={gameId}&game_token={gameToken}
     ```
 
 ### Attributes
@@ -47,7 +47,7 @@ None
 
     ```shell
     curl --request GET \
-        "https://gamefuse.co/api/v2/games/store_items?game_id=1&game_token=abc123"
+        "https://gamefuse.co/api/v3/games/store_items?game_id=1&game_token=abc123"
     ```
 
     #### Response
@@ -88,7 +88,7 @@ Purchase a store item.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/purchase_game_user_store_item
+    /api/v3/users/{signedInUserId}/purchase_game_user_store_item
     ```
 
 ### Attributes
@@ -135,7 +135,7 @@ Purchase a store item.
         --header "Content-Type: application/json" \
         --header "authentication-token: abc123" \
         --data '{"store_item_id": 337}' \
-        'https://gamefuse.co/api/v2/users/1/purchase_game_user_store_item'
+        'https://gamefuse.co/api/v3/users/1/purchase_game_user_store_item'
     ```
 
     #### Response
@@ -177,7 +177,7 @@ Revoke a store item purchase.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/users/{signedInUserId}/remove_game_user_store_item?store_item_id={storeItemId}
+    /api/v3/users/{signedInUserId}/remove_game_user_store_item?store_item_id={storeItemId}
     ```
 
 ### Attributes
@@ -220,7 +220,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/purchase_game_user_store_item?store_item_id=337"
+        "https://gamefuse.co/api/v3/users/1/purchase_game_user_store_item?store_item_id=337"
     ```
 
     #### Response
@@ -262,7 +262,7 @@ Get all of the user's purchased store items.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/users/{signedInUserId}/game_user_store_items
+    /api/v3/users/{signedInUserId}/game_user_store_items
     ```
 
 ### Attributes
@@ -303,7 +303,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/game_user_store_items"
+        "https://gamefuse.co/api/v3/users/1/game_user_store_items"
     ```
 
     #### Response

@@ -12,7 +12,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_leaderboard_entry
+    /api/v3/users/{signedInUserId}/add_leaderboard_entry
     ```
 
 ### Attributes
@@ -72,7 +72,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
         --data '{"score": 21, "leaderboard_name": "leaderboard test", "extra_attributes": "{\"level\": \"l0\", \"color\": \"blue\"}"}' \
-        "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry"
+        "https://gamefuse.co/api/v3/users/1/add_leaderboard_entry"
     ```
 
     #### Response
@@ -103,7 +103,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
         --data '{"score": 21, "leaderboard_name": "leaderboard test"}' \
-        "https://gamefuse.co/api/v2/users/1/add_leaderboard_entry"
+        "https://gamefuse.co/api/v3/users/1/add_leaderboard_entry"
     ```
 
     #### Response
@@ -136,7 +136,7 @@ Clear all leaderboard entries for a specific user.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/clear_my_leaderboard_entries
+    /api/v3/users/{signedInUserId}/clear_my_leaderboard_entries
     ```
 
 ### Attributes
@@ -189,7 +189,7 @@ None
     ```shell
     curl --request POST \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/clear_my_leaderboard_entries"
+        "https://gamefuse.co/api/v3/users/1/clear_my_leaderboard_entries"
     ```
 
     #### Response
@@ -222,7 +222,7 @@ Get leaderboard entries for a specific leaderboard name.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/games/{gameId}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}
+    /api/v3/games/{gameId}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}
     ```
 
 !!! important
@@ -272,7 +272,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/games/1/leaderboard_entries?leaderboard_name=leaderboard_for_game_1&limit=10"
+        "https://gamefuse.co/api/v3/games/1/leaderboard_entries?leaderboard_name=leaderboard_for_game_1&limit=10"
     ```
 
     #### Response
@@ -310,7 +310,7 @@ Get all leaderboard entries for a specific user.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/users/{signedInUserId}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}&one_per_user={onePerUser}
+    /api/v3/users/{signedInUserId}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}&one_per_user={onePerUser}
     ```
 
 ### Attributes
@@ -348,7 +348,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v2/users/1/leaderboard_entries?leaderboard_name=leaderboard_for_game_1&limit=10""
+        "https://gamefuse.co/api/v3/users/1/leaderboard_entries?leaderboard_name=leaderboard_for_game_1&limit=10""
     ```
 
     #### Response

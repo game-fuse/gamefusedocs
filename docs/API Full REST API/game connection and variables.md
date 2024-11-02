@@ -15,7 +15,7 @@ Verify your game at GameFuse.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/games/verify?game_id={gameId}&game_token={gameToken}
+    /api/v3/games/verify?game_id={gameId}&game_token={gameToken}
     ```
 
 ### Attributes
@@ -61,7 +61,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        'https://gamefuse.co/api/v2/games/verify?game_id=1&game_token=cde456'
+        'https://gamefuse.co/api/v3/games/verify?game_id=1&game_token=cde456'
     ```
 
     #### Response
@@ -101,7 +101,7 @@ Retrieve game data.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v2/games/fetch_game_variables?game_id={gameId}&game_token={gameToken}
+    /api/v3/games/fetch_game_variables?game_id={gameId}&game_token={gameToken}
     ```
 
 ### Attributes
@@ -147,7 +147,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        'https://gamefuse.co/api/v2/games/fetch_game_variables?game_id=1&game_token=cde456'
+        'https://gamefuse.co/api/v3/games/fetch_game_variables?game_id=1&game_token=cde456'
     ```
 
     #### Response

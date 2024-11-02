@@ -15,7 +15,7 @@ Sign up a new user in your game.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users
+    /api/v3/users
     ```
 
 ### Attributes
@@ -53,12 +53,7 @@ None
 |-----------------------------------|------|-------------|
 | `authentication_token`            | string | Token that must be saved and added as a parameter to all authenticated requests |
 | `credits`                         | integer | Number of credits the user has. These can be used in your in game store |
-| `display_email`                   | string  | User's actual email used for notifications and login |
-| `email`                           | string  | System email: a combination of `id` and `email` |
-| `events_total`                    | integer | Running API hits for this user |
-| `events_current_month`            | integer | Running API hits for this user for the current month |
-| `game_sessions_current_month`     | integer | unique game session for this user during the current month |
-| `game_sessions_total`             | integer | Unique game session for this user |
+| `email`                           | string  | Users email field added on registration |
 | `id`                              | integer | User's id   |
 | `last_login`                      | string | Timestamp of last login |
 | `number_of_logins`                | integer | Total logins |

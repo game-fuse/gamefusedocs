@@ -19,7 +19,7 @@ Resets a user's password.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v1/games/{gameId}/forget_password?email={email}&game_id={gameId}&game_token={gameToken}
+    /api/v3/games/{gameId}/forget_password?email={email}&game_id={gameId}&game_token={gameToken}
     ```
 
 ### Attributes
@@ -64,7 +64,7 @@ None
     ```shell
     curl --request GET \
         --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v1/games/1/forget_password?email=john.doe@example.com&game_id=1&game_token=abc123"
+        "https://gamefuse.co/api/v3/games/1/forget_password?email=john.doe@example.com&game_id=1&game_token=abc123"
     ```
 
     ### Response

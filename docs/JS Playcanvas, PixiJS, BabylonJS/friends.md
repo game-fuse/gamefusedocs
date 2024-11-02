@@ -2,6 +2,10 @@
 
 GameFuse provides methods to manage friends, including retrieving the list of friends, incoming friend requests, and outgoing friend requests. This documentation covers how to use these methods.
 
+!!! note
+    This feature is not officially supported yet.  It is in beta and may be subject to change. This message will be removed when the feature is completed
+	
+
 ## Table of Contents
 - [Retrieving Friends](#retrieving-friends)
 - [Retrieving Incoming Friend Requests](#retrieving-incoming-friend-requests)

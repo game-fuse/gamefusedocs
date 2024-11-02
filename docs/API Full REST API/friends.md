@@ -2,6 +2,9 @@
 
 The Friendship API allows users to create, manage, and remove friendships between players in the GameFuse platform. This includes sending friend requests, accepting or rejecting them, unfriending players, and viewing friendship data.
 
+!!! note
+    This feature is not supported in the client libraries yet.  It is in beta and may be subject to change. This message will be removed when the feature is completed
+	
 ---
 
 ## Sending a Friend Request
@@ -336,6 +339,202 @@ None
 		  "username": "another_friend",
 		  "email": "another_friend@example.com",
 		  "display_email": "another_friend@example.com",
+		  "credits": 200,
+		  "score": 1300,
+		  "friendship_id": 124,
+		  "requested_at": "2024-09-19T11:22:33Z"
+		}
+	  ]
+	}
+	```
+## Retrieve Friends List
+
+### Scope
+
+Retrieve the list of all accepted friends for the current user.
+
+### Method
+
+!!! info annotate "GET"
+	```plaintext
+	/api/v3/friends
+	```
+
+### Attributes
+
+None
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type    | Description                       |
+|------------------|-----------------|-----------------------------------|
+| `200`            | application/json| Array of friends with basic info. |
+| `500`            | text/plain      | Unknown server error.             |
+
+### Response object
+
+| Attribute name | Type   | Description                      |
+|----------------|--------|----------------------------------|
+| `friends`      | array  | List of friends (basic user info). |
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request GET \
+		--header "authentication-token: abc123" \
+		"https://gamefuse.co/api/v3/friends"
+	```
+
+	#### Response
+
+	```json
+	{
+	  "friends": [
+		{
+		  "id": 1,
+		  "username": "john_doe",
+		  "email": "john.doe@example.com",
+		  "credits": 150,
+		  "score": 1200
+		}
+	  ]
+	}
+	```
+
+---
+
+## Retrieve Outgoing Friend Requests
+
+### Scope
+
+Retrieve a list of all pending friend requests sent by the current user.
+
+### Method
+
+!!! info annotate "GET"
+	```plaintext
+	/api/v3/outgoing_friend_requests
+	```
+
+### Attributes
+
+None
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type    | Description                                      |
+|------------------|-----------------|--------------------------------------------------|
+| `200`            | application/json| Array of outgoing friend requests.               |
+| `500`            | text/plain      | Unknown server error.                            |
+
+### Response object
+
+| Attribute name            | Type   | Description                                        |
+|---------------------------|--------|----------------------------------------------------|
+| `outgoing_friend_requests`| array  | List of friend requests sent by the user.          |
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request GET \
+		--header "authentication-token: abc123" \
+		"https://gamefuse.co/api/v3/outgoing_friend_requests"
+	```
+
+	#### Response
+
+	```json
+	{
+	  "outgoing_friend_requests": [
+		{
+		  "id": 2,
+		  "username": "friend_username",
+		  "email": "friend@example.com",
+		  "credits": 100,
+		  "score": 900,
+		  "friendship_id": 123,
+		  "requested_at": "2024-09-20T12:34:56Z"
+		}
+	  ]
+	}
+	```
+
+---
+
+## Retrieve Incoming Friend Requests
+
+### Scope
+
+Retrieve a list of all pending friend requests received by the current user.
+
+### Method
+
+!!! info annotate "GET"
+	```plaintext
+	/api/v3/incoming_friend_requests
+	```
+
+### Attributes
+
+None
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type    | Description                                      |
+|------------------|-----------------|--------------------------------------------------|
+| `200`            | application/json| Array of incoming friend requests.               |
+| `500`            | text/plain      | Unknown server error.                            |
+
+### Response object
+
+| Attribute name            | Type   | Description                                       |
+|---------------------------|--------|---------------------------------------------------|
+| `incoming_friend_requests`| array  | List of friend requests received by the user.     |
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request GET \
+		--header "authentication-token: abc123" \
+		"https://gamefuse.co/api/v3/incoming_friend_requests"
+	```
+
+	#### Response
+
+	```json
+	{
+	  "incoming_friend_requests": [
+		{
+		  "id": 3,
+		  "username": "another_friend",
+		  "email": "another_friend@example.com",
 		  "credits": 200,
 		  "score": 1300,
 		  "friendship_id": 124,

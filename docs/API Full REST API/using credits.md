@@ -14,7 +14,7 @@ Alter the relative amount of credits a users has.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/add_credits
+    /api/v3/users/{signedInUserId}/add_credits
     ```
 
 ### Attributes
@@ -71,7 +71,7 @@ Alter the relative amount of credits a users has.
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
         --data '{"credits": 10}' \
-        "https://gamefuse.co/api/v2/users/1/add_credits"
+        "https://gamefuse.co/api/v3/users/1/add_credits"
     ```
 
     #### Response
@@ -108,7 +108,7 @@ Set the absolute amount of credits a users has.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v2/users/{signedInUserId}/set_credits
+    /api/v3/users/{signedInUserId}/set_credits
     ```
 
 ### Attributes
@@ -165,7 +165,7 @@ Set the absolute amount of credits a users has.
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json \
         --data '{"credits": 10}' \
-        "https://gamefuse.co/api/v2/users/1/set_credits"
+        "https://gamefuse.co/api/v3/users/1/set_credits"
     ```
 
     #### Response
