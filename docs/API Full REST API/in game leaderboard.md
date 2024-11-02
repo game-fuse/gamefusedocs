@@ -317,7 +317,7 @@ Get all leaderboard entries for a specific user.
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `leaderboardName` | string       | Yes     | Name of the leaderboard within the game |
+| `leaderboardName` | string       | No     | Name of the leaderboard within the game. No value returns all leaderboard entries for the User |
 | `limit`          | integer       | Yes      | Limit the number of results. Set this value >= 1 |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 | `onePerUser`     | boolean       | No       | If set to `true` get only one result per player on the leaderboard |
@@ -342,7 +342,7 @@ None
 
 ### Examples
 
-!!! example
+!!! example 1
     #### cURL
 
     ```shell
@@ -375,3 +375,40 @@ None
       ]
     }
     ```
+
+!!! example 2
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        --header "authentication-token: abc123" \
+        "https://gamefuse.co/api/v2/users/1/leaderboard_entries?limit=10""
+    ```
+
+    #### Response
+
+    ```json
+    {
+      "leaderboard_entries": [
+          {
+              "username": "john.doe",
+              "score": 1453,
+              "leaderboard_name": "leaderboard_1",
+              "game_user_id": 1,
+              "extra_attributes": "{}",
+              "created_at": "2024-07-23T15:20:09.424Z"
+          },
+          {
+              "username": "john.doe",
+              "score": 1453,
+              "leaderboard_name": "leaderboard_2",
+              "game_user_id": 1,
+              "extra_attributes": "{}",
+              "created_at": "2024-07-23T15:12:09.424Z"
+          },
+      ]
+    }
+    ```
+
+    
+    

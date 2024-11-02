@@ -10,7 +10,9 @@ Starting from any blueprints in your game use the `SetUpGame` node as part of
 your game initialization process. This process should be one of the first
 things that happen when your game starts.
 
-<iframe src="https://blueprintue.com/render/aqw24wej/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://blueprintue.com/render/k0hc79fl/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/k0hc79fl/)
 
 ## Game Variables
 
@@ -19,4 +21,6 @@ You can also re-fetch them whenever you like.
 
 In any Blueprints use:
 
-<iframe src="https://blueprintue.com/render/u1qkcqe2/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://blueprintue.com/render/ukm1wzgq/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/ukm1wzgq/)
