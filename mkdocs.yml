@@ -17,7 +17,9 @@ nav:
         - Forgot Password: C# Unity 3D/forgot password.md
         - Class Methods: C# Unity 3D/class methods.md
       - Blueprints Unreal: 
-        - Blueprints Unreal/getting started.md
+        - V2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
+        - V2.9 Migration Guide: Blueprints Unreal/V2.9 Blueprint Migration Guide.md
+        - Getting Started: Blueprints Unreal/getting started.md
         - Game Connection and Variables: Blueprints Unreal/game connection and variables.md
         - Signing game users up: Blueprints Unreal/signing game users up.md
         - Signing game users in: Blueprints Unreal/signing game users in.md
@@ -29,7 +31,9 @@ nav:
         - Forgot Password: Blueprints Unreal/forgot password.md
         - Class Methods: Blueprints Unreal/class methods.md
       - C++ Unreal Engine: 
-        - C++ Unreal Engine/getting started.md
+        - v2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
+        - v2.9 Migration Guide: C++ Unreal Engine/V2.9 Unreal C++ Migration Guide.md
+        - Getting Started: C++ Unreal Engine/getting started.md
         - Game Connection and Variables: C++ Unreal Engine/game connection and variables.md
         - Signing game users up: C++ Unreal Engine/signing game users up.md
         - Signing game users in: C++ Unreal Engine/signing game users in.md
