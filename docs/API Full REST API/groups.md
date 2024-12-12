@@ -404,7 +404,6 @@ Create a new group connection, which may involve sending an invite or processing
 ---
 
 ## Manage Group Membership Requests
-
 ### Scope
 
 Handle join requests and invites for a group by accepting or rejecting them.
@@ -466,40 +465,39 @@ Handle join requests and invites for a group by accepting or rejecting them.
 	  "status": "accepted"
 	}
 	```
-# Group Attributes
-	
+
 ## Fetch Group Attributes
 
 ### Scope
 
-Retrieve all attributes for a specific group.
+Retrieve all attributes for a specific group. Attributes include key-value pairs that represent customizable settings or metadata for the group.
 
 ### Method
-	
+
 !!! info annotate "GET"
-		```plaintext
-		/api/v3/groups/{id}/attributes
-		```
-	
+	```plaintext
+	/api/v3/groups/{id}/attributes
+	```
+
 ### Attributes
-	
-| Name  | Type    | Required | Description                        |
-|-------|---------|----------|------------------------------------|
-| `id`  | integer | Yes      | The ID of the group to fetch attributes for. |
-	
+
+| Name  | Type    | Required | Description                                      |
+|-------|---------|----------|--------------------------------------------------|
+| `id`  | integer | Yes      | The ID of the group to fetch attributes for.     |
+
 ### Headers
-	
+
 | Name                  | Type   | Description |
 |-----------------------|--------|-------------|
 | `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
 
 ### Responses
 
-| HTTP status code | content-type    | Description                              |
-|------------------|-----------------|------------------------------------------|
-| `200`            | application/json| Group attributes fetched successfully.   |
-| `403`            | text/plain      | User does not have permission to view this group. |
-| `500`            | text/plain      | Unknown server error.                    |
+| HTTP status code | content-type    | Description                                      |
+|------------------|-----------------|--------------------------------------------------|
+| `200`            | application/json| Group attributes fetched successfully.           |
+| `403`            | text/plain      | User does not have permission to view attributes for this group. |
+| `500`            | text/plain      | Unknown server error.                            |
 
 ### Response object
 
@@ -517,43 +515,41 @@ Retrieve all attributes for a specific group.
 	#### cURL
 
 	```shell
-		curl --request GET \
-			--header "authentication-token: abc123" \
-			"https://gamefuse.co/api/v3/groups/1/attributes"
+	curl --request GET \
+		--header "authentication-token: abc123" \
+		"https://gamefuse.co/api/v3/groups/1/attributes"
 	```
-	
+
 	#### Response
-	
+
 	```json
+	{
+	"attributes": [
 		{
-		  "attributes": [
-			{
-			  "id": 1,
-			  "key": "setting1",
-			  "value": "decrypted_value1",
-			  "creator_id": 1001,
-			  "can_edit": true
-			},
-			{
-			  "id": 2,
-			  "key": "setting2",
-			  "value": "decrypted_value2",
-			  "creator_id": 1002,
-			  "can_edit": false
-			}
-		  ]
+		"id": 1,
+		"key": "theme",
+		"value": "dark",
+		"creator_id": 1001,
+		"can_edit": true
+		},
+		{
+		"id": 2,
+		"key": "language",
+		"value": "English",
+		"creator_id": 1002,
+		"can_edit": false
 		}
+	]
+	}
 	```
-	
-	---
-	
-## Add Group Attributes
+
+---
+
+## Create Group Attribute
 
 ### Scope
 
-Add or update attributes for a specific group. Only group admins or the attribute creator can update attributes, depending on group settings. All group members can read these settings.
-If group.admins_only_can_create_attributes = true, non-admins in the group will NOT be able to create group attributes.
-Attributes can be protected by the creator by passing in only_can_edit_by_creator = true, which will prevent others from modifying this attribute.
+Add a new attribute to a group. Group attributes are key-value pairs that store metadata or settings for the group.
 
 ### Method
 
@@ -567,15 +563,15 @@ Attributes can be protected by the creator by passing in only_can_edit_by_creato
 | Name        | Type    | Required | Description                                       |
 |-------------|---------|----------|---------------------------------------------------|
 | `id`        | integer | Yes      | The ID of the group to add attributes to.         |
-| `attributes`| array   | Yes      | Array of attributes to be added/updated.          |
+| `attributes`| array   | Yes      | Array of attributes to be added.                  |
 
 Each attribute object should have the following:
 
 | Name                     | Type    | Required | Description                                        |
-|--------------------------|---------|----------|----------------------------------------------------|
-| `key`                     | string  | Yes      | The key for the attribute                          |
-| `value`                   | string  | Yes      | The value associated with the key                  |
-| `only_can_edit_by_creator`| boolean | No       | Whether only the creator can edit this attribute (defaults to `true`) |
+|--------------------------|---------|----------|---------------------------------------------------|
+| `key`                    | string  | Yes      | The key for the attribute                          |
+| `value`                  | string  | Yes      | The value associated with the key                  |
+| `only_can_edit_by_creator` | boolean | No      | Whether only the creator can edit this attribute (defaults to `true`) |
 
 ### Headers
 
@@ -586,12 +582,12 @@ Each attribute object should have the following:
 
 ### Responses
 
-| HTTP status code | content-type    | Description                              |
-|------------------|-----------------|------------------------------------------|
-| `200`            | application/json| Group attributes added/updated successfully. |
+| HTTP status code | content-type    | Description                                      |
+|------------------|-----------------|--------------------------------------------------|
+| `200`            | application/json| Group attributes created successfully.           |
 | `403`            | text/plain      | User does not have permission to add attributes. |
-| `400`            | text/plain      | Missing or invalid parameters.           |
-| `500`            | text/plain      | Unknown server error.                    |
+| `400`            | text/plain      | Missing or invalid parameters.                   |
+| `500`            | text/plain      | Unknown server error.                            |
 
 ### Response object
 
@@ -614,8 +610,8 @@ Each attribute object should have the following:
 		--header "Content-Type: application/json" \
 		--data '{
 			"attributes": [
-				{"key": "new_setting", "value": "new_value"},
-				{"key": "another_setting", "value": "another_value"}
+				{"key": "theme", "value": "dark"},
+				{"key": "language", "value": "English"}
 			]
 		}' \
 		"https://gamefuse.co/api/v3/groups/1/add_attribute"
@@ -625,21 +621,97 @@ Each attribute object should have the following:
 
 	```json
 	{
-	  "attributes": [
+	"attributes": [
 		{
-		  "id": 3,
-		  "key": "new_setting",
-		  "value": "new_value",
-		  "creator_id": 1001,
-		  "can_edit": true
+		"id": 1,
+		"key": "theme",
+		"value": "dark",
+		"creator_id": 1001,
+		"can_edit": true
 		},
 		{
-		  "id": 4,
-		  "key": "another_setting",
-		  "value": "another_value",
-		  "creator_id": 1001,
-		  "can_edit": true
+		"id": 2,
+		"key": "language",
+		"value": "English",
+		"creator_id": 1002,
+		"can_edit": true
 		}
-	  ]
+	]
+	}
+	```
+
+## Modify Group Attribute
+
+### Scope
+
+Update the value of an existing group attribute. Only the creator of the attribute or an admin can modify it, depending on group settings.
+
+### Method
+
+!!! info annotate "PATCH"
+	```plaintext
+	/api/v3/groups/{id}/modify_attribute
+	```
+
+### Attributes
+
+| Name  | Type    | Required | Description                                        |
+|-------|---------|----------|----------------------------------------------------|
+| `id`  | integer | Yes      | The ID of the group whose attribute is being modified. |
+| `key` | string  | Yes      | The key of the attribute to be modified.           |
+| `value` | string  | Yes    | The new value for the attribute.                   |
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+| `Content-Type`         | string | Set it to `application/json` |
+
+### Responses
+
+| HTTP status code | content-type    | Description                                      |
+|------------------|-----------------|--------------------------------------------------|
+| `200`            | application/json| Group attribute modified successfully.           |
+| `403`            | text/plain      | User does not have permission to modify the attribute. |
+| `400`            | text/plain      | Missing or invalid parameters.                   |
+| `404`            | text/plain      | Attribute not found.                             |
+| `500`            | text/plain      | Unknown server error.                            |
+
+### Response object
+
+| Attribute name            | Type    | Description                                   |
+|---------------------------|---------|-----------------------------------------------|
+| `id`                      | integer | The attribute ID                              |
+| `key`                     | string  | The key for the attribute                     |
+| `value`                   | string  | The updated value of the attribute            |
+| `creator_id`              | integer | The ID of the user who created the attribute  |
+| `can_edit`                | boolean | Whether the current user can edit the attribute |
+
+### Examples
+
+!!! example
+	#### cURL
+
+	```shell
+	curl --request PATCH \
+		--header "authentication-token: abc123" \
+		--header "Content-Type: application/json" \
+		--data '{
+			"key": "setting1",
+			"value": "updated_value"
+		}' \
+		"https://gamefuse.co/api/v3/groups/1/modify_attribute"
+	```
+
+	#### Response
+
+	```json
+	{
+	"id": 1,
+	"key": "setting1",
+	"value": "updated_value",
+	"creator_id": 1001,
+	"can_edit": true
 	}
 	```
