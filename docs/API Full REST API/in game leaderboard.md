@@ -27,7 +27,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
 |--------------------------|---------------|----------|-------------|
 | `leaderboardName`        | string       | Yes      | Leaderboard name within the game |
 | `score`                  | integer      | Yes      | Score for the leaderboard |
-| `extra_attributes`       | object       | No       | An object containing arbitrary attributes |
+| `metadata`       | object       | No       | An object containing arbitrary attributes |
 
 ### Headers
 
@@ -71,7 +71,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
     curl --request POST \
         --header "authentication-token: abc123" \
         --header "Content-Type: application/json" \
-        --data '{"score": 21, "leaderboard_name": "leaderboard test", "extra_attributes": "{\"level\": \"l0\", \"color\": \"blue\"}"}' \
+        --data '{"score": 21, "leaderboard_name": "leaderboard test", "metadata": {"level": "10", "color": "blue"}}' \
         "https://gamefuse.co/api/v3/users/1/add_leaderboard_entry"
     ```
 
@@ -285,7 +285,7 @@ None
               "score": 1453,
               "leaderboard_name": "leaderboard_for_game_1",
               "game_user_id": 1,
-              "extra_attributes": "{}",
+              "metadata": "{}",
               "created_at": "2024-07-23T15:20:09.424Z"
           },
           {
@@ -293,7 +293,7 @@ None
               "score": 1234,
               "leaderboard_name": "leaderboard_for_game_1",
               "game_user_id": 1,
-              "extra_attributes": "{\"level\": \"l0\", \"color\": \"blue\"}",
+              "metadata": {"level": "10", "color": "blue"},
               "created_at": "2024-07-23T15:20:09.424Z"
           }
       ]
@@ -361,7 +361,7 @@ None
               "score": 1453,
               "leaderboard_name": "leaderboard_for_game_1",
               "game_user_id": 1,
-              "extra_attributes": "{}",
+              "metadata": "{}",
               "created_at": "2024-07-23T15:20:09.424Z"
           },
           {
@@ -369,7 +369,7 @@ None
               "score": 1234,
               "leaderboard_name": "leaderboard_for_game_1",
               "game_user_id": 1,
-              "extra_attributes": "{\"level\": \"l0\", \"color\": \"blue\"}",
+              "metadata": {"level": "10", "color": "blue"},
               "created_at": "2024-07-23T15:20:09.424Z"
           }
       ]
@@ -395,7 +395,7 @@ None
               "score": 1453,
               "leaderboard_name": "leaderboard_1",
               "game_user_id": 1,
-              "extra_attributes": "{}",
+              "metadata": "{}",
               "created_at": "2024-07-23T15:20:09.424Z"
           },
           {
@@ -403,7 +403,7 @@ None
               "score": 1453,
               "leaderboard_name": "leaderboard_2",
               "game_user_id": 1,
-              "extra_attributes": "{}",
+              "metadata": "{}",
               "created_at": "2024-07-23T15:12:09.424Z"
           },
       ]

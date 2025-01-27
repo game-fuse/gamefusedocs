@@ -213,6 +213,74 @@ Create a new game round for a user. Game rounds can either be individual or part
 	}
 	```
 
+
+## Show a Game Round
+
+### Scope
+
+Retrieve details about a specific game round.
+
+### Method
+
+!!! info annotate "GET"
+	/api/v3/game_rounds/{id}
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type    | Description                                              |
+|------------------|-----------------|----------------------------------------------------------|
+| `200`            | application/json| Game round details retrieved successfully.               |
+| `401`            | text/plain      | Unauthorized: You cannot view game rounds from another game. |
+| `404`            | text/plain      | Game round not found.                                    |
+| `500`            | text/plain      | Unknown server error.                                    |
+
+### Response object
+
+| Attribute name         | Type    | Description                                        |
+|------------------------|---------|----------------------------------------------------|
+| `id`                   | integer | The ID of the game round.                          |
+| `game_user_id`         | integer | The ID of the user to whom the game round belongs. |
+| `start_time`           | string  | The start time of the game round.                  |
+| `end_time`             | string  | The end time of the game round.                    |
+| `score`                | integer | The score achieved in the game round.              |
+| `place`                | integer | The place finished in the game round.              |
+| `game_type`            | string  | The type of game played.                           |
+| `multiplayer_game_round_id` | integer | ID of the associated multiplayer game round, if applicable. |
+| `metadata`             | object  | Additional metadata related to the game round.     |
+
+### Example
+
+!!! example
+	#### cURL
+	```shell
+	curl --request GET \
+		--header "authentication-token: abc123" \
+		"https://gamefuse.co/api/v3/game_rounds/101"
+	```
+	#### Response
+	```json
+	{
+  		"id": 101,
+  		"game_user_id": 1,
+  		"start_time": "2024-09-20T10:00:00Z",
+  		"end_time": "2024-09-20T11:00:00Z",
+  		"score": 1500,
+  		"place": 1,
+  		"game_type": "battle",
+  		"metadata": {
+			"level": "Hard"
+  		},
+  		"multiplayer_game_round_id": null
+	}
+	```
+
+	
 ## Update a Game Round
 
 ### Scope

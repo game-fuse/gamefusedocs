@@ -59,8 +59,8 @@ Allows a user to create a new group. Upon successful creation, the user will be 
 | `max_group_size`   | integer | The maximum number of members allowed in the group |
 | `searchable`       | boolean | Whether the group is searchable by other users  |
 | `member_count`     | integer | The current number of members in the group      |
-| `members`          | array   | List of members in the group (if `with_full_data` is true) |
-| `admins`           | array   | List of admins in the group (if `with_full_data` is true) |
+| `members`          | array   | List of members in the group  |
+| `admins`           | array   | List of admins in the group  |
 | `join_requests`    | array   | List of join requests (if available)            |
 | `invites`          | array   | List of invites (if available)                  |
 
@@ -137,7 +137,7 @@ Each `member` and `admin` contains:
 
 ### Scope
 
-Retrieve the list of groups available on the platform. If the `with_full_data` flag is provided, full group details are included.
+Retrieve the list of groups available on the platform. This request will not give full group details (such as group members, admins, requests & invites) are included.
 
 ### Method
 
@@ -596,7 +596,7 @@ Each attribute object should have the following:
 | `id`                      | integer | The attribute ID                              |
 | `key`                     | string  | The key for the attribute                     |
 | `value`                   | string  | The value associated with the key             |
-| `creator_id`              | integer | The ID of the user who created the attribute  |
+| `creator_id`              | integer | The ID of the group who created the attribute  |
 | `can_edit`                | boolean | Whether the current user can edit the attribute |
 
 ### Examples
@@ -626,14 +626,14 @@ Each attribute object should have the following:
 		"id": 1,
 		"key": "theme",
 		"value": "dark",
-		"creator_id": 1001,
+		"creator_id": 1001, //group id not user
 		"can_edit": true
 		},
 		{
 		"id": 2,
 		"key": "language",
 		"value": "English",
-		"creator_id": 1002,
+		"creator_id": 1002, //group id not user
 		"can_edit": true
 		}
 	]
