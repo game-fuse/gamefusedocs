@@ -21,11 +21,11 @@ Create a new game round for a user. Game rounds can either be individual or part
 | Name                       | Type    | Required | Description                                                                       |
 |----------------------------|---------|----------|-----------------------------------------------------------------------------------|
 | `game_user_id`              | integer | Yes      | ID of the user to whom the game round belongs.                                    |
+| `game_type`                 | string  | Yes      | Type of game being played.                                                        |
 | `start_time`                | string  | No       | Start time of the game round.                                                     |
 | `end_time`                  | string  | No       | End time of the game round.                                                       |
 | `score`                     | integer | No       | The score achieved in the game round.                                             |
 | `place`                     | integer | No       | The place the user finished in during the game round (1st, 2nd, etc.).            |
-| `game_type`                 | string  | No       | Type of game being played.                                                        |
 | `multiplayer_game_round_id` | integer | No       | ID of the associated multiplayer game round if applicable.                        |
 | `metadata`                  | object  | No       | Additional metadata related to the game round.                                    |
 | `multiplayer`               | boolean | No       | If `true`, create or join a multiplayer round.                                    |
