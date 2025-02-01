@@ -25,7 +25,7 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
 
 | Name                     | Type          | Required | Description |
 |--------------------------|---------------|----------|-------------|
-| `leaderboardName`        | string       | Yes      | Leaderboard name within the game |
+| `leaderboard_name`        | string       | Yes      | Leaderboard name within the game |
 | `score`                  | integer      | Yes      | Score for the leaderboard |
 | `metadata`       | object       | No       | An object containing arbitrary attributes |
 
@@ -237,7 +237,7 @@ Get leaderboard entries for a specific leaderboard name.
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
 | `gameId`         | integer       | Yes      | Found on your GameFuse.co dashboard |
-| `leaderboardName` | string       | Yes     | Name of the leaderboard within the game |
+| `leaderboard_name` | string       | Yes     | Name of the leaderboard within the game |
 | `limit`          | integer       | Yes      | Limit the number of results. Set this value >= 1 |
 
 ### Data (payload)
@@ -317,7 +317,7 @@ Get all leaderboard entries for a specific user.
 
 | Name             | Type          | Required | Description |
 |------------------|---------------|----------|-------------|
-| `leaderboardName` | string       | No     | Name of the leaderboard within the game. No value returns all leaderboard entries for the User |
+| `leaderboard_name` | string       | No     | Name of the leaderboard within the game. No value returns all leaderboard entries for the User |
 | `limit`          | integer       | Yes      | Limit the number of results. Set this value >= 1 |
 | `signedInUserId` | integer       | Yes      | The user id value from the GameFuse game dashboard |
 | `onePerUser`     | boolean       | No       | If set to `true` get only one result per player on the leaderboard |
