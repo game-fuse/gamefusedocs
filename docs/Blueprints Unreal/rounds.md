@@ -6,17 +6,20 @@ The GameFuse Rounds System allows you to track and manage game rounds in your ga
 
 To use the GameFuse Rounds system in Blueprints, you'll need to access the GameFuse Rounds subsystem:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) -->
 
 ## Creating a Game Round
 
 You can create a new game round with specific settings:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+
+<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -31,9 +34,11 @@ The Blueprint should:
 
 You can include additional metadata with your game round:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+
+<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -49,9 +54,11 @@ The Blueprint should:
 
 You can create a multiplayer game round by specifying the game type and including player IDs:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+
+<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -67,9 +74,11 @@ The Blueprint should:
 
 You can fetch a specific game round by its ID:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+
+<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -82,9 +91,11 @@ The Blueprint should:
 
 You can fetch all game rounds for the current user:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+
+<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -97,9 +108,11 @@ The Blueprint should:
 
 You can update an existing game round:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+
+<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -114,9 +127,11 @@ The Blueprint should:
 
 You can delete a game round:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+
+<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 

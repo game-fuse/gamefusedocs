@@ -6,17 +6,21 @@ The GameFuse Chat System allows you to implement real-time chat functionality in
 
 To use the GameFuse Chat system in Blueprints, you'll need to access the GameFuse Chat subsystem:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 ## Creating a Chat
 
 You can create a new chat with one or more participants:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -31,9 +35,11 @@ The Blueprint should:
 
 Once you have a chat, you can send messages to it:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -46,9 +52,11 @@ The Blueprint should:
 
 You can mark messages as read to keep track of which messages have been seen:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -61,9 +69,11 @@ The Blueprint should:
 
 You can fetch all chats for the current user:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -74,9 +84,11 @@ The Blueprint should:
 
 You can also fetch messages for a specific chat:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -89,9 +101,11 @@ The Blueprint should:
 
 You can clear the cached chat data when it's no longer needed:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 

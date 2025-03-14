@@ -6,17 +6,21 @@ The GameFuse Groups System allows you to create and manage groups of users in yo
 
 To use the GameFuse Groups system in Blueprints, you'll need to access the GameFuse Groups subsystem:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 ## Creating a Group
 
 You can create a new group with specific settings:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -31,9 +35,11 @@ The Blueprint should:
 
 You can fetch a specific group by its ID:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -46,9 +52,11 @@ The Blueprint should:
 
 You can fetch all groups in the game:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -61,9 +69,11 @@ The Blueprint should:
 
 You can join a group:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -76,9 +86,11 @@ The Blueprint should:
 
 For invite-only groups, you can request to join:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -91,9 +103,11 @@ The Blueprint should:
 
 As a group admin, you can accept join requests:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -106,9 +120,11 @@ The Blueprint should:
 
 As a group admin, you can decline join requests:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -121,9 +137,11 @@ The Blueprint should:
 
 You can leave a group you've joined:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -136,9 +154,11 @@ The Blueprint should:
 
 If you're the creator or an admin, you can delete a group:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -151,9 +171,11 @@ The Blueprint should:
 
 You can fetch all groups that the current user is a member of:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -166,9 +188,11 @@ The Blueprint should:
 
 You can search for groups by name:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -181,9 +205,11 @@ The Blueprint should:
 
 You can add an admin to a group:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -194,9 +220,11 @@ The Blueprint should:
 
 And remove an admin:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -209,9 +237,11 @@ The Blueprint should:
 
 You can add an attribute to a group:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -222,9 +252,11 @@ The Blueprint should:
 
 You can update an existing attribute:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -235,9 +267,11 @@ The Blueprint should:
 
 And remove an attribute:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 

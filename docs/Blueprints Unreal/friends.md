@@ -6,17 +6,21 @@ The GameFuse Friends System allows you to implement social features in your game
 
 To use the GameFuse Friends system in Blueprints, you'll need to access the GameFuse Friends subsystem:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 ## Sending Friend Requests
 
 You can send a friend request to another user by their username:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -29,9 +33,11 @@ The Blueprint should:
 
 When someone sends you a friend request, you can accept it:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -44,9 +50,11 @@ The Blueprint should:
 
 You can also decline a friend request:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -59,9 +67,11 @@ The Blueprint should:
 
 If you've sent a friend request and want to cancel it:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -74,9 +84,11 @@ The Blueprint should:
 
 You can remove a user from your friends list:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -89,9 +101,11 @@ The Blueprint should:
 
 You can fetch all friendship data for the current user:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -104,9 +118,11 @@ The Blueprint should:
 
 You can fetch just the friends list:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
@@ -119,9 +135,11 @@ The Blueprint should:
 
 You can fetch outgoing friend requests:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+<!-- 
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> --> -->
 
 The Blueprint should:
 
@@ -132,9 +150,11 @@ The Blueprint should:
 
 And incoming friend requests:
 
-<iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/)
+<!-- 
+<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
 
 The Blueprint should:
 
