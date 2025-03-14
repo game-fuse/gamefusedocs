@@ -44,6 +44,7 @@ nav:
         - In game leaderboard: C++ Unreal Engine/in game leaderboard.md
         - Forgot Password: C++ Unreal Engine/forgot password.md
         - Class Methods: C++ Unreal Engine/class methods.md
+        - Struct Reference: C++ Unreal Engine/struct reference.md
       - JS Playcanvas, PixiJS, BabylonJS:
         - JS Playcanvas, PixiJS, BabylonJS/getting started.md
         - Game Connection and Variables: JS Playcanvas, PixiJS, BabylonJS/game connection and variables.md
