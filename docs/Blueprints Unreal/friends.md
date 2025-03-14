@@ -1,5 +1,8 @@
 # Friends System
 
+!!! note
+    These Docs are WIP and will be updated with Visual Blueprint Examples. Please see [Class Methods](class%20methods.md) for visual examples.
+
 The GameFuse Friends System allows you to implement social features in your game, such as sending friend requests, accepting or declining requests, and managing a friends list.
 
 ## Getting Started with Friends
@@ -10,19 +13,11 @@ To use the GameFuse Friends system in Blueprints, you'll need to access the Game
 <!-- 
 <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
+[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) -->
 
 ## Sending Friend Requests
 
-You can send a friend request to another user by their username:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To send a friend request:
 
 1. Get the GameFuse Friends subsystem
 2. Call SendFriendRequest with the username
@@ -31,15 +26,7 @@ The Blueprint should:
 
 ## Accepting Friend Requests
 
-When someone sends you a friend request, you can accept it:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To accept a friend request:
 
 1. Get the GameFuse Friends subsystem
 2. Call AcceptFriendRequest with the friendship ID
@@ -48,15 +35,7 @@ The Blueprint should:
 
 ## Declining Friend Requests
 
-You can also decline a friend request:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To decline a friend request:
 
 1. Get the GameFuse Friends subsystem
 2. Call DeclineFriendRequest with the friendship ID
@@ -65,15 +44,7 @@ The Blueprint should:
 
 ## Canceling Friend Requests
 
-If you've sent a friend request and want to cancel it:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To cancel a sent friend request:
 
 1. Get the GameFuse Friends subsystem
 2. Call CancelFriendRequest with the friendship ID
@@ -82,15 +53,7 @@ The Blueprint should:
 
 ## Unfriending Players
 
-You can remove a user from your friends list:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To remove a user from your friends list:
 
 1. Get the GameFuse Friends subsystem
 2. Call UnfriendPlayer with the user ID
@@ -99,15 +62,7 @@ The Blueprint should:
 
 ## Fetching Friendship Data
 
-You can fetch all friendship data for the current user:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To fetch all friendship data:
 
 1. Get the GameFuse Friends subsystem
 2. Call FetchFriendshipData
@@ -116,15 +71,7 @@ The Blueprint should:
 
 ## Fetching Friends List
 
-You can fetch just the friends list:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To fetch your friends list:
 
 1. Get the GameFuse Friends subsystem
 2. Call FetchFriendsList
@@ -133,30 +80,14 @@ The Blueprint should:
 
 ## Fetching Friend Requests
 
-You can fetch outgoing friend requests:
-
-<!-- 
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> --> -->
-
-The Blueprint should:
+To fetch outgoing friend requests:
 
 1. Get the GameFuse Friends subsystem
 2. Call FetchOutgoingFriendRequests
 3. Create a callback function to handle the response
 4. Process the array of outgoing requests
 
-And incoming friend requests:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To fetch incoming friend requests:
 
 1. Get the GameFuse Friends subsystem
 2. Call FetchIncomingFriendRequests

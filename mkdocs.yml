@@ -32,7 +32,7 @@ nav:
         - Friends: Blueprints Unreal/friends.md
         - Groups: Blueprints Unreal/groups.md
         - Rounds: Blueprints Unreal/rounds.md
-        - Messaging: Blueprints Unreal/chat.md
+        - Chat: Blueprints Unreal/chat.md
         - Class Methods: Blueprints Unreal/class methods.md
         - Struct Reference: C++ Unreal Engine/struct reference.md
       - C++ Unreal Engine: 
@@ -51,7 +51,7 @@ nav:
         - Friends: C++ Unreal Engine/friends.md
         - Groups: C++ Unreal Engine/groups.md
         - Rounds: C++ Unreal Engine/rounds.md
-        - Messaging: C++ Unreal Engine/chat.md
+        - Chat: C++ Unreal Engine/chat.md
         - Class Methods: C++ Unreal Engine/class methods.md
         - Struct Reference: C++ Unreal Engine/struct reference.md
         - Callback Reference: C++ Unreal Engine/callback reference.md 

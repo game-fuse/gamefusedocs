@@ -1,11 +1,13 @@
 # Rounds System
 
+!!! note
+    These Docs are WIP and will be updated with Visual Blueprint Examples. Please see [Class Methods](class%20methods.md) for visual examples.
+
 The GameFuse Rounds System allows you to track and manage game rounds in your game. This includes creating rounds, fetching round data, and managing round metadata.
 
 ## Getting Started with Rounds
 
 To use the GameFuse Rounds system in Blueprints, you'll need to access the GameFuse Rounds subsystem:
-
 
 <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
@@ -13,15 +15,7 @@ To use the GameFuse Rounds system in Blueprints, you'll need to access the GameF
 
 ## Creating a Game Round
 
-You can create a new game round with specific settings:
-
-
-
-<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To create a game round:
 
 1. Get the GameFuse Rounds subsystem
 2. Create a new Game Round structure
@@ -32,15 +26,7 @@ The Blueprint should:
 
 ## Creating a Game Round with Metadata
 
-You can include additional metadata with your game round:
-
-
-
-<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To create a game round with metadata:
 
 1. Get the GameFuse Rounds subsystem
 2. Create a new Game Round structure
@@ -52,15 +38,7 @@ The Blueprint should:
 
 ## Creating a Multiplayer Game Round
 
-You can create a multiplayer game round by specifying the game type and including player IDs:
-
-
-
-<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To create a multiplayer game round:
 
 1. Get the GameFuse Rounds subsystem
 2. Create a new Game Round structure
@@ -72,15 +50,7 @@ The Blueprint should:
 
 ## Fetching a Game Round
 
-You can fetch a specific game round by its ID:
-
-
-
-<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To fetch a specific game round:
 
 1. Get the GameFuse Rounds subsystem
 2. Call FetchGameRound with the round ID
@@ -89,15 +59,7 @@ The Blueprint should:
 
 ## Fetching User Game Rounds
 
-You can fetch all game rounds for the current user:
-
-
-
-<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To fetch all game rounds for the current user:
 
 1. Get the GameFuse Rounds subsystem
 2. Call FetchUserGameRounds with page number (e.g., 1)
@@ -106,15 +68,7 @@ The Blueprint should:
 
 ## Updating a Game Round
 
-You can update an existing game round:
-
-
-
-<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To update an existing game round:
 
 1. Get the GameFuse Rounds subsystem
 2. First fetch the existing round using FetchGameRound
@@ -125,15 +79,7 @@ The Blueprint should:
 
 ## Deleting a Game Round
 
-You can delete a game round:
-
-
-
-<!-- <!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) --> -->
-
-The Blueprint should:
+To delete a game round:
 
 1. Get the GameFuse Rounds subsystem
 2. Call DeleteGameRound with the round ID
