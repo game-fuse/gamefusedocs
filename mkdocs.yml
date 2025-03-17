@@ -29,7 +29,12 @@ nav:
         - Custom user data: Blueprints Unreal/custom user data.md
         - In game leaderboard: Blueprints Unreal/in game leaderboard.md
         - Forgot Password: Blueprints Unreal/forgot password.md
+        - Friends: Blueprints Unreal/friends.md
+        - Groups: Blueprints Unreal/groups.md
+        - Rounds: Blueprints Unreal/rounds.md
+        - Chat: Blueprints Unreal/chat.md
         - Class Methods: Blueprints Unreal/class methods.md
+        - Struct Reference: C++ Unreal Engine/struct reference.md
       - C++ Unreal Engine: 
         - v2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
         - v2.9 Migration Guide: C++ Unreal Engine/V2.9 Unreal C++ Migration Guide.md
@@ -43,7 +48,13 @@ nav:
         - Custom user data: C++ Unreal Engine/custom user data.md
         - In game leaderboard: C++ Unreal Engine/in game leaderboard.md
         - Forgot Password: C++ Unreal Engine/forgot password.md
+        - Friends: C++ Unreal Engine/friends.md
+        - Groups: C++ Unreal Engine/groups.md
+        - Rounds: C++ Unreal Engine/rounds.md
+        - Chat: C++ Unreal Engine/chat.md
         - Class Methods: C++ Unreal Engine/class methods.md
+        - Struct Reference: C++ Unreal Engine/struct reference.md
+        - Callback Reference: C++ Unreal Engine/callback reference.md 
       - JS Playcanvas, PixiJS, BabylonJS:
         - JS Playcanvas, PixiJS, BabylonJS/getting started.md
         - Game Connection and Variables: JS Playcanvas, PixiJS, BabylonJS/game connection and variables.md
