@@ -15,6 +15,10 @@ nav:
         - Custom user data: C# Unity 3D/custom user data.md
         - In game leaderboard: C# Unity 3D/in game leaderboard.md
         - Forgot Password: C# Unity 3D/forgot password.md
+        - Friends: C# Unity 3D/friends.md
+        - Groups: C# Unity 3D/groups.md
+        - Game Rounds: C# Unity 3D/game rounds.md
+        - Chat: C# Unity 3D/chat.md
         - Class Methods: C# Unity 3D/class methods.md
       - Blueprints Unreal: 
         - V2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md

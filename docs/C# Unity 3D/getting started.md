@@ -22,24 +22,20 @@ After creating your account, add your first game and note the ID and API Token.
 
 With this setup, you can now connect via your game client.
 
-1. download the Plugin from GitHub
-2. unzip the code
-3. add it to your Unity project in the *Scripts* folder
+### Installing the SDK
+
+You can easily add GameFuse to your Unity project by editing your project's `manifest.json` file. Add the following line to your dependencies:
+
+```json
+"com.gamefuse.sdk": "https://github.com/game-fuse/game-fuse-cs.git?path=com.gamefuse.sdk#v3api"
+```
+
+Unity will automatically import the package for you.
 
 [C# Library](https://github.com/game-fuse/game-fuse-cs){ .md-button }
 
-If you would like to see an example of how the code works, check out this:
+### Using the Sample
 
-[Unity Script Example](https://github.com/game-fuse/game-fuse-unity-example){ .md-button }
+The GameFuse SDK includes a sample to help you get started quickly. You can import this sample through the Unity Package Manager after the SDK is installed.
 
-At this point you would add the prefab in the `GameFuseInitializer` directory.
-You can also build this manually by adding a new `GameObject` to your first
-scene. You can then add a number of script componenets, such as:
-
-- `GameFuse.cs`
-- `GameFuseLeaderboardEntry.cs`
-- `GameFuseUser.cs`
-- `GameFuseUtilities.cs`
-- `GameFuseStoreItem.cs`
-
-Now the library is installed in your game: you are ready to connect.
+**Note:** To run the samples, you will need to import Text Mesh Pro Essentials if you haven't already done so in your project. After importing TMP Essentials, you may need to restart Unity to avoid initialization errors with TextMeshPro components.
