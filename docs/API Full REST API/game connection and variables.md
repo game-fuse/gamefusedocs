@@ -173,3 +173,58 @@ None
         ]
     }
     ```
+
+## Get Server Time
+
+### Scope
+
+Retrieve the current server time in UTC. This endpoint can be used to synchronize client-side operations with the server's time.
+
+### Method
+
+!!! info annotate "GET"
+    ```plaintext
+    /api/v3/util/get_server_time
+    ```
+
+### Attributes
+
+None
+
+### Headers
+
+| Name                  | Type   | Description                                   |
+|-----------------------|--------|-----------------------------------------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions. |
+
+### Responses
+
+| HTTP status code | content-type    | Description                              |
+|------------------|-----------------|------------------------------------------|
+| `200`            | application/json| Server time retrieved successfully.      |
+| `500`            | text/plain      | Unknown server error.                    |
+
+### Response object
+
+| Attribute name | Type   | Description                        |
+|----------------|--------|------------------------------------|
+| `server_time`  | string | The current server time in UTC.    |
+
+### Examples
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        --header "authentication-token: abc123" \
+        "https://gamefuse.co/api/v3/util/get_server_time"
+    ```
+
+    #### Response
+
+    ```json
+    {
+        "server_time": "2024-09-20T10:00:00Z"
+    }
+    ```

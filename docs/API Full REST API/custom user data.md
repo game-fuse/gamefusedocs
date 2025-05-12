@@ -404,6 +404,12 @@ Get all custom attributes of a user.
     /api/v3/users/{signedInUserId}/game_user_attributes
     ```
 
+!!! tip annotate "NOTE"
+    ```plaintext
+    Other users can be queried with this route
+    ```
+
+
 ### Attributes
 
 | Name             | Type          | Required | Description |

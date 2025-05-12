@@ -313,6 +313,10 @@ Get all leaderboard entries for a specific user.
     /api/v3/users/{signedInUserId}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}&one_per_user={onePerUser}
     ```
 
+!!! tip annotate "NOTE"
+    ```plaintext
+    Other users can be queried with this route
+    ```
 ### Attributes
 
 | Name             | Type          | Required | Description |

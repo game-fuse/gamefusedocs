@@ -571,7 +571,7 @@ Each attribute object should have the following:
 |--------------------------|---------|----------|---------------------------------------------------|
 | `key`                    | string  | Yes      | The key for the attribute                          |
 | `value`                  | string  | Yes      | The value associated with the key                  |
-| `only_can_edit_by_creator` | boolean | No      | Whether only the creator can edit this attribute (defaults to `true`) |
+| `others_can_edit`        | boolean | No       | Allows non creators in the group to edit (defaults to `false`) |
 
 ### Headers
 

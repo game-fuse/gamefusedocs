@@ -8,12 +8,12 @@ nav:
       - C# Unity 3D:
         - C# Unity 3D/getting started.md
         - Game Connection and Variables: C# Unity 3D/game connection and variables.md
-        - Signing game users up: C# Unity 3D/signing game users up.md
-        - Creating store items on the web: C# Unity 3D/creating store items on the web.md
-        - Using the store in your game: C# Unity 3D/using the store in your game.md
+        - Signing Game Users Up: C# Unity 3D/signing game users up.md
+        - Creating Store Items on the Web: C# Unity 3D/creating store items on the web.md
+        - Using Store Items in Your Game: C# Unity 3D/using the store in your game.md
         - Using Credits: C# Unity 3D/using credits.md
-        - Custom user data: C# Unity 3D/custom user data.md
-        - In game leaderboard: C# Unity 3D/in game leaderboard.md
+        - Custom User Data: C# Unity 3D/custom user data.md
+        - In Game Leaderboard: C# Unity 3D/in game leaderboard.md
         - Forgot Password: C# Unity 3D/forgot password.md
         - Friends: C# Unity 3D/friends.md
         - Groups: C# Unity 3D/groups.md
@@ -25,13 +25,13 @@ nav:
         - V2.9 Migration Guide: Blueprints Unreal/V2.9 Blueprint Migration Guide.md
         - Getting Started: Blueprints Unreal/getting started.md
         - Game Connection and Variables: Blueprints Unreal/game connection and variables.md
-        - Signing game users up: Blueprints Unreal/signing game users up.md
-        - Signing game users in: Blueprints Unreal/signing game users in.md
-        - Creating store items on the web: Blueprints Unreal/creating store items on the web.md
-        - Using the store in your game: Blueprints Unreal/using the store in your game.md
+        - Signing Game Users Up: Blueprints Unreal/signing game users up.md
+        - Signing Game Users In: Blueprints Unreal/signing game users in.md
+        - Creating Store Items on the Web: Blueprints Unreal/creating store items on the web.md
+        - Using Store Items in Your Game: Blueprints Unreal/using the store in your game.md
         - Using Credits: Blueprints Unreal/using credits.md
-        - Custom user data: Blueprints Unreal/custom user data.md
-        - In game leaderboard: Blueprints Unreal/in game leaderboard.md
+        - Custom User Data: Blueprints Unreal/custom user data.md
+        - In Game Leaderboard: Blueprints Unreal/in game leaderboard.md
         - Forgot Password: Blueprints Unreal/forgot password.md
         - Friends: Blueprints Unreal/friends.md
         - Groups: Blueprints Unreal/groups.md
@@ -44,13 +44,13 @@ nav:
         - v2.9 Migration Guide: C++ Unreal Engine/V2.9 Unreal C++ Migration Guide.md
         - Getting Started: C++ Unreal Engine/getting started.md
         - Game Connection and Variables: C++ Unreal Engine/game connection and variables.md
-        - Signing game users up: C++ Unreal Engine/signing game users up.md
-        - Signing game users in: C++ Unreal Engine/signing game users in.md
-        - Creating store items on the web: C++ Unreal Engine/creating store items on the web.md
-        - Using the store in your game: C++ Unreal Engine/using the store in your game.md
+        - Signing Game Users Up: C++ Unreal Engine/signing game users up.md
+        - Signing Game Users In: C++ Unreal Engine/signing game users in.md
+        - Creating Store Items on the Web: C++ Unreal Engine/creating store items on the web.md
+        - Using Store Items in Your Game: C++ Unreal Engine/using the store in your game.md
         - Using Credits: C++ Unreal Engine/using credits.md
-        - Custom user data: C++ Unreal Engine/custom user data.md
-        - In game leaderboard: C++ Unreal Engine/in game leaderboard.md
+        - Custom User Data: C++ Unreal Engine/custom user data.md
+        - In Game Leaderboard: C++ Unreal Engine/in game leaderboard.md
         - Forgot Password: C++ Unreal Engine/forgot password.md
         - Friends: C++ Unreal Engine/friends.md
         - Groups: C++ Unreal Engine/groups.md
@@ -62,37 +62,38 @@ nav:
       - JS Playcanvas, PixiJS, BabylonJS:
         - JS Playcanvas, PixiJS, BabylonJS/getting started.md
         - Game Connection and Variables: JS Playcanvas, PixiJS, BabylonJS/game connection and variables.md
-        - Signing game users up: JS Playcanvas, PixiJS, BabylonJS/signing game users up.md
-        - Signing game users in: JS Playcanvas, PixiJS, BabylonJS/signing game users in.md
-        - Creating store items on the web: JS Playcanvas, PixiJS, BabylonJS/creating store items on the web.md
-        - Using the store in your game: JS Playcanvas, PixiJS, BabylonJS/using the store in your game.md
+        - Signing Game Users Up: JS Playcanvas, PixiJS, BabylonJS/signing game users up.md
+        - Signing Game Users In: JS Playcanvas, PixiJS, BabylonJS/signing game users in.md
+        - Creating Store Items on the Web: JS Playcanvas, PixiJS, BabylonJS/creating store items on the web.md
+        - Using Store Items in Your Game: JS Playcanvas, PixiJS, BabylonJS/using the store in your game.md
         - Using Credits: JS Playcanvas, PixiJS, BabylonJS/using credits.md
-        - Custom user data: JS Playcanvas, PixiJS, BabylonJS/custom user data.md
-        - In game leaderboard: JS Playcanvas, PixiJS, BabylonJS/in game leaderboard.md
+        - Custom User Data: JS Playcanvas, PixiJS, BabylonJS/custom user data.md
+        - In Game Leaderboard: JS Playcanvas, PixiJS, BabylonJS/in game leaderboard.md
         - Forgot Password: JS Playcanvas, PixiJS, BabylonJS/forgot password.md
         - Class Methods: JS Playcanvas, PixiJS, BabylonJS/class methods.md
         - Friends: 'JS Playcanvas, PixiJS, BabylonJS/friends.md'
       - API Full REST API:
           - API Full REST API/getting started.md
           - Game Connection and Variables: API Full REST API/game connection and variables.md
-          - Signing game users up: API Full REST API/signing game users up.md
-          - Signing game users in: API Full REST API/signing game users in.md
-          - Creating store items on the web: API Full REST API/creating store items on the web.md
-          - Using the store in your game: API Full REST API/using the store in your game.md
+          - Signing Game Users Up: API Full REST API/signing game users up.md
+          - Signing Game Users In: API Full REST API/signing game users in.md
+          - Accessing User Data: API Full REST API/other users.md
+          - Creating Store Items on the Web: API Full REST API/creating store items on the web.md
+          - Using Store Items in Your Game: API Full REST API/using the store in your game.md
           - Using Credits: API Full REST API/using credits.md
-          - Custom user data: API Full REST API/custom user data.md
+          - Custom User Data: API Full REST API/custom user data.md
           - Friends: API Full REST API/friends.md
           - Groups: API Full REST API/groups.md
           - Messaging: API Full REST API/messaging.md
           - Game Rounds: API Full REST API/game rounds.md
-          - In game leaderboard: API Full REST API/in game leaderboard.md
+          - In Game Leaderboard: API Full REST API/in game leaderboard.md
           - Forgot Password: API Full REST API/forgot password.md
           - Class Methods: API Full REST API/class methods.md
       - Generic:
         - Forgot Password: generic/forgot_password.md
-        - Creating store items on the web: generic/creating_store_items_on_the_web.md
-        - Server Key Access: generic/server_key_access.md
-        - Cloud Code: generic/cloud_code.md
+        - Creating Store Items on the Web: generic/creating_store_items_on_the_web.md
+        # - Server Key Access: generic/server_key_access.md
+        # - Cloud Code: generic/cloud_code.md
 
 theme:
   name: material

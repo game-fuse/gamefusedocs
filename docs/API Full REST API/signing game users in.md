@@ -98,6 +98,154 @@ None
         "events_total": 1,
         "events_current_month": 1,
         "game_sessions_total": 1,
-        "game_sessions_current_month": 1
+        "game_sessions_current_month": 1,
+        "game_user_attributes": "game_user_attributes": [
+            {
+                "id": 0,
+                "key": "this_key",
+                "value": "this_value"
+            },
+            {
+                "id": 1,
+                "key": "other_key",
+                "value": "other_value"
+            },
+            {
+                "id": 2,
+                "key": "some key",
+                "value": "some value"
+            }
+        ],
+        "game_user_store_items": [
+            {
+            "id": 337,
+            "name": "test",
+            "cost": 123,
+            "description": "a test item",
+            "category": "generic",
+            "icon_url": null
+            },
+            {
+            "id": 338,
+            "name": "test 2",
+            "cost": 321,
+            "description": "another test item",
+            "category": "main",
+            "icon_url": null
+            }
+        ],
+        "friends": [{
+		  "id": 1,
+		  "username": "john_doe",
+		  "email": "john.doe@example.com",
+		  "display_email": "john.doe@example.com",
+		  "credits": 150,
+		  "score": 1200
+		},
+        {
+		  "id": 2,
+		  "username": "dee_doo",
+		  "email": "dee.doo@example.com",
+		  "display_email": "dee.doo@example.com",
+		  "credits": 150,
+		  "score": 1200
+		}],
+        "outgoing_friend_requests": [
+            {
+            "id": 2,
+            "username": "friend_username",
+            "email": "friend@example.com",
+            "display_email": "friend@example.com",
+            "credits": 100,
+            "score": 900,
+            "friendship_id": 123,
+            "requested_at": "2024-09-20T12:34:56Z"
+            }
+        ],
+        "incoming_friend_requests": [
+            {
+            "id": 3,
+            "username": "another_friend",
+            "email": "another_friend@example.com",
+            "display_email": "another_friend@example.com",
+            "credits": 200,
+            "score": 1300,
+            "friendship_id": 124,
+            "requested_at": "2024-09-19T11:22:33Z"
+            }
+        ],
+        "groups": [
+            {
+            "id": 1,
+            "name": "Awesome Gamers",
+            "group_type": "Public",
+            "can_auto_join": true,
+            "is_invite_only": false,
+            "max_group_size": 50,
+            "searchable": true,
+            "member_count": 12
+            },
+            {
+            "id": 2,
+            "name": "VIP Squad",
+            "group_type": "Private",
+            "can_auto_join": false,
+            "is_invite_only": true,
+            "max_group_size": 10,
+            "searchable": false,
+            "member_count": 5
+            }
+        ],
+        "group_join_requests": [],
+        "group_invites": [{
+            "invite": [],
+            "user": {
+            "id": 3,
+            "username": "me",
+            "email": "me@example.com",
+            "display_email": "me@example.com",
+            "credits": 200,
+            "score": 1300,
+            "requested_at": "2024-09-19T11:22:33Z"
+            },
+            "inviter": {
+            "id": 3,
+            "username": "inviter",
+            "email": "inviter@example.com",
+            "display_email": "inviter@example.com",
+            "credits": 100,
+            "score": 200,
+            "requested_at": "2024-09-19T11:22:33Z"
+            },
+            "group": {
+                "id": 1,
+                "name": "Awesome Gamers",
+                "group_type": "Public",
+                "can_auto_join": true,
+                "is_invite_only": false,
+                "max_group_size": 50,
+                "searchable": true,
+                "member_count": 1,
+                "members": [
+                    {
+                    "id": 10,
+                    "username": "john_doe",
+                    "email": "john.doe@example.com",
+                    "credits": 150,
+                    "score": 1200
+                    }
+                ],
+                "admins": [
+                    {
+                    "id": 10,
+                    "username": "john_doe",
+                    "email": "john.doe@example.com",
+                    "credits": 150,
+                    "score": 1200
+                    }
+                ]
+            }
+
+        }]
     }
     ```

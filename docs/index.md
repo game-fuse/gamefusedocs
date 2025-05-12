@@ -33,7 +33,7 @@
             <p> Build your own client library and directly access the GameFuse API </p>
         </a>
     </div>
-    <div class="home-header">
+    <div class="home-header" style="display:none;">
         <br>
         <h1> SERVER ACCESS & CLOUD CODE </h1>
         <p style="margin-bottom: 5px; margin-top: 10px;"> Make calls to GameFuse from 3rd party services using GameFuse Server Keys. Authenticate servers and services rather than signed in users.</p>

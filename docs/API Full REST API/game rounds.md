@@ -9,7 +9,7 @@ The Game Round API allows users to manage game rounds in the GameFuse platform. 
 
 ### Scope
 
-Create a new game round for a user. Game rounds can either be individual or part of a multiplayer round.
+Create a new game round for a user. Game rounds can either be individual or part of a multiplayer round.  Multiplayer game rounds are all connected to the first one submitted.  Whichever user submits the first multiplayer round that the others connect to is the "master" of the general multiplayer round.  The master user can modify any of the connected multiplayer rounds.  Place is automatically generated for multiplayer rounds based on "score".  When getting game round info, multiplayer rounds will come with an additional payload called "rankings", which is sorting the individual round by score. Updates to already created rounds are supported and rankings will be updated for all when any one object in the connected multiplayer round is updated.
 
 ### Method
 
@@ -213,7 +213,6 @@ Create a new game round for a user. Game rounds can either be individual or part
 	}
 	```
 
-
 ## Show a Game Round
 
 ### Scope
@@ -280,7 +279,88 @@ Retrieve details about a specific game round.
 	}
 	```
 
-	
+## Show a Multiplayer Game Round
+
+### Scope
+
+Retrieve details about a multiplayer game round, including all associated game rounds and their rankings. This endpoint allows users to view the participants and their scores in a multiplayer game round.
+
+### Method
+
+!!! info annotate "GET"
+    /api/v3/game_rounds/multiplayer_game_round/{id}
+
+### Headers
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Params
+
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| `id`                  | number | The `multiplayer_game_round_id` of the multiplayer game round to retrieve. |
+
+### Responses
+
+| HTTP status code | content-type    | Description                                              |
+|------------------|-----------------|----------------------------------------------------------|
+| `200`            | application/json| Multiplayer game round details retrieved successfully.    |
+| `401`            | text/plain      | Unauthorized: You cannot view multiplayer game rounds from another game. |
+| `404`            | text/plain      | Multiplayer game round not found.                        |
+| `500`            | text/plain      | Unknown server error.                                    |
+
+### Response object
+
+| Attribute name         | Type    | Description                                        |
+|------------------------|---------|----------------------------------------------------|
+| `id`                   | integer | The ID of the multiplayer game round.              |
+| `game_id`              | integer | The ID of the game to which the multiplayer game round belongs. |
+| `game_type`            | string  | The type of game played in the multiplayer game round. |
+| `rankings`             | array   | A list of game rounds in the multiplayer game round, sorted by place. |
+
+Each object in the `rankings` array includes:
+
+| Attribute name | Type    | Description                               |
+|----------------|---------|-------------------------------------------|
+| `id`           | integer | The ID of the game round.                 |
+| `place`        | integer | The rank of the player in the multiplayer game round. |
+| `score`        | integer | The score achieved by the player.         |
+| `game_user_id` | integer | The ID of the user who played the game round. |
+
+### Example
+
+!!! example
+    #### cURL
+    ```shell
+    curl --request GET \
+        --header "authentication-token: abc123" \
+        "https://gamefuse.co/api/v3/game_rounds/multiplayer_game_round/201"
+    ```
+    #### Response
+    ```json
+    {
+        "id": 201,
+        "game_id": 1,
+        "game_type": "Capture The Flag",
+        "rankings": [
+            {
+                "id": 101,
+                "place": 1,
+                "score": 100,
+                "game_user_id": 1
+            },
+            {
+                "id": 102,
+                "place": 2,
+                "score": 200,
+                "game_user_id": 2
+            }
+        ]
+    }
+    ```
+
 ## Update a Game Round
 
 ### Scope
@@ -355,7 +435,7 @@ The response will return the updated game round data, similar to the create resp
 
 ### Scope
 
-Retrieve a list of game rounds for a specific user.
+Retrieve a list of game rounds for a specific user. Multiplayer game rounds retrieved in bulk will not have rankings attached.  To retrieve a game rounds rankings, a seperate call must be made to the #show route
 
 ### Method
 
@@ -407,32 +487,34 @@ Retrieve a list of game rounds for a specific user.
 	```
 	#### Response
 	```json
-	[
-  		{
-			"id": 101,
-			"game_user_id": 1,
-			"start_time": "2024-09-20T10:00:00Z",
-			"end_time": "2024-09-20T11:00:00Z",
-			"score": 1500,
-			"place": 1,
-			"game_type": "battle",
-			"metadata": {
-	  		"level": "Hard"
+	{
+		"game_rounds": [
+			{
+				"id": 101,
+				"game_user_id": 1,
+				"start_time": "2024-09-20T10:00:00Z",
+				"end_time": "2024-09-20T11:00:00Z",
+				"score": 1500,
+				"place": 1,
+				"game_type": "battle",
+				"metadata": {
+				"level": "Hard"
+				}
+			},
+			{
+				"id": 102,
+				"game_user_id": 1,
+				"start_time": "2024-09-21T10:00:00Z",
+				"end_time": "2024-09-21T11:00:00Z",
+				"score": 1700,
+				"place": 1,
+				"game_type": "adventure",
+				"metadata": {
+				"level": "Medium"
+				}
 			}
-  		},
-  		{
-			"id": 102,
-			"game_user_id": 1,
-			"start_time": "2024-09-21T10:00:00Z",
-			"end_time": "2024-09-21T11:00:00Z",
-			"score": 1700,
-			"place": 1,
-			"game_type": "adventure",
-			"metadata": {
-	  		"level": "Medium"
-			}
-  		}
-	]
+		]
+	}
 	```
 
 ## Delete a Game Round

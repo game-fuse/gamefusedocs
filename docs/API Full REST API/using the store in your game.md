@@ -264,7 +264,10 @@ Get all of the user's purchased store items.
     ```plaintext
     /api/v3/users/{signedInUserId}/game_user_store_items
     ```
-
+!!! tip annotate "NOTE"
+    ```plaintext
+    Other users can be queried with this route
+    ```
 ### Attributes
 
 | Name             | Type          | Required | Description |
