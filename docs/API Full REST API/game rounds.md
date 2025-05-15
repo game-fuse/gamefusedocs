@@ -279,87 +279,79 @@ Retrieve details about a specific game round.
 	}
 	```
 
-## Show a Multiplayer Game Round
-
-### Scope
-
-Retrieve details about a multiplayer game round, including all associated game rounds and their rankings. This endpoint allows users to view the participants and their scores in a multiplayer game round.
-
-### Method
-
-!!! info annotate "GET"
-    /api/v3/game_rounds/multiplayer_game_round/{id}
-
-### Headers
-
-| Name                  | Type   | Description |
-|-----------------------|--------|-------------|
-| `authentication-token` | string | Found in sign-in or sign-up responses. This token is used for user sessions |
-
-### Params
-
-| Name                  | Type   | Description |
-|-----------------------|--------|-------------|
-| `id`                  | number | The `multiplayer_game_round_id` of the multiplayer game round to retrieve. |
-
-### Responses
-
-| HTTP status code | content-type    | Description                                              |
-|------------------|-----------------|----------------------------------------------------------|
-| `200`            | application/json| Multiplayer game round details retrieved successfully.    |
-| `401`            | text/plain      | Unauthorized: You cannot view multiplayer game rounds from another game. |
-| `404`            | text/plain      | Multiplayer game round not found.                        |
-| `500`            | text/plain      | Unknown server error.                                    |
-
-### Response object
-
-| Attribute name         | Type    | Description                                        |
-|------------------------|---------|----------------------------------------------------|
-| `id`                   | integer | The ID of the multiplayer game round.              |
-| `game_id`              | integer | The ID of the game to which the multiplayer game round belongs. |
-| `game_type`            | string  | The type of game played in the multiplayer game round. |
-| `rankings`             | array   | A list of game rounds in the multiplayer game round, sorted by place. |
-
-Each object in the `rankings` array includes:
-
-| Attribute name | Type    | Description                               |
-|----------------|---------|-------------------------------------------|
-| `id`           | integer | The ID of the game round.                 |
-| `place`        | integer | The rank of the player in the multiplayer game round. |
-| `score`        | integer | The score achieved by the player.         |
-| `game_user_id` | integer | The ID of the user who played the game round. |
-
-### Example
+### Multiplayer Example
 
 !!! example
-    #### cURL
-    ```shell
-    curl --request GET \
-        --header "authentication-token: abc123" \
-        "https://gamefuse.co/api/v3/game_rounds/multiplayer_game_round/201"
-    ```
-    #### Response
-    ```json
-    {
-        "id": 201,
-        "game_id": 1,
-        "game_type": "Capture The Flag",
-        "rankings": [
-            {
-                "id": 101,
-                "place": 1,
-                "score": 100,
-                "game_user_id": 1
-            },
-            {
-                "id": 102,
-                "place": 2,
-                "score": 200,
-                "game_user_id": 2
-            }
-        ]
-    }
-    ```
+	#### cURL
+	```shell
+	curl --request GET \
+		--header "authentication-token: abc123" \
+		"https://gamefuse.co/api/v3/game_rounds/971"
+	```
+	#### Response
+	```json
+	{
+		"id"=>971,
+		"game_id"=>12892,
+		"game_user_id"=>30342,
+		"multiplayer_game_round_id"=>275,
+		"game_type"=>"Fingerlime",
+		"place"=>1,
+		"score"=>100.0,
+		"start_time"=>"2025-05-15T11:43:28.599-04:00",
+		"end_time"=>"2025-05-15T11:49:28.599-04:00",
+		"metadata"=>nil,
+		"created_at"=>"2025-05-15T11:53:28.602-04:00",
+		"updated_at"=>"2025-05-15T11:53:28.602-04:00",
+		"rankings"=>[
+			{
+			"id"=>971,
+			"place"=>1,
+			"score"=>100.0,
+			"start_time"=>"2025-05-15T11:43:28.599-04:00",
+			"end_time"=>"2025-05-15T11:49:28.599-04:00",
+			"user"=>{
+				"id"=>30342,
+				"username"=>"Judy Kovacek",
+				"credits"=>0,
+				"score"=>0,
+				"email"=>"truman@schneider.io",
+				"is_new_user"=>true
+				}
+			},
+			{
+			"id"=>972,
+			"place"=>2,
+			"score"=>200.0,
+			"start_time"=>"2025-05-15T11:43:28.622-04:00",
+			"end_time"=>"2025-05-15T11:49:28.622-04:00",
+			"user"=>{
+				"id"=>30343,
+				"username"=>"Arnetta Schmeler",
+				"credits"=>0,
+				"score"=>0,
+				"email"=>"nicola@dare.net",
+				"is_new_user"=>true
+				}
+			},
+			{
+			"id"=>973,
+			"place"=>3,
+			"score"=>300.0,
+			"start_time"=>"2025-05-15T11:43:28.647-04:00",
+			"end_time"=>"2025-05-15T11:49:28.647-04:00",
+			"user"=>{
+				"id"=>30344,
+				"username"=>"Lorene Dickinson",
+				"credits"=>0,
+				"score"=>0,
+				"email"=>"allan.oconner@keebler.biz",
+				"is_new_user"=>true
+				}
+			}
+		]
+	}
+	```
 
 ## Update a Game Round
 
