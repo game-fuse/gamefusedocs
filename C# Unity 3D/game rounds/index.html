@@ -1,0 +1,3297 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../groups/">
+      
+      
+        <link rel="next" href="../chat/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Game Rounds - GAMEFUSE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chakra+Petch+300:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Chakra Petch 300";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#game-rounds-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <header class="md-header" data-md-component="header">
+	<div id="navOverlay" style="overflow:visible">
+	   <div>
+		  <a href="/">
+			 <svg width="158" height="22" viewBox="0 0 158 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0.670755 18.5066V4.22924L4.16415 0.735847H14.7355L18.1681 4.16849V7.41887H14.0368V5.68736L12.6091 4.25962H6.35132L4.80208 5.80887V16.927L6.35132 18.4762H12.6698L14.1583 16.9877V13.6766H9.6017V10.1528H18.1681V18.5066L14.6747 22H4.16415L0.670755 18.5066ZM27.1603 0.735847H30.9271L38.7037 22H34.5116L32.7801 17.2915H25.3073L23.5758 22H19.3837L27.1603 0.735847ZM31.8688 13.8892L29.0437 5.80887H28.9829L26.249 13.8892H31.8688ZM40.8448 0.735847H44.6724L50.9909 14.4664H51.0516L57.4005 0.735847H61.228V22H57.2486V9.05924H57.1878L52.2971 19.023H49.7454L44.885 9.05924H44.8242V22H40.8448V0.735847ZM65.1704 0.735847H80.5414V4.22924H69.3018V9.60604H79.6604V13.0387H69.3018V18.5066H80.5414V22H65.1704V0.735847ZM83.5926 0.735847H98.6598V4.22924H87.724V10.1225H97.2017V13.6158H87.724V22H83.5926V0.735847ZM101.095 18.3547V0.735847H105.227V16.927L106.776 18.4762H112.73L114.279 16.927V0.735847H118.41V18.3547L114.765 22H104.741L101.095 18.3547ZM121.91 18.7192V15.6815H125.98V17.4738L126.983 18.4762H133.271L134.304 17.4434V13.9196L133.301 12.9172H125.251L121.97 9.63641V4.0166L125.251 0.735847H134.85L138.131 4.0166V7.08472H134.061V5.26208L133.058 4.25962H127.043L126.041 5.26208V8.39094L127.043 9.3934H135.093L138.374 12.6742V18.6585L135.033 22H125.19L121.91 18.7192ZM141.707 0.735847H157.078V4.22924H145.838V9.60604H156.197V13.0387H145.838V18.5066H157.078V22H141.707V0.735847Z" fill="white"></path>
+			 </svg>
+		  </a>
+	   </div>
+	   <div class="nav-links">
+		  <a class="panel " href="https://gamefuse.co/">Home</a>
+		  <a class="panel active" href="/">Docs</a>
+		  <a class="panel " href="https://gamefuse.co/pages/faq">FAQs</a>
+		  <a class="panel " href="https://gamefuse.co/pages/blogs">Blog</a>
+		  <a class="panel " href="https://gamefuse.co/pages/pricing">Pricing</a>
+		  <a class="panel " href="https://gamefuse.co/pages/contact">Contact</a>
+	   </div>
+	   <div class="nav">
+		  <div class="login-signup" style="opacity:0;">
+			 <a class="panel " href="/users/sign_in">Login</a>
+			 <a href="/users/sign_up"><button class="ui primary button">Sign Up</button>
+			 </a>
+		  </div>
+	   </div>
+	</div>
+	<div id="navSplash">
+		<img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721166101/gamefuse-assets/api-instruction.png" />
+		<h1> Comprehensive Guide to GameFuse Documentation </h1>
+	</div>
+  <nav
+	class="md-header__inner md-grid"
+	aria-label="header.title"
+  >
+
+	<!-- Link to home -->
+	<a
+	  href="../.."
+	  title="GAMEFUSE"
+	  class="md-header__button md-logo"
+	  aria-label="GAMEFUSE"
+	  data-md-component="logo"
+	>
+	  
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+	</a>
+
+	<!-- Button to open drawer -->
+	<label class="md-header__button md-icon" for="__drawer">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+	</label>
+
+	<!-- Header title -->
+	<div class="md-header__title" data-md-component="header-title">
+	  <div class="md-header__ellipsis">
+		<div class="md-header__topic">
+		  <span class="md-ellipsis">
+			GAMEFUSE
+		  </span>
+		</div>
+		<div class="md-header__topic" data-md-component="header-topic">
+		  <span class="md-ellipsis">
+			
+			  Game Rounds
+			
+		  </span>
+		</div>
+	  </div>
+	</div>
+
+	<!-- Color palette -->
+	
+
+	<!-- Site language selector -->
+	
+
+	<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<!-- Repository information -->
+  	<div class="md-header__source">
+		<a href="None" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    None
+  </div>
+</a>
+  	</div>
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Game Engine Libraries
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GAMEFUSE" class="md-nav__button md-logo" aria-label="GAMEFUSE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GAMEFUSE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Game Engine Libraries
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Game Engine Libraries
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GAMEFUSE DOCS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../getting%20started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    C# Unity 3D
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            C# Unity 3D
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Store Items in Your Game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom User Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Game Leaderboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Game Rounds
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Rounds
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#game-rounds-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Rounds Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gameroundobject-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      GameRoundObject Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-usage-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Usage Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blueprints Unreal
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Blueprints Unreal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/V2.9%20Update%20Changelist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V2.9 Update [Breaking Changes]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/V2.9%20Blueprint%20Migration%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V2.9 Migration Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/getting%20started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/signing%20game%20users%20in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users In
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Store Items in Your Game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom User Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Game Leaderboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/rounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/struct%20reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Struct Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C++ Unreal Engine
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            C++ Unreal Engine
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/V2.9%20Update%20Changelist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V2.9 Update [Breaking Changes]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/V2.9%20Unreal%20C%2B%2B%20Migration%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v2.9 Migration Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/getting%20started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/signing%20game%20users%20in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users In
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Store Items in Your Game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom User Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Game Leaderboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/rounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/struct%20reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Struct Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/callback%20reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Callback Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/getting%20started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    JS Playcanvas, PixiJS, BabylonJS
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            JS Playcanvas, PixiJS, BabylonJS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users In
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Store Items in Your Game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom User Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Game Leaderboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../API%20Full%20REST%20API/getting%20started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    API Full REST API
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            API Full REST API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/signing%20game%20users%20in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users In
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/other%20users/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accessing User Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Store Items in Your Game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom User Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Messaging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/game%20rounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Rounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Game Leaderboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Generic
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Generic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic/forgot_password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic/creating_store_items_on_the_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#game-rounds-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Rounds Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gameroundobject-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      GameRoundObject Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-usage-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Usage Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="game-rounds-system">Game Rounds System<a class="headerlink" href="#game-rounds-system" title="Permanent link">&para;</a></h1>
+<p>GameFuse provides a robust game rounds system that allows you to track gameplay sessions and record player performance data. The <code>GameFuseUser.GameRounds</code> partial class contains methods to create, retrieve, update, and delete game rounds within your game.</p>
+<h2 id="game-rounds-methods">Game Rounds Methods<a class="headerlink" href="#game-rounds-methods" title="Permanent link">&para;</a></h2>
+<p>All game rounds methods are accessible through the <code>GameFuseUser</code> instance after a successful login.</p>
+<h3 id="creategameroundasync">CreateGameRoundAsync()<a class="headerlink" href="#creategameroundasync" title="Permanent link">&para;</a></h3>
+<p>Creates a new basic game round for the current user.</p>
+<p><strong>Parameters:</strong>
+- None</p>
+<p><strong>Returns:</strong>
+- <code>Task&lt;GameRoundObject&gt;</code>: Response containing the created game round</p>
+<p><strong>Example:</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">try</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="c1">// Get the current authenticated user</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="c1">// Create a basic game round</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">createdRound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">CreateGameRoundAsync</span><span class="p">();</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="c1">// Access the game round ID</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">roundId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createdRound</span><span class="p">.</span><span class="n">Id</span><span class="p">;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Game round created successfully! Round ID: {roundId}&quot;</span><span class="p">);</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">{</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to create game round: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="creategameroundasyncgameroundobject">CreateGameRoundAsync(GameRoundObject)<a class="headerlink" href="#creategameroundasyncgameroundobject" title="Permanent link">&para;</a></h3>
+<p>Creates a new game round with detailed information for the current user.</p>
+<p><strong>Parameters:</strong>
+- <code>gameRound</code> (GameRoundObject): Game round details including:
+  - <code>GameType</code> (string): Type of game being played (optional)
+  - <code>Multiplayer</code> (bool): Whether this is a multiplayer game round
+  - <code>Score</code> (double): Player's score in the game round
+  - <code>Place</code> (int): Player's final position/ranking
+  - <code>Metadata</code> (Dictionary<string, string>): Additional custom data (optional)</p>
+<p><strong>Returns:</strong>
+- <code>Task&lt;GameRoundObject&gt;</code>: Response containing the created game round</p>
+<p><strong>Example:</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">try</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Get the current authenticated user</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Create game round with details</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">gameRound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GameRoundObject</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="n">GameType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;battle_royale&quot;</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="n">Multiplayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="n">Score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="n">Place</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="n">Metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;difficulty&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;expert&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;map&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;volcano&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;weapons_used&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="p">};</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">createdRound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">CreateGameRoundAsync</span><span class="p">(</span><span class="n">gameRound</span><span class="p">);</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Detailed game round created with ID: {createdRound.Id}&quot;</span><span class="p">);</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="p">}</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="p">{</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to create detailed game round: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="updategameroundasync">UpdateGameRoundAsync<a class="headerlink" href="#updategameroundasync" title="Permanent link">&para;</a></h3>
+<p>Updates an existing game round owned by the current user.</p>
+<p><strong>Parameters:</strong>
+- <code>gameRoundId</code> (int): ID of the game round to update
+- <code>gameRound</code> (GameRoundObject): Game round with updated values</p>
+<p><strong>Returns:</strong>
+- <code>Task&lt;GameRoundObject&gt;</code>: Response containing the updated game round</p>
+<p><strong>Example:</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">try</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Get the current authenticated user</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// Create update data</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">updatedRound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GameRoundObject</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="n">Score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="n">Place</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="n">EndTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;o&quot;</span><span class="p">),</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="n">Metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;powerups_used&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">};</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="c1">// Update an existing game round</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">UpdateGameRoundAsync</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="n">updatedRound</span><span class="p">);</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Game round updated! New score: {result.Score}, Place: {result.Place}&quot;</span><span class="p">);</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">}</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">{</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to update game round: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="getgameroundasync">GetGameRoundAsync<a class="headerlink" href="#getgameroundasync" title="Permanent link">&para;</a></h3>
+<p>Retrieves a specific game round by ID.</p>
+<p><strong>Parameters:</strong>
+- <code>gameRoundId</code> (int): ID of the game round to retrieve</p>
+<p><strong>Returns:</strong>
+- <code>Task&lt;GameRoundObject&gt;</code>: Response containing the game round details</p>
+<p><strong>Example:</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">try</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Get the current authenticated user</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Get details for a specific game round</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">gameRound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">GetGameRoundAsync</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="c1">// Display game round information</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Game Type: {gameRound.GameType}, Score: {gameRound.Score}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">// For multiplayer games, show rankings</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gameRound</span><span class="p">.</span><span class="n">Multiplayer</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">gameRound</span><span class="p">.</span><span class="n">Rankings</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">ranking</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">gameRound</span><span class="p">.</span><span class="n">Rankings</span><span class="p">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Player: {ranking.User.Username}, Place: {ranking.Place}, Score: {ranking.Score}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="c1">// Access metadata</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gameRound</span><span class="p">.</span><span class="n">Metadata</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">gameRound</span><span class="p">.</span><span class="n">Metadata</span><span class="p">)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Metadata - {item.Key}: {item.Value}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">}</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="p">{</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to get game round details: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="getmygameroundsasync">GetMyGameRoundsAsync<a class="headerlink" href="#getmygameroundsasync" title="Permanent link">&para;</a></h3>
+<p>Retrieves all game rounds for the current user.</p>
+<p><strong>Parameters:</strong>
+- None</p>
+<p><strong>Returns:</strong>
+- <code>Task&lt;GameRoundsResponse&gt;</code>: Response containing an array of game rounds</p>
+<p><strong>Example:</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">try</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Get the current authenticated user</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="c1">// Get all game rounds for the current user</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">GameRoundsResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">GetMyGameRoundsAsync</span><span class="p">();</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="c1">// Display the rounds</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Found {response.GameRounds.Length} game rounds&quot;</span><span class="p">);</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">round</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">GameRounds</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Round ID: {round.Id}, Type: {round.GameType}, Score: {round.Score}&quot;</span><span class="p">);</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">{</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to get user game rounds: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="getusergameroundsasync">GetUserGameRoundsAsync<a class="headerlink" href="#getusergameroundsasync" title="Permanent link">&para;</a></h3>
+<p>Retrieves all game rounds for a specific user.</p>
+<p><strong>Parameters:</strong>
+- <code>userId</code> (int): ID of the user whose game rounds to retrieve</p>
+<p><strong>Returns:</strong>
+- <code>Task&lt;GameRoundsResponse&gt;</code>: Response containing an array of game rounds</p>
+<p><strong>Example:</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">try</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Get the current authenticated user</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="c1">// Get game rounds for another user</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">friendUserId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">456</span><span class="p">;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="n">GameRoundsResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">GetUserGameRoundsAsync</span><span class="p">(</span><span class="n">friendUserId</span><span class="p">);</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="c1">// Display the rounds</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Found {response.GameRounds.Length} game rounds for user {friendUserId}&quot;</span><span class="p">);</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">round</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">GameRounds</span><span class="p">)</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Round ID: {round.Id}, Type: {round.GameType}, Score: {round.Score}&quot;</span><span class="p">);</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">{</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to get user game rounds: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="deletegameroundasync">DeleteGameRoundAsync<a class="headerlink" href="#deletegameroundasync" title="Permanent link">&para;</a></h3>
+<p>Deletes a specific game round owned by the current user.</p>
+<p><strong>Parameters:</strong>
+- <code>gameRoundId</code> (int): ID of the game round to delete</p>
+<p><strong>Returns:</strong>
+- <code>Task&lt;MessageResponse&gt;</code>: Response confirming the deletion</p>
+<p><strong>Example:</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">try</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Get the current authenticated user</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="c1">// Delete a game round</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">MessageResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">DeleteGameRoundAsync</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Game round deleted. Response: {response.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">{</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to delete game round: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h2 id="gameroundobject-properties">GameRoundObject Properties<a class="headerlink" href="#gameroundobject-properties" title="Permanent link">&para;</a></h2>
+<p>The <code>GameRoundObject</code> class contains the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Id</code></td>
+<td>int</td>
+<td>The ID of the game round</td>
+</tr>
+<tr>
+<td><code>GameId</code></td>
+<td>int</td>
+<td>The ID of the game</td>
+</tr>
+<tr>
+<td><code>GameUserId</code></td>
+<td>int</td>
+<td>The ID of the user to whom the game round belongs</td>
+</tr>
+<tr>
+<td><code>MultiplayerGameRoundId</code></td>
+<td>int?</td>
+<td>ID of the associated multiplayer game round (if applicable)</td>
+</tr>
+<tr>
+<td><code>GameType</code></td>
+<td>string</td>
+<td>Type of game being played</td>
+</tr>
+<tr>
+<td><code>Place</code></td>
+<td>int</td>
+<td>The place the user finished in (1st, 2nd, etc.)</td>
+</tr>
+<tr>
+<td><code>Score</code></td>
+<td>double</td>
+<td>The score achieved in the game round</td>
+</tr>
+<tr>
+<td><code>StartTime</code></td>
+<td>string</td>
+<td>Start time of the game round</td>
+</tr>
+<tr>
+<td><code>EndTime</code></td>
+<td>string</td>
+<td>End time of the game round</td>
+</tr>
+<tr>
+<td><code>Metadata</code></td>
+<td>Dictionary<string, string></td>
+<td>Additional metadata related to the game round</td>
+</tr>
+<tr>
+<td><code>CreatedAt</code></td>
+<td>string</td>
+<td>When the game round was created</td>
+</tr>
+<tr>
+<td><code>UpdatedAt</code></td>
+<td>string</td>
+<td>When the game round was last updated</td>
+</tr>
+<tr>
+<td><code>Rankings</code></td>
+<td>RankingsObject[]</td>
+<td>For multiplayer games, contains the rankings of all participants</td>
+</tr>
+<tr>
+<td><code>Multiplayer</code></td>
+<td>bool</td>
+<td>If true, indicates this is a multiplayer game round</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-usage-pattern">Common Usage Pattern<a class="headerlink" href="#common-usage-pattern" title="Permanent link">&para;</a></h2>
+<p>Here's an example of how to implement a basic game rounds manager in your game:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">GameFuseCSharp</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.UI</span><span class="p">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameRoundsManager</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">{</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1">// UI elements for game rounds list</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Transform</span><span class="w"> </span><span class="n">gameRoundsListContainer</span><span class="p">;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">gameRoundItemPrefab</span><span class="p">;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="c1">// Track the current game round</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">currentGameRound</span><span class="p">;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">gameInProgress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="c1">// Start a new game round</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartNewGameRound</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">gameType</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isMultiplayer</span><span class="p">)</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">            </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">&quot;User not logged in&quot;</span><span class="p">);</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">            </span><span class="c1">// Create initial game round</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">gameRound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GameRoundObject</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">                </span><span class="n">GameType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gameType</span><span class="p">,</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">                </span><span class="n">Multiplayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isMultiplayer</span><span class="p">,</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">                </span><span class="n">StartTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;o&quot;</span><span class="p">),</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">                </span><span class="n">Score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">                </span><span class="n">Place</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">// Not yet determined</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">            </span><span class="p">};</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">            </span><span class="n">currentGameRound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">CreateGameRoundAsync</span><span class="p">(</span><span class="n">gameRound</span><span class="p">);</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">            </span><span class="n">gameInProgress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Started new game round ID: {currentGameRound.Id}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error creating game round: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="w">    </span><span class="c1">// Update the score during gameplay</span>
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateScore</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">newScore</span><span class="p">)</span>
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">gameInProgress</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">currentGameRound</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span><span class="s">&quot;No game round in progress&quot;</span><span class="p">);</span>
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>
+</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a><span class="w">        </span><span class="c1">// Update local score</span>
+</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a><span class="w">        </span><span class="n">currentGameRound</span><span class="p">.</span><span class="n">Score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newScore</span><span class="p">;</span>
+</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>
+</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a><span class="w">    </span><span class="c1">// End the current game round</span>
+</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">EndGameRound</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">finalPlace</span><span class="p">,</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gameMetadata</span><span class="p">)</span>
+</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">gameInProgress</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">currentGameRound</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span><span class="s">&quot;No game round in progress&quot;</span><span class="p">);</span>
+</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>
+</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a><span class="w">            </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-77"><a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">&quot;User not logged in&quot;</span><span class="p">);</span>
+</span><span id="__span-7-78"><a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-7-79"><a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-80"><a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a>
+</span><span id="__span-7-81"><a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a><span class="w">            </span><span class="c1">// Update the game round with final data</span>
+</span><span id="__span-7-82"><a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a><span class="w">            </span><span class="n">currentGameRound</span><span class="p">.</span><span class="n">Place</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">finalPlace</span><span class="p">;</span>
+</span><span id="__span-7-83"><a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a><span class="w">            </span><span class="n">currentGameRound</span><span class="p">.</span><span class="n">EndTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;o&quot;</span><span class="p">);</span>
+</span><span id="__span-7-84"><a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a><span class="w">            </span><span class="n">currentGameRound</span><span class="p">.</span><span class="n">Metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gameMetadata</span><span class="p">;</span>
+</span><span id="__span-7-85"><a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a>
+</span><span id="__span-7-86"><a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a><span class="w">            </span><span class="c1">// Send the update to the server</span>
+</span><span id="__span-7-87"><a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">UpdateGameRoundAsync</span><span class="p">(</span><span class="n">currentGameRound</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">currentGameRound</span><span class="p">);</span>
+</span><span id="__span-7-88"><a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a>
+</span><span id="__span-7-89"><a id="__codelineno-7-89" name="__codelineno-7-89" href="#__codelineno-7-89"></a><span class="w">            </span><span class="n">gameInProgress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+</span><span id="__span-7-90"><a id="__codelineno-7-90" name="__codelineno-7-90" href="#__codelineno-7-90"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Game round {currentGameRound.Id} completed with score: {currentGameRound.Score}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-91"><a id="__codelineno-7-91" name="__codelineno-7-91" href="#__codelineno-7-91"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-92"><a id="__codelineno-7-92" name="__codelineno-7-92" href="#__codelineno-7-92"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-7-93"><a id="__codelineno-7-93" name="__codelineno-7-93" href="#__codelineno-7-93"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-94"><a id="__codelineno-7-94" name="__codelineno-7-94" href="#__codelineno-7-94"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error ending game round: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-95"><a id="__codelineno-7-95" name="__codelineno-7-95" href="#__codelineno-7-95"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-96"><a id="__codelineno-7-96" name="__codelineno-7-96" href="#__codelineno-7-96"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-97"><a id="__codelineno-7-97" name="__codelineno-7-97" href="#__codelineno-7-97"></a>
+</span><span id="__span-7-98"><a id="__codelineno-7-98" name="__codelineno-7-98" href="#__codelineno-7-98"></a><span class="w">    </span><span class="c1">// Load recent game rounds</span>
+</span><span id="__span-7-99"><a id="__codelineno-7-99" name="__codelineno-7-99" href="#__codelineno-7-99"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadRecentGameRounds</span><span class="p">()</span>
+</span><span id="__span-7-100"><a id="__codelineno-7-100" name="__codelineno-7-100" href="#__codelineno-7-100"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-101"><a id="__codelineno-7-101" name="__codelineno-7-101" href="#__codelineno-7-101"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-7-102"><a id="__codelineno-7-102" name="__codelineno-7-102" href="#__codelineno-7-102"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-103"><a id="__codelineno-7-103" name="__codelineno-7-103" href="#__codelineno-7-103"></a><span class="w">            </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-7-104"><a id="__codelineno-7-104" name="__codelineno-7-104" href="#__codelineno-7-104"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-105"><a id="__codelineno-7-105" name="__codelineno-7-105" href="#__codelineno-7-105"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-106"><a id="__codelineno-7-106" name="__codelineno-7-106" href="#__codelineno-7-106"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">&quot;User not logged in&quot;</span><span class="p">);</span>
+</span><span id="__span-7-107"><a id="__codelineno-7-107" name="__codelineno-7-107" href="#__codelineno-7-107"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-7-108"><a id="__codelineno-7-108" name="__codelineno-7-108" href="#__codelineno-7-108"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-109"><a id="__codelineno-7-109" name="__codelineno-7-109" href="#__codelineno-7-109"></a>
+</span><span id="__span-7-110"><a id="__codelineno-7-110" name="__codelineno-7-110" href="#__codelineno-7-110"></a><span class="w">            </span><span class="c1">// Clear existing items</span>
+</span><span id="__span-7-111"><a id="__codelineno-7-111" name="__codelineno-7-111" href="#__codelineno-7-111"></a><span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Transform</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">gameRoundsListContainer</span><span class="p">)</span>
+</span><span id="__span-7-112"><a id="__codelineno-7-112" name="__codelineno-7-112" href="#__codelineno-7-112"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-113"><a id="__codelineno-7-113" name="__codelineno-7-113" href="#__codelineno-7-113"></a><span class="w">                </span><span class="n">Destroy</span><span class="p">(</span><span class="n">child</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+</span><span id="__span-7-114"><a id="__codelineno-7-114" name="__codelineno-7-114" href="#__codelineno-7-114"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-115"><a id="__codelineno-7-115" name="__codelineno-7-115" href="#__codelineno-7-115"></a>
+</span><span id="__span-7-116"><a id="__codelineno-7-116" name="__codelineno-7-116" href="#__codelineno-7-116"></a><span class="w">            </span><span class="c1">// Get all game rounds for the current user</span>
+</span><span id="__span-7-117"><a id="__codelineno-7-117" name="__codelineno-7-117" href="#__codelineno-7-117"></a><span class="w">            </span><span class="n">GameRoundsResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">GetMyGameRoundsAsync</span><span class="p">();</span>
+</span><span id="__span-7-118"><a id="__codelineno-7-118" name="__codelineno-7-118" href="#__codelineno-7-118"></a>
+</span><span id="__span-7-119"><a id="__codelineno-7-119" name="__codelineno-7-119" href="#__codelineno-7-119"></a><span class="w">            </span><span class="c1">// Create UI items for each game round</span>
+</span><span id="__span-7-120"><a id="__codelineno-7-120" name="__codelineno-7-120" href="#__codelineno-7-120"></a><span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">round</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">GameRounds</span><span class="p">)</span>
+</span><span id="__span-7-121"><a id="__codelineno-7-121" name="__codelineno-7-121" href="#__codelineno-7-121"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-122"><a id="__codelineno-7-122" name="__codelineno-7-122" href="#__codelineno-7-122"></a><span class="w">                </span><span class="n">GameObject</span><span class="w"> </span><span class="n">roundItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instantiate</span><span class="p">(</span><span class="n">gameRoundItemPrefab</span><span class="p">,</span><span class="w"> </span><span class="n">gameRoundsListContainer</span><span class="p">);</span>
+</span><span id="__span-7-123"><a id="__codelineno-7-123" name="__codelineno-7-123" href="#__codelineno-7-123"></a><span class="w">                </span><span class="n">GameRoundItemUI</span><span class="w"> </span><span class="n">roundUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roundItem</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">GameRoundItemUI</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-7-124"><a id="__codelineno-7-124" name="__codelineno-7-124" href="#__codelineno-7-124"></a><span class="w">                </span><span class="n">roundUI</span><span class="p">.</span><span class="n">SetupGameRound</span><span class="p">(</span><span class="n">round</span><span class="p">);</span>
+</span><span id="__span-7-125"><a id="__codelineno-7-125" name="__codelineno-7-125" href="#__codelineno-7-125"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-126"><a id="__codelineno-7-126" name="__codelineno-7-126" href="#__codelineno-7-126"></a>
+</span><span id="__span-7-127"><a id="__codelineno-7-127" name="__codelineno-7-127" href="#__codelineno-7-127"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Loaded {response.GameRounds.Length} game rounds&quot;</span><span class="p">);</span>
+</span><span id="__span-7-128"><a id="__codelineno-7-128" name="__codelineno-7-128" href="#__codelineno-7-128"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-129"><a id="__codelineno-7-129" name="__codelineno-7-129" href="#__codelineno-7-129"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-7-130"><a id="__codelineno-7-130" name="__codelineno-7-130" href="#__codelineno-7-130"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-131"><a id="__codelineno-7-131" name="__codelineno-7-131" href="#__codelineno-7-131"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error loading game rounds: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-132"><a id="__codelineno-7-132" name="__codelineno-7-132" href="#__codelineno-7-132"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-133"><a id="__codelineno-7-133" name="__codelineno-7-133" href="#__codelineno-7-133"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-134"><a id="__codelineno-7-134" name="__codelineno-7-134" href="#__codelineno-7-134"></a>
+</span><span id="__span-7-135"><a id="__codelineno-7-135" name="__codelineno-7-135" href="#__codelineno-7-135"></a><span class="w">    </span><span class="c1">// View details for a specific game round</span>
+</span><span id="__span-7-136"><a id="__codelineno-7-136" name="__codelineno-7-136" href="#__codelineno-7-136"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ViewGameRoundDetails</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">gameRoundId</span><span class="p">)</span>
+</span><span id="__span-7-137"><a id="__codelineno-7-137" name="__codelineno-7-137" href="#__codelineno-7-137"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-138"><a id="__codelineno-7-138" name="__codelineno-7-138" href="#__codelineno-7-138"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-7-139"><a id="__codelineno-7-139" name="__codelineno-7-139" href="#__codelineno-7-139"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-140"><a id="__codelineno-7-140" name="__codelineno-7-140" href="#__codelineno-7-140"></a><span class="w">            </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-7-141"><a id="__codelineno-7-141" name="__codelineno-7-141" href="#__codelineno-7-141"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-142"><a id="__codelineno-7-142" name="__codelineno-7-142" href="#__codelineno-7-142"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-143"><a id="__codelineno-7-143" name="__codelineno-7-143" href="#__codelineno-7-143"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">&quot;User not logged in&quot;</span><span class="p">);</span>
+</span><span id="__span-7-144"><a id="__codelineno-7-144" name="__codelineno-7-144" href="#__codelineno-7-144"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-7-145"><a id="__codelineno-7-145" name="__codelineno-7-145" href="#__codelineno-7-145"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-146"><a id="__codelineno-7-146" name="__codelineno-7-146" href="#__codelineno-7-146"></a>
+</span><span id="__span-7-147"><a id="__codelineno-7-147" name="__codelineno-7-147" href="#__codelineno-7-147"></a><span class="w">            </span><span class="c1">// Get the game round details</span>
+</span><span id="__span-7-148"><a id="__codelineno-7-148" name="__codelineno-7-148" href="#__codelineno-7-148"></a><span class="w">            </span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">round</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">GetGameRoundAsync</span><span class="p">(</span><span class="n">gameRoundId</span><span class="p">);</span>
+</span><span id="__span-7-149"><a id="__codelineno-7-149" name="__codelineno-7-149" href="#__codelineno-7-149"></a>
+</span><span id="__span-7-150"><a id="__codelineno-7-150" name="__codelineno-7-150" href="#__codelineno-7-150"></a><span class="w">            </span><span class="c1">// Here you would update your UI with the detailed information</span>
+</span><span id="__span-7-151"><a id="__codelineno-7-151" name="__codelineno-7-151" href="#__codelineno-7-151"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Viewing details for game round {round.Id}:&quot;</span><span class="p">);</span>
+</span><span id="__span-7-152"><a id="__codelineno-7-152" name="__codelineno-7-152" href="#__codelineno-7-152"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Game Type: {round.GameType}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-153"><a id="__codelineno-7-153" name="__codelineno-7-153" href="#__codelineno-7-153"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Score: {round.Score}, Place: {round.Place}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-154"><a id="__codelineno-7-154" name="__codelineno-7-154" href="#__codelineno-7-154"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Started: {round.StartTime}, Ended: {round.EndTime}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-155"><a id="__codelineno-7-155" name="__codelineno-7-155" href="#__codelineno-7-155"></a>
+</span><span id="__span-7-156"><a id="__codelineno-7-156" name="__codelineno-7-156" href="#__codelineno-7-156"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">round</span><span class="p">.</span><span class="n">Metadata</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-157"><a id="__codelineno-7-157" name="__codelineno-7-157" href="#__codelineno-7-157"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-158"><a id="__codelineno-7-158" name="__codelineno-7-158" href="#__codelineno-7-158"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;Metadata:&quot;</span><span class="p">);</span>
+</span><span id="__span-7-159"><a id="__codelineno-7-159" name="__codelineno-7-159" href="#__codelineno-7-159"></a><span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">round</span><span class="p">.</span><span class="n">Metadata</span><span class="p">)</span>
+</span><span id="__span-7-160"><a id="__codelineno-7-160" name="__codelineno-7-160" href="#__codelineno-7-160"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-7-161"><a id="__codelineno-7-161" name="__codelineno-7-161" href="#__codelineno-7-161"></a><span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;  {entry.Key}: {entry.Value}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-162"><a id="__codelineno-7-162" name="__codelineno-7-162" href="#__codelineno-7-162"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-7-163"><a id="__codelineno-7-163" name="__codelineno-7-163" href="#__codelineno-7-163"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-164"><a id="__codelineno-7-164" name="__codelineno-7-164" href="#__codelineno-7-164"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-165"><a id="__codelineno-7-165" name="__codelineno-7-165" href="#__codelineno-7-165"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-7-166"><a id="__codelineno-7-166" name="__codelineno-7-166" href="#__codelineno-7-166"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-167"><a id="__codelineno-7-167" name="__codelineno-7-167" href="#__codelineno-7-167"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error viewing game round: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-168"><a id="__codelineno-7-168" name="__codelineno-7-168" href="#__codelineno-7-168"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-169"><a id="__codelineno-7-169" name="__codelineno-7-169" href="#__codelineno-7-169"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-170"><a id="__codelineno-7-170" name="__codelineno-7-170" href="#__codelineno-7-170"></a>
+</span><span id="__span-7-171"><a id="__codelineno-7-171" name="__codelineno-7-171" href="#__codelineno-7-171"></a><span class="w">    </span><span class="c1">// Delete a game round</span>
+</span><span id="__span-7-172"><a id="__codelineno-7-172" name="__codelineno-7-172" href="#__codelineno-7-172"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DeleteGameRound</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">gameRoundId</span><span class="p">)</span>
+</span><span id="__span-7-173"><a id="__codelineno-7-173" name="__codelineno-7-173" href="#__codelineno-7-173"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-174"><a id="__codelineno-7-174" name="__codelineno-7-174" href="#__codelineno-7-174"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-7-175"><a id="__codelineno-7-175" name="__codelineno-7-175" href="#__codelineno-7-175"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-176"><a id="__codelineno-7-176" name="__codelineno-7-176" href="#__codelineno-7-176"></a><span class="w">            </span><span class="n">GameFuseUser</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">;</span>
+</span><span id="__span-7-177"><a id="__codelineno-7-177" name="__codelineno-7-177" href="#__codelineno-7-177"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-178"><a id="__codelineno-7-178" name="__codelineno-7-178" href="#__codelineno-7-178"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-179"><a id="__codelineno-7-179" name="__codelineno-7-179" href="#__codelineno-7-179"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">&quot;User not logged in&quot;</span><span class="p">);</span>
+</span><span id="__span-7-180"><a id="__codelineno-7-180" name="__codelineno-7-180" href="#__codelineno-7-180"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-7-181"><a id="__codelineno-7-181" name="__codelineno-7-181" href="#__codelineno-7-181"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-182"><a id="__codelineno-7-182" name="__codelineno-7-182" href="#__codelineno-7-182"></a>
+</span><span id="__span-7-183"><a id="__codelineno-7-183" name="__codelineno-7-183" href="#__codelineno-7-183"></a><span class="w">            </span><span class="c1">// Delete the game round</span>
+</span><span id="__span-7-184"><a id="__codelineno-7-184" name="__codelineno-7-184" href="#__codelineno-7-184"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="n">DeleteGameRoundAsync</span><span class="p">(</span><span class="n">gameRoundId</span><span class="p">);</span>
+</span><span id="__span-7-185"><a id="__codelineno-7-185" name="__codelineno-7-185" href="#__codelineno-7-185"></a>
+</span><span id="__span-7-186"><a id="__codelineno-7-186" name="__codelineno-7-186" href="#__codelineno-7-186"></a><span class="w">            </span><span class="c1">// Refresh the list</span>
+</span><span id="__span-7-187"><a id="__codelineno-7-187" name="__codelineno-7-187" href="#__codelineno-7-187"></a><span class="w">            </span><span class="n">LoadRecentGameRounds</span><span class="p">();</span>
+</span><span id="__span-7-188"><a id="__codelineno-7-188" name="__codelineno-7-188" href="#__codelineno-7-188"></a>
+</span><span id="__span-7-189"><a id="__codelineno-7-189" name="__codelineno-7-189" href="#__codelineno-7-189"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Deleted game round {gameRoundId}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-190"><a id="__codelineno-7-190" name="__codelineno-7-190" href="#__codelineno-7-190"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-191"><a id="__codelineno-7-191" name="__codelineno-7-191" href="#__codelineno-7-191"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-7-192"><a id="__codelineno-7-192" name="__codelineno-7-192" href="#__codelineno-7-192"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-193"><a id="__codelineno-7-193" name="__codelineno-7-193" href="#__codelineno-7-193"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error deleting game round: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-194"><a id="__codelineno-7-194" name="__codelineno-7-194" href="#__codelineno-7-194"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-195"><a id="__codelineno-7-195" name="__codelineno-7-195" href="#__codelineno-7-195"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-196"><a id="__codelineno-7-196" name="__codelineno-7-196" href="#__codelineno-7-196"></a><span class="p">}</span>
+</span><span id="__span-7-197"><a id="__codelineno-7-197" name="__codelineno-7-197" href="#__codelineno-7-197"></a>
+</span><span id="__span-7-198"><a id="__codelineno-7-198" name="__codelineno-7-198" href="#__codelineno-7-198"></a><span class="c1">// UI component for displaying game round items in a list</span>
+</span><span id="__span-7-199"><a id="__codelineno-7-199" name="__codelineno-7-199" href="#__codelineno-7-199"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameRoundItemUI</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-7-200"><a id="__codelineno-7-200" name="__codelineno-7-200" href="#__codelineno-7-200"></a><span class="p">{</span>
+</span><span id="__span-7-201"><a id="__codelineno-7-201" name="__codelineno-7-201" href="#__codelineno-7-201"></a><span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">gameTypeText</span><span class="p">;</span>
+</span><span id="__span-7-202"><a id="__codelineno-7-202" name="__codelineno-7-202" href="#__codelineno-7-202"></a><span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">scoreText</span><span class="p">;</span>
+</span><span id="__span-7-203"><a id="__codelineno-7-203" name="__codelineno-7-203" href="#__codelineno-7-203"></a><span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">dateText</span><span class="p">;</span>
+</span><span id="__span-7-204"><a id="__codelineno-7-204" name="__codelineno-7-204" href="#__codelineno-7-204"></a><span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">viewDetailsButton</span><span class="p">;</span>
+</span><span id="__span-7-205"><a id="__codelineno-7-205" name="__codelineno-7-205" href="#__codelineno-7-205"></a><span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">deleteButton</span><span class="p">;</span>
+</span><span id="__span-7-206"><a id="__codelineno-7-206" name="__codelineno-7-206" href="#__codelineno-7-206"></a>
+</span><span id="__span-7-207"><a id="__codelineno-7-207" name="__codelineno-7-207" href="#__codelineno-7-207"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">gameRoundId</span><span class="p">;</span>
+</span><span id="__span-7-208"><a id="__codelineno-7-208" name="__codelineno-7-208" href="#__codelineno-7-208"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">GameRoundsManager</span><span class="w"> </span><span class="n">gameRoundsManager</span><span class="p">;</span>
+</span><span id="__span-7-209"><a id="__codelineno-7-209" name="__codelineno-7-209" href="#__codelineno-7-209"></a>
+</span><span id="__span-7-210"><a id="__codelineno-7-210" name="__codelineno-7-210" href="#__codelineno-7-210"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+</span><span id="__span-7-211"><a id="__codelineno-7-211" name="__codelineno-7-211" href="#__codelineno-7-211"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-212"><a id="__codelineno-7-212" name="__codelineno-7-212" href="#__codelineno-7-212"></a><span class="w">        </span><span class="n">gameRoundsManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindObjectOfType</span><span class="o">&lt;</span><span class="n">GameRoundsManager</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-7-213"><a id="__codelineno-7-213" name="__codelineno-7-213" href="#__codelineno-7-213"></a>
+</span><span id="__span-7-214"><a id="__codelineno-7-214" name="__codelineno-7-214" href="#__codelineno-7-214"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">viewDetailsButton</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-215"><a id="__codelineno-7-215" name="__codelineno-7-215" href="#__codelineno-7-215"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-216"><a id="__codelineno-7-216" name="__codelineno-7-216" href="#__codelineno-7-216"></a><span class="w">            </span><span class="n">viewDetailsButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">OnViewDetailsClicked</span><span class="p">);</span>
+</span><span id="__span-7-217"><a id="__codelineno-7-217" name="__codelineno-7-217" href="#__codelineno-7-217"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-218"><a id="__codelineno-7-218" name="__codelineno-7-218" href="#__codelineno-7-218"></a>
+</span><span id="__span-7-219"><a id="__codelineno-7-219" name="__codelineno-7-219" href="#__codelineno-7-219"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">deleteButton</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-220"><a id="__codelineno-7-220" name="__codelineno-7-220" href="#__codelineno-7-220"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-221"><a id="__codelineno-7-221" name="__codelineno-7-221" href="#__codelineno-7-221"></a><span class="w">            </span><span class="n">deleteButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">OnDeleteClicked</span><span class="p">);</span>
+</span><span id="__span-7-222"><a id="__codelineno-7-222" name="__codelineno-7-222" href="#__codelineno-7-222"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-223"><a id="__codelineno-7-223" name="__codelineno-7-223" href="#__codelineno-7-223"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-224"><a id="__codelineno-7-224" name="__codelineno-7-224" href="#__codelineno-7-224"></a>
+</span><span id="__span-7-225"><a id="__codelineno-7-225" name="__codelineno-7-225" href="#__codelineno-7-225"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupGameRound</span><span class="p">(</span><span class="n">GameRoundObject</span><span class="w"> </span><span class="n">round</span><span class="p">)</span>
+</span><span id="__span-7-226"><a id="__codelineno-7-226" name="__codelineno-7-226" href="#__codelineno-7-226"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-227"><a id="__codelineno-7-227" name="__codelineno-7-227" href="#__codelineno-7-227"></a><span class="w">        </span><span class="n">gameRoundId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">round</span><span class="p">.</span><span class="n">Id</span><span class="p">;</span>
+</span><span id="__span-7-228"><a id="__codelineno-7-228" name="__codelineno-7-228" href="#__codelineno-7-228"></a>
+</span><span id="__span-7-229"><a id="__codelineno-7-229" name="__codelineno-7-229" href="#__codelineno-7-229"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gameTypeText</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-230"><a id="__codelineno-7-230" name="__codelineno-7-230" href="#__codelineno-7-230"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-231"><a id="__codelineno-7-231" name="__codelineno-7-231" href="#__codelineno-7-231"></a><span class="w">            </span><span class="n">gameTypeText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">round</span><span class="p">.</span><span class="n">GameType</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;Unknown&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">round</span><span class="p">.</span><span class="n">GameType</span><span class="p">;</span>
+</span><span id="__span-7-232"><a id="__codelineno-7-232" name="__codelineno-7-232" href="#__codelineno-7-232"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-233"><a id="__codelineno-7-233" name="__codelineno-7-233" href="#__codelineno-7-233"></a>
+</span><span id="__span-7-234"><a id="__codelineno-7-234" name="__codelineno-7-234" href="#__codelineno-7-234"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scoreText</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-235"><a id="__codelineno-7-235" name="__codelineno-7-235" href="#__codelineno-7-235"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-236"><a id="__codelineno-7-236" name="__codelineno-7-236" href="#__codelineno-7-236"></a><span class="w">            </span><span class="n">scoreText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Score: {round.Score}, Place: {round.Place}&quot;</span><span class="p">;</span>
+</span><span id="__span-7-237"><a id="__codelineno-7-237" name="__codelineno-7-237" href="#__codelineno-7-237"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-238"><a id="__codelineno-7-238" name="__codelineno-7-238" href="#__codelineno-7-238"></a>
+</span><span id="__span-7-239"><a id="__codelineno-7-239" name="__codelineno-7-239" href="#__codelineno-7-239"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dateText</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-240"><a id="__codelineno-7-240" name="__codelineno-7-240" href="#__codelineno-7-240"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-241"><a id="__codelineno-7-241" name="__codelineno-7-241" href="#__codelineno-7-241"></a><span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">dateDisplay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Unknown date&quot;</span><span class="p">;</span>
+</span><span id="__span-7-242"><a id="__codelineno-7-242" name="__codelineno-7-242" href="#__codelineno-7-242"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">round</span><span class="p">.</span><span class="n">EndTime</span><span class="p">))</span>
+</span><span id="__span-7-243"><a id="__codelineno-7-243" name="__codelineno-7-243" href="#__codelineno-7-243"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-7-244"><a id="__codelineno-7-244" name="__codelineno-7-244" href="#__codelineno-7-244"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">round</span><span class="p">.</span><span class="n">EndTime</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">DateTime</span><span class="w"> </span><span class="n">endDate</span><span class="p">))</span>
+</span><span id="__span-7-245"><a id="__codelineno-7-245" name="__codelineno-7-245" href="#__codelineno-7-245"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-7-246"><a id="__codelineno-7-246" name="__codelineno-7-246" href="#__codelineno-7-246"></a><span class="w">                    </span><span class="n">dateDisplay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">endDate</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;MM/dd/yyyy HH:mm&quot;</span><span class="p">);</span>
+</span><span id="__span-7-247"><a id="__codelineno-7-247" name="__codelineno-7-247" href="#__codelineno-7-247"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-7-248"><a id="__codelineno-7-248" name="__codelineno-7-248" href="#__codelineno-7-248"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-249"><a id="__codelineno-7-249" name="__codelineno-7-249" href="#__codelineno-7-249"></a><span class="w">            </span><span class="n">dateText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dateDisplay</span><span class="p">;</span>
+</span><span id="__span-7-250"><a id="__codelineno-7-250" name="__codelineno-7-250" href="#__codelineno-7-250"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-251"><a id="__codelineno-7-251" name="__codelineno-7-251" href="#__codelineno-7-251"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-252"><a id="__codelineno-7-252" name="__codelineno-7-252" href="#__codelineno-7-252"></a>
+</span><span id="__span-7-253"><a id="__codelineno-7-253" name="__codelineno-7-253" href="#__codelineno-7-253"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnViewDetailsClicked</span><span class="p">()</span>
+</span><span id="__span-7-254"><a id="__codelineno-7-254" name="__codelineno-7-254" href="#__codelineno-7-254"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-255"><a id="__codelineno-7-255" name="__codelineno-7-255" href="#__codelineno-7-255"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gameRoundsManager</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-256"><a id="__codelineno-7-256" name="__codelineno-7-256" href="#__codelineno-7-256"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-257"><a id="__codelineno-7-257" name="__codelineno-7-257" href="#__codelineno-7-257"></a><span class="w">            </span><span class="n">gameRoundsManager</span><span class="p">.</span><span class="n">ViewGameRoundDetails</span><span class="p">(</span><span class="n">gameRoundId</span><span class="p">);</span>
+</span><span id="__span-7-258"><a id="__codelineno-7-258" name="__codelineno-7-258" href="#__codelineno-7-258"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-259"><a id="__codelineno-7-259" name="__codelineno-7-259" href="#__codelineno-7-259"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-260"><a id="__codelineno-7-260" name="__codelineno-7-260" href="#__codelineno-7-260"></a>
+</span><span id="__span-7-261"><a id="__codelineno-7-261" name="__codelineno-7-261" href="#__codelineno-7-261"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnDeleteClicked</span><span class="p">()</span>
+</span><span id="__span-7-262"><a id="__codelineno-7-262" name="__codelineno-7-262" href="#__codelineno-7-262"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-263"><a id="__codelineno-7-263" name="__codelineno-7-263" href="#__codelineno-7-263"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gameRoundsManager</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-7-264"><a id="__codelineno-7-264" name="__codelineno-7-264" href="#__codelineno-7-264"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-265"><a id="__codelineno-7-265" name="__codelineno-7-265" href="#__codelineno-7-265"></a><span class="w">            </span><span class="n">gameRoundsManager</span><span class="p">.</span><span class="n">DeleteGameRound</span><span class="p">(</span><span class="n">gameRoundId</span><span class="p">);</span>
+</span><span id="__span-7-266"><a id="__codelineno-7-266" name="__codelineno-7-266" href="#__codelineno-7-266"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-267"><a id="__codelineno-7-267" name="__codelineno-7-267" href="#__codelineno-7-267"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-268"><a id="__codelineno-7-268" name="__codelineno-7-268" href="#__codelineno-7-268"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>All game rounds methods throw an <code>ApiException</code> when a request fails. Always wrap your API calls in try-catch blocks to handle errors gracefully.</p>
+<p>Common errors include:
+- Insufficient permissions (trying to update or delete a game round you don't own)
+- Game round not found
+- Invalid data formats
+- Network connectivity issues</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../groups/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Groups">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Groups
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../chat/" class="md-footer__link md-footer__link--next" aria-label="Next: Chat">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chat
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
