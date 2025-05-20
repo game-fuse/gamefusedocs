@@ -131,5 +131,14 @@
   	<div class="md-header__source">
 		{% include "partials/source.html" %}
   	</div>
+
+	<!-- chat add a script below that takes all the text with class 'md-ellipsis', then remove any text within parentheses, using javascript -->
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+		document.querySelectorAll('.md-ellipsis').forEach(function(el) {
+		  el.textContent = el.textContent.replace(/\s*\([^)]*\)/g, '');
+		});
+	  });
+	</script>
   </nav>
 </header>

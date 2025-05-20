@@ -103,7 +103,6 @@ Below is a list of accessible routes that a signed-in user can query other users
 | GET    | `/v3/friends?user_id=xxx`                      | Fetch the list of friends                |
 | GET    | `/v3/game_rounds?user_id=xxx`                  | Fetch all game rounds                    |
 | GET    | `/v3/game_rounds/:id`                          | Fetch details of a specific game round   |
-| GET    | `/v3/game_rounds/multiplayer_game_round?id=xxx`| Fetch multiplayer game round details     |
 
 
 

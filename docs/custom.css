@@ -456,3 +456,38 @@ code {
   border-radius: 5;
   border: solid 1px #3B3D3A;
 }
+
+.md-ellipsis{
+  font-size: 12px !important;
+}
+
+
+.md-sidebar__scrollwrap{
+  min-height: 80vh;
+  overflow: visible !important;
+}
+
+.md-nav--primary{
+  min-height: 80vh;
+  overflow: visible !important;
+}
+
+.md-nav--primary > ul{
+  min-height: 80vh;
+  overflow: visible !important;
+}
+
+.md-nav--primary > ul > li{
+  min-height: 80vh;
+  overflow: visible !important;
+}
+
+.md-nav--primary > ul > li > nav{
+  min-height: 80vh;
+  overflow: visible !important;
+}
+
+.md-nav--primary > ul > li > nav > ul{
+  min-height: 80vh;
+  overflow: visible !important;
+}

@@ -1,3 +1,5 @@
+# Creating Store Items
+
 To create store items on the web, navigate to your [GameFuse.co](http://gamefuse.co/)
 home page, and sign in if you are not already.
 
@@ -13,5 +15,5 @@ page if you scroll down to the Store Items section, you will see the
 All are mandatory but do not need to used in your game.
 
 The store feature does not integrate real payment systems. This is for items
-you want your users to be able to unlock with in-game currency or with
+you want your users to be able to unlock with in-game currency (credits) or with
 achievements in the game. How you configure that is up to you.
