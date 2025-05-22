@@ -439,6 +439,8 @@ Retrieve a list of game rounds for a specific user. Multiplayer game rounds retr
 | Name     | Type    | Required | Description                         |
 |----------|---------|----------|-------------------------------------|
 | `user_id`| integer | Yes      | ID of the user whose game rounds to retrieve. |
+| `page`   | integer | No       | Page number (default 1) |
+| `per_page`| integer | No       | Number of game rounds returned in a single query (default and max 100) |
 
 ### Headers
 

@@ -7,7 +7,6 @@ else you can think of, it can be done with the custom data.
 
 ## Adding scores
 
-### Scope
 
 Alters the amount of scores a users has relatively
 
@@ -98,7 +97,6 @@ Alters the amount of scores a users has relatively
 
 ## Setting scores
 
-### Scope
 
 Set the absolute amount of scores a user has. The scores param will be the user's new scores total.
 
@@ -188,7 +186,6 @@ Set the absolute amount of scores a user has. The scores param will be the user'
 
 ## Adding a custom attribute 
 
-### Scope
 
 Set arbitrary custom attributes. The values of these attributes are in a string
 format but can be converted into any type by the programming language in use.
@@ -319,7 +316,6 @@ format but can be converted into any type by the programming language in use.
 
 ## Removing a custom attribute 
 
-### Scope
 
 Remove an arbitrary custom attribute.
 
@@ -391,9 +387,78 @@ None
     }
     ```
 
+
+
+## Remove multiple custom attributes.
+
+### Method
+
+!!! info annotate "GET"
+    ```plaintext
+    /api/v3/users/{signedInUserId}/remove_game_user_attributes?game_user_attribute_keys={gameUserAttributeKeys}
+    ```
+
+### Attributes
+
+| Name                      | Type    | Required | Description                                         |
+|---------------------------|---------|----------|-----------------------------------------------------|
+| `gameUserAttributeKeys`   | array   | Yes      | A JSON array of strings, each a key to remove       |
+| `signedInUserId`          | integer | Yes      | The user id value from the GameFuse game dashboard  |
+
+### Data (payload)
+
+None
+
+### Headers
+
+| Name                  | Type   | Description                                                         |
+|-----------------------|--------|---------------------------------------------------------------------|
+| `authentication-token`| string | Found in sign-in or sign-up responses. This token is used for user sessions |
+
+### Responses
+
+| HTTP status code | content-type      | Description                                         |
+|------------------|------------------|-----------------------------------------------------|
+| `200`            | application/json | Object containing the user's attributes             |
+| `400`            | text/plain       | User does not have an item with the specified `key` |
+| `500`            | text/plain       | Unknown server error                                |
+
+### Response object
+
+| Attribute name           | Type | Description                              |
+|--------------------------|------|------------------------------------------|
+| `game_user_attributes`   | list | All the users' attributes, i.e.: custom data |
+
+### Examples
+
+!!! example
+    #### cURL
+
+    ```shell
+    curl --request GET \
+        --header "authentication-token: abc123" \
+        --get \
+        --data-urlencode 'game_user_attribute_keys=["some key","other_key"]' \
+        'https://gamefuse.co/api/v3/users/1/remove_game_user_attributes'
+    ```
+
+    #### Example response
+
+    ```json
+    {
+      "game_user_attributes": [
+          {
+              "id": 2,
+              "key": "remaining_key",
+              "value": "remaining_value"
+          }
+      ]
+    }
+    ```
+
+
 ## Get all custom attributes 
 
-### Scope
 
 Get all custom attributes of a user.
 
