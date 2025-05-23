@@ -1,574 +1,736 @@
 # Game Rounds System
 
-GameFuse provides a robust game rounds system that allows you to track gameplay sessions and record player performance data. The `GameFuseUser.GameRounds` partial class contains methods to create, retrieve, update, and delete game rounds within your game.
+GameFuse provides a robust game rounds system that allows you to track gameplay sessions and record player performance data. The game rounds functionality is accessible through the authenticated `GameFuseUser.CurrentUser` instance.
 
-## Game Rounds Methods
+## Getting Started
 
-All game rounds methods are accessible through the `GameFuseUser` instance after a successful login.
+All game rounds methods require user authentication. Ensure you have a signed-in user before calling any game rounds methods:
 
-### CreateGameRoundAsync()
-
-Creates a new basic game round for the current user.
-
-**Parameters:**
-- None
-
-**Returns:**
-- `Task<GameRoundObject>`: Response containing the created game round
-
-**Example:**
-```csharp
-try
-{
-    // Get the current authenticated user
-    GameFuseUser currentUser = GameFuseUser.CurrentUser;
-    
-    // Create a basic game round
-    GameRoundObject createdRound = await currentUser.CreateGameRoundAsync();
-    
-    // Access the game round ID
-    int roundId = createdRound.Id;
-    Debug.Log($"Game round created successfully! Round ID: {roundId}");
-}
-catch (ApiException ex)
-{
-    Debug.LogError($"Failed to create game round: {ex.Message}");
-}
-```
-
-### CreateGameRoundAsync(GameRoundObject)
-
-Creates a new game round with detailed information for the current user.
-
-**Parameters:**
-- `gameRound` (GameRoundObject): Game round details including:
-  - `GameType` (string): Type of game being played (optional)
-  - `Multiplayer` (bool): Whether this is a multiplayer game round
-  - `Score` (double): Player's score in the game round
-  - `Place` (int): Player's final position/ranking
-  - `Metadata` (Dictionary<string, string>): Additional custom data (optional)
-
-**Returns:**
-- `Task<GameRoundObject>`: Response containing the created game round
-
-**Example:**
-```csharp
-try
-{
-    // Get the current authenticated user
-    GameFuseUser currentUser = GameFuseUser.CurrentUser;
-    
-    // Create game round with details
-    var gameRound = new GameRoundObject
+!!! example
+    ```csharp
+    if (GameFuseUser.CurrentUser == null)
     {
-        GameType = "battle_royale",
-        Multiplayer = true,
-        Score = 1500,
-        Place = 1,
-        Metadata = new Dictionary<string, string>
+        Debug.LogError("User must be authenticated first");
+        return;
+    }
+    ```
+
+## Creating Game Rounds
+
+### Create Single Player Game Round
+
+Use `CreateGameRoundAsync` to create a new single-player game round:
+
+!!! example
+    ```csharp
+    async void CreateSinglePlayerRound()
+    {
+        try
         {
-            { "difficulty", "expert" },
-            { "map", "volcano" },
-            { "weapons_used", "5" }
+            var metadata = new Dictionary<string, object>
+            {
+                {"difficulty", "hard"},
+                {"level", "forest"},
+                {"weapons_used", 3}
+            };
+            
+            var gameRound = await GameFuseUser.CurrentUser.CreateGameRoundAsync(
+                "battle_royale",
+                DateTime.UtcNow.ToString("o"), // startTime
+                null, // endTime (set when game ends)
+                1500, // score
+                1, // place
+                metadata);
+                
+            Debug.Log($"Game round created! ID: {gameRound.Id}");
         }
-    };
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to create game round: {ex.Message}");
+        }
+    }
+    ```
+
+### Create Multiplayer Game Round
+
+Use `CreateMultiplayerGameRoundAsync` to create or join a multiplayer game round:
+
+!!! example
+    ```csharp
+    async void CreateMultiplayerRound()
+    {
+        try
+        {
+            // Create a new multiplayer game round
+            var gameRound = await GameFuseUser.CurrentUser.CreateMultiplayerGameRoundAsync(
+                "team_deathmatch",
+                DateTime.UtcNow.ToString("o"),
+                null, // endTime
+                2500, // score
+                2, // place
+                new Dictionary<string, object> { {"team", "blue"} });
+                
+            Debug.Log($"Multiplayer game round created! ID: {gameRound.Id}");
+            Debug.Log($"Multiplayer Round ID: {gameRound.MultiplayerGameRoundId}");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to create multiplayer game round: {ex.Message}");
+        }
+    }
     
-    GameRoundObject createdRound = await currentUser.CreateGameRoundAsync(gameRound);
-    Debug.Log($"Detailed game round created with ID: {createdRound.Id}");
-}
-catch (ApiException ex)
-{
-    Debug.LogError($"Failed to create detailed game round: {ex.Message}");
-}
-```
+    async void JoinExistingMultiplayerRound(int existingMultiplayerRoundId)
+    {
+        try
+        {
+            // Join an existing multiplayer game round
+            var gameRound = await GameFuseUser.CurrentUser.CreateMultiplayerGameRoundAsync(
+                "team_deathmatch",
+                DateTime.UtcNow.ToString("o"),
+                null,
+                1800,
+                3,
+                new Dictionary<string, object> { {"team", "red"} },
+                existingMultiplayerRoundId); // Join existing round
+                
+            Debug.Log($"Joined multiplayer round {existingMultiplayerRoundId}");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to join multiplayer game round: {ex.Message}");
+        }
+    }
+    ```
 
-### UpdateGameRoundAsync
+## Retrieving Game Rounds
 
-Updates an existing game round owned by the current user.
+### Get Specific Game Round
+
+Use `GetGameRoundAsync` to retrieve details for a specific game round:
+
+!!! example
+    ```csharp
+    async void LoadGameRoundDetails(int gameRoundId)
+    {
+        try
+        {
+            var gameRound = await GameFuseUser.CurrentUser.GetGameRoundAsync(gameRoundId);
+            
+            Debug.Log($"Game Round ID: {gameRound.Id}");
+            Debug.Log($"Game Type: {gameRound.GameType}");
+            Debug.Log($"Score: {gameRound.Score}, Place: {gameRound.Place}");
+            Debug.Log($"Start: {gameRound.StartTime}, End: {gameRound.EndTime}");
+            Debug.Log($"Is Multiplayer: {gameRound.IsMultiplayer}");
+            
+            // Access metadata
+            if (gameRound.Metadata != null)
+            {
+                foreach (var kvp in gameRound.Metadata)
+                {
+                    Debug.Log($"Metadata - {kvp.Key}: {kvp.Value}");
+                }
+            }
+            
+            // For multiplayer rounds, show rankings
+            if (gameRound.IsMultiplayer && gameRound.Rankings != null)
+            {
+                Debug.Log("Rankings:");
+                foreach (var ranking in gameRound.Rankings)
+                {
+                    Debug.Log($"  {ranking.Place}. {ranking.Username}: {ranking.Score}");
+                }
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to get game round: {ex.Message}");
+        }
+    }
+    ```
+
+### Get Current User's Game Rounds
+
+Use `GetCurrentUserGameRoundsAsync` to retrieve all game rounds for the current user:
+
+!!! example
+    ```csharp
+    async void LoadMyGameRounds()
+    {
+        try
+        {
+            var gameRounds = await GameFuseUser.CurrentUser.GetCurrentUserGameRoundsAsync(
+                page: 1, 
+                perPage: 50);
+                
+            Debug.Log($"Found {gameRounds.Count} game rounds");
+            
+            foreach (var round in gameRounds)
+            {
+                Debug.Log($"Round {round.Id}: {round.GameType} - Score: {round.Score}");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to get user game rounds: {ex.Message}");
+        }
+    }
+    ```
+
+### Get Another User's Game Rounds
+
+Use `GetGameRoundsForUserAsync` to retrieve game rounds for a specific user:
+
+!!! example
+    ```csharp
+    async void LoadOtherUserGameRounds(int userId)
+    {
+        try
+        {
+            var gameRounds = await GameFuseUser.CurrentUser.GetGameRoundsForUserAsync(
+                userId, 
+                page: 1, 
+                perPage: 25);
+                
+            Debug.Log($"User {userId} has {gameRounds.Count} game rounds");
+            
+            foreach (var round in gameRounds)
+            {
+                Debug.Log($"Round: {round.GameType} - Score: {round.Score}, Place: {round.Place}");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to get user's game rounds: {ex.Message}");
+        }
+    }
+    ```
+
+## Updating Game Rounds
+
+Use `UpdateGameRoundAsync` to update an existing game round:
+
+!!! example
+    ```csharp
+    async void UpdateGameRound(int gameRoundId)
+    {
+        try
+        {
+            var updatedMetadata = new Dictionary<string, object>
+            {
+                {"final_boss_defeated", true},
+                {"powerups_collected", 8}
+            };
+            
+            var updatedRound = await GameFuseUser.CurrentUser.UpdateGameRoundAsync(
+                gameRoundId,
+                null, // startTime (don't change)
+                DateTime.UtcNow.ToString("o"), // endTime
+                3000, // new score
+                1, // new place
+                "boss_battle", // new game type
+                updatedMetadata);
+                
+            Debug.Log($"Game round updated! New score: {updatedRound.Score}");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to update game round: {ex.Message}");
+        }
+    }
+    ```
+
+## Deleting Game Rounds
+
+Use `DeleteGameRoundAsync` to delete a game round:
+
+!!! example
+    ```csharp
+    async void DeleteGameRound(int gameRoundId)
+    {
+        try
+        {
+            var response = await GameFuseUser.CurrentUser.DeleteGameRoundAsync(gameRoundId);
+            Debug.Log($"Game round deleted: {response.Message}");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to delete game round: {ex.Message}");
+        }
+    }
+    ```
+
+## Leaderboard Features
+
+### Get Game Leaderboard
+
+Use `GetLeaderboardAsync` to retrieve the game's leaderboard:
+
+!!! example
+    ```csharp
+    async void LoadLeaderboard()
+    {
+        try
+        {
+            var leaderboard = await GameFuseUser.CurrentUser.GetLeaderboardAsync(limit: 10);
+            
+            Debug.Log($"Top {leaderboard.Count} players:");
+            foreach (var entry in leaderboard)
+            {
+                Debug.Log($"{entry.Rank}. {entry.Username}: {entry.Score}");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to get leaderboard: {ex.Message}");
+        }
+    }
+    ```
+
+### Get User's Rank
+
+Use `GetUserRankAsync` to get the current user's leaderboard position:
+
+!!! example
+    ```csharp
+    async void LoadMyRank()
+    {
+        try
+        {
+            var myRank = await GameFuseUser.CurrentUser.GetUserRankAsync();
+            Debug.Log($"My rank: {myRank.Rank}, Score: {myRank.Score}");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to get user rank: {ex.Message}");
+        }
+    }
+    ```
+
+## Complete Example
+
+Here's a comprehensive example showing how to implement a game rounds management system:
+
+!!! example
+    ```csharp
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.UI;
+    using GameFuse;
+    using GameFuse.Models.Shared;
+    using System;
+    
+    public class GameRoundsManager : MonoBehaviour
+    {
+        [Header("UI References")]
+        public Transform gameRoundsListParent;
+        public GameObject gameRoundItemPrefab;
+        public Button startGameButton;
+        public Button endGameButton;
+        public Text currentScoreText;
+        public Text leaderboardText;
+        
+        [Header("Game Settings")]
+        public string currentGameType = "survival";
+        public bool isMultiplayerMode = false;
+        
+        private GameRound currentGameRound;
+        private bool gameInProgress = false;
+        private int currentScore = 0;
+        private DateTime gameStartTime;
+        
+        void Start()
+        {
+            startGameButton.onClick.AddListener(OnStartGameClicked);
+            endGameButton.onClick.AddListener(OnEndGameClicked);
+            
+            LoadGameHistory();
+            LoadLeaderboard();
+        }
+        
+        async void OnStartGameClicked()
+        {
+            if (gameInProgress)
+            {
+                Debug.LogWarning("Game already in progress");
+                return;
+            }
+            
+            await StartNewGame();
+        }
+        
+        async void OnEndGameClicked()
+        {
+            if (!gameInProgress)
+            {
+                Debug.LogWarning("No game in progress");
+                return;
+            }
+            
+            await EndCurrentGame();
+        }
+        
+        public async System.Threading.Tasks.Task StartNewGame()
+        {
+            try
+            {
+                gameStartTime = DateTime.UtcNow;
+                currentScore = 0;
+                
+                var metadata = new Dictionary<string, object>
+                {
+                    {"difficulty", "normal"},
+                    {"map", "default"}
+                };
+                
+                if (isMultiplayerMode)
+                {
+                    currentGameRound = await GameFuseUser.CurrentUser.CreateMultiplayerGameRoundAsync(
+                        currentGameType,
+                        gameStartTime.ToString("o"),
+                        null, // endTime
+                        currentScore,
+                        null, // place (TBD)
+                        metadata);
+                        
+                    Debug.Log($"Started multiplayer game! Round ID: {currentGameRound.Id}");
+                }
+                else
+                {
+                    currentGameRound = await GameFuseUser.CurrentUser.CreateGameRoundAsync(
+                        currentGameType,
+                        gameStartTime.ToString("o"),
+                        null, // endTime
+                        currentScore,
+                        null, // place (TBD)
+                        metadata);
+                        
+                    Debug.Log($"Started single-player game! Round ID: {currentGameRound.Id}");
+                }
+                
+                gameInProgress = true;
+                startGameButton.interactable = false;
+                endGameButton.interactable = true;
+                
+                // Start game loop
+                InvokeRepeating(nameof(UpdateGameProgress), 1f, 1f);
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Error starting game: {ex.Message}");
+            }
+        }
+        
+        void UpdateGameProgress()
+        {
+            if (!gameInProgress) return;
+            
+            // Simulate score increase
+            currentScore += UnityEngine.Random.Range(10, 50);
+            currentScoreText.text = $"Score: {currentScore}";
+        }
+        
+        public async System.Threading.Tasks.Task EndCurrentGame()
+        {
+            try
+            {
+                CancelInvoke(nameof(UpdateGameProgress));
+                
+                var endTime = DateTime.UtcNow;
+                var finalPlace = UnityEngine.Random.Range(1, 11); // Random place 1-10
+                
+                var finalMetadata = new Dictionary<string, object>
+                {
+                    {"duration_seconds", (endTime - gameStartTime).TotalSeconds},
+                    {"final_level_reached", UnityEngine.Random.Range(5, 20)}
+                };
+                
+                var updatedRound = await GameFuseUser.CurrentUser.UpdateGameRoundAsync(
+                    currentGameRound.Id,
+                    null, // don't change start time
+                    endTime.ToString("o"),
+                    currentScore,
+                    finalPlace,
+                    null, // don't change game type
+                    finalMetadata);
+                    
+                Debug.Log($"Game ended! Final score: {currentScore}, Place: {finalPlace}");
+                
+                gameInProgress = false;
+                startGameButton.interactable = true;
+                endGameButton.interactable = false;
+                
+                // Refresh displays
+                await LoadGameHistory();
+                await LoadLeaderboard();
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Error ending game: {ex.Message}");
+            }
+        }
+        
+        async System.Threading.Tasks.Task LoadGameHistory()
+        {
+            try
+            {
+                var gameRounds = await GameFuseUser.CurrentUser.GetCurrentUserGameRoundsAsync(1, 10);
+                
+                // Clear existing items
+                foreach (Transform child in gameRoundsListParent)
+                {
+                    Destroy(child.gameObject);
+                }
+                
+                // Create UI items for each game round
+                foreach (var round in gameRounds)
+                {
+                    var roundItem = Instantiate(gameRoundItemPrefab, gameRoundsListParent);
+                    var roundUI = roundItem.GetComponent<GameRoundItemUI>();
+                    if (roundUI != null)
+                    {
+                        roundUI.Setup(round, this);
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Error loading game history: {ex.Message}");
+            }
+        }
+        
+        async System.Threading.Tasks.Task LoadLeaderboard()
+        {
+            try
+            {
+                var leaderboard = await GameFuseUser.CurrentUser.GetLeaderboardAsync(10);
+                var myRank = await GameFuseUser.CurrentUser.GetUserRankAsync();
+                
+                string leaderboardText = "Top 10 Players:\\n";
+                foreach (var entry in leaderboard)
+                {
+                    leaderboardText += $"{entry.Rank}. {entry.Username}: {entry.Score}\\n";
+                }
+                
+                leaderboardText += $"\\nYour Rank: {myRank.Rank} (Score: {myRank.Score})";
+                this.leaderboardText.text = leaderboardText;
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Error loading leaderboard: {ex.Message}");
+            }
+        }
+        
+        public async System.Threading.Tasks.Task ViewGameRoundDetails(int gameRoundId)
+        {
+            try
+            {
+                var round = await GameFuseUser.CurrentUser.GetGameRoundAsync(gameRoundId);
+                
+                string details = $"Game Round {round.Id}\\n";
+                details += $"Type: {round.GameType}\\n";
+                details += $"Score: {round.Score}, Place: {round.Place}\\n";
+                details += $"Start: {round.StartTime}\\n";
+                details += $"End: {round.EndTime}\\n";
+                details += $"Multiplayer: {round.IsMultiplayer}\\n";
+                
+                if (round.Metadata != null)
+                {
+                    details += "Metadata:\\n";
+                    foreach (var kvp in round.Metadata)
+                    {
+                        details += $"  {kvp.Key}: {kvp.Value}\\n";
+                    }
+                }
+                
+                Debug.Log(details);
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Error viewing game round details: {ex.Message}");
+            }
+        }
+        
+        public async System.Threading.Tasks.Task DeleteGameRound(int gameRoundId)
+        {
+            try
+            {
+                await GameFuseUser.CurrentUser.DeleteGameRoundAsync(gameRoundId);
+                Debug.Log($"Deleted game round {gameRoundId}");
+                await LoadGameHistory();
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Error deleting game round: {ex.Message}");
+            }
+        }
+    }
+    
+    public class GameRoundItemUI : MonoBehaviour
+    {
+        public Text gameTypeText;
+        public Text scoreText;
+        public Text dateText;
+        public Button viewButton;
+        public Button deleteButton;
+        
+        private GameRound gameRound;
+        private GameRoundsManager manager;
+        
+        void Start()
+        {
+            viewButton.onClick.AddListener(() => manager.ViewGameRoundDetails(gameRound.Id));
+            deleteButton.onClick.AddListener(() => manager.DeleteGameRound(gameRound.Id));
+        }
+        
+        public void Setup(GameRound round, GameRoundsManager gameManager)
+        {
+            gameRound = round;
+            manager = gameManager;
+            
+            gameTypeText.text = round.GameType ?? "Unknown";
+            scoreText.text = $"Score: {round.Score}, Place: {round.Place}";
+            
+            if (DateTime.TryParse(round.EndTime, out DateTime endDate))
+            {
+                dateText.text = endDate.ToString("MM/dd/yyyy HH:mm");
+            }
+            else
+            {
+                dateText.text = "In Progress";
+            }
+        }
+    }
+    ```
+
+## Method Reference
+
+### `CreateGameRoundAsync`
+Creates a new single-player game round.
 
 **Parameters:**
-- `gameRoundId` (int): ID of the game round to update
-- `gameRound` (GameRoundObject): Game round with updated values
+- `gameType` (string): Type of game being played
+- `startTime` (string, optional): Start time in ISO format
+- `endTime` (string, optional): End time in ISO format
+- `score` (int?, optional): Player's score
+- `place` (int?, optional): Player's final position
+- `metadata` (Dictionary<string, object>, optional): Additional game data
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
-**Returns:**
-- `Task<GameRoundObject>`: Response containing the updated game round
+**Returns:** `Task<GameRound>` - The created game round
 
-**Example:**
-```csharp
-try
-{
-    // Get the current authenticated user
-    GameFuseUser currentUser = GameFuseUser.CurrentUser;
-    
-    // Create update data
-    var updatedRound = new GameRoundObject
-    {
-        Score = 2000,
-        Place = 2,
-        EndTime = DateTime.UtcNow.ToString("o"),
-        Metadata = new Dictionary<string, string>
-        {
-            { "powerups_used", "3" }
-        }
-    };
-    
-    // Update an existing game round
-    GameRoundObject result = await currentUser.UpdateGameRoundAsync(123, updatedRound);
-    
-    Debug.Log($"Game round updated! New score: {result.Score}, Place: {result.Place}");
-}
-catch (ApiException ex)
-{
-    Debug.LogError($"Failed to update game round: {ex.Message}");
-}
-```
+### `CreateMultiplayerGameRoundAsync`
+Creates a new multiplayer game round or joins an existing one.
 
-### GetGameRoundAsync
+**Parameters:**
+- `gameType` (string): Type of game being played
+- `startTime` (string, optional): Start time in ISO format
+- `endTime` (string, optional): End time in ISO format
+- `score` (int?, optional): Player's score
+- `place` (int?, optional): Player's final position
+- `metadata` (Dictionary<string, object>, optional): Additional game data
+- `multiplayerGameRoundId` (int?, optional): ID of existing multiplayer round to join
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
+**Returns:** `Task<GameRound>` - The created game round
+
+### `GetGameRoundAsync`
 Retrieves a specific game round by ID.
 
 **Parameters:**
 - `gameRoundId` (int): ID of the game round to retrieve
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
-**Returns:**
-- `Task<GameRoundObject>`: Response containing the game round details
+**Returns:** `Task<GameRound>` - The game round with full details including rankings for multiplayer rounds
 
-**Example:**
-```csharp
-try
-{
-    // Get the current authenticated user
-    GameFuseUser currentUser = GameFuseUser.CurrentUser;
-    
-    // Get details for a specific game round
-    GameRoundObject gameRound = await currentUser.GetGameRoundAsync(123);
-    
-    // Display game round information
-    Debug.Log($"Game Type: {gameRound.GameType}, Score: {gameRound.Score}");
-    
-    // For multiplayer games, show rankings
-    if (gameRound.Multiplayer && gameRound.Rankings != null)
-    {
-        foreach (var ranking in gameRound.Rankings)
-        {
-            Debug.Log($"Player: {ranking.User.Username}, Place: {ranking.Place}, Score: {ranking.Score}");
-        }
-    }
-    
-    // Access metadata
-    if (gameRound.Metadata != null)
-    {
-        foreach (var item in gameRound.Metadata)
-        {
-            Debug.Log($"Metadata - {item.Key}: {item.Value}");
-        }
-    }
-}
-catch (ApiException ex)
-{
-    Debug.LogError($"Failed to get game round details: {ex.Message}");
-}
-```
-
-### GetMyGameRoundsAsync
-
-Retrieves all game rounds for the current user.
+### `GetCurrentUserGameRoundsAsync`
+Retrieves game rounds for the current user with pagination.
 
 **Parameters:**
-- None
+- `page` (int, optional): Page number (default 1)
+- `perPage` (int, optional): Number of rounds per page (default and max 100)
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
-**Returns:**
-- `Task<GameRoundsResponse>`: Response containing an array of game rounds
+**Returns:** `Task<IReadOnlyList<GameRound>>` - List of game rounds (bulk retrieval doesn't include rankings)
 
-**Example:**
-```csharp
-try
-{
-    // Get the current authenticated user
-    GameFuseUser currentUser = GameFuseUser.CurrentUser;
-    
-    // Get all game rounds for the current user
-    GameRoundsResponse response = await currentUser.GetMyGameRoundsAsync();
-    
-    // Display the rounds
-    Debug.Log($"Found {response.GameRounds.Length} game rounds");
-    
-    foreach (GameRoundObject round in response.GameRounds)
-    {
-        Debug.Log($"Round ID: {round.Id}, Type: {round.GameType}, Score: {round.Score}");
-    }
-}
-catch (ApiException ex)
-{
-    Debug.LogError($"Failed to get user game rounds: {ex.Message}");
-}
-```
-
-### GetUserGameRoundsAsync
-
-Retrieves all game rounds for a specific user.
+### `GetGameRoundsForUserAsync`
+Retrieves game rounds for a specific user with pagination.
 
 **Parameters:**
-- `userId` (int): ID of the user whose game rounds to retrieve
+- `userId` (int): ID of the user whose rounds to retrieve
+- `page` (int, optional): Page number (default 1)
+- `perPage` (int, optional): Number of rounds per page (default and max 100)
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
-**Returns:**
-- `Task<GameRoundsResponse>`: Response containing an array of game rounds
+**Returns:** `Task<IReadOnlyList<GameRound>>` - List of game rounds (bulk retrieval doesn't include rankings)
 
-**Example:**
-```csharp
-try
-{
-    // Get the current authenticated user
-    GameFuseUser currentUser = GameFuseUser.CurrentUser;
-    
-    // Get game rounds for another user
-    int friendUserId = 456;
-    GameRoundsResponse response = await currentUser.GetUserGameRoundsAsync(friendUserId);
-    
-    // Display the rounds
-    Debug.Log($"Found {response.GameRounds.Length} game rounds for user {friendUserId}");
-    
-    foreach (GameRoundObject round in response.GameRounds)
-    {
-        Debug.Log($"Round ID: {round.Id}, Type: {round.GameType}, Score: {round.Score}");
-    }
-}
-catch (ApiException ex)
-{
-    Debug.LogError($"Failed to get user game rounds: {ex.Message}");
-}
-```
+### `UpdateGameRoundAsync`
+Updates an existing game round.
 
-### DeleteGameRoundAsync
+**Parameters:**
+- `gameRoundId` (int): ID of the game round to update
+- `startTime` (string, optional): New start time
+- `endTime` (string, optional): New end time
+- `score` (int?, optional): New score
+- `place` (int?, optional): New place
+- `gameType` (string, optional): New game type
+- `metadata` (Dictionary<string, object>, optional): New metadata
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
-Deletes a specific game round owned by the current user.
+**Returns:** `Task<GameRound>` - The updated game round
+
+### `DeleteGameRoundAsync`
+Deletes a game round.
 
 **Parameters:**
 - `gameRoundId` (int): ID of the game round to delete
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
-**Returns:**
-- `Task<MessageResponse>`: Response confirming the deletion
+**Returns:** `Task<GameRoundDeleteResponse>` - Response confirming deletion
 
-**Example:**
-```csharp
-try
-{
-    // Get the current authenticated user
-    GameFuseUser currentUser = GameFuseUser.CurrentUser;
-    
-    // Delete a game round
-    MessageResponse response = await currentUser.DeleteGameRoundAsync(123);
-    
-    Debug.Log($"Game round deleted. Response: {response.Message}");
-}
-catch (ApiException ex)
-{
-    Debug.LogError($"Failed to delete game round: {ex.Message}");
-}
-```
+### `GetLeaderboardAsync`
+Retrieves the game's leaderboard.
 
-## GameRoundObject Properties
+**Parameters:**
+- `limit` (int, optional): Maximum number of entries to return (default 100)
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
-The `GameRoundObject` class contains the following properties:
+**Returns:** `Task<IReadOnlyList<LeaderboardEntry>>` - List of leaderboard entries
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `Id` | int | The ID of the game round |
-| `GameId` | int | The ID of the game |
-| `GameUserId` | int | The ID of the user to whom the game round belongs |
-| `MultiplayerGameRoundId` | int? | ID of the associated multiplayer game round (if applicable) |
-| `GameType` | string | Type of game being played |
-| `Place` | int | The place the user finished in (1st, 2nd, etc.) |
-| `Score` | double | The score achieved in the game round |
-| `StartTime` | string | Start time of the game round |
-| `EndTime` | string | End time of the game round |
-| `Metadata` | Dictionary<string, string> | Additional metadata related to the game round |
-| `CreatedAt` | string | When the game round was created |
-| `UpdatedAt` | string | When the game round was last updated |
-| `Rankings` | RankingsObject[] | For multiplayer games, contains the rankings of all participants |
-| `Multiplayer` | bool | If true, indicates this is a multiplayer game round |
+### `GetUserRankAsync`
+Gets the current user's leaderboard rank.
 
-## Common Usage Pattern
+**Parameters:**
+- `cancellationToken` (CancellationToken, optional): Token to cancel the operation
 
-Here's an example of how to implement a basic game rounds manager in your game:
-
-```csharp
-using UnityEngine;
-using GameFuseCSharp;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using System;
-
-public class GameRoundsManager : MonoBehaviour
-{
-    // UI elements for game rounds list
-    [SerializeField] private Transform gameRoundsListContainer;
-    [SerializeField] private GameObject gameRoundItemPrefab;
-
-    // Track the current game round
-    private GameRoundObject currentGameRound;
-    private bool gameInProgress = false;
-
-    // Start a new game round
-    public async void StartNewGameRound(string gameType, bool isMultiplayer)
-    {
-        try
-        {
-            GameFuseUser currentUser = GameFuseUser.CurrentUser;
-            if (currentUser == null)
-            {
-                Debug.LogError("User not logged in");
-                return;
-            }
-
-            // Create initial game round
-            var gameRound = new GameRoundObject
-            {
-                GameType = gameType,
-                Multiplayer = isMultiplayer,
-                StartTime = System.DateTime.UtcNow.ToString("o"),
-                Score = 0,
-                Place = 0  // Not yet determined
-            };
-
-            currentGameRound = await currentUser.CreateGameRoundAsync(gameRound);
-            gameInProgress = true;
-
-            Debug.Log($"Started new game round ID: {currentGameRound.Id}");
-        }
-        catch (ApiException ex)
-        {
-            Debug.LogError($"Error creating game round: {ex.Message}");
-        }
-    }
-
-    // Update the score during gameplay
-    public void UpdateScore(double newScore)
-    {
-        if (!gameInProgress || currentGameRound == null)
-        {
-            Debug.LogWarning("No game round in progress");
-            return;
-        }
-
-        // Update local score
-        currentGameRound.Score = newScore;
-    }
-
-    // End the current game round
-    public async void EndGameRound(int finalPlace, Dictionary<string, string> gameMetadata)
-    {
-        if (!gameInProgress || currentGameRound == null)
-        {
-            Debug.LogWarning("No game round in progress");
-            return;
-        }
-
-        try
-        {
-            GameFuseUser currentUser = GameFuseUser.CurrentUser;
-            if (currentUser == null)
-            {
-                Debug.LogError("User not logged in");
-                return;
-            }
-
-            // Update the game round with final data
-            currentGameRound.Place = finalPlace;
-            currentGameRound.EndTime = System.DateTime.UtcNow.ToString("o");
-            currentGameRound.Metadata = gameMetadata;
-
-            // Send the update to the server
-            await currentUser.UpdateGameRoundAsync(currentGameRound.Id, currentGameRound);
-
-            gameInProgress = false;
-            Debug.Log($"Game round {currentGameRound.Id} completed with score: {currentGameRound.Score}");
-        }
-        catch (ApiException ex)
-        {
-            Debug.LogError($"Error ending game round: {ex.Message}");
-        }
-    }
-
-    // Load recent game rounds
-    public async void LoadRecentGameRounds()
-    {
-        try
-        {
-            GameFuseUser currentUser = GameFuseUser.CurrentUser;
-            if (currentUser == null)
-            {
-                Debug.LogError("User not logged in");
-                return;
-            }
-
-            // Clear existing items
-            foreach (Transform child in gameRoundsListContainer)
-            {
-                Destroy(child.gameObject);
-            }
-
-            // Get all game rounds for the current user
-            GameRoundsResponse response = await currentUser.GetMyGameRoundsAsync();
-
-            // Create UI items for each game round
-            foreach (GameRoundObject round in response.GameRounds)
-            {
-                GameObject roundItem = Instantiate(gameRoundItemPrefab, gameRoundsListContainer);
-                GameRoundItemUI roundUI = roundItem.GetComponent<GameRoundItemUI>();
-                roundUI.SetupGameRound(round);
-            }
-
-            Debug.Log($"Loaded {response.GameRounds.Length} game rounds");
-        }
-        catch (ApiException ex)
-        {
-            Debug.LogError($"Error loading game rounds: {ex.Message}");
-        }
-    }
-
-    // View details for a specific game round
-    public async void ViewGameRoundDetails(int gameRoundId)
-    {
-        try
-        {
-            GameFuseUser currentUser = GameFuseUser.CurrentUser;
-            if (currentUser == null)
-            {
-                Debug.LogError("User not logged in");
-                return;
-            }
-
-            // Get the game round details
-            GameRoundObject round = await currentUser.GetGameRoundAsync(gameRoundId);
-
-            // Here you would update your UI with the detailed information
-            Debug.Log($"Viewing details for game round {round.Id}:");
-            Debug.Log($"Game Type: {round.GameType}");
-            Debug.Log($"Score: {round.Score}, Place: {round.Place}");
-            Debug.Log($"Started: {round.StartTime}, Ended: {round.EndTime}");
-
-            if (round.Metadata != null)
-            {
-                Debug.Log("Metadata:");
-                foreach (var entry in round.Metadata)
-                {
-                    Debug.Log($"  {entry.Key}: {entry.Value}");
-                }
-            }
-        }
-        catch (ApiException ex)
-        {
-            Debug.LogError($"Error viewing game round: {ex.Message}");
-        }
-    }
-
-    // Delete a game round
-    public async void DeleteGameRound(int gameRoundId)
-    {
-        try
-        {
-            GameFuseUser currentUser = GameFuseUser.CurrentUser;
-            if (currentUser == null)
-            {
-                Debug.LogError("User not logged in");
-                return;
-            }
-
-            // Delete the game round
-            await currentUser.DeleteGameRoundAsync(gameRoundId);
-
-            // Refresh the list
-            LoadRecentGameRounds();
-
-            Debug.Log($"Deleted game round {gameRoundId}");
-        }
-        catch (ApiException ex)
-        {
-            Debug.LogError($"Error deleting game round: {ex.Message}");
-        }
-    }
-}
-
-// UI component for displaying game round items in a list
-public class GameRoundItemUI : MonoBehaviour
-{
-    [SerializeField] private Text gameTypeText;
-    [SerializeField] private Text scoreText;
-    [SerializeField] private Text dateText;
-    [SerializeField] private Button viewDetailsButton;
-    [SerializeField] private Button deleteButton;
-
-    private int gameRoundId;
-    private GameRoundsManager gameRoundsManager;
-
-    private void Start()
-    {
-        gameRoundsManager = FindObjectOfType<GameRoundsManager>();
-
-        if (viewDetailsButton != null)
-        {
-            viewDetailsButton.onClick.AddListener(OnViewDetailsClicked);
-        }
-
-        if (deleteButton != null)
-        {
-            deleteButton.onClick.AddListener(OnDeleteClicked);
-        }
-    }
-
-    public void SetupGameRound(GameRoundObject round)
-    {
-        gameRoundId = round.Id;
-
-        if (gameTypeText != null)
-        {
-            gameTypeText.text = string.IsNullOrEmpty(round.GameType) ? "Unknown" : round.GameType;
-        }
-
-        if (scoreText != null)
-        {
-            scoreText.text = $"Score: {round.Score}, Place: {round.Place}";
-        }
-
-        if (dateText != null)
-        {
-            string dateDisplay = "Unknown date";
-            if (!string.IsNullOrEmpty(round.EndTime))
-            {
-                if (DateTime.TryParse(round.EndTime, out DateTime endDate))
-                {
-                    dateDisplay = endDate.ToString("MM/dd/yyyy HH:mm");
-                }
-            }
-            dateText.text = dateDisplay;
-        }
-    }
-
-    private void OnViewDetailsClicked()
-    {
-        if (gameRoundsManager != null)
-        {
-            gameRoundsManager.ViewGameRoundDetails(gameRoundId);
-        }
-    }
-
-    private void OnDeleteClicked()
-    {
-        if (gameRoundsManager != null)
-        {
-            gameRoundsManager.DeleteGameRound(gameRoundId);
-        }
-    }
-}
-```
+**Returns:** `Task<LeaderboardEntry>` - The user's leaderboard entry with rank and score
 
 ## Error Handling
 
-All game rounds methods throw an `ApiException` when a request fails. Always wrap your API calls in try-catch blocks to handle errors gracefully.
+All game rounds methods are async and may throw exceptions. Always wrap calls in try-catch blocks:
 
-Common errors include:
-- Insufficient permissions (trying to update or delete a game round you don't own)
-- Game round not found
-- Invalid data formats
-- Network connectivity issues
+- **Network connectivity issues** - Connection problems
+- **Authentication errors** - User not signed in
+- **Permission errors** - Attempting to modify rounds owned by other users
+- **Invalid parameters** - Round not found, invalid data formats
+- **Server errors** - Temporary GameFuse service issues
+
+## Function return values
+
+### HTTP Status Codes
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK - Operation completed successfully |
+| `400`            | Bad Request - Invalid parameters or data format |
+| `401`            | Unauthorized - User not authenticated |
+| `403`            | Forbidden - Insufficient permissions |
+| `404`            | Not Found - Game round not found |
+| `500`            | Internal Server Error - Server error |
+
+## Important Notes
+
+- **Pagination**: Bulk game round retrieval methods support pagination with a maximum of 100 rounds per page
+- **Rankings**: Multiplayer game round rankings are only included when fetching individual rounds via `GetGameRoundAsync`
+- **Metadata**: Use metadata to store custom game-specific information as key-value pairs
+- **Time Format**: Use ISO 8601 format for start and end times (`DateTime.UtcNow.ToString("o")`)
+- **Multiplayer Rounds**: Players can join existing multiplayer rounds or create new ones

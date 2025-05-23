@@ -7,7 +7,7 @@ nav:
       
       - C# Unity 3D:
         - C# Unity 3D/getting started.md
-        - Game Connection and Variables (C#): C# Unity 3D/game connection and variables.md
+        - GameFuse Settings Configuration (C#): C# Unity 3D/gamefuse settings configuration.md
         - Signing Game Users Up (C#): C# Unity 3D/signing game users up.md
         - Creating Store Items on the Web (C#): C# Unity 3D/creating store items on the web.md
         - Using Store Items in Your Game (C#): C# Unity 3D/using the store in your game.md
