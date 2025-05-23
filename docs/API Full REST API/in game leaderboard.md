@@ -12,14 +12,14 @@ designated by `leaderboard_name`, these can be pulled later and compared to othe
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v3/users/{current_user_id}/add_leaderboard_entry
+    /api/v3/users/{user_id}/add_leaderboard_entry
     ```
 
 ### Attributes
 
 | Name                     | Type          | Required | Description |
 |--------------------------|---------------|----------|-------------|
-| `current_user_id`        | integer       | Yes      | The user id value from the GameFuse game dashboard |
+| `user_id`        | integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Data (payload)
 
@@ -136,14 +136,14 @@ Clear all leaderboard entries for a specific user.
 
 !!! info annotate "POST"
     ```plaintext
-    /api/v3/users/{current_user_id}/clear_my_leaderboard_entries?leaderboard_name={leaderboard_name}
+    /api/v3/users/{user_id}/clear_my_leaderboard_entries?leaderboard_name={leaderboard_name}
     ```
 
 ### Attributes
 
 | Name               | Type          | Required | Description |
 |--------------------|---------------|----------|-------------|
-| `current_user_id`  | integer      | Yes      | The user id value from the GameFuse game dashboard |
+| `user_id`  | integer      | Yes      | The user id value from the GameFuse game dashboard |
 | `leaderboard_name` | integer       | Yes      | which leaderboard to clear for the current user |
 
 ### Data (payload)
@@ -311,7 +311,7 @@ Get all leaderboard entries for a specific user.
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v3/users/{current_user_id}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}&one_per_user={onePerUser}
+    /api/v3/users/{user_id}/leaderboard_entries?leaderboard_name={leaderboardName}&limit={limit}&one_per_user={onePerUser}
     ```
 
 !!! tip annotate "NOTE"
@@ -324,8 +324,7 @@ Get all leaderboard entries for a specific user.
 |------------------|---------------|----------|-------------|
 | `leaderboard_name` | string       | No     | Name of the leaderboard within the game. No value returns all leaderboard entries for the User |
 | `limit`          | integer       | Yes      | Limit the number of results. Set this value >= 1 |
-| `current_user_id`| integer       | Yes      | The user id value from the GameFuse game dashboard |
-| `onePerUser`     | boolean       | No       | If set to `true` get only one result per player on the leaderboard |
+| `user_id`| integer       | Yes      | The user id value from the GameFuse game dashboard |
 
 ### Data (payload)
 
