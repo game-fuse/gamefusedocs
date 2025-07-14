@@ -363,7 +363,7 @@ None
     #### cURL
 
     ```shell
-    curl --request GET \
+    curl --request DELETE \
         --header "authentication-token: abc123" \
         'https://gamefuse.co/api/v3/users/1/remove_game_user_attribute?game_user_attribute_key=some%20key'
     ```
@@ -395,7 +395,7 @@ None
 
 !!! info annotate "GET"
     ```plaintext
-    /api/v3/users/{signedInUserId}/remove_game_user_attributes?game_user_attribute_keys={gameUserAttributeKeys}
+    /api/v3/users/{signedInUserId}/remove_game_user_attributes?game_user_attribute_keys={gameUserAttributeKeys} 
     ```
 
 ### Attributes
@@ -435,11 +435,10 @@ None
     #### cURL
 
     ```shell
-    curl --request GET \
+    curl --request DELETE \
         --header "authentication-token: abc123" \
         --get \
-        --data-urlencode 'game_user_attribute_keys=["some key","other_key"]' \
-        'https://gamefuse.co/api/v3/users/1/remove_game_user_attributes'
+        'https://gamefuse.co/api/v3/users/1/remove_game_user_attributes?game_user_attribute_keys[]=type&game_user_attribute_keys[]=color'
     ```
 
     #### Example response

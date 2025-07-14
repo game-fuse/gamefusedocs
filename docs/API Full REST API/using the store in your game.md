@@ -123,7 +123,7 @@ Purchase a store item.
 | Attribute name                    | Type | Description |
 |-----------------------------------|------|-------------|
 | `credits`                | integer | The user's remaining credits |
-| `store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
+| `game_user_store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
 
 ### Example
 
@@ -210,7 +210,7 @@ None
 | Attribute name                    | Type | Description |
 |-----------------------------------|------|-------------|
 | `credits`                | integer | The user's remaining credits |
-| `store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
+| `game_user_store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
 
 ### Example
 
@@ -296,7 +296,7 @@ None
 | Attribute name                    | Type | Description |
 |-----------------------------------|------|-------------|
 | `credits`                | integer | The user's remaining credits |
-| `store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
+| `game_user_store_items`            | list | A list of objects where each one represents the fields of a store item purchased by the user |
 
 ### Example
 

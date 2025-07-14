@@ -3,8 +3,7 @@
 The Game Round API allows users to manage game rounds in the GameFuse platform. This includes creating game rounds, updating them, viewing a user's game rounds, and deleting game rounds. Game rounds can also be part of multiplayer rounds.
 
 !!! note
-    This feature is not supported in the client libraries yet.  It is in beta and may be subject to change. This message will be removed when the feature is completed
-	
+    This feature is not supported in the js client library yet.	
 ## Create a Game Round
 
 ### Scope
@@ -433,6 +432,12 @@ Retrieve a list of game rounds for a specific user. Multiplayer game rounds retr
 
 !!! info annotate "GET"
 	/api/v3/game_rounds?user_id={user_id}
+
+!!! tip annotate "NOTE"
+    ```plaintext
+    Other users in the same game can be queried with this route.
+    ```
+
 
 ### Attributes
 

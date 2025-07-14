@@ -3,7 +3,7 @@
 The Group and Group Connection API allows users to manage groups, join or leave them, and handle invitations and membership requests. It supports fetching group data, sending invites, processing join requests, and managing group members.
 
 !!! note
-    This feature is not supported in the client libraries yet.  It is in beta and may be subject to change. This message will be removed when the feature is completed
+        This feature is not supported in the js client library yet.
 	
 ---
 
@@ -145,6 +145,11 @@ Retrieve the list of groups available on the platform. This request will not giv
 	```plaintext
 	/api/v3/groups
 	```
+!!! tip annotate "NOTE"
+    ```plaintext
+    Other users in the same game can be queried with this route.
+    ```
+
 
 ### Attributes
 

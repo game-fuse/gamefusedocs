@@ -3,7 +3,7 @@
 The Friendship API allows users to create, manage, and remove friendships between players in the GameFuse platform. This includes sending friend requests, accepting or rejecting them, unfriending players, and viewing friendship data.
 
 !!! note
-    This feature is not supported in the client libraries yet.  It is in beta and may be subject to change. This message will be removed when the feature is completed
+    This feature is not supported in the js client library yet.
 	
 ---
 
@@ -357,8 +357,13 @@ Retrieve the list of all accepted friends for the current user.
 
 !!! info annotate "GET"
 	```plaintext
-	/api/v3/friends
+	/api/v3/friends/:id
 	```
+
+!!! tip annotate "NOTE"
+    ```plaintext
+    Other users in the same game can be queried with this route.
+    ```
 
 ### Attributes
 
