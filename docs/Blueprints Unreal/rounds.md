@@ -1,87 +1,126 @@
 # Rounds System
 
-!!! note
-    These Docs are WIP and will be updated with Visual Blueprint Examples. Please see [Class Methods](class%20methods.md) for visual examples.
-
-The GameFuse Rounds System allows you to track and manage game rounds in your game. This includes creating rounds, fetching round data, and managing round metadata.
+The GameFuse Rounds System allows you to track and manage game rounds in your game. This includes creating rounds, fetching round data, updating rounds, and managing round metadata.
 
 ## Getting Started with Rounds
 
-To use the GameFuse Rounds system in Blueprints, you'll need to access the GameFuse Rounds subsystem:
-
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) -->
+To use the GameFuse Rounds system in Blueprints, you'll need to access the GameFuse Rounds subsystem through **Get Game Instance** → **Get Subsystem** → **GameFuse Rounds**.
 
 ## Creating a Game Round
 
-To create a game round:
+Create a new game round to track player performance and statistics:
 
-1. Get the GameFuse Rounds subsystem
-2. Create a new Game Round structure
-3. Set properties like Score, Start Time, End Time, and Game Type
-4. Call CreateGameRound with the round data
-5. Create a callback function to handle the response
-6. Process the created round data
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/5dl5z2g-/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-## Creating a Game Round with Metadata
+## Fetching Game Rounds
 
-To create a game round with metadata:
+### Fetch All Rounds
 
-1. Get the GameFuse Rounds subsystem
-2. Create a new Game Round structure
-3. Set basic properties
-4. Add metadata key-value pairs to the round data
-5. Call CreateGameRound with the round data
-6. Create a callback function to handle the response
-7. Process the created round data and metadata
+Get all game rounds for the current user:
 
-## Creating a Multiplayer Game Round
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/-2v924k2/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-To create a multiplayer game round:
+### Fetch Rounds by Game Type
 
-1. Get the GameFuse Rounds subsystem
-2. Create a new Game Round structure
-3. Set the Game Type to "Multiplayer"
-4. Add metadata relevant to multiplayer
-5. Call CreateGameRound with the round data
-6. Create a callback function to handle the response
-7. Process the created round data for multiplayer setup
+Get rounds filtered by a specific game type:
 
-## Fetching a Game Round
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/-2v924k2/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-To fetch a specific game round:
-
-1. Get the GameFuse Rounds subsystem
-2. Call FetchGameRound with the round ID
-3. Create a callback function to handle the response
-4. Process the round data and metadata
-
-## Fetching User Game Rounds
-
-To fetch all game rounds for the current user:
-
-1. Get the GameFuse Rounds subsystem
-2. Call FetchUserGameRounds with page number (e.g., 1)
-3. Create a callback function to handle the response
-4. Process the array of rounds for display or statistics
 
 ## Updating a Game Round
 
-To update an existing game round:
+Update an existing game round with new data:
 
-1. Get the GameFuse Rounds subsystem
-2. First fetch the existing round using FetchGameRound
-3. In the callback, modify the round data (score, end time, metadata)
-4. Call UpdateGameRound with the updated round data
-5. Create a callback function to handle the update response
-6. Process the updated round result
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/ia1je9m2/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
 ## Deleting a Game Round
 
-To delete a game round:
+Remove a game round from the system:
 
-1. Get the GameFuse Rounds subsystem
-2. Call DeleteGameRound with the round ID
-3. Create a callback function to handle the response
-4. Process the success or failure of the deletion 
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/ix988if_/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+## Function Parameters
+
+### Create Game Round
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Score` | `Integer` | Player's score for this round |
+| `Game Type` | `String` | Type/category of the game round |
+| `Start Time` | `String` | When the round started (ISO format, optional) |
+| `End Time` | `String` | When the round ended (ISO format, optional) |
+| `Metadata` | `String` | Additional data in JSON format (optional) |
+
+### Update Game Round
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Round ID` | `Integer` | Unique identifier of the round to update |
+| `Score` | `Integer` | Updated score (optional) |
+| `Game Type` | `String` | Updated game type (optional) |
+| `Metadata` | `String` | Updated metadata in JSON format (optional) |
+
+### Fetch/Delete Game Round
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Round ID` | `Integer` | Unique identifier of the round (for deletion) |
+| `Game Type` | `String` | Filter by game type (for filtered fetch) |
+
+## Function Return Values
+
+### Create/Update Game Round
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Round created/updated successfully |
+| `400` | Bad request - Invalid parameters |
+| `401` | Unauthorized - User not signed in |
+| `500` | Unknown server error |
+
+### Fetch Game Rounds
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Rounds fetched successfully |
+| `401` | Unauthorized - User not signed in |
+| `500` | Unknown server error |
+
+### Delete Game Round
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Round deleted successfully |
+| `400` | Bad request - Invalid round ID |
+| `401` | Unauthorized - User not signed in |
+| `404` | Round not found |
+| `500` | Unknown server error |
+
+## Data Structures
+
+### Game Round Struct
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `ID` | `Integer` | Unique round identifier |
+| `User ID` | `Integer` | ID of the user who played this round |
+| `Score` | `Integer` | Player's score for this round |
+| `Game Type` | `String` | Type/category of the game round |
+| `Start Time` | `String` | When the round started |
+| `End Time` | `String` | When the round ended |
+| `Duration` | `Integer` | Round duration in seconds |
+| `Metadata` | `String` | Additional data in JSON format |
+| `Created At` | `String` | When the round record was created |
+| `Updated At` | `String` | When the round record was last updated |
+
+## Next Steps
+
+- [In Game Leaderboard](in%20game%20leaderboard.md) - Use round scores for leaderboards
+- [Using Credits](using%20credits.md) - Award credits based on performance
+- [Custom User Data](custom%20user%20data.md) - Store additional player statistics
+- [Friends](friends.md) - Compare round performance with friends 

@@ -1,3 +1,5 @@
+# Game Connection and Variables
+
 ## Connecting To GameFuse
 
 The first step in using GameFuse after it is installed, and your account is
@@ -13,85 +15,118 @@ To import the GameFuse library, add this at the beginning of any script:
 #include "GameFuseManager.h"
 ```
 
-Inside any script, on your first scene, you can run:
+GameFuseManager::SetUpGame should be called as soon as possible in your game setup. The best place to do this is from UGameInstance.
 
 !!! example
     ```cpp
-    void AMyGameModeBase::Start()
+    void UMyGameInstance::BeginPlay()
     {
-        const FString GameId = "1";
-        const FString Token = "cde456";
-        constexpr bool bSeedStore = false;
-
-        FManagerCallback CompletionCallback;
-        CompletionCallback.BindDynamic(this, &AMyGameModeBase::GameSetUpCallback);
-
-        UGameFuseManager::SetUpGame(GameId, Token, bSeedStore, CompletionCallback);
-    }
-
-    void AMyGameModeBase::GameSetUpCallback(bool bSuccess, const FString& Response)
-    {
-        if(bSuccess)
+        Super::BeginPlay();
+        
+        // Get the GameFuse Manager subsystem
+        UGameFuseManager* GameFuseManager = GetGameInstance()->GetSubsystem<UGameFuseManager>();
+        
+        // Set up the game connection
+        FGFApiCallback OnGameSetup;
+        OnGameSetup.AddLambda([this, GameFuseManager](const FGFAPIResponse& Response)
         {
-            UE_LOG(LogTemp, Display, TEXT("SetUp Game Success"));
-            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
-        }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("SetUp Game Failed"));
-            UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-        }
+            if(Response.bSuccess)
+            {
+                UE_LOG(LogTemp, Display, TEXT("Game setup successful"));
+                UE_LOG(LogTemp, Display, TEXT("Response: %s"), *Response.ResponseStr);
+                
+                // Get game data from the subsystem
+                const FGFGameData& GameData = GameFuseManager->GetGameData();
+                UE_LOG(LogTemp, Display, TEXT("Game Name: %s"), *GameData.Name);
+                UE_LOG(LogTemp, Display, TEXT("Game Description: %s"), *GameData.Description);
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("Game setup failed"));
+                UE_LOG(LogTemp, Error, TEXT("Response: %s"), *Response.ResponseStr);
+            }
+        });
+        
+        GameFuseManager->SetUpGame(YourGameId, YourGameToken, OnGameSetup);
     }
     ```
 
+## Function Parameters
+
+### `GameFuseManager->SetUpGame`
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `GameId` | `int32` | The unique identifier of your game |
+| `Token` | `FString` | The API token for your game |
+| `Callback` | `FGFApiCallback` | Callback function to handle the response |
+
 ### Function return values
 
-#### `UGameFuseManager::SetUpGame`
+#### `GameFuseManager->SetUpGame`
 
 | HTTP status code | Description |
 |------------------|-------------|
-| `200`            | OK |
-| `401`            | Failed to verify game |
+| `200`            | OK - Game setup successful |
+| `401`            | Failed to verify game - Check your Game ID and token |
 | `500`            | Unknown server error |
 
 ## Game Variables
 
-Your game variables will be downloaded when you verify and connect with you
+Your game variables will be downloaded when you verify and connect with your
 game, but you can also re-fetch them whenever you like.
 
 !!! example
     ```cpp
-    void UMyObject::Start()
+    void UMyObject::FetchGameVariables()
     {
-        FManagerCallback CompletionCallback;
-        CompletionCallback.BindDynamic(this, &UMyObject::VariablesFetchedCallback);
-
-        UGameFuseManager::FetchGameVariables(CompletionCallback);
-    }
-
-    void UMyObject::VariablesFetchedCallback(bool bSuccess, const FString& Response)
-    {
-        if(bSuccess)
+        // Get the GameFuse Manager subsystem
+        UGameFuseManager* GameFuseManager = GetGameInstance()->GetSubsystem<UGameFuseManager>();
+        
+        // Create a callback for the fetch operation
+        FGFApiCallback CompletionCallback;
+        CompletionCallback.AddLambda([this, GameFuseManager](const FGFAPIResponse& Response)
         {
-            UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
-            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
-
-            TMap < FString, FString > OurVariables = UGameFuseManager::GetGameVariables();
-        }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
-            UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-        }
+            if(Response.bSuccess)
+            {
+                UE_LOG(LogTemp, Display, TEXT("Game variables fetched successfully"));
+                UE_LOG(LogTemp, Display, TEXT("Response: %s"), *Response.ResponseStr);
+                
+                // Get the game variables from the subsystem
+                TMap<FString, FString> GameVariables = GameFuseManager->GetGameVariables();
+                
+                // Access the variables
+                for (const auto& Variable : GameVariables)
+                {
+                    UE_LOG(LogTemp, Display, TEXT("Variable: %s = %s"), *Variable.Key, *Variable.Value);
+                }
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("Failed to fetch game variables"));
+                UE_LOG(LogTemp, Error, TEXT("Response: %s"), *Response.ResponseStr);
+            }
+        });
+        
+        // Fetch game variables
+        GameFuseManager->FetchGameVariables(CompletionCallback);
     }
     ```
 
+## Function Parameters
+
+### `GameFuseManager->FetchGameVariables`
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Callback` | `FGFApiCallback` | Callback function to handle the response |
+
 ### Function return values
 
-#### `UGameFuseManager::FetchGameVariables`
+#### `GameFuseManager->FetchGameVariables`
 
 | HTTP status code | Description |
 |------------------|-------------|
-| `200`              | OK |
+| `200`              | OK - Game variables fetched successfully |
 | `401`              | Failed to fetch game variables. Check your Game ID and token |
 | `500`              | Unknown server error |

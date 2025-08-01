@@ -17,37 +17,39 @@ nav:
         - Forgot Password: C# Unity 3D/forgot password.md
         - Class Methods: C# Unity 3D/class methods.md
       - Blueprints Unreal: 
-        - V2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
-        - V2.9 Migration Guide: Blueprints Unreal/V2.9 Blueprint Migration Guide.md
         - Getting Started: Blueprints Unreal/getting started.md
         - Game Connection and Variables: Blueprints Unreal/game connection and variables.md
-        - Signing game users up: Blueprints Unreal/signing game users up.md
-        - Signing game users in: Blueprints Unreal/signing game users in.md
-        - Creating store items on the web: Blueprints Unreal/creating store items on the web.md
-        - Using the store in your game: Blueprints Unreal/using the store in your game.md
-        - Using Credits: Blueprints Unreal/using credits.md
-        - Custom user data: Blueprints Unreal/custom user data.md
-        - In game leaderboard: Blueprints Unreal/in game leaderboard.md
-        - Forgot Password: Blueprints Unreal/forgot password.md
+        - GameFuseUser:
+          - Signing game users up: Blueprints Unreal/signing game users up.md
+          - Signing game users in: Blueprints Unreal/signing game users in.md
+          - Creating store items on the web: Blueprints Unreal/creating store items on the web.md
+          - Using the store in your game: Blueprints Unreal/using the store in your game.md
+          - Using Credits: Blueprints Unreal/using credits.md
+          - Custom user data: Blueprints Unreal/custom user data.md
+          - In game leaderboard: Blueprints Unreal/in game leaderboard.md
+          - Forgot Password: Blueprints Unreal/forgot password.md
         - Friends: Blueprints Unreal/friends.md
         - Groups: Blueprints Unreal/groups.md
         - Rounds: Blueprints Unreal/rounds.md
         - Chat: Blueprints Unreal/chat.md
         - Class Methods: Blueprints Unreal/class methods.md
         - Struct Reference: C++ Unreal Engine/struct reference.md
+        - Callback Reference: Blueprints Unreal/callback reference.md
+        - <V2.9 Migration Guide:
+          - V2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
+          - V2.9 Migration Guide: Blueprints Unreal/V2.9 Blueprint Migration Guide.md
       - C++ Unreal Engine: 
-        - v2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
-        - v2.9 Migration Guide: C++ Unreal Engine/V2.9 Unreal C++ Migration Guide.md
         - Getting Started: C++ Unreal Engine/getting started.md
         - Game Connection and Variables: C++ Unreal Engine/game connection and variables.md
-        - Signing game users up: C++ Unreal Engine/signing game users up.md
-        - Signing game users in: C++ Unreal Engine/signing game users in.md
-        - Creating store items on the web: C++ Unreal Engine/creating store items on the web.md
-        - Using the store in your game: C++ Unreal Engine/using the store in your game.md
-        - Using Credits: C++ Unreal Engine/using credits.md
-        - Custom user data: C++ Unreal Engine/custom user data.md
-        - In game leaderboard: C++ Unreal Engine/in game leaderboard.md
-        - Forgot Password: C++ Unreal Engine/forgot password.md
+        - GameFuseUser:
+          - Signing game users up: C++ Unreal Engine/signing game users up.md
+          - Signing game users in: C++ Unreal Engine/signing game users in.md
+          - Creating store items on the web: C++ Unreal Engine/creating store items on the web.md
+          - Using the store in your game: C++ Unreal Engine/using the store in your game.md
+          - Using Credits: C++ Unreal Engine/using credits.md
+          - Custom user data: C++ Unreal Engine/custom user data.md
+          - In game leaderboard: C++ Unreal Engine/in game leaderboard.md
+          - Forgot Password: C++ Unreal Engine/forgot password.md
         - Friends: C++ Unreal Engine/friends.md
         - Groups: C++ Unreal Engine/groups.md
         - Rounds: C++ Unreal Engine/rounds.md
@@ -55,6 +57,9 @@ nav:
         - Class Methods: C++ Unreal Engine/class methods.md
         - Struct Reference: C++ Unreal Engine/struct reference.md
         - Callback Reference: C++ Unreal Engine/callback reference.md 
+        - <V2.9 Migration Guide:
+          - v2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
+          - v2.9 Migration Guide: C++ Unreal Engine/V2.9 Unreal C++ Migration Guide.md
       - JS Playcanvas, PixiJS, BabylonJS:
         - JS Playcanvas, PixiJS, BabylonJS/getting started.md
         - Game Connection and Variables: JS Playcanvas, PixiJS, BabylonJS/game connection and variables.md

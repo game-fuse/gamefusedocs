@@ -13,36 +13,53 @@ they can login into your app.
 
 !!! example
     ```cpp
-    void UMyObject::ResetUserPassword()
+    void UMyObject::ResetUserPassword(const FString& Email)
     {
-        FManagerCallback CompletionCallback;
-        CompletionCallback.BindDynamic(this, &UMyObject::OnMyLeaderboardsClearedCallback);
-
-        UGameFuseManager::SendPasswordResetEmail("example@gmail.com", CompletionCallback);
-    }
-
-    void UMyObject::OnResetUserPasswordCallback(bool bSuccess, const FString& Response)
-    {
-        if(bSuccess)
+        // Get the GameFuse Manager subsystem
+        UGameFuseManager* GameFuseManager = GetGameInstance()->GetSubsystem<UGameFuseManager>();
+        
+        // Create a callback for the password reset operation
+        FGFApiCallback CompletionCallback;
+        CompletionCallback.AddLambda([this](const FGFAPIResponse& Response)
         {
-            UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
-            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
-        }
-        else
-        {
-          UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
-          UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-        }
+            if(Response.bSuccess)
+            {
+                UE_LOG(LogTemp, Display, TEXT("Password reset email sent successfully"));
+                UE_LOG(LogTemp, Display, TEXT("Response: %s"), *Response.ResponseStr);
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("Failed to send password reset email"));
+                UE_LOG(LogTemp, Error, TEXT("Response: %s"), *Response.ResponseStr);
+            }
+        });
+        
+        // Send password reset email
+        GameFuseManager->SendPasswordResetEmail(Email, CompletionCallback);
     }
     ```
 
+## Function Parameters
+
+### `GameFuseManager->SendPasswordResetEmail`
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Email` | `FString` | The email address of the user requesting password reset |
+| `Callback` | `FGFApiCallback` | Callback function to handle the response |
+
+## Response Handling
+
+The `FGFApiCallback` provides a generic response:
+- `FGFAPIResponse Response`: Contains success status, response string, request ID, and response code
+
 ## Function return values
 
-### `GameFuseUser.Instance.SendPasswordResetEmail`
+### `GameFuseManager->SendPasswordResetEmail`
 
 | HTTP status code | Description |
 |------------------|-------------|
-| `200`            | OK |
+| `200`            | OK - Password reset email sent successfully |
 | `403`            | Invalid email address |
 | `404`            | No user found with the specified email, or GameID or Token incorrect |
 | `500`            | Unknown server error |

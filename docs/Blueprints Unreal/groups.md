@@ -1,156 +1,203 @@
 # Groups System
 
-!!! note
-    These Docs are WIP and will be updated with Visual Blueprint Examples. Please see [Class Methods](class%20methods.md) for visual examples.
-
 The GameFuse Groups System allows you to create and manage groups of users in your game. This includes creating groups, joining groups, managing group membership, and handling group attributes.
 
 ## Getting Started with Groups
 
-To use the GameFuse Groups system in Blueprints, you'll need to access the GameFuse Groups subsystem:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) -->
+To use the GameFuse Groups system in Blueprints, you'll need to access the GameFuse Groups subsystem through **Get Game Instance** → **Get Subsystem** → **GameFuse Groups**.
 
 ## Creating a Group
 
-To create a new group:
+You can create a new group with customizable properties:
 
-1. Get the GameFuse Groups subsystem
-2. Create a new Group structure
-3. Set properties like Name, Group Type, Max Group Size, etc.
-4. Call CreateGroup with the group data
-5. Create a callback function to handle the response
-6. Process the created group data
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/1idvg84b/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-## Fetching a Group
 
-To fetch a specific group:
+## Fetching Groups
 
-1. Get the GameFuse Groups subsystem
-2. Call FetchGroup with the group ID
-3. Create a callback function to handle the response
-4. Process the group data for display
+### Search/Fetch All Groups
 
-## Fetching All Groups
+Get all available groups or search for specific groups:
 
-To fetch all groups:
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/z47mewgv/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-1. Get the GameFuse Groups subsystem
-2. Call FetchAllGroups
-3. Create a callback function to handle the response
-4. Process the array of groups for display
 
-## Joining a Group
+### Fetch Specific Group
 
-To join a group:
+Get detailed information about a specific group:
 
-1. Get the GameFuse Groups subsystem
-2. Call JoinGroup with the group ID
-3. Create a callback function to handle the response
-4. Process the success or failure of joining the group
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/z47mewgv/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-## Requesting to Join a Group
 
-To request to join an invite-only group:
+## Joining Groups
 
-1. Get the GameFuse Groups subsystem
-2. Call RequestToJoinGroup with the group ID
-3. Create a callback function to handle the response
-4. Process the success or failure of the join request
+### Join Public Groups
 
-## Accepting Join Requests
+Join a public group directly:
 
-To accept a join request:
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/6-1o0k7s/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-1. Get the GameFuse Groups subsystem
-2. Call AcceptJoinRequest with the group ID and user ID
-3. Create a callback function to handle the response
-4. Process the success or failure of accepting the join request
 
-## Declining Join Requests
+### Request to Join Private Groups
 
-To decline a join request:
+Request to join a private or invite-only group:
 
-1. Get the GameFuse Groups subsystem
-2. Call DeclineJoinRequest with the group ID and user ID
-3. Create a callback function to handle the response
-4. Process the success or failure of declining the join request
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/6-1o0k7s/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-## Leaving a Group
 
-To leave a group:
+## Managing Join Requests
 
-1. Get the GameFuse Groups subsystem
-2. Call LeaveGroup with the group ID
-3. Create a callback function to handle the response
-4. Process the success or failure of leaving the group
+### Accept Join Requests
 
-## Deleting a Group
+As a group admin, accept pending join requests:
 
-To delete a group:
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/g_elf_as/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-1. Get the GameFuse Groups subsystem
-2. Call DeleteGroup with the group ID
-3. Create a callback function to handle the response
-4. Process the success or failure of deleting the group
 
-## Fetching User Groups
+### Decline Join Requests
 
-To fetch user's groups:
+As a group admin, decline pending join requests:
 
-1. Get the GameFuse Groups subsystem
-2. Call FetchUserGroups
-3. Create a callback function to handle the response
-4. Process the user's groups for display
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/g_elf_as/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-## Searching for Groups
 
-To search for groups:
+## Leaving Groups
 
-1. Get the GameFuse Groups subsystem
-2. Call SearchGroups with the search query
-3. Create a callback function to handle the response
-4. Process the search results for display
+Leave a group you're currently a member of:
+
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/cwhosp1g/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+## Deleting Groups
+
+As a group owner, delete a group:
+
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/tfeb8hus/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
 
 ## Managing Group Admins
 
-To add an admin to a group:
+### Add/Remove Group Admins
 
-1. Get the GameFuse Groups subsystem
-2. Call AddAdmin with the group ID and user ID
-3. Create a callback function to handle the response
-4. Process the success or failure of adding the admin
+Manage administrative privileges within the group:
 
-To remove an admin from a group:
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/52pf4emg/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-1. Get the GameFuse Groups subsystem
-2. Call RemoveAdmin with the group ID and user ID
-3. Create a callback function to handle the response
-4. Process the success or failure of removing the admin
 
 ## Managing Group Attributes
 
-To add an attribute to a group:
+### Set/Get Group Attributes
 
-1. Get the GameFuse Groups subsystem
-2. Call AddAttribute with the group ID, key, and value
-3. Create a callback function to handle the response
-4. Process the success or failure of adding the attribute
+Store and retrieve custom data for groups:
 
-To update an attribute:
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/ylrsthg4/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-1. Get the GameFuse Groups subsystem
-2. Call UpdateAttribute with the group ID, key, and new value
-3. Create a callback function to handle the response
-4. Process the success or failure of updating the attribute
 
-To remove an attribute:
+## Function Parameters
 
-1. Get the GameFuse Groups subsystem
-2. Call RemoveAttribute with the group ID and key
-3. Create a callback function to handle the response
-4. Process the success or failure of removing the attribute 
+### Create Group
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Group Name` | `String` | The name of the group |
+| `Group Type` | `String` | Type: "public", "private", or "invite-only" |
+| `Max Group Size` | `Integer` | Maximum number of members (optional) |
+| `Description` | `String` | Group description (optional) |
+
+### Join/Leave/Delete Group
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Group ID` | `Integer` | Unique identifier of the group |
+
+### Manage Members/Admins
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Group ID` | `Integer` | Unique identifier of the group |
+| `User ID` | `Integer` | Unique identifier of the user |
+
+### Group Attributes
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Group ID` | `Integer` | Unique identifier of the group |
+| `Attribute Key` | `String` | Name of the attribute |
+| `Attribute Value` | `String` | Value to store |
+
+## Function Return Values
+
+### Create Group
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Group created successfully |
+| `400` | Bad request - Invalid parameters |
+| `401` | Unauthorized - User not signed in |
+| `409` | Conflict - Group name already exists |
+| `500` | Unknown server error |
+
+### Join/Leave Group
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Action completed successfully |
+| `400` | Bad request - Invalid group ID |
+| `401` | Unauthorized - User not signed in |
+| `403` | Forbidden - Not allowed to perform action |
+| `404` | Group not found |
+| `500` | Unknown server error |
+
+### Manage Group
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Management action completed |
+| `400` | Bad request - Invalid parameters |
+| `401` | Unauthorized - User not signed in |
+| `403` | Forbidden - Insufficient permissions |
+| `404` | Group or user not found |
+| `500` | Unknown server error |
+
+## Data Structures
+
+### Group Struct
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `ID` | `Integer` | Unique group identifier |
+| `Name` | `String` | Group name |
+| `Description` | `String` | Group description |
+| `Group Type` | `String` | Type of group (public, private, invite-only) |
+| `Max Group Size` | `Integer` | Maximum number of members |
+| `Current Size` | `Integer` | Current number of members |
+| `Owner ID` | `Integer` | User ID of the group owner |
+| `Created At` | `String` | When the group was created |
+| `Members` | `Array` | List of group members |
+| `Admins` | `Array` | List of group administrators |
+
+### Group Member Struct
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `User ID` | `Integer` | Unique user identifier |
+| `Username` | `String` | User's display name |
+| `Role` | `String` | Member role (owner, admin, member) |
+| `Joined At` | `String` | When the user joined the group |
+
+## Next Steps
+
+- [Chat](chat.md) - Implement group chat functionality
+- [Friends](friends.md) - Invite friends to groups
+- [In Game Leaderboard](in%20game%20leaderboard.md) - Create group leaderboards
+- [Custom User Data](custom%20user%20data.md) - Store group-related user data 

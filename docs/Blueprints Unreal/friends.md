@@ -1,95 +1,154 @@
 # Friends System
 
-!!! note
-    These Docs are WIP and will be updated with Visual Blueprint Examples. Please see [Class Methods](class%20methods.md) for visual examples.
-
 The GameFuse Friends System allows you to implement social features in your game, such as sending friend requests, accepting or declining requests, and managing a friends list.
 
 ## Getting Started with Friends
 
-To use the GameFuse Friends system in Blueprints, you'll need to access the GameFuse Friends subsystem:
-
-
-<!-- 
-<!-- <iframe src="https://blueprintue.com/render/your-blueprint-id/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-
-[Copy Code](https://blueprintue.com/blueprint/your-blueprint-id/) -->
+To use the GameFuse Friends system in Blueprints, you'll need to access the GameFuse Friends subsystem through **Get Game Instance** → **Get Subsystem** → **GameFuse Friends**.
 
 ## Sending Friend Requests
 
-To send a friend request:
+You can send a friend request to another user by their username:
 
-1. Get the GameFuse Friends subsystem
-2. Call SendFriendRequest with the username
-3. Create a callback function to handle the response
-4. Process the response data
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/fozhy3yq/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
 
 ## Accepting Friend Requests
 
-To accept a friend request:
+When someone sends you a friend request, you can accept it:
 
-1. Get the GameFuse Friends subsystem
-2. Call AcceptFriendRequest with the friendship ID
-3. Create a callback function to handle the response
-4. Process the success or failure
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/rqyh-9uy/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+
 
 ## Declining Friend Requests
 
-To decline a friend request:
+You can decline a friend request:
 
-1. Get the GameFuse Friends subsystem
-2. Call DeclineFriendRequest with the friendship ID
-3. Create a callback function to handle the response
-4. Process the success or failure
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/rqyh-9uy/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
 
 ## Canceling Friend Requests
 
-To cancel a sent friend request:
+If you've sent a friend request and want to cancel it:
 
-1. Get the GameFuse Friends subsystem
-2. Call CancelFriendRequest with the friendship ID
-3. Create a callback function to handle the response
-4. Process the success or failure
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/rqyh-9uy/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-## Unfriending Players
-
-To remove a user from your friends list:
-
-1. Get the GameFuse Friends subsystem
-2. Call UnfriendPlayer with the user ID
-3. Create a callback function to handle the response
-4. Process the success or failure
-
-## Fetching Friendship Data
-
-To fetch all friendship data:
-
-1. Get the GameFuse Friends subsystem
-2. Call FetchFriendshipData
-3. Create a callback function to handle the response
-4. Process the friends list, outgoing requests, and incoming requests
 
 ## Fetching Friends List
 
-To fetch your friends list:
+To get the current user's friends list:
 
-1. Get the GameFuse Friends subsystem
-2. Call FetchFriendsList
-3. Create a callback function to handle the response
-4. Process the array of friends
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/-8xuz9gt/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
 
 ## Fetching Friend Requests
 
-To fetch outgoing friend requests:
+To get pending friend requests:
 
-1. Get the GameFuse Friends subsystem
-2. Call FetchOutgoingFriendRequests
-3. Create a callback function to handle the response
-4. Process the array of outgoing requests
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/4pm0-r_m/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-To fetch incoming friend requests:
 
-1. Get the GameFuse Friends subsystem
-2. Call FetchIncomingFriendRequests
-3. Create a callback function to handle the response
-4. Process the array of incoming requests 
+## Fetching All Friendship Data
+
+To get comprehensive friendship information including friends, sent requests, and received requests:
+
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/ze-b8lrs/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+
+## Unfriending Players
+
+To remove someone from your friends list:
+
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/19-36k0g/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+
+## Function Parameters
+
+### Send Friend Request
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Username` | `String` | The username of the player to send a friend request to |
+
+### Accept/Decline/Cancel Friend Request & Unfriend
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Friendship ID` | `Integer` | The unique ID of the friendship/friend request |
+
+## Function Return Values
+
+### Send Friend Request
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Friend request sent successfully |
+| `400` | Bad request - Invalid username or parameters |
+| `401` | Unauthorized - User not signed in |
+| `404` | User not found |
+| `409` | Conflict - Friend request already exists or users are already friends |
+| `500` | Unknown server error |
+
+### Accept/Decline/Cancel Friend Request
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Action completed successfully |
+| `400` | Bad request - Invalid friendship ID |
+| `401` | Unauthorized - User not signed in |
+| `404` | Friend request not found |
+| `500` | Unknown server error |
+
+### Fetch Friends/Requests
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Data fetched successfully |
+| `401` | Unauthorized - User not signed in |
+| `500` | Unknown server error |
+
+### Unfriend
+
+| HTTP Status Code | Description |
+|------------------|-------------|
+| `200` | OK - Friend removed successfully |
+| `400` | Bad request - Invalid friendship ID |
+| `401` | Unauthorized - User not signed in |
+| `404` | Friendship not found |
+| `500` | Unknown server error |
+
+## Data Structures
+
+### Friend Request Struct
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Friendship ID` | `Integer` | Unique identifier for the friendship |
+| `Other User` | `User Struct` | Information about the other user |
+| `Status` | `String` | Status of the request (pending, accepted, etc.) |
+| `Created At` | `String` | When the request was created |
+
+### User Struct
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `ID` | `Integer` | Unique user ID |
+| `Username` | `String` | User's display name |
+| `Email` | `String` | User's email address |
+| `Credits` | `Integer` | User's current credit balance |
+
+## Next Steps
+
+- [Groups](groups.md) - Learn about group functionality
+- [Chat](chat.md) - Implement messaging between friends
+- [Custom User Data](custom%20user%20data.md) - Store additional user information
+- [In Game Leaderboard](in%20game%20leaderboard.md) - Show friends' scores 

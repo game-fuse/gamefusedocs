@@ -19,6 +19,7 @@ UGameFuseManager::GetGameStoreItems();
 UGameFuseManager::GetLeaderboards();
 UGameFuseManager::GetLeaderboardEntries(const FString& LeaderboardName);
 UGameFuseManager::IsSetUp();
+UGameFuseManager::SetupCheck();
 ```
 
 #### Operations
@@ -30,6 +31,7 @@ UGameFuseManager::SendPasswordResetEmail(const FString& Email, FGFApiCallback Ca
 UGameFuseManager::FetchGameVariables(FGFApiCallback Callback);
 UGameFuseManager::FetchLeaderboardEntries(const int Limit, bool bOnePerUser, const FString& LeaderboardName, FGFApiCallback Callback);
 UGameFuseManager::FetchStoreItems(FGFApiCallback Callback);
+UGameFuseManager::FetchServerTime(FGFApiCallback Callback);
 ```
 
 ### Blueprint Functions
@@ -42,6 +44,7 @@ UGameFuseManager::BP_SendPasswordResetEmail(const FString& Email, const FBP_GFAp
 UGameFuseManager::BP_FetchGameVariables(const FBP_GFApiCallback& Callback);
 UGameFuseManager::BP_FetchLeaderboardEntries(const int Limit, bool bOnePerUser, const FString& LeaderboardName, const FBP_GFApiCallback& Callback);
 UGameFuseManager::BP_FetchStoreItems(const FBP_GFApiCallback& Callback);
+UGameFuseManager::BP_FetchServerTime(const FBP_GFApiCallback& Callback);
 ```
 
 ## GameFuseUser
@@ -52,21 +55,20 @@ UGameFuseManager::BP_FetchStoreItems(const FBP_GFApiCallback& Callback);
 
 ```cpp
 // Getters
-UGameFuseUser::GetUserData();
+UGameFuseUser::GetCurrentUserData();
+UGameFuseUser::GetLastFetchedUserData();
 UGameFuseUser::GetUsername();
 UGameFuseUser::GetNumberOfLogins();
 UGameFuseUser::GetLastLogin();
 UGameFuseUser::IsSignedIn();
 UGameFuseUser::GetAuthenticationToken();
-UGameFuseUser::GetScore();
-UGameFuseUser::GetCredits();
 
 // Operations
 UGameFuseUser::SignUp(const FString& Email, const FString& Password, const FString& PasswordConfirmation, const FString& Username, FGFUserDataCallback TypedCallback);
 UGameFuseUser::SignUp(const FGFGameData& GameData, const FString& Email, const FString& Password, const FString& PasswordConfirmation, const FString& Username, FGFUserDataCallback TypedCallback);
 UGameFuseUser::SignIn(const FString& Email, const FString& Password, FGFUserDataCallback TypedCallback);
 UGameFuseUser::SignIn(const FGFGameData& GameData, const FString& Email, const FString& Password, FGFUserDataCallback TypedCallback);
-UGameFuseUser::LogOut(const FString& SaveSlotName);
+UGameFuseUser::FetchUser(const int32 UserId, FGFUserDataCallback TypedCallback);
 UGameFuseUser::AddScore(const int32 AddScore, FGFUserDataCallback TypedCallback);
 UGameFuseUser::SetScore(const int32 SetScore, FGFUserDataCallback TypedCallback);
 UGameFuseUser::AddCredits(const int32 AddCredits, FGFUserDataCallback TypedCallback);
@@ -76,44 +78,39 @@ UGameFuseUser::SetCredits(const int32 SetCredits, FGFUserDataCallback TypedCallb
 #### Store Items
 
 ```cpp
-// Getters
-UGameFuseUser::GetPurchasedStoreItems();
-
 // Operations
 UGameFuseUser::PurchaseStoreItem(const int32 StoreItemId, FGFStoreItemsCallback TypedCallback);
 UGameFuseUser::RemoveStoreItem(const int32 StoreItemId, FGFStoreItemsCallback TypedCallback);
-UGameFuseUser::FetchPurchasedStoreItems(FGFStoreItemsCallback TypedCallback);
+UGameFuseUser::FetchMyPurchasedStoreItems(FGFStoreItemsCallback TypedCallback);
+UGameFuseUser::FetchUserPurchasedStoreItems(const int32 UserId, FGFStoreItemsCallback TypedCallback);
 ```
 
 #### Attributes
 
 ```cpp
 // Getters
-UGameFuseUser::GetAttributes();
-UGameFuseUser::GetAttributesKeys();
-UGameFuseUser::GetDirtyAttributes();
 UGameFuseUser::GetAttributeValue(const FString Key);
 
 // Operations
-UGameFuseUser::FetchAttributes(FGFAttributesCallback TypedCallback);
+UGameFuseUser::FetchMyAttributes(FGFAttributesCallback TypedCallback);
+UGameFuseUser::FetchUserAttributes(const int32 UserId, FGFAttributesCallback TypedCallback);
 UGameFuseUser::SyncLocalAttributes(FGFAttributesCallback TypedCallback);
 UGameFuseUser::SetAttribute(const FString& Key, const FString& Value, FGFAttributesCallback TypedCallback);
 UGameFuseUser::SetAttributes(const TMap<FString, FString>& NewAttributes, FGFAttributesCallback TypedCallback);
 UGameFuseUser::SetAttributeLocal(const FString& SetKey, const FString& SetValue);
 UGameFuseUser::RemoveAttribute(const FString& SetKey, FGFAttributesCallback TypedCallback);
+UGameFuseUser::RemoveAttributes(const TArray<FString>& AttributeKeys, FGFAttributesCallback TypedCallback);
 ```
 
 #### Leaderboards
 
 ```cpp
-// Getters
-UGameFuseUser::GetLeaderboardEntries();
-
 // Operations
 UGameFuseUser::AddLeaderboardEntry(const FString& LeaderboardName, const int32 Score, const TMap<FString, FString>& Metadata, FGFInternalSuccessCallback TypedCallback);
 UGameFuseUser::AddLeaderboardEntry(const FString& LeaderboardName, const int32 Score, FGFInternalSuccessCallback TypedCallback);
 UGameFuseUser::ClearLeaderboardEntry(const FString& LeaderboardName, FGFInternalSuccessCallback TypedCallback);
 UGameFuseUser::FetchMyLeaderboardEntries(const int32 Limit, bool bOnePerUser, FGFLeaderboardEntriesCallback TypedCallback);
+UGameFuseUser::FetchUserLeaderboardEntries(const int32 UserId, const int32 Limit, bool bOnePerUser, FGFLeaderboardEntriesCallback TypedCallback);
 ```
 
 ### Blueprint Functions
@@ -134,7 +131,8 @@ UGameFuseUser::BP_SetCredits(const int32 Credits, FBP_GFApiCallback Callback);
 ```cpp
 UGameFuseUser::BP_PurchaseStoreItem(const int32 StoreItemId, FBP_GFApiCallback Callback);
 UGameFuseUser::BP_RemoveStoreItem(const int32 StoreItemId, FBP_GFApiCallback Callback);
-UGameFuseUser::BP_FetchPurchasedStoreItems(FBP_GFApiCallback Callback);
+UGameFuseUser::BP_FetchMyPurchasedStoreItems(FBP_GFApiCallback Callback);
+UGameFuseUser::BP_FetchUserPurchasedStoreItems(const int32 UserId, FBP_GFApiCallback Callback);
 ```
 
 #### Attributes
@@ -144,7 +142,9 @@ UGameFuseUser::BP_SetAttribute(const FString& Key, const FString& Value, FBP_GFA
 UGameFuseUser::BP_SetAttributes(const TMap<FString, FString>& NewAttributes, FBP_GFApiCallback Callback);
 UGameFuseUser::BP_SetAttributeLocal(const FString& Key, const FString& Value);
 UGameFuseUser::BP_RemoveAttribute(const FString& Key, FBP_GFApiCallback Callback);
-UGameFuseUser::BP_FetchAttributes(FBP_GFApiCallback Callback);
+UGameFuseUser::BP_RemoveAttributes(const TArray<FString>& AttributeKeys, FBP_GFApiCallback Callback);
+UGameFuseUser::BP_FetchMyAttributes(FBP_GFApiCallback Callback);
+UGameFuseUser::BP_FetchUserAttributes(const int32 UserId, FBP_GFApiCallback Callback);
 UGameFuseUser::BP_SyncLocalAttributes(FBP_GFApiCallback Callback);
 ```
 
@@ -155,6 +155,7 @@ UGameFuseUser::BP_AddLeaderboardEntry(const FString& LeaderboardName, const int3
 UGameFuseUser::BP_AddLeaderboardEntryWithAttributes(const FString& LeaderboardName, const int32 Score, const TMap<FString, FString>& Metadata, FBP_GFApiCallback Callback);
 UGameFuseUser::BP_ClearLeaderboardEntry(const FString& LeaderboardName, FBP_GFApiCallback Callback);
 UGameFuseUser::BP_FetchMyLeaderboardEntries(const int32 Limit, bool bOnePerUser, FBP_GFApiCallback Callback);
+UGameFuseUser::BP_FetchUserLeaderboardEntries(const int32 UserId, const int32 Limit, bool bOnePerUser, FBP_GFApiCallback Callback);
 ```
 
 ## GameFuseChat
@@ -166,6 +167,7 @@ UGameFuseUser::BP_FetchMyLeaderboardEntries(const int32 Limit, bool bOnePerUser,
 // Functions that just return internal data
 UGameFuseChat::GetAllChats();
 UGameFuseChat::GetChatMessages();
+UGameFuseChat::GetRequestHandler();
 ```
 
 #### Operations
@@ -198,8 +200,8 @@ UGameFuseChat::BP_FetchMessages(int32 ChatId, int32 Page, const FBP_GFApiCallbac
 #### Getters
 ```cpp
 // Functions that just return internal data
-UGameFuseGroups::GetUserGroups();
-UGameFuseGroups::GetAllGroups();
+UGameFuseGroups::GetGroupById(const int32 GroupId, FGFGroup& OutGroup);
+UGameFuseGroups::GetRequestHandler();
 ```
 
 #### Operations
@@ -212,12 +214,12 @@ UGameFuseGroups::RequestToJoinGroup(int32 GroupId, FGFGroupConnectionCallback Ty
 UGameFuseGroups::DeleteGroup(const int32 GroupId, FGFGroupActionCallback TypedCallback);
 UGameFuseGroups::JoinGroup(const int32 GroupId, FGFGroupActionCallback TypedCallback);
 UGameFuseGroups::LeaveGroup(const int32 GroupId, FGFGroupActionCallback TypedCallback);
-UGameFuseGroups::FetchUserGroups(FGFGroupListCallback TypedCallback);
+UGameFuseGroups::FetchMyGroups(FGFGroupListCallback TypedCallback);
 UGameFuseGroups::SearchGroups(const FString& Query, FGFGroupListCallback TypedCallback);
 UGameFuseGroups::AddAdmin(const int32 GroupId, const int32 UserId, FGFGroupActionCallback TypedCallback);
 UGameFuseGroups::RemoveAdmin(const int32 GroupId, const int32 UserId, FGFGroupActionCallback TypedCallback);
-UGameFuseGroups::AddAttribute(const int32 GroupId, const FGFGroupAttribute& Attribute, bool bOnlyCreatorCanEdit, FGFGroupAttributeCallback TypedCallback);
-UGameFuseGroups::UpdateGroupAttribute(int32 GroupId, const FGFGroupAttribute& Attribute, FGFGroupActionCallback UntypedCallback);
+UGameFuseGroups::AddAttribute(const int32 GroupId, const FGFGroupAttribute& Attribute, bool bOthersCanEdit, FGFGroupAttributeCallback TypedCallback);
+UGameFuseGroups::UpdateGroupAttribute(int32 GroupId, const FGFGroupAttribute& Attribute, FGFGroupActionCallback TypedCallback);
 UGameFuseGroups::FetchGroupAttributes(const int32 GroupId, FGFGroupAttributeCallback TypedCallback);
 UGameFuseGroups::RespondToGroupJoinRequest(const int32 ConnectionId, const int32 UserId, EGFInviteRequestStatus Status, FGFGroupActionCallback TypedCallback);
 ```
@@ -238,9 +240,8 @@ UGameFuseGroups::BP_FetchUserGroups(const FBP_GFApiCallback& Callback);
 UGameFuseGroups::BP_SearchGroups(const FString& Query, const FBP_GFApiCallback& Callback);
 UGameFuseGroups::BP_AddAdmin(const int32 GroupId, const int32 UserId, const FBP_GFApiCallback& Callback);
 UGameFuseGroups::BP_RemoveAdmin(const int32 GroupId, const int32 UserId, const FBP_GFApiCallback& Callback);
-UGameFuseGroups::BP_AddAttribute(const int32 GroupId, const FGFGroupAttribute& Attribute, bool bOnlyCreatorCanEdit, const FBP_GFApiCallback& Callback);
+UGameFuseGroups::BP_AddAttribute(const int32 GroupId, const FGFGroupAttribute& Attribute, bool bOthersCanEdit, const FBP_GFApiCallback& Callback);
 UGameFuseGroups::BP_UpdateGroupAttribute(const int32 GroupId, const FGFGroupAttribute& Attribute, const FBP_GFApiCallback& Callback);
-UGameFuseGroups::BP_FetchAttributes(const int32 GroupId, const FBP_GFApiCallback& Callback);
 UGameFuseGroups::BP_FetchGroupAttributes(const int32 GroupId, const FBP_GFApiCallback& Callback);
 UGameFuseGroups::BP_AcceptGroupJoinRequest(const int32 ConnectionId, const int32 UserId, const FBP_GFApiCallback& Callback);
 UGameFuseGroups::BP_DeclineGroupJoinRequest(const int32 ConnectionId, const int32 UserId, const FBP_GFApiCallback& Callback);
@@ -256,6 +257,7 @@ UGameFuseGroups::BP_DeclineGroupJoinRequest(const int32 ConnectionId, const int3
 UGameFuseFriends::GetFriendsList();
 UGameFuseFriends::GetOutgoingRequests();
 UGameFuseFriends::GetIncomingRequests();
+UGameFuseFriends::GetRequestHandler();
 ```
 
 #### Operations
@@ -267,7 +269,8 @@ UGameFuseFriends::DeclineFriendRequest(const int32 FriendshipId, FGFFriendAction
 UGameFuseFriends::CancelFriendRequest(const int32 FriendshipId, FGFFriendActionCallback TypedCallback);
 UGameFuseFriends::UnfriendPlayer(const int32 UserId, FGFFriendActionCallback TypedCallback);
 UGameFuseFriends::FetchFriendshipData(FGFFriendsCallback TypedCallback);
-UGameFuseFriends::FetchFriendsList(FGFFriendsCallback TypedCallback);
+UGameFuseFriends::FetchMyFriendsList(FGFFriendsCallback TypedCallback);
+UGameFuseFriends::FetchUserFriendsList(int32 UserId, FGFFriendsCallback TypedCallback);
 UGameFuseFriends::FetchOutgoingFriendRequests(FGFFriendRequestsCallback TypedCallback);
 UGameFuseFriends::FetchIncomingFriendRequests(FGFFriendRequestsCallback TypedCallback);
 ```
@@ -283,7 +286,8 @@ UGameFuseFriends::BP_DeclineFriendRequest(int32 FriendshipId, const FBP_GFApiCal
 UGameFuseFriends::BP_CancelFriendRequest(int32 FriendshipId, const FBP_GFApiCallback& Callback);
 UGameFuseFriends::BP_UnfriendPlayer(int32 UserId, const FBP_GFApiCallback& Callback);
 UGameFuseFriends::BP_FetchFriendshipData(const FBP_GFApiCallback& Callback);
-UGameFuseFriends::BP_FetchFriendsList(const FBP_GFApiCallback& Callback);
+UGameFuseFriends::BP_FetchMyFriendsList(const FBP_GFApiCallback& Callback);
+UGameFuseFriends::BP_FetchUserFriendsList(int32 UserId, const FBP_GFApiCallback& Callback);
 UGameFuseFriends::BP_FetchOutgoingFriendRequests(const FBP_GFApiCallback& Callback);
 UGameFuseFriends::BP_FetchIncomingFriendRequests(const FBP_GFApiCallback& Callback);
 ```
@@ -296,6 +300,7 @@ UGameFuseFriends::BP_FetchIncomingFriendRequests(const FBP_GFApiCallback& Callba
 ```cpp
 // Functions that just return internal data
 UGameFuseRounds::GetUserRounds();
+UGameFuseRounds::GetRequestHandler();
 ```
 
 #### Operations
@@ -306,7 +311,8 @@ UGameFuseRounds::CreateGameRound(const FGFGameRound& GameRound, FGFGameRoundCall
 UGameFuseRounds::CreateGameRound(const FGFGameRound& GameRound, const FGFUserData& UserData, FGFGameRoundCallback TypedCallback);
 UGameFuseRounds::FetchGameRound(const int32 RoundId, FGFGameRoundCallback TypedCallback);
 UGameFuseRounds::UpdateGameRound(const int32 RoundId, const FGFGameRound& GameRound, FGFGameRoundCallback TypedCallback);
-UGameFuseRounds::FetchUserGameRounds(FGFGameRoundListCallback TypedCallback);
+UGameFuseRounds::FetchMyGameRounds(FGFGameRoundListCallback TypedCallback, const FString& GameType = "", int32 Page = 0, int32 PerPage = 0);
+UGameFuseRounds::FetchUserGameRounds(int32 UserId, FGFGameRoundListCallback TypedCallback, const FString& GameType = "", int32 Page = 0, int32 PerPage = 0);
 UGameFuseRounds::DeleteGameRound(const int32 RoundId, FGFGameRoundActionCallback TypedCallback);
 ```
 
@@ -318,7 +324,8 @@ UGameFuseRounds::DeleteGameRound(const int32 RoundId, FGFGameRoundActionCallback
 UGameFuseRounds::BP_CreateGameRound(const FGFGameRound& GameRound, const FBP_GFApiCallback& Callback);
 UGameFuseRounds::BP_FetchGameRound(const int32 RoundId, const FBP_GFApiCallback& Callback);
 UGameFuseRounds::BP_UpdateGameRound(const int32 RoundId, const FGFGameRound& GameRound, const FBP_GFApiCallback& Callback);
-UGameFuseRounds::BP_FetchUserGameRounds(const FBP_GFApiCallback& Callback);
+UGameFuseRounds::BP_FetchMyGameRounds(const FString& GameType, int32 Page, int32 PerPage, const FBP_GFApiCallback& Callback);
+UGameFuseRounds::BP_FetchUserGameRounds(int32 UserId, const FString& GameType, int32 Page, int32 PerPage, const FBP_GFApiCallback& Callback);
 UGameFuseRounds::BP_DeleteGameRound(const int32 RoundId, const FBP_GFApiCallback& Callback);
 ```
 
