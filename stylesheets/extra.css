@@ -1,0 +1,38 @@
+:root {
+  --md-primary-fg-color:        #EE0F0F;
+  --md-primary-fg-color--light: #ECB7B7;
+  --md-primary-fg-color--dark:  #90030C;
+}
+
+/* Custom CSS for GameFuse Documentation */
+body {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+.navbar {
+  background-color: #000;
+}
+.nav-link {
+  color: #ff6600;
+}
+
+/* Custom CSS for code blocks */
+code, pre {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Specific styling for inline code */
+code {
+  background-color: #3c3c3c;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Specific styling for block code */
+pre {
+  overflow: auto;
+}

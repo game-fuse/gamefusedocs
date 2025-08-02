@@ -1,0 +1,3673 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../friends/">
+      
+      
+        <link rel="next" href="../game%20rounds/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Groups (C#) - GAMEFUSE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chakra+Petch+300:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Chakra Petch 300";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#groups-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <header class="md-header" data-md-component="header">
+	<div id="navOverlay" style="overflow:visible">
+	   <div>
+		  <a href="/">
+			 <svg width="158" height="22" viewBox="0 0 158 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0.670755 18.5066V4.22924L4.16415 0.735847H14.7355L18.1681 4.16849V7.41887H14.0368V5.68736L12.6091 4.25962H6.35132L4.80208 5.80887V16.927L6.35132 18.4762H12.6698L14.1583 16.9877V13.6766H9.6017V10.1528H18.1681V18.5066L14.6747 22H4.16415L0.670755 18.5066ZM27.1603 0.735847H30.9271L38.7037 22H34.5116L32.7801 17.2915H25.3073L23.5758 22H19.3837L27.1603 0.735847ZM31.8688 13.8892L29.0437 5.80887H28.9829L26.249 13.8892H31.8688ZM40.8448 0.735847H44.6724L50.9909 14.4664H51.0516L57.4005 0.735847H61.228V22H57.2486V9.05924H57.1878L52.2971 19.023H49.7454L44.885 9.05924H44.8242V22H40.8448V0.735847ZM65.1704 0.735847H80.5414V4.22924H69.3018V9.60604H79.6604V13.0387H69.3018V18.5066H80.5414V22H65.1704V0.735847ZM83.5926 0.735847H98.6598V4.22924H87.724V10.1225H97.2017V13.6158H87.724V22H83.5926V0.735847ZM101.095 18.3547V0.735847H105.227V16.927L106.776 18.4762H112.73L114.279 16.927V0.735847H118.41V18.3547L114.765 22H104.741L101.095 18.3547ZM121.91 18.7192V15.6815H125.98V17.4738L126.983 18.4762H133.271L134.304 17.4434V13.9196L133.301 12.9172H125.251L121.97 9.63641V4.0166L125.251 0.735847H134.85L138.131 4.0166V7.08472H134.061V5.26208L133.058 4.25962H127.043L126.041 5.26208V8.39094L127.043 9.3934H135.093L138.374 12.6742V18.6585L135.033 22H125.19L121.91 18.7192ZM141.707 0.735847H157.078V4.22924H145.838V9.60604H156.197V13.0387H145.838V18.5066H157.078V22H141.707V0.735847Z" fill="white"></path>
+			 </svg>
+		  </a>
+	   </div>
+	   <div class="nav-links">
+		  <a class="panel " href="https://gamefuse.co/">Home</a>
+		  <a class="panel active" href="/">Docs</a>
+		  <a class="panel " href="https://gamefuse.co/pages/faq">FAQs</a>
+		  <a class="panel " href="https://gamefuse.co/pages/blogs">Blog</a>
+		  <a class="panel " href="https://gamefuse.co/pages/pricing">Pricing</a>
+		  <a class="panel " href="https://gamefuse.co/pages/contact">Contact</a>
+	   </div>
+	   <div class="nav">
+		  <div class="login-signup" style="opacity:0;">
+			 <a class="panel " href="/users/sign_in">Login</a>
+			 <a href="/users/sign_up"><button class="ui primary button">Sign Up</button>
+			 </a>
+		  </div>
+	   </div>
+	</div>
+	<div id="navSplash">
+		<img src="https://res.cloudinary.com/dgwqhqk47/image/upload/v1721166101/gamefuse-assets/api-instruction.png" />
+		<h1> Comprehensive Guide to GameFuse Documentation </h1>
+	</div>
+  <nav
+	class="md-header__inner md-grid"
+	aria-label="header.title"
+  >
+
+	<!-- Link to home -->
+	<a
+	  href="../.."
+	  title="GAMEFUSE"
+	  class="md-header__button md-logo"
+	  aria-label="GAMEFUSE"
+	  data-md-component="logo"
+	>
+	  
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+	</a>
+
+	<!-- Button to open drawer -->
+	<label class="md-header__button md-icon" for="__drawer">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+	</label>
+
+	<!-- Header title -->
+	<div class="md-header__title" data-md-component="header-title">
+	  <div class="md-header__ellipsis">
+		<div class="md-header__topic">
+		  <span class="md-ellipsis">
+			GAMEFUSE
+		  </span>
+		</div>
+		<div class="md-header__topic" data-md-component="header-topic">
+		  <span class="md-ellipsis">
+			
+			  Groups (C#)
+			
+		  </span>
+		</div>
+	  </div>
+	</div>
+
+	<!-- Color palette -->
+	
+
+	<!-- Site language selector -->
+	
+
+	<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<!-- Repository information -->
+  	<div class="md-header__source">
+		<a href="None" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    None
+  </div>
+</a>
+  	</div>
+
+	<!-- chat add a script below that takes all the text with class 'md-ellipsis', then remove any text within parentheses, using javascript -->
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+		document.querySelectorAll('.md-ellipsis').forEach(function(el) {
+		  el.textContent = el.textContent.replace(/\s*\([^)]*\)/g, '');
+		});
+	  });
+	</script>
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Game Engine Libraries
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GAMEFUSE" class="md-nav__button md-logo" aria-label="GAMEFUSE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GAMEFUSE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Game Engine Libraries
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Game Engine Libraries
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GAMEFUSE DOCS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../getting%20started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    C# Unity 3D
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            C# Unity 3D
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gamefuse%20settings%20configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GameFuse Settings Configuration (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users Up (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Store Items in Your Game (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom User Data (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Game Leaderboard (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Groups (C#)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups (C#)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetching-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fetching Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joining Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-return-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function return values
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game%20rounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Rounds (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chat (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods (C#)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blueprints Unreal
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Blueprints Unreal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/getting%20started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3" id="__nav_1_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GameFuseUser
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            GameFuseUser
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing game users up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/signing%20game%20users%20in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing game users in
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating store items on the web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using the store in your game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom user data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In game leaderboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/rounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/struct%20reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Struct Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/callback%20reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Callback Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_11" id="__nav_1_3_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <V2.9 Migration Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            <V2.9 Migration Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/V2.9%20Update%20Changelist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V2.9 Update [Breaking Changes]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blueprints%20Unreal/V2.9%20Blueprint%20Migration%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V2.9 Migration Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C++ Unreal Engine
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            C++ Unreal Engine
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/getting%20started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4_3" id="__nav_1_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GameFuseUser
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            GameFuseUser
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing game users up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/signing%20game%20users%20in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing game users in
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating store items on the web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using the store in your game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom user data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In game leaderboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/rounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/struct%20reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Struct Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/callback%20reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Callback Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4_11" id="__nav_1_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <V2.9 Migration Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            <V2.9 Migration Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/V2.9%20Update%20Changelist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    V2.9 Update [Breaking Changes]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B%20Unreal%20Engine/V2.9%20Unreal%20C%2B%2B%20Migration%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v2.9 Migration Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/getting%20started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    JS Playcanvas, PixiJS, BabylonJS
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            JS Playcanvas, PixiJS, BabylonJS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users Up (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/signing%20game%20users%20in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users In (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Store Items in Your Game (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom User Data (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Game Leaderboard (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%20Playcanvas%2C%20PixiJS%2C%20BabylonJS/friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../API%20Full%20REST%20API/getting%20started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    API Full REST API
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            API Full REST API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/game%20connection%20and%20variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Connection and Variables (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/signing%20game%20users%20up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users Up (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/signing%20game%20users%20in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signing Game Users In (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/other%20users/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accessing User Data (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/creating%20store%20items%20on%20the%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/using%20the%20store%20in%20your%20game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Store Items in Your Game (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/using%20credits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Credits (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/custom%20user%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom User Data (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/friends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friends (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Messaging (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/game%20rounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Rounds (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/in%20game%20leaderboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Game Leaderboard (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/forgot%20password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20Full%20REST%20API/class%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Class Methods (API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic/forgot_password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forgot Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic/creating_store_items_on_the_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Store Items on the Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic/service_key_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Key Access
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetching-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fetching Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joining Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-return-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function return values
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="groups-system">Groups System<a class="headerlink" href="#groups-system" title="Permanent link">&para;</a></h1>
+<p>GameFuse provides a robust groups system that allows players to form communities within your game. The group functionality is accessible through the authenticated <code>GameFuseUser.CurrentUser</code> instance.</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>All group methods require user authentication. Ensure you have a signed-in user before calling any group methods:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">&quot;User must be authenticated first&quot;</span><span class="p">);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h2 id="creating-groups">Creating Groups<a class="headerlink" href="#creating-groups" title="Permanent link">&para;</a></h2>
+<p>Use <code>CreateGroupAsync</code> to create a new group with the current user as admin:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateGroup</span><span class="p">()</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CreateGroupPayload</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">            </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;My Awesome Team&quot;</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="n">GroupType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="n">MaxGroupSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="n">CanAutoJoin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="n">IsInviteOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="n">Searchable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="n">AdminsOnlyCanCreateAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="p">};</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">CreateGroupAsync</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Group created successfully! Group ID: {group.Id}, Name: {group.Name}&quot;</span><span class="p">);</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to create group: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h2 id="fetching-groups">Fetching Groups<a class="headerlink" href="#fetching-groups" title="Permanent link">&para;</a></h2>
+<h3 id="get-all-groups">Get All Groups<a class="headerlink" href="#get-all-groups" title="Permanent link">&para;</a></h3>
+<p>Use <code>FetchAllGroupsAsync</code> to retrieve a list of all available groups:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadAllGroups</span><span class="p">()</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">FetchAllGroupsAsync</span><span class="p">();</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Found {groups.Count} groups&quot;</span><span class="p">);</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">groups</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Group: {group.Name} (ID: {group.Id})&quot;</span><span class="p">);</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Members: {group.MemberCount}/{group.MaxGroupSize}&quot;</span><span class="p">);</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to fetch groups: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h3 id="get-group-details">Get Group Details<a class="headerlink" href="#get-group-details" title="Permanent link">&para;</a></h3>
+<p>Use <code>FetchGroupDetailsAsync</code> to get detailed information about a specific group:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadGroupDetails</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">FetchGroupDetailsAsync</span><span class="p">(</span><span class="n">groupId</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Group: {group.Name}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Type: {group.GroupType}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Members: {group.MemberCount}/{group.MaxGroupSize}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Can Auto Join: {group.CanAutoJoin}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Invite Only: {group.IsInviteOnly}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Searchable: {group.Searchable}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="c1">// Check if current user is an admin</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">isAdmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">group</span><span class="p">.</span><span class="n">Admins</span><span class="o">?.</span><span class="n">Any</span><span class="p">(</span><span class="n">admin</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">admin</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">Id</span><span class="p">)</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Current user is admin: {isAdmin}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="c1">// List all members</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">group</span><span class="p">.</span><span class="n">Members</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">group</span><span class="p">.</span><span class="n">Members</span><span class="p">)</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Member: {member.Username} (ID: {member.Id})&quot;</span><span class="p">);</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to fetch group details: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h2 id="joining-groups">Joining Groups<a class="headerlink" href="#joining-groups" title="Permanent link">&para;</a></h2>
+<h3 id="send-join-request">Send Join Request<a class="headerlink" href="#send-join-request" title="Permanent link">&para;</a></h3>
+<p>Use <code>SendGroupConnectionRequestAsync</code> to request to join a group:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RequestToJoinGroup</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">SendGroupConnectionRequestAsync</span><span class="p">(</span><span class="n">groupId</span><span class="p">);</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Join request sent! Connection ID: {response.Id}&quot;</span><span class="p">);</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Status: {response.Status}&quot;</span><span class="p">);</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to send join request: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h3 id="accept-membership-requests-admin-only">Accept Membership Requests (Admin Only)<a class="headerlink" href="#accept-membership-requests-admin-only" title="Permanent link">&para;</a></h3>
+<p>Use <code>AcceptGroupMembershipRequestAsync</code> to accept pending join requests as an admin:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AcceptJoinRequest</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupConnectionId</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">AcceptGroupMembershipRequestAsync</span><span class="p">(</span><span class="n">groupConnectionId</span><span class="p">);</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Join request accepted! Connection ID: {response.Id}&quot;</span><span class="p">);</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to accept join request: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h3 id="decline-membership-requests-admin-only">Decline Membership Requests (Admin Only)<a class="headerlink" href="#decline-membership-requests-admin-only" title="Permanent link">&para;</a></h3>
+<p>Use <code>DeclineGroupMembershipRequestAsync</code> to decline pending join requests as an admin:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DeclineJoinRequest</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupConnectionId</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">DeclineGroupMembershipRequestAsync</span><span class="p">(</span><span class="n">groupConnectionId</span><span class="p">);</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Join request declined! Connection ID: {response.Id}&quot;</span><span class="p">);</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to decline join request: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h2 id="group-attributes">Group Attributes<a class="headerlink" href="#group-attributes" title="Permanent link">&para;</a></h2>
+<h3 id="create-single-attribute">Create Single Attribute<a class="headerlink" href="#create-single-attribute" title="Permanent link">&para;</a></h3>
+<p>Use <code>CreateGroupAttributeAsync</code> to add a single custom attribute to a group:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddGroupAttribute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">CreateGroupAttributeAsync</span><span class="p">(</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">            </span><span class="n">groupId</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">            </span><span class="s">&quot;score&quot;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">            </span><span class="s">&quot;1500&quot;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">            </span><span class="k">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// othersCanEdit = false</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Attribute created: {attribute.Key} = {attribute.Value}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to create group attribute: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h3 id="create-multiple-attributes">Create Multiple Attributes<a class="headerlink" href="#create-multiple-attributes" title="Permanent link">&para;</a></h3>
+<p>Use <code>CreateGroupAttributesAsync</code> to add multiple attributes at once:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddMultipleGroupAttributes</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">attributesToCreate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">GroupAttributePayloadItem</span><span class="o">&gt;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">GroupAttributePayloadItem</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;level&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">OthersCanEdit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">GroupAttributePayloadItem</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rank&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Gold&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">OthersCanEdit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">GroupAttributePayloadItem</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;region&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;North America&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">OthersCanEdit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="p">};</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">CreateGroupAttributesAsync</span><span class="p">(</span><span class="n">groupId</span><span class="p">,</span><span class="w"> </span><span class="n">attributesToCreate</span><span class="p">);</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Created {response.Attributes.Count} attributes&quot;</span><span class="p">);</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Attributes</span><span class="p">)</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Created: {attribute.Key} = {attribute.Value}&quot;</span><span class="p">);</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to create group attributes: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h3 id="fetch-group-attributes">Fetch Group Attributes<a class="headerlink" href="#fetch-group-attributes" title="Permanent link">&para;</a></h3>
+<p>Use <code>FetchGroupAttributesAsync</code> to retrieve all attributes for a group:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadGroupAttributes</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">FetchGroupAttributesAsync</span><span class="p">(</span><span class="n">groupId</span><span class="p">);</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Group has {attributes.Count} attributes&quot;</span><span class="p">);</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">attributes</span><span class="p">)</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;{attribute.Key}: {attribute.Value}&quot;</span><span class="p">);</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;  Others can edit: {attribute.OthersCanEdit}&quot;</span><span class="p">);</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;  Created by: {attribute.CreatedByUsername}&quot;</span><span class="p">);</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to fetch group attributes: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h3 id="modify-group-attributes">Modify Group Attributes<a class="headerlink" href="#modify-group-attributes" title="Permanent link">&para;</a></h3>
+<p>Use <code>ModifyGroupAttributeAsync</code> to update an existing group attribute:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateGroupAttribute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">try</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModifyGroupAttributePayload</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">            </span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;score&quot;</span><span class="p">,</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2000&quot;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="p">};</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">updatedAttribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">ModifyGroupAttributeAsync</span><span class="p">(</span><span class="n">groupId</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Updated attribute: {updatedAttribute.Key} = {updatedAttribute.Value}&quot;</span><span class="p">);</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Failed to modify group attribute: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h2 id="complete-example">Complete Example<a class="headerlink" href="#complete-example" title="Permanent link">&para;</a></h2>
+<p>Here's a comprehensive example showing how to implement a group management system:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.UI</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">GameFuse</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">GameFuse.Models.Shared</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GroupManager</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="p">{</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="na">[Header(&quot;UI References&quot;)]</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Transform</span><span class="w"> </span><span class="n">groupsListParent</span><span class="p">;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">groupItemPrefab</span><span class="p">;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">createGroupButton</span><span class="p">;</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">InputField</span><span class="w"> </span><span class="n">groupNameInput</span><span class="p">;</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Toggle</span><span class="w"> </span><span class="n">inviteOnlyToggle</span><span class="p">;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">InputField</span><span class="w"> </span><span class="n">maxSizeInput</span><span class="p">;</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="na">[Header(&quot;Group Details&quot;)]</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">groupDetailsPanel</span><span class="p">;</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">groupNameText</span><span class="p">;</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">memberCountText</span><span class="p">;</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Transform</span><span class="w"> </span><span class="n">membersListParent</span><span class="p">;</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Transform</span><span class="w"> </span><span class="n">attributesListParent</span><span class="p">;</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">memberItemPrefab</span><span class="p">;</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">attributeItemPrefab</span><span class="p">;</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">Group</span><span class="w"> </span><span class="n">currentGroup</span><span class="p">;</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="w">        </span><span class="n">createGroupButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">OnCreateGroupClicked</span><span class="p">);</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="w">        </span><span class="n">RefreshGroupsList</span><span class="p">();</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnCreateGroupClicked</span><span class="p">()</span>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">groupName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">groupNameInput</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">Trim</span><span class="p">();</span>
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">groupName</span><span class="p">))</span>
+</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span><span class="s">&quot;Please enter a group name&quot;</span><span class="p">);</span>
+</span><span id="__span-11-41"><a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-11-42"><a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-43"><a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>
+</span><span id="__span-11-44"><a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nf">CreateNewGroup</span><span class="p">(</span><span class="n">groupName</span><span class="p">);</span>
+</span><span id="__span-11-45"><a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-46"><a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a>
+</span><span id="__span-11-47"><a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Task</span><span class="w"> </span><span class="n">CreateNewGroup</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-11-48"><a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-49"><a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-11-50"><a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-51"><a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CreateGroupPayload</span>
+</span><span id="__span-11-52"><a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-11-53"><a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a><span class="w">                </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-11-54"><a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a><span class="w">                </span><span class="n">GroupType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">,</span>
+</span><span id="__span-11-55"><a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a><span class="w">                </span><span class="n">MaxGroupSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">maxSizeInput</span><span class="p">.</span><span class="n">text</span><span class="p">),</span>
+</span><span id="__span-11-56"><a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a><span class="w">                </span><span class="n">CanAutoJoin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">inviteOnlyToggle</span><span class="p">.</span><span class="n">isOn</span><span class="p">,</span>
+</span><span id="__span-11-57"><a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a><span class="w">                </span><span class="n">IsInviteOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inviteOnlyToggle</span><span class="p">.</span><span class="n">isOn</span><span class="p">,</span>
+</span><span id="__span-11-58"><a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a><span class="w">                </span><span class="n">Searchable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
+</span><span id="__span-11-59"><a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a><span class="w">                </span><span class="n">AdminsOnlyCanCreateAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
+</span><span id="__span-11-60"><a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a><span class="w">            </span><span class="p">};</span>
+</span><span id="__span-11-61"><a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a>
+</span><span id="__span-11-62"><a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">CreateGroupAsync</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+</span><span id="__span-11-63"><a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Group &#39;{name}&#39; created successfully!&quot;</span><span class="p">);</span>
+</span><span id="__span-11-64"><a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a>
+</span><span id="__span-11-65"><a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a><span class="w">            </span><span class="c1">// Clear input fields</span>
+</span><span id="__span-11-66"><a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a><span class="w">            </span><span class="n">groupNameInput</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-11-67"><a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a><span class="w">            </span><span class="n">maxSizeInput</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10&quot;</span><span class="p">;</span>
+</span><span id="__span-11-68"><a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a><span class="w">            </span><span class="n">inviteOnlyToggle</span><span class="p">.</span><span class="n">isOn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+</span><span id="__span-11-69"><a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a>
+</span><span id="__span-11-70"><a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="nf">RefreshGroupsList</span><span class="p">();</span>
+</span><span id="__span-11-71"><a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-72"><a id="__codelineno-11-72" name="__codelineno-11-72" href="#__codelineno-11-72"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-11-73"><a id="__codelineno-11-73" name="__codelineno-11-73" href="#__codelineno-11-73"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-74"><a id="__codelineno-11-74" name="__codelineno-11-74" href="#__codelineno-11-74"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error creating group: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-11-75"><a id="__codelineno-11-75" name="__codelineno-11-75" href="#__codelineno-11-75"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-76"><a id="__codelineno-11-76" name="__codelineno-11-76" href="#__codelineno-11-76"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-77"><a id="__codelineno-11-77" name="__codelineno-11-77" href="#__codelineno-11-77"></a>
+</span><span id="__span-11-78"><a id="__codelineno-11-78" name="__codelineno-11-78" href="#__codelineno-11-78"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Task</span><span class="w"> </span><span class="n">RefreshGroupsList</span><span class="p">()</span>
+</span><span id="__span-11-79"><a id="__codelineno-11-79" name="__codelineno-11-79" href="#__codelineno-11-79"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-80"><a id="__codelineno-11-80" name="__codelineno-11-80" href="#__codelineno-11-80"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-11-81"><a id="__codelineno-11-81" name="__codelineno-11-81" href="#__codelineno-11-81"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-82"><a id="__codelineno-11-82" name="__codelineno-11-82" href="#__codelineno-11-82"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">FetchAllGroupsAsync</span><span class="p">();</span>
+</span><span id="__span-11-83"><a id="__codelineno-11-83" name="__codelineno-11-83" href="#__codelineno-11-83"></a>
+</span><span id="__span-11-84"><a id="__codelineno-11-84" name="__codelineno-11-84" href="#__codelineno-11-84"></a><span class="w">            </span><span class="c1">// Clear existing items</span>
+</span><span id="__span-11-85"><a id="__codelineno-11-85" name="__codelineno-11-85" href="#__codelineno-11-85"></a><span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Transform</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">groupsListParent</span><span class="p">)</span>
+</span><span id="__span-11-86"><a id="__codelineno-11-86" name="__codelineno-11-86" href="#__codelineno-11-86"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-11-87"><a id="__codelineno-11-87" name="__codelineno-11-87" href="#__codelineno-11-87"></a><span class="w">                </span><span class="n">Destroy</span><span class="p">(</span><span class="n">child</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+</span><span id="__span-11-88"><a id="__codelineno-11-88" name="__codelineno-11-88" href="#__codelineno-11-88"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-11-89"><a id="__codelineno-11-89" name="__codelineno-11-89" href="#__codelineno-11-89"></a>
+</span><span id="__span-11-90"><a id="__codelineno-11-90" name="__codelineno-11-90" href="#__codelineno-11-90"></a><span class="w">            </span><span class="c1">// Create UI items for each group</span>
+</span><span id="__span-11-91"><a id="__codelineno-11-91" name="__codelineno-11-91" href="#__codelineno-11-91"></a><span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">groups</span><span class="p">)</span>
+</span><span id="__span-11-92"><a id="__codelineno-11-92" name="__codelineno-11-92" href="#__codelineno-11-92"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-11-93"><a id="__codelineno-11-93" name="__codelineno-11-93" href="#__codelineno-11-93"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">groupItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instantiate</span><span class="p">(</span><span class="n">groupItemPrefab</span><span class="p">,</span><span class="w"> </span><span class="n">groupsListParent</span><span class="p">);</span>
+</span><span id="__span-11-94"><a id="__codelineno-11-94" name="__codelineno-11-94" href="#__codelineno-11-94"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">groupUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">groupItem</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">GroupItemUI</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-11-95"><a id="__codelineno-11-95" name="__codelineno-11-95" href="#__codelineno-11-95"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">groupUI</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-11-96"><a id="__codelineno-11-96" name="__codelineno-11-96" href="#__codelineno-11-96"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-11-97"><a id="__codelineno-11-97" name="__codelineno-11-97" href="#__codelineno-11-97"></a><span class="w">                    </span><span class="n">groupUI</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="k">group</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+</span><span id="__span-11-98"><a id="__codelineno-11-98" name="__codelineno-11-98" href="#__codelineno-11-98"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-11-99"><a id="__codelineno-11-99" name="__codelineno-11-99" href="#__codelineno-11-99"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-11-100"><a id="__codelineno-11-100" name="__codelineno-11-100" href="#__codelineno-11-100"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-101"><a id="__codelineno-11-101" name="__codelineno-11-101" href="#__codelineno-11-101"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-11-102"><a id="__codelineno-11-102" name="__codelineno-11-102" href="#__codelineno-11-102"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-103"><a id="__codelineno-11-103" name="__codelineno-11-103" href="#__codelineno-11-103"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error refreshing groups list: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-11-104"><a id="__codelineno-11-104" name="__codelineno-11-104" href="#__codelineno-11-104"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-105"><a id="__codelineno-11-105" name="__codelineno-11-105" href="#__codelineno-11-105"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-106"><a id="__codelineno-11-106" name="__codelineno-11-106" href="#__codelineno-11-106"></a>
+</span><span id="__span-11-107"><a id="__codelineno-11-107" name="__codelineno-11-107" href="#__codelineno-11-107"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Task</span><span class="w"> </span><span class="n">ShowGroupDetails</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-11-108"><a id="__codelineno-11-108" name="__codelineno-11-108" href="#__codelineno-11-108"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-109"><a id="__codelineno-11-109" name="__codelineno-11-109" href="#__codelineno-11-109"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-11-110"><a id="__codelineno-11-110" name="__codelineno-11-110" href="#__codelineno-11-110"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-111"><a id="__codelineno-11-111" name="__codelineno-11-111" href="#__codelineno-11-111"></a><span class="w">            </span><span class="n">currentGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">FetchGroupDetailsAsync</span><span class="p">(</span><span class="n">groupId</span><span class="p">);</span>
+</span><span id="__span-11-112"><a id="__codelineno-11-112" name="__codelineno-11-112" href="#__codelineno-11-112"></a>
+</span><span id="__span-11-113"><a id="__codelineno-11-113" name="__codelineno-11-113" href="#__codelineno-11-113"></a><span class="w">            </span><span class="c1">// Update group info</span>
+</span><span id="__span-11-114"><a id="__codelineno-11-114" name="__codelineno-11-114" href="#__codelineno-11-114"></a><span class="w">            </span><span class="n">groupNameText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentGroup</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+</span><span id="__span-11-115"><a id="__codelineno-11-115" name="__codelineno-11-115" href="#__codelineno-11-115"></a><span class="w">            </span><span class="n">memberCountText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Members: {currentGroup.MemberCount}/{currentGroup.MaxGroupSize}&quot;</span><span class="p">;</span>
+</span><span id="__span-11-116"><a id="__codelineno-11-116" name="__codelineno-11-116" href="#__codelineno-11-116"></a>
+</span><span id="__span-11-117"><a id="__codelineno-11-117" name="__codelineno-11-117" href="#__codelineno-11-117"></a><span class="w">            </span><span class="c1">// Update members list</span>
+</span><span id="__span-11-118"><a id="__codelineno-11-118" name="__codelineno-11-118" href="#__codelineno-11-118"></a><span class="w">            </span><span class="n">ClearParent</span><span class="p">(</span><span class="n">membersListParent</span><span class="p">);</span>
+</span><span id="__span-11-119"><a id="__codelineno-11-119" name="__codelineno-11-119" href="#__codelineno-11-119"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentGroup</span><span class="p">.</span><span class="n">Members</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-11-120"><a id="__codelineno-11-120" name="__codelineno-11-120" href="#__codelineno-11-120"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-11-121"><a id="__codelineno-11-121" name="__codelineno-11-121" href="#__codelineno-11-121"></a><span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">currentGroup</span><span class="p">.</span><span class="n">Members</span><span class="p">)</span>
+</span><span id="__span-11-122"><a id="__codelineno-11-122" name="__codelineno-11-122" href="#__codelineno-11-122"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-11-123"><a id="__codelineno-11-123" name="__codelineno-11-123" href="#__codelineno-11-123"></a><span class="w">                    </span><span class="kt">var</span><span class="w"> </span><span class="n">memberItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instantiate</span><span class="p">(</span><span class="n">memberItemPrefab</span><span class="p">,</span><span class="w"> </span><span class="n">membersListParent</span><span class="p">);</span>
+</span><span id="__span-11-124"><a id="__codelineno-11-124" name="__codelineno-11-124" href="#__codelineno-11-124"></a><span class="w">                    </span><span class="kt">var</span><span class="w"> </span><span class="n">memberUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberItem</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">MemberItemUI</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-11-125"><a id="__codelineno-11-125" name="__codelineno-11-125" href="#__codelineno-11-125"></a><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">memberUI</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-11-126"><a id="__codelineno-11-126" name="__codelineno-11-126" href="#__codelineno-11-126"></a><span class="w">                    </span><span class="p">{</span>
+</span><span id="__span-11-127"><a id="__codelineno-11-127" name="__codelineno-11-127" href="#__codelineno-11-127"></a><span class="w">                        </span><span class="kt">bool</span><span class="w"> </span><span class="n">isAdmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentGroup</span><span class="p">.</span><span class="n">Admins</span><span class="o">?.</span><span class="n">Any</span><span class="p">(</span><span class="n">admin</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">admin</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">member</span><span class="p">.</span><span class="n">Id</span><span class="p">)</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+</span><span id="__span-11-128"><a id="__codelineno-11-128" name="__codelineno-11-128" href="#__codelineno-11-128"></a><span class="w">                        </span><span class="n">memberUI</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="n">isAdmin</span><span class="p">);</span>
+</span><span id="__span-11-129"><a id="__codelineno-11-129" name="__codelineno-11-129" href="#__codelineno-11-129"></a><span class="w">                    </span><span class="p">}</span>
+</span><span id="__span-11-130"><a id="__codelineno-11-130" name="__codelineno-11-130" href="#__codelineno-11-130"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-11-131"><a id="__codelineno-11-131" name="__codelineno-11-131" href="#__codelineno-11-131"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-11-132"><a id="__codelineno-11-132" name="__codelineno-11-132" href="#__codelineno-11-132"></a>
+</span><span id="__span-11-133"><a id="__codelineno-11-133" name="__codelineno-11-133" href="#__codelineno-11-133"></a><span class="w">            </span><span class="c1">// Load and display attributes</span>
+</span><span id="__span-11-134"><a id="__codelineno-11-134" name="__codelineno-11-134" href="#__codelineno-11-134"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="nf">LoadGroupAttributes</span><span class="p">(</span><span class="n">groupId</span><span class="p">);</span>
+</span><span id="__span-11-135"><a id="__codelineno-11-135" name="__codelineno-11-135" href="#__codelineno-11-135"></a>
+</span><span id="__span-11-136"><a id="__codelineno-11-136" name="__codelineno-11-136" href="#__codelineno-11-136"></a><span class="w">            </span><span class="n">groupDetailsPanel</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span id="__span-11-137"><a id="__codelineno-11-137" name="__codelineno-11-137" href="#__codelineno-11-137"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-138"><a id="__codelineno-11-138" name="__codelineno-11-138" href="#__codelineno-11-138"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-11-139"><a id="__codelineno-11-139" name="__codelineno-11-139" href="#__codelineno-11-139"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-140"><a id="__codelineno-11-140" name="__codelineno-11-140" href="#__codelineno-11-140"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error showing group details: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-11-141"><a id="__codelineno-11-141" name="__codelineno-11-141" href="#__codelineno-11-141"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-142"><a id="__codelineno-11-142" name="__codelineno-11-142" href="#__codelineno-11-142"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-143"><a id="__codelineno-11-143" name="__codelineno-11-143" href="#__codelineno-11-143"></a>
+</span><span id="__span-11-144"><a id="__codelineno-11-144" name="__codelineno-11-144" href="#__codelineno-11-144"></a><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Task</span><span class="w"> </span><span class="n">LoadGroupAttributes</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-11-145"><a id="__codelineno-11-145" name="__codelineno-11-145" href="#__codelineno-11-145"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-146"><a id="__codelineno-11-146" name="__codelineno-11-146" href="#__codelineno-11-146"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-11-147"><a id="__codelineno-11-147" name="__codelineno-11-147" href="#__codelineno-11-147"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-148"><a id="__codelineno-11-148" name="__codelineno-11-148" href="#__codelineno-11-148"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">FetchGroupAttributesAsync</span><span class="p">(</span><span class="n">groupId</span><span class="p">);</span>
+</span><span id="__span-11-149"><a id="__codelineno-11-149" name="__codelineno-11-149" href="#__codelineno-11-149"></a>
+</span><span id="__span-11-150"><a id="__codelineno-11-150" name="__codelineno-11-150" href="#__codelineno-11-150"></a><span class="w">            </span><span class="n">ClearParent</span><span class="p">(</span><span class="n">attributesListParent</span><span class="p">);</span>
+</span><span id="__span-11-151"><a id="__codelineno-11-151" name="__codelineno-11-151" href="#__codelineno-11-151"></a><span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">attributes</span><span class="p">)</span>
+</span><span id="__span-11-152"><a id="__codelineno-11-152" name="__codelineno-11-152" href="#__codelineno-11-152"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-11-153"><a id="__codelineno-11-153" name="__codelineno-11-153" href="#__codelineno-11-153"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">attributeItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instantiate</span><span class="p">(</span><span class="n">attributeItemPrefab</span><span class="p">,</span><span class="w"> </span><span class="n">attributesListParent</span><span class="p">);</span>
+</span><span id="__span-11-154"><a id="__codelineno-11-154" name="__codelineno-11-154" href="#__codelineno-11-154"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">attributeUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attributeItem</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">AttributeItemUI</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-11-155"><a id="__codelineno-11-155" name="__codelineno-11-155" href="#__codelineno-11-155"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">attributeUI</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-11-156"><a id="__codelineno-11-156" name="__codelineno-11-156" href="#__codelineno-11-156"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-11-157"><a id="__codelineno-11-157" name="__codelineno-11-157" href="#__codelineno-11-157"></a><span class="w">                    </span><span class="n">attributeUI</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="n">attribute</span><span class="p">);</span>
+</span><span id="__span-11-158"><a id="__codelineno-11-158" name="__codelineno-11-158" href="#__codelineno-11-158"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-11-159"><a id="__codelineno-11-159" name="__codelineno-11-159" href="#__codelineno-11-159"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-11-160"><a id="__codelineno-11-160" name="__codelineno-11-160" href="#__codelineno-11-160"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-161"><a id="__codelineno-11-161" name="__codelineno-11-161" href="#__codelineno-11-161"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-11-162"><a id="__codelineno-11-162" name="__codelineno-11-162" href="#__codelineno-11-162"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-163"><a id="__codelineno-11-163" name="__codelineno-11-163" href="#__codelineno-11-163"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error loading group attributes: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-11-164"><a id="__codelineno-11-164" name="__codelineno-11-164" href="#__codelineno-11-164"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-165"><a id="__codelineno-11-165" name="__codelineno-11-165" href="#__codelineno-11-165"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-166"><a id="__codelineno-11-166" name="__codelineno-11-166" href="#__codelineno-11-166"></a>
+</span><span id="__span-11-167"><a id="__codelineno-11-167" name="__codelineno-11-167" href="#__codelineno-11-167"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Task</span><span class="w"> </span><span class="n">JoinGroup</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">groupId</span><span class="p">)</span>
+</span><span id="__span-11-168"><a id="__codelineno-11-168" name="__codelineno-11-168" href="#__codelineno-11-168"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-169"><a id="__codelineno-11-169" name="__codelineno-11-169" href="#__codelineno-11-169"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-11-170"><a id="__codelineno-11-170" name="__codelineno-11-170" href="#__codelineno-11-170"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-171"><a id="__codelineno-11-171" name="__codelineno-11-171" href="#__codelineno-11-171"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">SendGroupConnectionRequestAsync</span><span class="p">(</span><span class="n">groupId</span><span class="p">);</span>
+</span><span id="__span-11-172"><a id="__codelineno-11-172" name="__codelineno-11-172" href="#__codelineno-11-172"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Join request sent for group {groupId}&quot;</span><span class="p">);</span>
+</span><span id="__span-11-173"><a id="__codelineno-11-173" name="__codelineno-11-173" href="#__codelineno-11-173"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-174"><a id="__codelineno-11-174" name="__codelineno-11-174" href="#__codelineno-11-174"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-11-175"><a id="__codelineno-11-175" name="__codelineno-11-175" href="#__codelineno-11-175"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-176"><a id="__codelineno-11-176" name="__codelineno-11-176" href="#__codelineno-11-176"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error joining group: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-11-177"><a id="__codelineno-11-177" name="__codelineno-11-177" href="#__codelineno-11-177"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-178"><a id="__codelineno-11-178" name="__codelineno-11-178" href="#__codelineno-11-178"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-179"><a id="__codelineno-11-179" name="__codelineno-11-179" href="#__codelineno-11-179"></a>
+</span><span id="__span-11-180"><a id="__codelineno-11-180" name="__codelineno-11-180" href="#__codelineno-11-180"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Task</span><span class="w"> </span><span class="n">AddGroupAttribute</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="k">value</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">othersCanEdit</span><span class="p">)</span>
+</span><span id="__span-11-181"><a id="__codelineno-11-181" name="__codelineno-11-181" href="#__codelineno-11-181"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-182"><a id="__codelineno-11-182" name="__codelineno-11-182" href="#__codelineno-11-182"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentGroup</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-11-183"><a id="__codelineno-11-183" name="__codelineno-11-183" href="#__codelineno-11-183"></a>
+</span><span id="__span-11-184"><a id="__codelineno-11-184" name="__codelineno-11-184" href="#__codelineno-11-184"></a><span class="w">        </span><span class="k">try</span>
+</span><span id="__span-11-185"><a id="__codelineno-11-185" name="__codelineno-11-185" href="#__codelineno-11-185"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-186"><a id="__codelineno-11-186" name="__codelineno-11-186" href="#__codelineno-11-186"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GameFuseUser</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">CreateGroupAttributeAsync</span><span class="p">(</span>
+</span><span id="__span-11-187"><a id="__codelineno-11-187" name="__codelineno-11-187" href="#__codelineno-11-187"></a><span class="w">                </span><span class="n">currentGroup</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-11-188"><a id="__codelineno-11-188" name="__codelineno-11-188" href="#__codelineno-11-188"></a><span class="w">                </span><span class="n">key</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-11-189"><a id="__codelineno-11-189" name="__codelineno-11-189" href="#__codelineno-11-189"></a><span class="w">                </span><span class="k">value</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-11-190"><a id="__codelineno-11-190" name="__codelineno-11-190" href="#__codelineno-11-190"></a><span class="w">                </span><span class="n">othersCanEdit</span><span class="p">);</span>
+</span><span id="__span-11-191"><a id="__codelineno-11-191" name="__codelineno-11-191" href="#__codelineno-11-191"></a>
+</span><span id="__span-11-192"><a id="__codelineno-11-192" name="__codelineno-11-192" href="#__codelineno-11-192"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Added attribute: {key} = {value}&quot;</span><span class="p">);</span>
+</span><span id="__span-11-193"><a id="__codelineno-11-193" name="__codelineno-11-193" href="#__codelineno-11-193"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="nf">LoadGroupAttributes</span><span class="p">(</span><span class="n">currentGroup</span><span class="p">.</span><span class="n">Id</span><span class="p">);</span>
+</span><span id="__span-11-194"><a id="__codelineno-11-194" name="__codelineno-11-194" href="#__codelineno-11-194"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-195"><a id="__codelineno-11-195" name="__codelineno-11-195" href="#__codelineno-11-195"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+</span><span id="__span-11-196"><a id="__codelineno-11-196" name="__codelineno-11-196" href="#__codelineno-11-196"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-197"><a id="__codelineno-11-197" name="__codelineno-11-197" href="#__codelineno-11-197"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$&quot;Error adding group attribute: {ex.Message}&quot;</span><span class="p">);</span>
+</span><span id="__span-11-198"><a id="__codelineno-11-198" name="__codelineno-11-198" href="#__codelineno-11-198"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-199"><a id="__codelineno-11-199" name="__codelineno-11-199" href="#__codelineno-11-199"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-200"><a id="__codelineno-11-200" name="__codelineno-11-200" href="#__codelineno-11-200"></a>
+</span><span id="__span-11-201"><a id="__codelineno-11-201" name="__codelineno-11-201" href="#__codelineno-11-201"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">ClearParent</span><span class="p">(</span><span class="n">Transform</span><span class="w"> </span><span class="n">parent</span><span class="p">)</span>
+</span><span id="__span-11-202"><a id="__codelineno-11-202" name="__codelineno-11-202" href="#__codelineno-11-202"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-203"><a id="__codelineno-11-203" name="__codelineno-11-203" href="#__codelineno-11-203"></a><span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Transform</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">parent</span><span class="p">)</span>
+</span><span id="__span-11-204"><a id="__codelineno-11-204" name="__codelineno-11-204" href="#__codelineno-11-204"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-11-205"><a id="__codelineno-11-205" name="__codelineno-11-205" href="#__codelineno-11-205"></a><span class="w">            </span><span class="n">Destroy</span><span class="p">(</span><span class="n">child</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+</span><span id="__span-11-206"><a id="__codelineno-11-206" name="__codelineno-11-206" href="#__codelineno-11-206"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-207"><a id="__codelineno-11-207" name="__codelineno-11-207" href="#__codelineno-11-207"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-208"><a id="__codelineno-11-208" name="__codelineno-11-208" href="#__codelineno-11-208"></a><span class="p">}</span>
+</span><span id="__span-11-209"><a id="__codelineno-11-209" name="__codelineno-11-209" href="#__codelineno-11-209"></a>
+</span><span id="__span-11-210"><a id="__codelineno-11-210" name="__codelineno-11-210" href="#__codelineno-11-210"></a><span class="c1">// UI component classes would be similar to the friendship example</span>
+</span><span id="__span-11-211"><a id="__codelineno-11-211" name="__codelineno-11-211" href="#__codelineno-11-211"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GroupItemUI</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-11-212"><a id="__codelineno-11-212" name="__codelineno-11-212" href="#__codelineno-11-212"></a><span class="p">{</span>
+</span><span id="__span-11-213"><a id="__codelineno-11-213" name="__codelineno-11-213" href="#__codelineno-11-213"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">groupNameText</span><span class="p">;</span>
+</span><span id="__span-11-214"><a id="__codelineno-11-214" name="__codelineno-11-214" href="#__codelineno-11-214"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">memberCountText</span><span class="p">;</span>
+</span><span id="__span-11-215"><a id="__codelineno-11-215" name="__codelineno-11-215" href="#__codelineno-11-215"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">viewButton</span><span class="p">;</span>
+</span><span id="__span-11-216"><a id="__codelineno-11-216" name="__codelineno-11-216" href="#__codelineno-11-216"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">joinButton</span><span class="p">;</span>
+</span><span id="__span-11-217"><a id="__codelineno-11-217" name="__codelineno-11-217" href="#__codelineno-11-217"></a>
+</span><span id="__span-11-218"><a id="__codelineno-11-218" name="__codelineno-11-218" href="#__codelineno-11-218"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">GroupSummary</span><span class="w"> </span><span class="k">group</span><span class="p">;</span>
+</span><span id="__span-11-219"><a id="__codelineno-11-219" name="__codelineno-11-219" href="#__codelineno-11-219"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">GroupManager</span><span class="w"> </span><span class="n">manager</span><span class="p">;</span>
+</span><span id="__span-11-220"><a id="__codelineno-11-220" name="__codelineno-11-220" href="#__codelineno-11-220"></a>
+</span><span id="__span-11-221"><a id="__codelineno-11-221" name="__codelineno-11-221" href="#__codelineno-11-221"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+</span><span id="__span-11-222"><a id="__codelineno-11-222" name="__codelineno-11-222" href="#__codelineno-11-222"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-223"><a id="__codelineno-11-223" name="__codelineno-11-223" href="#__codelineno-11-223"></a><span class="w">        </span><span class="n">viewButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">manager</span><span class="p">.</span><span class="n">ShowGroupDetails</span><span class="p">(</span><span class="k">group</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span>
+</span><span id="__span-11-224"><a id="__codelineno-11-224" name="__codelineno-11-224" href="#__codelineno-11-224"></a><span class="w">        </span><span class="n">joinButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">manager</span><span class="p">.</span><span class="n">JoinGroup</span><span class="p">(</span><span class="k">group</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span>
+</span><span id="__span-11-225"><a id="__codelineno-11-225" name="__codelineno-11-225" href="#__codelineno-11-225"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-226"><a id="__codelineno-11-226" name="__codelineno-11-226" href="#__codelineno-11-226"></a>
+</span><span id="__span-11-227"><a id="__codelineno-11-227" name="__codelineno-11-227" href="#__codelineno-11-227"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Setup</span><span class="p">(</span><span class="n">GroupSummary</span><span class="w"> </span><span class="n">groupData</span><span class="p">,</span><span class="w"> </span><span class="n">GroupManager</span><span class="w"> </span><span class="n">groupManager</span><span class="p">)</span>
+</span><span id="__span-11-228"><a id="__codelineno-11-228" name="__codelineno-11-228" href="#__codelineno-11-228"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-229"><a id="__codelineno-11-229" name="__codelineno-11-229" href="#__codelineno-11-229"></a><span class="w">        </span><span class="k">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">groupData</span><span class="p">;</span>
+</span><span id="__span-11-230"><a id="__codelineno-11-230" name="__codelineno-11-230" href="#__codelineno-11-230"></a><span class="w">        </span><span class="n">manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">groupManager</span><span class="p">;</span>
+</span><span id="__span-11-231"><a id="__codelineno-11-231" name="__codelineno-11-231" href="#__codelineno-11-231"></a>
+</span><span id="__span-11-232"><a id="__codelineno-11-232" name="__codelineno-11-232" href="#__codelineno-11-232"></a><span class="w">        </span><span class="n">groupNameText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">groupData</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+</span><span id="__span-11-233"><a id="__codelineno-11-233" name="__codelineno-11-233" href="#__codelineno-11-233"></a><span class="w">        </span><span class="n">memberCountText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;{groupData.MemberCount}/{groupData.MaxGroupSize}&quot;</span><span class="p">;</span>
+</span><span id="__span-11-234"><a id="__codelineno-11-234" name="__codelineno-11-234" href="#__codelineno-11-234"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-235"><a id="__codelineno-11-235" name="__codelineno-11-235" href="#__codelineno-11-235"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h2 id="method-reference">Method Reference<a class="headerlink" href="#method-reference" title="Permanent link">&para;</a></h2>
+<h3 id="creategroupasync"><code>CreateGroupAsync</code><a class="headerlink" href="#creategroupasync" title="Permanent link">&para;</a></h3>
+<p>Creates a new group with the current user as admin.</p>
+<p><strong>Parameters:</strong>
+- <code>payload</code> (CreateGroupPayload): Group creation details including name, type, size limits, and permissions
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;Group&gt;</code> - The newly created group</p>
+<h3 id="fetchallgroupsasync"><code>FetchAllGroupsAsync</code><a class="headerlink" href="#fetchallgroupsasync" title="Permanent link">&para;</a></h3>
+<p>Fetches a list of all available groups (summary view).</p>
+<p><strong>Parameters:</strong>
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;IReadOnlyList&lt;GroupSummary&gt;&gt;</code> - Read-only list of group summaries</p>
+<h3 id="fetchgroupdetailsasync"><code>FetchGroupDetailsAsync</code><a class="headerlink" href="#fetchgroupdetailsasync" title="Permanent link">&para;</a></h3>
+<p>Fetches detailed information for a specific group.</p>
+<p><strong>Parameters:</strong>
+- <code>groupId</code> (int): ID of the group to fetch
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;Group&gt;</code> - Detailed group information including members and admins</p>
+<h3 id="sendgroupconnectionrequestasync"><code>SendGroupConnectionRequestAsync</code><a class="headerlink" href="#sendgroupconnectionrequestasync" title="Permanent link">&para;</a></h3>
+<p>Sends a request to join a group.</p>
+<p><strong>Parameters:</strong>
+- <code>groupId</code> (int): ID of the group to join
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;GroupConnectionResponse&gt;</code> - Response with connection details</p>
+<h3 id="acceptgroupmembershiprequestasync"><code>AcceptGroupMembershipRequestAsync</code><a class="headerlink" href="#acceptgroupmembershiprequestasync" title="Permanent link">&para;</a></h3>
+<p>Accepts a pending group membership request (admin only).</p>
+<p><strong>Parameters:</strong>
+- <code>groupConnectionId</code> (int): ID of the connection request to accept
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;GroupConnectionStatusUpdateResponse&gt;</code> - Updated connection status</p>
+<h3 id="declinegroupmembershiprequestasync"><code>DeclineGroupMembershipRequestAsync</code><a class="headerlink" href="#declinegroupmembershiprequestasync" title="Permanent link">&para;</a></h3>
+<p>Declines a pending group membership request (admin only).</p>
+<p><strong>Parameters:</strong>
+- <code>groupConnectionId</code> (int): ID of the connection request to decline
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;GroupConnectionStatusUpdateResponse&gt;</code> - Updated connection status</p>
+<h3 id="creategroupattributeasync"><code>CreateGroupAttributeAsync</code><a class="headerlink" href="#creategroupattributeasync" title="Permanent link">&para;</a></h3>
+<p>Creates a single custom attribute for a group.</p>
+<p><strong>Parameters:</strong>
+- <code>groupId</code> (int): ID of the group
+- <code>key</code> (string): Attribute key name
+- <code>value</code> (string): Attribute value
+- <code>othersCanEdit</code> (bool?, optional): Whether other members can edit this attribute
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;GroupAttributeResponseItem&gt;</code> - The created attribute</p>
+<h3 id="creategroupattributesasync"><code>CreateGroupAttributesAsync</code><a class="headerlink" href="#creategroupattributesasync" title="Permanent link">&para;</a></h3>
+<p>Creates multiple custom attributes for a group.</p>
+<p><strong>Parameters:</strong>
+- <code>groupId</code> (int): ID of the group
+- <code>attributesToCreate</code> (List<GroupAttributePayloadItem>): List of attributes to create
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;CreateGroupAttributesResponse&gt;</code> - Response with created attributes</p>
+<h3 id="fetchgroupattributesasync"><code>FetchGroupAttributesAsync</code><a class="headerlink" href="#fetchgroupattributesasync" title="Permanent link">&para;</a></h3>
+<p>Fetches all custom attributes for a group.</p>
+<p><strong>Parameters:</strong>
+- <code>groupId</code> (int): ID of the group
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;IReadOnlyList&lt;GroupAttributeResponseItem&gt;&gt;</code> - Read-only list of attributes</p>
+<h3 id="modifygroupattributeasync"><code>ModifyGroupAttributeAsync</code><a class="headerlink" href="#modifygroupattributeasync" title="Permanent link">&para;</a></h3>
+<p>Modifies an existing group attribute.</p>
+<p><strong>Parameters:</strong>
+- <code>groupId</code> (int): ID of the group
+- <code>payload</code> (ModifyGroupAttributePayload): Details of the attribute to modify
+- <code>cancellationToken</code> (CancellationToken, optional): Token to cancel the operation</p>
+<p><strong>Returns:</strong> <code>Task&lt;GroupAttributeResponseItem&gt;</code> - The updated attribute</p>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>All group methods are async and may throw exceptions. Always wrap calls in try-catch blocks:</p>
+<ul>
+<li><strong>Network connectivity issues</strong> - Connection problems</li>
+<li><strong>Authentication errors</strong> - User not signed in</li>
+<li><strong>Permission errors</strong> - Insufficient privileges for the action</li>
+<li><strong>Invalid parameters</strong> - Group not found, invalid IDs</li>
+<li><strong>Group capacity</strong> - Maximum group size reached</li>
+<li><strong>Server errors</strong> - Temporary GameFuse service issues</li>
+</ul>
+<h2 id="function-return-values">Function return values<a class="headerlink" href="#function-return-values" title="Permanent link">&para;</a></h2>
+<h3 id="http-status-codes">HTTP Status Codes<a class="headerlink" href="#http-status-codes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>HTTP status code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200</code></td>
+<td>OK - Operation completed successfully</td>
+</tr>
+<tr>
+<td><code>400</code></td>
+<td>Bad Request - Invalid parameters</td>
+</tr>
+<tr>
+<td><code>401</code></td>
+<td>Unauthorized - User not authenticated</td>
+</tr>
+<tr>
+<td><code>403</code></td>
+<td>Forbidden - Insufficient permissions</td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>Not Found - Group or resource not found</td>
+</tr>
+<tr>
+<td><code>409</code></td>
+<td>Conflict - Group capacity reached or duplicate action</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td>Internal Server Error - Server error</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../friends/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Friends (C#)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Friends (C#)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../game%20rounds/" class="md-footer__link md-footer__link--next" aria-label="Next: Game Rounds (C#)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Game Rounds (C#)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
