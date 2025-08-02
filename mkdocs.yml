@@ -21,45 +21,50 @@ nav:
         - Chat (C#): C# Unity 3D/chat.md
         - Class Methods (C#): C# Unity 3D/class methods.md
       - Blueprints Unreal: 
-        - V2.9 Update [Breaking Changes] (BP): C++ Unreal Engine/V2.9 Update Changelist.md
-        - V2.9 Migration Guide (BP): Blueprints Unreal/V2.9 Blueprint Migration Guide.md
-        - Getting Started (BP): Blueprints Unreal/getting started.md
-        - Game Connection and Variables (BP): Blueprints Unreal/game connection and variables.md
-        - Signing Game Users Up (BP): Blueprints Unreal/signing game users up.md
-        - Signing Game Users In (BP): Blueprints Unreal/signing game users in.md
-        - Creating Store Items on the Web (BP): Blueprints Unreal/creating store items on the web.md
-        - Using Store Items in Your Game (BP): Blueprints Unreal/using the store in your game.md
-        - Using Credits (BP): Blueprints Unreal/using credits.md
-        - Custom User Data (BP): Blueprints Unreal/custom user data.md
-        - In Game Leaderboard (BP): Blueprints Unreal/in game leaderboard.md
-        - Forgot Password (BP): Blueprints Unreal/forgot password.md
-        - Friends (BP): Blueprints Unreal/friends.md
-        - Groups (BP): Blueprints Unreal/groups.md
-        - Rounds (BP): Blueprints Unreal/rounds.md
-        - Chat (BP): Blueprints Unreal/chat.md
-        - Class Methods (BP): Blueprints Unreal/class methods.md
-        - Struct Reference (BP): C++ Unreal Engine/struct reference.md
+        - Getting Started: Blueprints Unreal/getting started.md
+        - Game Connection and Variables: Blueprints Unreal/game connection and variables.md
+        - GameFuseUser:
+          - Signing game users up: Blueprints Unreal/signing game users up.md
+          - Signing game users in: Blueprints Unreal/signing game users in.md
+          - Creating store items on the web: Blueprints Unreal/creating store items on the web.md
+          - Using the store in your game: Blueprints Unreal/using the store in your game.md
+          - Using Credits: Blueprints Unreal/using credits.md
+          - Custom user data: Blueprints Unreal/custom user data.md
+          - In game leaderboard: Blueprints Unreal/in game leaderboard.md
+          - Forgot Password: Blueprints Unreal/forgot password.md
+        - Friends: Blueprints Unreal/friends.md
+        - Groups: Blueprints Unreal/groups.md
+        - Rounds: Blueprints Unreal/rounds.md
+        - Chat: Blueprints Unreal/chat.md
+        - Class Methods: Blueprints Unreal/class methods.md
+        - Struct Reference: C++ Unreal Engine/struct reference.md
+        - Callback Reference: Blueprints Unreal/callback reference.md
+        - <V2.9 Migration Guide:
+          - V2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
+          - V2.9 Migration Guide: Blueprints Unreal/V2.9 Blueprint Migration Guide.md
       - C++ Unreal Engine: 
-        - v2.9 Update [Breaking Changes] (C++): C++ Unreal Engine/V2.9 Update Changelist.md
-        - v2.9 Migration Guide (C++): C++ Unreal Engine/V2.9 Unreal C++ Migration Guide.md
-        - Getting Started (C++): C++ Unreal Engine/getting started.md
-        - Game Connection and Variables (C++): C++ Unreal Engine/game connection and variables.md
-        - Signing Game Users Up (C++): C++ Unreal Engine/signing game users up.md
-        - Signing Game Users In (C++): C++ Unreal Engine/signing game users in.md
-        - Creating Store Items on the Web (C++): C++ Unreal Engine/creating store items on the web.md
-        - Using Store Items in Your Game (C++): C++ Unreal Engine/using the store in your game.md
-        - Using Credits (C++): C++ Unreal Engine/using credits.md
-        - Custom User Data (C++): C++ Unreal Engine/custom user data.md
-        - In Game Leaderboard (C++): C++ Unreal Engine/in game leaderboard.md
-        - Forgot Password (C++): C++ Unreal Engine/forgot password.md
-        - Friends (C++): C++ Unreal Engine/friends.md
-        - Groups (C++): C++ Unreal Engine/groups.md
-        - Rounds (C++): C++ Unreal Engine/rounds.md
-        - Chat (C++): C++ Unreal Engine/chat.md
-        - Class Methods (C++): C++ Unreal Engine/class methods.md
-        - Struct Reference (C++): C++ Unreal Engine/struct reference.md
-        - Callback Reference (C++): C++ Unreal Engine/callback reference.md 
-      - JS Playcanvas, PixiJS, BabylonJS :
+        - Getting Started: C++ Unreal Engine/getting started.md
+        - Game Connection and Variables: C++ Unreal Engine/game connection and variables.md
+        - GameFuseUser:
+          - Signing game users up: C++ Unreal Engine/signing game users up.md
+          - Signing game users in: C++ Unreal Engine/signing game users in.md
+          - Creating store items on the web: C++ Unreal Engine/creating store items on the web.md
+          - Using the store in your game: C++ Unreal Engine/using the store in your game.md
+          - Using Credits: C++ Unreal Engine/using credits.md
+          - Custom user data: C++ Unreal Engine/custom user data.md
+          - In game leaderboard: C++ Unreal Engine/in game leaderboard.md
+          - Forgot Password: C++ Unreal Engine/forgot password.md
+        - Friends: C++ Unreal Engine/friends.md
+        - Groups: C++ Unreal Engine/groups.md
+        - Rounds: C++ Unreal Engine/rounds.md
+        - Chat: C++ Unreal Engine/chat.md
+        - Class Methods: C++ Unreal Engine/class methods.md
+        - Struct Reference: C++ Unreal Engine/struct reference.md
+        - Callback Reference: C++ Unreal Engine/callback reference.md 
+        - <V2.9 Migration Guide:
+          - v2.9 Update [Breaking Changes]: C++ Unreal Engine/V2.9 Update Changelist.md
+          - v2.9 Migration Guide: C++ Unreal Engine/V2.9 Unreal C++ Migration Guide.md
+      - JS Playcanvas, PixiJS, BabylonJS:
         - JS Playcanvas, PixiJS, BabylonJS/getting started.md
         - Game Connection and Variables (JS): JS Playcanvas, PixiJS, BabylonJS/game connection and variables.md
         - Signing Game Users Up (JS): JS Playcanvas, PixiJS, BabylonJS/signing game users up.md

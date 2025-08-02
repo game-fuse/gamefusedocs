@@ -6,9 +6,9 @@ regestered is to use the `SetUpGame` node.
 After the step you can run other nodes to register, sign in users, read and
 write game data.
 
+This process should be one of the first things that happen when your game starts. It is reccommneded to do this from UGameInstance or
 Starting from any blueprints in your game use the `SetUpGame` node as part of
-your game initialization process. This process should be one of the first
-things that happen when your game starts.
+your game initialization process. 
 
 <iframe src="https://blueprintue.com/render/k0hc79fl/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 

@@ -1,24 +1,116 @@
-# Using the store in your game
+# Using the Store in Your Game
 
-Store items are fetched upon sign-in and sign-up. The items will be
-refreshed every time the user signs in or signs up again.
+The GameFuse Store system allows you to create, manage, and purchase store items in your game. Store items are fetched when you call `Fetch Store Items` and are refreshed every time you call it again.
 
-To access store items and attributes call the following node. This node does
-not sync them with the available items on the server: it simply shows you the
-results downloaded on sign-in or sign-up.
+## Getting Started with Store
 
-<iframe src="https://blueprintue.com/render/tglhpyfa/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+To use the GameFuse Store system, you'll need to access the `GameFuse Manager` and `GameFuse User` subsystems through Blueprint nodes.
 
-To access purchased store items by your current logged in user, call the
-following node. Because these items are downloaded on login, there is no
-callback for this: data is already available. This node will throw an error if
-you are not signed in already.
+## Fetching Available Store Items
 
-<iframe src="https://blueprintue.com/render/o0353ou7/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+Store items are fetched when you call `Fetch Store Items`. The items will be refreshed every time you call it again.
 
-To purchase a store item simply call the node below. Because this node talks to
-the server, it will require a callback. If the user does not have enough
-credits on their account (see next section), the purchase will fail. This
-function will refresh the `Purchased Store Items` list with the new item.
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/mxg5x-ii/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
-<iframe src="https://blueprintue.com/render/7b7ykq81/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+## Fetching Purchased Store Items
+
+### Fetching Current User's Purchased Store Items
+
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/1goi60ut/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+### Fetching Other Users' Purchased Store Items
+
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/1goi60ut/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+## Purchasing Store Items
+
+To purchase a store item, you can use the store item ID. If the user doesn't have enough credits, the purchase will fail.
+
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/sjv71g-n/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+
+## Removing Store Items
+
+You can remove a store item from a user's inventory:
+
+!!! example "Blueprint Example"
+    <iframe src="https://blueprintue.com/render/44-lel-u/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+
+## Function Parameters
+
+### Fetching Store Items
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `User ID` | `Integer` | The user ID to fetch purchased items for (optional, for user-specific fetch) |
+
+### Purchasing and Removing Store Items
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Store Item ID` | `Integer` | The ID of the store item to purchase or remove |
+
+## Function Return Values
+
+### `Purchase Store Item`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK - Item purchased successfully |
+| `400`            | Bad request - Invalid parameters |
+| `401`            | Unauthorized - User not signed in |
+| `403`            | Not enough credits or item already purchased |
+| `404`            | Item not found |
+| `500`            | Unknown server error |
+
+### `Remove Store Item`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK - Item removed successfully |
+| `400`            | Bad request - Invalid parameters |
+| `401`            | Unauthorized - User not signed in |
+| `404`            | Item not found or not owned by user |
+| `500`            | Unknown server error |
+
+### `Fetch My Purchased Store Items` / `Fetch User Purchased Store Items`
+
+| HTTP status code | Description |
+|------------------|-------------|
+| `200`            | OK - Purchased items fetched successfully |
+| `401`            | Unauthorized - User not signed in |
+| `404`            | User not found (for user-specific fetch) |
+| `500`            | Unknown server error |
+
+## Cached Data Access
+
+You can access cached store data without making API calls:
+
+!!! example "Blueprint Example"
+    **Blueprint Implementation:**
+    1. **Get Cached Available Store Items:**
+       - **Get Game Instance** → **Get Subsystem** → **GameFuse Manager** → **Get Game Store Items**
+       - Returns array of `Store Item` structs
+
+    2. **Get Cached Purchased Store Items:**
+       - **Get Game Instance** → **Get Subsystem** → **GameFuse User** → **Get Purchased Store Items**
+       - Returns array of `Store Item` structs
+
+## Store Item Struct Reference
+
+The `Store Item` struct contains the following properties:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `ID` | `Integer` | Unique identifier for the store item |
+| `Name` | `String` | Display name of the store item |
+| `Description` | `String` | Detailed description of the store item |
+| `Category` | `String` | Category classification of the item |
+| `Cost` | `Integer` | Cost in credits to purchase the item |
+| `Icon URL` | `String` | URL to the item's icon image |
+

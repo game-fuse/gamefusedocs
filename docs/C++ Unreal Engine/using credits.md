@@ -1,82 +1,113 @@
 # Using Credits
 
-Credits are a numeric attribute of each game user. It is a simple integer value
-that you can add manually.
+Credits are GameFuse's virtual currency system. Each user has a credit balance that can be used to purchase store items, unlock features, or power your game's economy.
 
-Credits are automatically detracted upon store item purchases.
+## Overview
 
-What you find in the example below is a script that demonstrates the full
-lifecycle of credits of a signed-in user.  the `Start` function executes
-these operations in order:
+Credits are a numeric attribute of each game user stored as a simple integer value. They can be added manually through API calls and are automatically deducted when users purchase store items.
 
-1. prints the credits your signed in user has
-2. prints the cost of the first store item
-3. adds credits to your user
+## Getting User Credits
 
-Because the third operation syncs with the server it requires a callback.
-
-Upon success you will see that the user now has more credits when logged. 
-
-Finally you can run the *purchase store item* function successfully.
+You can retrieve the current user's credit balance:
 
 !!! example
     ```cpp
-    void UMyObject::UsingCredits()
+    void UMyObject::GetUserCredits()
     {
-        FUserCallback CompletionCallback;
-        CompletionCallback.BindDynamic(this, &UMyObject::OnCreditAddedCallback);
-
-        UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
-        TArray < UGameFuseStoreItem* > StoreItems = UGameFuseManager::GetGameStoreItems();
-
-        UE_LOG(LogTemp, Error, TEXT("current credits : %d"), GameFuseUser->GetCredits());
-        UE_LOG(LogTemp, Error, TEXT("first store item price : %d"), (UGameFuseManager::GetGameStoreItems().Top()->GetCost()));
-
-        GameFuseUser->AddCredits(50, CompletionCallback);
-    }
-
-    void UMyObject::OnCreditAddedCallback(bool bSuccess, const FString& Response)
-    {
-        if(bSuccess)
-        {
-            UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
-            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
-
-            FUserCallback CompletionCallback;
-            CompletionCallback.BindDynamic(this, &UMyObject::OnPurchaseStoreItemCallback);
-
-            UGameFuseUser* GameFuseUser = GEtgaMeinstance()->getsubsysTEm < uGameFuseuser > ();
-            GameFuseUser->PurchaseStoreItem(UGameFuseManager::GetGameStoreItems().Top(), CompletionCallback);
-        }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
-            UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-        }
-    }
-
-    void UMyObject::OnPurchaseStoreItemCallback(bool bSuccess, const FString& Response)
-    {
-        if(bSuccess)
-        {
-            UE_LOG(LogTemp, Display, TEXT("Game Connected Successfully"));
-            UE_LOG(LogTemp, Display, TEXT("Result : %s"), *Response);
-
-        }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("Error connecting game"));
-            UE_LOG(LogTemp, Error, TEXT("Result : %s"), *Response);
-        }
+        // Get the GameFuse User subsystem
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser>();
+        
+        // Get current user data
+        const FGFUserData& UserData = GameFuseUser->GetCurrentUserData();
+        UE_LOG(LogTemp, Display, TEXT("Current credits: %d"), UserData.Credits);
     }
     ```
 
-## Function return values
+## Adding Credits
 
-### `UGameFuseUser->AddCredits`
+You can add credits to the current user's account:
 
-| HTTP status code | Description |
+!!! example
+    ```cpp
+    void UMyObject::AddCredits(int32 CreditsToAdd)
+    {
+        // Get the GameFuse User subsystem
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser>();
+        
+        // Create a typed callback for better type safety
+        FGFUserDataCallback CompletionCallback;
+        CompletionCallback.BindLambda([this](bool bSuccess, const FGFUserData& UserData)
+        {
+            if(bSuccess)
+            {
+                UE_LOG(LogTemp, Display, TEXT("Credits added successfully"));
+                UE_LOG(LogTemp, Display, TEXT("New credit balance: %d"), UserData.Credits);
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("Failed to add credits"));
+            }
+        });
+        
+        // Add credits to the user
+        GameFuseUser->AddCredits(CreditsToAdd, CompletionCallback);
+    }
+    ```
+
+## Setting Credits
+
+You can set the user's credits to a specific amount:
+
+!!! example
+    ```cpp
+    void UMyObject::SetCredits(int32 NewCreditAmount)
+    {
+        // Get the GameFuse User subsystem
+        UGameFuseUser* GameFuseUser = GetGameInstance()->GetSubsystem<UGameFuseUser>();
+        
+        // Create a typed callback for better type safety
+        FGFUserDataCallback CompletionCallback;
+        CompletionCallback.BindLambda([this](bool bSuccess, const FGFUserData& UserData)
+        {
+            if(bSuccess)
+            {
+                UE_LOG(LogTemp, Display, TEXT("Credits set successfully"));
+                UE_LOG(LogTemp, Display, TEXT("New credit balance: %d"), UserData.Credits);
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("Failed to set credits"));
+            }
+        });
+        
+        // Set user's credits to specific amount
+        GameFuseUser->SetCredits(NewCreditAmount, CompletionCallback);
+    }
+    ```
+
+## Function Parameters
+
+### Add Credits
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Credits` | `int32` | The amount of credits to add (must be positive) |
+| `Callback` | `FGFUserDataCallback` | Callback function to handle the response |
+
+### Set Credits
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Credits` | `int32` | The target credit amount to set (must be non-negative) |
+| `Callback` | `FGFUserDataCallback` | Callback function to handle the response |
+
+## Function Return Values
+
+### Add/Set Credits
+
+| HTTP Status Code | Description |
 |------------------|-------------|
-| `200`            | OK |
-| `400`            | Credits parameter missing |
-| `500`            | Unknown server error |
+| `200` | OK - Credits updated successfully |
+| `400` | Bad request - Invalid parameters (negative values, etc.) |
+| `401` | Unauthorized - User not signed in |
+| `500` | Unknown server error |

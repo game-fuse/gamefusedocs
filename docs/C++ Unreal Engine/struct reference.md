@@ -13,6 +13,7 @@ struct FGFGameData
     FString Token;             // The API token for the game
     FString Name;              // The name of the game
     FString Description;       // The description of the game
+    FString ServerTime;        // The current server time in UTC
 }
 ```
 
@@ -152,7 +153,8 @@ struct FGFGroupAttribute
     int32 Id;                  // The unique identifier of the attribute
     FString Key;               // The key of the attribute
     FString Value;             // The value of the attribute
-    bool bOnlyCreatorCanEdit;  // Whether only the creator can edit the attribute
+    int32 CreatorId;           // The ID of the user who created the attribute (or group ID when creating)
+    bool bCanEdit;             // Whether non-admin members can edit this attribute
 }
 ```
 
@@ -176,11 +178,10 @@ Friend request information returned by GameFuseFriends.
 ```cpp
 struct FGFFriendRequest
 {
-    int32 Id;                  // The unique identifier of the friend request
-    int32 SenderId;            // The ID of the user who sent the request
-    int32 ReceiverId;          // The ID of the user who received the request
-    FString Status;            // The status of the request
-    FGFUserData User;          // The user associated with the request
+    int32 FriendshipId;        // The unique identifier of the friend request
+    FGFUserData OtherUser;     // The other user in the friendship
+    EGFInviteRequestStatus Status; // The status of the request
+    FDateTime RequestCreatedAt; // When the request was created
 }
 ```
 
@@ -196,27 +197,27 @@ struct FGFGameRound
     FDateTime StartTime;       // When the round started
     FDateTime EndTime;         // When the round ended
     int32 Score;               // The score achieved in the round
-    int32 Place;               // The place achieved in the round
+    int32 Place;               // The place achieved in the round (-1 if not ranked)
     FString GameType;          // The type of game played
-    int32 MultiplayerGameRoundId; // The ID of the multiplayer game round
+    int32 MultiplayerGameRoundId; // The ID of the multiplayer game round (-1 if single player)
     TMap<FString, FString> Metadata; // Additional metadata for the round
-    bool bMultiplayer;         // Whether the round was multiplayer
-    TArray<FGFGameRoundRanking> Rankings; // List of rankings for the round
+    bool bMultiplayer;         // Whether this is a multiplayer round
+    TArray<FGFGameRoundRanking> Rankings; // Rankings for multiplayer rounds
 }
 ```
 
 ## FGFGameRoundRanking
 
-Game round ranking information used by GameFuseRounds.
+Game round ranking information for multiplayer rounds.
 
 ```cpp
 struct FGFGameRoundRanking
 {
-    int32 Place;               // The place achieved in the ranking
-    int32 Score;               // The score achieved in the ranking
-    FDateTime StartTime;       // When the player started the round
-    FDateTime EndTime;         // When the player ended the round
-    FGFUserData User;          // The user associated with the ranking
+    int32 Place;               // The place achieved in the round
+    int32 Score;               // The score achieved in the round
+    FDateTime StartTime;       // When the round started
+    FDateTime EndTime;         // When the round ended
+    FGFUserData User;          // The user data for this ranking
 }
 ```
 
@@ -228,8 +229,56 @@ API response information returned by all GameFuse API calls.
 struct FGFAPIResponse
 {
     bool bSuccess;             // Whether the API call was successful
-    FString ResponseStr;       // The response string from the API
+    FString ResponseStr;       // The raw response string from the API
     FGuid RequestId;           // The unique identifier of the request
-    int ResponseCode;          // The HTTP response code
+    int32 ResponseCode;        // The HTTP response code
+}
+```
+
+## Enums
+
+### EGFInviteRequestStatus
+
+Status values for invite and friend requests.
+
+```cpp
+enum class EGFInviteRequestStatus : uint8
+{
+    None,       // No status set
+    Accepted,   // Request was accepted
+    Declined,   // Request was declined
+    Pending     // Request is pending
+}
+```
+
+### EGFUserAPIResponseType
+
+Response types for user API calls.
+
+```cpp
+enum class EGFUserAPIResponseType : uint8
+{
+    None,               // No response type
+    Login,              // Login response
+    Attributes,         // Attributes response
+    LeaderboardEntries, // Leaderboard entries response
+    StoreItems,         // Store items response
+    Credits,            // Credits response
+    Score               // Score response
+}
+```
+
+### EGFCoreAPIResponseType
+
+Response types for core API calls.
+
+```cpp
+enum class EGFCoreAPIResponseType : uint8
+{
+    None,               // No response type
+    SetUpGame,          // Game setup response
+    ListLeaderboardEntries, // Leaderboard entries list response
+    ListStoreItems,     // Store items list response
+    ForgotPassword      // Forgot password response
 }
 ``` 
